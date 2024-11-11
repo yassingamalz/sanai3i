@@ -1,1 +1,67 @@
-<p>home works!</p>
+<div class="pb-20">
+    <div class="bg-white p-4 shadow-sm">
+      <div class="relative">
+        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+        <input
+          type="text"
+          placeholder="ابحث عن خدمة..."
+          class="w-full p-2 pr-10 rounded-lg border border-gray-200"
+        />
+      </div>
+    </div>
+  
+    <section class="p-4">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold">الخدمات الأكثر طلباً</h2>
+        <i class="fas fa-chart-line w-6 h-6 text-red-500"></i>
+      </div>
+      <div class="space-y-3">
+        <ng-container *ngFor="let service of topServices">
+          <div class="bg-white p-4 rounded-lg shadow-sm flex items-center justify-between">
+            <div>
+              <h3 class="font-bold">{{ service.name }}</h3>
+              <p class="text-sm text-gray-600">{{ service.count }} طلب</p>
+            </div>
+            <i
+              class="fas fa-chart-line w-5 h-5"
+              [class.text-green-500]="service.trend === 'up'"
+              [class.text-red-500]="service.trend === 'down'"
+            ></i>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+  
+    <section class="p-4">
+      <h2 class="text-xl font-bold mb-4">أفضل الصنايعية</h2>
+      <div class="space-y-4">
+        <ng-container *ngFor="let worker of topWorkers">
+          <div class="bg-white p-4 rounded-lg shadow-sm flex items-center">
+            <img [src]="worker.image" [alt]="worker.name" class="w-16 h-16 rounded-full" />
+            <div class="mr-4 flex-1">
+              <h3 class="font-bold">{{ worker.name }}</h3>
+              <p class="text-sm text-gray-600">{{ worker.service }}</p>
+              <div class="flex items-center text-sm text-gray-600">
+                <i class="fas fa-star w-4 h-4 text-yellow-400 mr-1"></i>
+                {{ worker.rating }} • {{ worker.jobs }} خدمة
+              </div>
+            </div>
+            <i class="fas fa-chevron-right w-6 h-6 text-gray-400"></i>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+  
+    <section class="p-4">
+      <h2 class="text-xl font-bold mb-4">كل الخدمات</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <ng-container *ngFor="let service of services">
+          <div class="bg-white p-4 rounded-lg shadow-sm">
+            <div class="text-3xl mb-2">{{ service.icon }}</div>
+            <h3 class="font-bold mb-1">{{ service.name }}</h3>
+            <p class="text-sm text-gray-600">{{ service.description }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </section>
+  </div>
