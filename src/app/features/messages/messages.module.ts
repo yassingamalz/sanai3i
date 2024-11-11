@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { MessagesRoutingModule } from './messages-routing.module';
-
+import { RouterModule } from '@angular/router';
+import { MessagesComponent } from './pages/messages/messages.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MessagesComponent
+  ],
   imports: [
     CommonModule,
-    MessagesRoutingModule
+    RouterModule.forChild([
+      {
+        path: '',
+        component: MessagesComponent
+      }
+    ])
   ]
 })
 export class MessagesModule { }
