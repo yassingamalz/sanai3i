@@ -1,72 +1,50 @@
-<div class="min-h-screen bg-gray-50" dir="rtl">
+<div class="app-container" dir="rtl">
     <!-- Header -->
-    <header class="bg-white p-4 flex justify-between items-center shadow-sm">
+    <header class="bg-white px-4 py-3 flex justify-between items-center">
       <div class="text-2xl font-bold text-red-500">صنايعي</div>
       <div class="flex gap-4">
         <button class="text-gray-600">
-          <i class="fas fa-bell w-6 h-6"></i>
+          <i class="fas fa-bell"></i>
         </button>
         <button class="text-gray-600">
-          <i class="fas fa-user w-6 h-6"></i>
+          <i class="fas fa-user"></i>
         </button>
       </div>
     </header>
   
     <!-- Main Content -->
-    <main class="pb-24">
+    <main class="pb-20">
       <router-outlet></router-outlet>
     </main>
   
     <!-- Bottom Navigation -->
-    <nav class="fixed bottom-0 right-0 left-0 bg-white border-t border-gray-200">
-        <div class="relative flex justify-around items-center px-4 py-2">
-          <button 
-            [routerLink]="['/']" 
-            [class.text-red-500]="currentRoute === 'home'"
-            class="flex flex-col items-center text-gray-400 min-w-[64px]"
-          >
-            <i class="fas fa-home text-xl mb-1"></i>
-            <span class="text-xs">الرئيسية</span>
-          </button>
-    
-          <button 
-            [routerLink]="['/discover']" 
-            [class.text-red-500]="currentRoute === 'discover'"
-            class="flex flex-col items-center text-gray-400 min-w-[64px]"
-          >
-            <i class="fas fa-compass text-xl mb-1"></i>
-            <span class="text-xs">اكتشف</span>
-          </button>
-    
-          <!-- Services Button - Elevated Circle -->
-          <div class="relative -top-5">
-            <button 
-              [routerLink]="['/services']" 
-              [class.shadow-lg]="true"
-              class="flex flex-col items-center justify-center w-16 h-16 rounded-full bg-red-500 text-white transform hover:scale-105 transition-transform"
-            >
-            <i class="fas fa-list text-2xl mb-1"></i>
-            <span class="text-xs">{{servicesLabel}}</span>
-            </button>
+    <nav class="nav-container">
+      <div class="nav-grid">
+        <a class="nav-item" [routerLink]="['/']" [class.text-red-500]="currentRoute === ''">
+          <i class="fas fa-home mb-1"></i>
+          <span class="text-xs">الرئيسية</span>
+        </a>
+  
+        <a class="nav-item" [routerLink]="['/discover']" [class.text-red-500]="currentRoute === 'discover'">
+          <i class="fas fa-compass mb-1"></i>
+          <span class="text-xs">اكتشف</span>
+        </a>
+  
+        <a class="nav-item relative" [routerLink]="['/services']">
+          <div class="absolute -top-6 w-14 h-14 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg border-4 border-white">
+            <i class="fas fa-list"></i>
           </div>
-    
-          <button 
-          [routerLink]="['/messages']" 
-          [class.text-red-500]="currentRoute === 'messages'"
-          class="flex flex-col items-center text-gray-400 min-w-[64px]"
-          >
-          <i class="fas fa-comment text-xl mb-1"></i>
+        </a>
+  
+        <a class="nav-item" [routerLink]="['/messages']" [class.text-red-500]="currentRoute === 'messages'">
+          <i class="fas fa-comment mb-1"></i>
           <span class="text-xs">الرسائل</span>
-        </button>
-    
-          <button 
-            [routerLink]="['/profile']" 
-            [class.text-red-500]="currentRoute === 'profile'"
-            class="flex flex-col items-center text-gray-400 min-w-[64px]"
-          >
-            <i class="fas fa-user text-xl mb-1"></i>
-            <span class="text-xs">حسابي</span>
-          </button>
-        </div>
-      </nav>
-    </div>
+        </a>
+  
+        <a class="nav-item" [routerLink]="['/profile']" [class.text-red-500]="currentRoute === 'profile'">
+          <i class="fas fa-user mb-1"></i>
+          <span class="text-xs">حسابي</span>
+        </a>
+      </div>
+    </nav>
+  </div>
