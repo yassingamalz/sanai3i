@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ServicesRoutingModule } from './services-routing.module';
+import { RouterModule } from '@angular/router';
 import { ServicesListComponent } from './pages/services-list/services-list.component';
-
 
 @NgModule({
   declarations: [
@@ -11,7 +9,9 @@ import { ServicesListComponent } from './pages/services-list/services-list.compo
   ],
   imports: [
     CommonModule,
-    ServicesRoutingModule
+    RouterModule.forChild([
+      { path: '', component: ServicesListComponent }
+    ])
   ]
 })
 export class ServicesModule { }

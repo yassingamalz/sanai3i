@@ -16,4 +16,12 @@ export class MainLayoutComponent {
   get currentRoute(): string {
     return this.router.url.split('/')[1] || 'home';
   }
+
+  get userType(): string {
+    return this.authService.getCurrentUser()?.type || 'customer';
+  }
+
+  get servicesLabel(): string {
+    return this.userType === 'worker' ? 'خدماتي' : 'طلباتي';
+  }
 }

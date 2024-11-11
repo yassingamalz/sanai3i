@@ -1,4 +1,4 @@
-<div class="min-h-screen bg-gray-50">
+<div class="min-h-screen bg-gray-50" dir="rtl">
     <!-- Header -->
     <header class="bg-white p-4 flex justify-between items-center shadow-sm">
       <div class="text-2xl font-bold text-red-500">صنايعي</div>
@@ -19,49 +19,54 @@
   
     <!-- Bottom Navigation -->
     <nav class="fixed bottom-0 right-0 left-0 bg-white border-t border-gray-200">
-      <div class="flex justify-around items-center px-4 py-3">
-        <button 
-          [routerLink]="['/']" 
-          [class.text-red-500]="currentRoute === 'home'"
-          class="flex flex-col items-center text-gray-400 mx-2"
-        >
-          <i class="fas fa-home text-2xl"></i>
-          <span class="text-xs mt-1">الرئيسية</span>
-        </button>
-  
-        <button 
-          [routerLink]="['/discover']" 
-          [class.text-red-500]="currentRoute === 'discover'"
-          class="flex flex-col items-center text-gray-400 mx-2"
-        >
-          <i class="fas fa-compass text-2xl"></i>
-          <span class="text-xs mt-1">اكتشف</span>
-        </button>
-  
-        <button 
-          [routerLink]="['/services']" 
-          class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-red-500 text-white shadow-lg"
-        >
-          <i class="fas fa-concierge-bell text-3xl"></i>
-        </button>
-  
-        <button 
+        <div class="relative flex justify-around items-center px-4 py-2">
+          <button 
+            [routerLink]="['/']" 
+            [class.text-red-500]="currentRoute === 'home'"
+            class="flex flex-col items-center text-gray-400 min-w-[64px]"
+          >
+            <i class="fas fa-home text-xl mb-1"></i>
+            <span class="text-xs">الرئيسية</span>
+          </button>
+    
+          <button 
+            [routerLink]="['/discover']" 
+            [class.text-red-500]="currentRoute === 'discover'"
+            class="flex flex-col items-center text-gray-400 min-w-[64px]"
+          >
+            <i class="fas fa-compass text-xl mb-1"></i>
+            <span class="text-xs">اكتشف</span>
+          </button>
+    
+          <!-- Services Button - Elevated Circle -->
+          <div class="relative -top-5">
+            <button 
+              [routerLink]="['/services']" 
+              [class.shadow-lg]="true"
+              class="flex flex-col items-center justify-center w-16 h-16 rounded-full bg-red-500 text-white transform hover:scale-105 transition-transform"
+            >
+            <i class="fas fa-list text-2xl mb-1"></i>
+            <span class="text-xs">{{servicesLabel}}</span>
+            </button>
+          </div>
+    
+          <button 
           [routerLink]="['/messages']" 
           [class.text-red-500]="currentRoute === 'messages'"
-          class="flex flex-col items-center text-gray-400 mx-2"
-        >
-          <i class="fas fa-comment text-2xl"></i>
-          <span class="text-xs mt-1">الرسائل</span>
+          class="flex flex-col items-center text-gray-400 min-w-[64px]"
+          >
+          <i class="fas fa-comment text-xl mb-1"></i>
+          <span class="text-xs">الرسائل</span>
         </button>
-  
-        <button 
-          [routerLink]="['/profile']" 
-          [class.text-red-500]="currentRoute === 'profile'"
-          class="flex flex-col items-center text-gray-400 mx-2"
-        >
-          <i class="fas fa-user text-2xl"></i>
-          <span class="text-xs mt-1">حسابي</span>
-        </button>
-      </div>
-    </nav>
-  </div>
+    
+          <button 
+            [routerLink]="['/profile']" 
+            [class.text-red-500]="currentRoute === 'profile'"
+            class="flex flex-col items-center text-gray-400 min-w-[64px]"
+          >
+            <i class="fas fa-user text-xl mb-1"></i>
+            <span class="text-xs">حسابي</span>
+          </button>
+        </div>
+      </nav>
+    </div>
