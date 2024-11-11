@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { DiscoverComponent } from './discover/pages/discover/discover.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    DiscoverComponent
+  ],
   imports: [
     CommonModule
   ]
