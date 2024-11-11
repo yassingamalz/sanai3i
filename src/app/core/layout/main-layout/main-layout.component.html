@@ -1,1 +1,60 @@
-<p>main-layout works!</p>
+<div class="min-h-screen bg-gray-50">
+  <!-- Header -->
+  <header class="bg-white p-4 flex justify-between items-center shadow-sm">
+    <div class="text-2xl font-bold text-red-500">صنايعي</div>
+    <div class="flex gap-4">
+      <button class="text-gray-600">
+        <i class="fas fa-bell w-6 h-6"></i>
+      </button>
+      <button class="text-gray-600">
+        <i class="fas fa-user w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="pb-20">
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="fixed bottom-0 right-0 left-0 bg-white border-t border-gray-200">
+    <div class="flex justify-around p-4">
+      <button 
+        [routerLink]="['/']" 
+        [class.text-red-500]="currentRoute === 'home'"
+        class="flex flex-col items-center text-gray-400"
+      >
+        <i class="fas fa-home w-6 h-6"></i>
+        <span class="text-xs">الرئيسية</span>
+      </button>
+
+      <button 
+        [routerLink]="['/services']" 
+        [class.text-red-500]="currentRoute === 'services'"
+        class="flex flex-col items-center text-gray-400"
+      >
+        <i class="fas fa-file-alt w-6 h-6"></i>
+        <span class="text-xs">الطلبات</span>
+      </button>
+
+      <button 
+        [routerLink]="['/messages']" 
+        [class.text-red-500]="currentRoute === 'messages'"
+        class="flex flex-col items-center text-gray-400"
+      >
+        <i class="fas fa-comment w-6 h-6"></i>
+        <span class="text-xs">الرسائل</span>
+      </button>
+
+      <button 
+        [routerLink]="['/profile']" 
+        [class.text-red-500]="currentRoute === 'profile'"
+        class="flex flex-col items-center text-gray-400"
+      >
+        <i class="fas fa-user w-6 h-6"></i>
+        <span class="text-xs">حسابي</span>
+      </button>
+    </div>
+  </nav>
+</div>
