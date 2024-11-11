@@ -17,34 +17,6 @@
       <router-outlet></router-outlet>
     </main>
   
-    <!-- Bottom Navigation -->
-    <nav class="nav-container">
-      <div class="nav-grid">
-        <a class="nav-item" [routerLink]="['/']" [class.text-red-500]="currentRoute === ''">
-          <i class="fas fa-home mb-1"></i>
-          <span class="text-xs">الرئيسية</span>
-        </a>
-  
-        <a class="nav-item" [routerLink]="['/discover']" [class.text-red-500]="currentRoute === 'discover'">
-          <i class="fas fa-compass mb-1"></i>
-          <span class="text-xs">اكتشف</span>
-        </a>
-  
-        <a class="nav-item relative" [routerLink]="['/services']">
-          <div class="absolute -top-6 w-14 h-14 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg border-4 border-white">
-            <i class="fas fa-list"></i>
-          </div>
-        </a>
-  
-        <a class="nav-item" [routerLink]="['/messages']" [class.text-red-500]="currentRoute === 'messages'">
-          <i class="fas fa-comment mb-1"></i>
-          <span class="text-xs">الرسائل</span>
-        </a>
-  
-        <a class="nav-item" [routerLink]="['/profile']" [class.text-red-500]="currentRoute === 'profile'">
-          <i class="fas fa-user mb-1"></i>
-          <span class="text-xs">حسابي</span>
-        </a>
-      </div>
-    </nav>
-  </div>
+    <!-- Navigation Bar -->
+    <app-nav-bar></app-nav-bar>
+</div>
