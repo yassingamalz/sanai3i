@@ -1,0 +1,93 @@
+{
+  "configVersion": 1,
+  "timestamp": 1731350817035,
+  "index": "C:/dev/Git/sanai3i/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "C:/dev/Git/sanai3i/chunk-JTRUHJXS.js",
+        "C:/dev/Git/sanai3i/chunk-LMWCZ6M4.js",
+        "C:/dev/Git/sanai3i/chunk-Q63FB4NG.js",
+        "C:/dev/Git/sanai3i/chunk-RP7FYZYW.js",
+        "C:/dev/Git/sanai3i/chunk-SFLWCO2A.js",
+        "C:/dev/Git/sanai3i/chunk-VAKOGDI4.js",
+        "C:/dev/Git/sanai3i/chunk-WSUIV7ZZ.js",
+        "C:/dev/Git/sanai3i/favicon.ico",
+        "C:/dev/Git/sanai3i/index.html",
+        "C:/dev/Git/sanai3i/main-AHJ6P4LE.js",
+        "C:/dev/Git/sanai3i/manifest.webmanifest",
+        "C:/dev/Git/sanai3i/polyfills-FFHMD2TL.js",
+        "C:/dev/Git/sanai3i/styles-UUH333XV.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "C:/dev/Git/sanai3i/assets/icons/icon-128x128.png",
+        "C:/dev/Git/sanai3i/assets/icons/icon-144x144.png",
+        "C:/dev/Git/sanai3i/assets/icons/icon-152x152.png",
+        "C:/dev/Git/sanai3i/assets/icons/icon-192x192.png",
+        "C:/dev/Git/sanai3i/assets/icons/icon-384x384.png",
+        "C:/dev/Git/sanai3i/assets/icons/icon-512x512.png",
+        "C:/dev/Git/sanai3i/assets/icons/icon-72x72.png",
+        "C:/dev/Git/sanai3i/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "C:/dev/Git/sanai3i/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
+    "C:/dev/Git/sanai3i/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
+    "C:/dev/Git/sanai3i/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
+    "C:/dev/Git/sanai3i/assets/icons/icon-192x192.png": "15c4180454633880d98674aa7394656196c91584",
+    "C:/dev/Git/sanai3i/assets/icons/icon-384x384.png": "94a915751ef6c9282df9aea405ad679230631814",
+    "C:/dev/Git/sanai3i/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
+    "C:/dev/Git/sanai3i/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
+    "C:/dev/Git/sanai3i/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
+    "C:/dev/Git/sanai3i/chunk-JTRUHJXS.js": "4956cc15542aed3fb04b5b1ac5ba02b4f2d76461",
+    "C:/dev/Git/sanai3i/chunk-LMWCZ6M4.js": "5418497851819a2a02c0a15337a1d4b7a067d8d7",
+    "C:/dev/Git/sanai3i/chunk-Q63FB4NG.js": "b8b2cce2165c73cd50b807fe550eacecff7ab23a",
+    "C:/dev/Git/sanai3i/chunk-RP7FYZYW.js": "e1293901adb43d8a2b8e75bcee31229d381cc944",
+    "C:/dev/Git/sanai3i/chunk-SFLWCO2A.js": "2665a341df9d15f236976769efc4b447d7755d8c",
+    "C:/dev/Git/sanai3i/chunk-VAKOGDI4.js": "014372eaa59431b08b1ddef71e201991683b68d3",
+    "C:/dev/Git/sanai3i/chunk-WSUIV7ZZ.js": "ef0e95ed03e6700515e6e54498e2bf879c3ee36f",
+    "C:/dev/Git/sanai3i/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
+    "C:/dev/Git/sanai3i/index.html": "2c58e37ec0dc1b67f790785cfa927284983b147d",
+    "C:/dev/Git/sanai3i/main-AHJ6P4LE.js": "84719f8718cedaecd674980424995967fcac42ee",
+    "C:/dev/Git/sanai3i/manifest.webmanifest": "f4e79666afb4af6058b7f270a606b4b9b51b0c81",
+    "C:/dev/Git/sanai3i/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
+    "C:/dev/Git/sanai3i/styles-UUH333XV.css": "e1b92eec1092c3aed6aca6da937424f80e5f7a6b"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
