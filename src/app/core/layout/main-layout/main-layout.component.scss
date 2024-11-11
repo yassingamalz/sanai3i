@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Marhey:wght@300..700&family=Ruwudu:wght@400;500;600;700&display=swap');
+
 :host {
-    display: block;
-    min-height: 100vh;
-  }
-  
-  main {
-    min-height: calc(100vh - 64px - 72px); // Subtract header and nav heights
-  }
-  
-  .active-link {
-    color: theme('colors.red.500');
-  }
+  display: block;
+  min-height: 100vh;
+}
+
+main {
+  min-height: calc(100vh - 64px - 72px);
+}
+
+.active-link {
+  color: theme('colors.red.500');
+}
+
+.custom-title {
+  font-family: 'Changa', 'Marhey', 'Ruwudu', sans-serif; 
+  font-size: 2em;
+}
