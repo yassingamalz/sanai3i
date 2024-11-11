@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
+  @Input() userType: string = '';
 
+  constructor(private router: Router) {}
+
+  onLogout() {
+    this.router.navigate(['/login']);
+  }
 }
