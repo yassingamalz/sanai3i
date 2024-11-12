@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1731359430950,
+  "timestamp": 1731375708982,
   "index": "C:/dev/Git/sanai3i/index.html",
   "assetGroups": [
     {
@@ -11,19 +11,21 @@
         "ignoreVary": true
       },
       "urls": [
-        "C:/dev/Git/sanai3i/chunk-6LCHKZZQ.js",
-        "C:/dev/Git/sanai3i/chunk-6XDMB2Z4.js",
-        "C:/dev/Git/sanai3i/chunk-IDTL63FT.js",
-        "C:/dev/Git/sanai3i/chunk-JAKP5PV5.js",
-        "C:/dev/Git/sanai3i/chunk-PUVCJFWV.js",
-        "C:/dev/Git/sanai3i/chunk-QZBCYH4P.js",
-        "C:/dev/Git/sanai3i/chunk-WCZZOYDT.js",
+        "C:/dev/Git/sanai3i/chunk-3FV7XUGL.js",
+        "C:/dev/Git/sanai3i/chunk-BQKRGMFD.js",
+        "C:/dev/Git/sanai3i/chunk-JAFVUNED.js",
+        "C:/dev/Git/sanai3i/chunk-QWLYJROW.js",
+        "C:/dev/Git/sanai3i/chunk-S4LCUVQR.js",
+        "C:/dev/Git/sanai3i/chunk-TACSJ3DD.js",
+        "C:/dev/Git/sanai3i/chunk-VBSNLWTR.js",
+        "C:/dev/Git/sanai3i/chunk-XOYOS3WC.js",
+        "C:/dev/Git/sanai3i/chunk-XYBIHX6R.js",
         "C:/dev/Git/sanai3i/favicon.ico",
         "C:/dev/Git/sanai3i/index.html",
-        "C:/dev/Git/sanai3i/main-LZLDG5ZV.js",
+        "C:/dev/Git/sanai3i/main-BPCBQJZX.js",
         "C:/dev/Git/sanai3i/manifest.webmanifest",
         "C:/dev/Git/sanai3i/polyfills-FFHMD2TL.js",
-        "C:/dev/Git/sanai3i/styles-XMI5ESMP.css"
+        "C:/dev/Git/sanai3i/styles-ZEYCYJHJ.css"
       ],
       "patterns": []
     },
@@ -35,6 +37,7 @@
         "ignoreVary": true
       },
       "urls": [
+        "C:/dev/Git/sanai3i/assets/current-location.svg",
         "C:/dev/Git/sanai3i/assets/icons/icon-128x128.png",
         "C:/dev/Git/sanai3i/assets/icons/icon-144x144.png",
         "C:/dev/Git/sanai3i/assets/icons/icon-152x152.png",
@@ -42,13 +45,18 @@
         "C:/dev/Git/sanai3i/assets/icons/icon-384x384.png",
         "C:/dev/Git/sanai3i/assets/icons/icon-512x512.png",
         "C:/dev/Git/sanai3i/assets/icons/icon-72x72.png",
-        "C:/dev/Git/sanai3i/assets/icons/icon-96x96.png"
+        "C:/dev/Git/sanai3i/assets/icons/icon-96x96.png",
+        "C:/dev/Git/sanai3i/assets/provider-marker.svg",
+        "C:/dev/Git/sanai3i/media/layers-2x-TBM42ERR.png",
+        "C:/dev/Git/sanai3i/media/layers-55W3Q4RM.png",
+        "C:/dev/Git/sanai3i/media/marker-icon-2V3QKKVC.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
+    "C:/dev/Git/sanai3i/assets/current-location.svg": "15aed215f40322b1bf00add7075d81ae4eef201d",
     "C:/dev/Git/sanai3i/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
     "C:/dev/Git/sanai3i/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
     "C:/dev/Git/sanai3i/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
@@ -57,19 +65,25 @@
     "C:/dev/Git/sanai3i/assets/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "C:/dev/Git/sanai3i/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "C:/dev/Git/sanai3i/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "C:/dev/Git/sanai3i/chunk-6LCHKZZQ.js": "252d04003b2d73491f9d971735aa505256e651b0",
-    "C:/dev/Git/sanai3i/chunk-6XDMB2Z4.js": "b70f62616872ff5729b24ec7afb946b94b3775da",
-    "C:/dev/Git/sanai3i/chunk-IDTL63FT.js": "bf82781925d0bef37aa3b3b84f9681ae975dc72e",
-    "C:/dev/Git/sanai3i/chunk-JAKP5PV5.js": "ffb884feae3385f9939455e6e49620c7f8404537",
-    "C:/dev/Git/sanai3i/chunk-PUVCJFWV.js": "96c2f7ba017bb8c9c4ce8a279b869a20ac2c4f62",
-    "C:/dev/Git/sanai3i/chunk-QZBCYH4P.js": "a0cb115cf884a3a3e78318ade3c630e52c7cc6a1",
-    "C:/dev/Git/sanai3i/chunk-WCZZOYDT.js": "a5e1c4bb0dba2a2df9f936960afc81dfcaddda2a",
+    "C:/dev/Git/sanai3i/assets/provider-marker.svg": "957da813cdf93bd20993d3b4388c235c6ab885c5",
+    "C:/dev/Git/sanai3i/chunk-3FV7XUGL.js": "92bfb111ff458a2d72d3b335e48428e60d428d50",
+    "C:/dev/Git/sanai3i/chunk-BQKRGMFD.js": "04cc99caf043d43b6aadb06270b9248ed901a28f",
+    "C:/dev/Git/sanai3i/chunk-JAFVUNED.js": "5144acd98ce43fd14fd968ebaad631f3a26e4da9",
+    "C:/dev/Git/sanai3i/chunk-QWLYJROW.js": "6c74d502ec44515f0e3dfbb969520eea80ec38aa",
+    "C:/dev/Git/sanai3i/chunk-S4LCUVQR.js": "bd7b304ffad9c86fe4f72b96c20ed24f5fbb1d89",
+    "C:/dev/Git/sanai3i/chunk-TACSJ3DD.js": "87653930476f45eecac57091f1faf9f2d927ca15",
+    "C:/dev/Git/sanai3i/chunk-VBSNLWTR.js": "fea76c7b01706c0af1ba735e1e99ca3ef540d7b1",
+    "C:/dev/Git/sanai3i/chunk-XOYOS3WC.js": "40180d4aa6cc3736b53f81725287ff2283a08c89",
+    "C:/dev/Git/sanai3i/chunk-XYBIHX6R.js": "671e4cf17f283a2ab1ccf76a1d2341f3da1a0b04",
     "C:/dev/Git/sanai3i/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "C:/dev/Git/sanai3i/index.html": "c5b7246513acc45392c91d1a852e8f4891aa406a",
-    "C:/dev/Git/sanai3i/main-LZLDG5ZV.js": "4e3b1f9ea251016a2f48c5c26669266c543db272",
+    "C:/dev/Git/sanai3i/index.html": "0fae3e641524663b9072cefac9325bc4a572b673",
+    "C:/dev/Git/sanai3i/main-BPCBQJZX.js": "386b6a673e41b52fe256457599dbe44b2056a7e5",
     "C:/dev/Git/sanai3i/manifest.webmanifest": "f4e79666afb4af6058b7f270a606b4b9b51b0c81",
+    "C:/dev/Git/sanai3i/media/layers-2x-TBM42ERR.png": "152a162333e46d24f9d89f566312fc0c64011dee",
+    "C:/dev/Git/sanai3i/media/layers-55W3Q4RM.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
+    "C:/dev/Git/sanai3i/media/marker-icon-2V3QKKVC.png": "60a90bcbb2b42b7ddb4556db94eb7c1084b0e5da",
     "C:/dev/Git/sanai3i/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "C:/dev/Git/sanai3i/styles-XMI5ESMP.css": "841e2d7178ae4bfd71a880eee83dc2e58fe95387"
+    "C:/dev/Git/sanai3i/styles-ZEYCYJHJ.css": "4af86038f23204013b5fe61950cf55384765481c"
   },
   "navigationUrls": [
     {
