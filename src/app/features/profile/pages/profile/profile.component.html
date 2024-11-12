@@ -1,71 +1,96 @@
-<div class="p-4 pb-20">
-    <!-- Profile Header -->
-    <div class="flex flex-col items-center mb-6">
-      <img src="/api/placeholder/96/96" alt="" class="w-24 h-24 rounded-full mb-4" />
-      <h2 class="text-xl font-bold">{{userData.name}}</h2>
-      <div *ngIf="userType === 'worker'" class="flex items-center mt-2">
-        <i class="fas fa-star w-4 h-4 text-yellow-400 ml-1"></i>
-        <span>{{userData.rating}}</span>
-      </div>
+<div class="profile-container" dir="rtl">
+  <!-- Header -->
+  <header class="profile-header">
+    <div class="header-content">
+      <i class="fas fa-chevron-left text-white"></i>
+      <h1>الإعدادات</h1>
     </div>
-  
-    <div class="space-y-4">
-      <!-- Personal Information -->
-      <div class="bg-white p-4 rounded-lg shadow-sm">
-        <h3 class="font-bold mb-4">المعلومات الشخصية</h3>
-        <div class="space-y-3">
-          <div class="flex items-center">
-            <i class="fas fa-phone w-5 h-5 ml-2 text-gray-400"></i>
-            <span>{{userData.phone}}</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-envelope w-5 h-5 ml-2 text-gray-400"></i>
-            <span>{{userData.email}}</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-user w-5 h-5 ml-2 text-gray-400"></i>
-            <span>{{userType === 'worker' ? 'صنايعي' : 'عميل'}}</span>
-          </div>
+  </header>
+
+  <!-- Profile Card -->
+  <div class="profile-card-wrapper">
+    <div class="profile-card">
+      <div class="profile-info">
+        <img [src]="'/api/placeholder/96/96'" [alt]="userData.name" />
+        <div class="user-details">
+          <h2>{{userData.name}}</h2>
+          <p>{{userData.type}}</p>
         </div>
+        <i class="fas fa-chevron-left"></i>
       </div>
-  
-      <!-- Worker Stats -->
-      <div *ngIf="userType === 'worker'" class="grid grid-cols-3 gap-4">
-        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-          <div class="text-sm text-gray-600">التقييم</div>
-          <div class="font-bold text-lg">{{userData.rating}}</div>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-          <div class="text-sm text-gray-600">الخدمات</div>
-          <div class="font-bold text-lg">{{userData.completedJobs}}</div>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-sm text-center">
-          <div class="text-sm text-gray-600">الرصيد</div>
-          <div class="font-bold text-lg">{{userData.balance}}</div>
-        </div>
-      </div>
-  
-      <!-- Address -->
-      <div class="bg-white p-4 rounded-lg shadow-sm">
-        <h3 class="font-bold mb-4">العناوين</h3>
-        <div class="space-y-4">
-          <div class="flex items-start">
-            <i class="fas fa-map-marker-alt w-5 h-5 ml-2 text-gray-400 mt-1"></i>
-            <div>
-              <div class="font-bold">{{userData.address.title}}</div>
-              <div class="text-sm text-gray-600">{{userData.address.details}}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Logout Button -->
-      <button
-        (click)="onLogout()"
-        class="w-full bg-red-500 text-white py-3 rounded-lg flex items-center justify-center"
-      >
-        <i class="fas fa-sign-out-alt w-5 h-5 ml-2"></i>
-        تسجيل الخروج
-      </button>
     </div>
   </div>
+
+  <!-- Settings Sections -->
+  <div class="settings-container">
+    <!-- Addresses Section -->
+    <div class="settings-section">
+      <div class="section-header">
+        <h3>العناوين</h3>
+      </div>
+      <div class="addresses-list">
+        <div *ngFor="let address of userData.addresses"
+             [class.selected]="address.isDefault"
+             class="address-card"
+             (click)="setDefaultAddress(address.id)">
+          <div class="address-info">
+            <div class="address-title">{{address.title}}</div>
+            <div class="address-details">{{address.details}}</div>
+          </div>
+          <i *ngIf="address.isDefault" class="fas fa-check"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Sections -->
+    <div *ngFor="let section of filteredSections" 
+         class="settings-section">
+      <div class="section-header" 
+           (click)="toggleSection(section.id)">
+        <div class="header-title">
+          <i class="fas fa-{{section.icon}}"></i>
+          <span>{{section.title}}</span>
+        </div>
+        <i class="fas fa-chevron-left"
+           [class.expanded]="expandedSections[section.id]">
+        </i>
+      </div>
+
+      <div class="section-content" 
+           *ngIf="expandedSections[section.id]"
+           [@expandCollapse]>
+        <!-- Wallet Section -->
+        <ng-container *ngIf="section.id === 'wallet' && userType === 'worker'">
+          <div class="wallet-content">
+            <div class="balance">{{userData.balance}} جنيه</div>
+            <div class="balance-label">الرصيد الحالي</div>
+          </div>
+        </ng-container>
+
+        <!-- Personal Info Section -->
+        <ng-container *ngIf="section.id === 'personal'">
+          <div class="personal-info">
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <span>{{userData.phone}}</span>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <span>{{userData.email}}</span>
+            </div>
+            <div class="info-item" *ngIf="userType === 'worker'">
+              <i class="fas fa-star"></i>
+              <span>{{userData.rating}} تقييم</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Logout Button -->
+    <button class="logout-button" (click)="onLogout()">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>تسجيل الخروج</span>
+    </button>
+  </div>
+</div>
