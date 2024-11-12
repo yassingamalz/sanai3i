@@ -1,6 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'leaflet/dist/leaflet.css';
 
 /* Global RTL and Base Styles */
 html, body {
@@ -90,3 +91,4 @@ html, body {
     display: none;
   }
 }
+

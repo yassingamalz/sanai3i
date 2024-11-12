@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { DiscoverModule } from './features/discover/discover.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     CoreModule,
     SharedModule,
     AppRoutingModule,
+    DiscoverModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

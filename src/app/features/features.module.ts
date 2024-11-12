@@ -6,7 +6,6 @@ import { DiscoverComponent } from './discover/pages/discover/discover.component'
 
 @NgModule({
   declarations: [
-    DiscoverComponent
   ],
   imports: [
     CommonModule
