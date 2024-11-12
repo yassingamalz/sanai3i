@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { AuthService } from '../../../../core/services/auth.service';
+import { Component, OnInit } from '@angular/core';
 
 interface Message {
   id: number;
@@ -8,9 +7,12 @@ interface Message {
   time: string;
   unread: number;
   service: string;
+  image: string;
   rating?: number;
   isWorker?: boolean;
-  address?: string;
+  status?: string;
+  isOnline?: boolean;
+  jobCount?: number;
 }
 
 @Component({
@@ -18,8 +20,16 @@ interface Message {
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss']
 })
-export class MessagesComponent {
-  private customerMessages: Message[] = [
+export class MessagesComponent implements OnInit {
+  searchQuery: string = '';
+  
+  filters = [
+    { id: 'all', label: 'الكل', active: true },
+    { id: 'unread', label: 'غير مقروءة', active: false },
+    { id: 'read', label: 'مقروءة', active: false }
+  ];
+
+  messages: Message[] = [
     { 
       id: 1, 
       name: 'عم حسن', 
@@ -28,7 +38,11 @@ export class MessagesComponent {
       unread: 2,
       service: 'كهربائي',
       rating: 4.8,
-      isWorker: true
+      isWorker: true,
+      image: '/api/placeholder/48/48',
+      status: 'online',
+      isOnline: true,
+      jobCount: 230
     },
     { 
       id: 2, 
@@ -38,50 +52,61 @@ export class MessagesComponent {
       unread: 0,
       service: 'سباك',
       rating: 4.9,
-      isWorker: true
-    }
-  ];
-
-  private workerMessages: Message[] = [
-    {
-      id: 1,
-      name: 'أحمد محمد',
-      message: 'متى يمكنك القدوم؟',
-      time: '12:30',
-      unread: 1,
-      address: 'المعادي، القاهرة',
-      service: 'تصليح تكييف'
+      isWorker: true,
+      image: '/api/placeholder/48/48',
+      jobCount: 180
     },
-    {
-      id: 2,
-      name: 'محمود علي',
-      message: 'اريد صيانة عامة للمنزل',
-      time: '11:45',
-      unread: 0,
-      address: 'مدينة نصر، القاهرة',
-      service: 'صيانة عامة'
+    { 
+      id: 3, 
+      name: 'الحاج كريم', 
+      message: 'يمكنني الحضور غداً في الصباح', 
+      time: 'أمس', 
+      unread: 1,
+      service: 'نقاش',
+      rating: 4.7,
+      isWorker: true,
+      image: '/api/placeholder/48/48',
+      isOnline: false,
+      jobCount: 150
     }
   ];
 
-  constructor(private authService: AuthService) {}
-
-  get userType() {
-    return this.authService.getCurrentUser()?.type;
+  ngOnInit() {
+    // Initial setup if needed
   }
 
-  get displayMessages(): Message[] {
-    return this.userType === 'worker' ? this.workerMessages : this.customerMessages;
+  setActiveFilter(filterId: string) {
+    this.filters = this.filters.map(filter => ({
+      ...filter,
+      active: filter.id === filterId
+    }));
   }
 
-  isWorkerView(): boolean {
-    return this.userType === 'worker';
+  get filteredMessages(): Message[] {
+    const activeFilter = this.filters.find(f => f.active)?.id;
+    
+    let filtered = this.messages;
+    
+    // Apply search filter
+    if (this.searchQuery) {
+      filtered = filtered.filter(message => 
+        message.name.includes(this.searchQuery) ||
+        message.message.includes(this.searchQuery) ||
+        message.service.includes(this.searchQuery)
+      );
+    }
+    
+    // Apply status filter
+    if (activeFilter === 'unread') {
+      filtered = filtered.filter(message => message.unread > 0);
+    } else if (activeFilter === 'read') {
+      filtered = filtered.filter(message => !message.unread);
+    }
+    
+    return filtered;
   }
 
-  hasRating(message: Message): boolean {
-    return message.rating !== undefined && message.isWorker === true;
-  }
-
-  hasAddress(message: Message): boolean {
-    return message.address !== undefined;
+  getTotalUnreadCount(): number {
+    return this.messages.reduce((total, message) => total + (message.unread || 0), 0);
   }
 }

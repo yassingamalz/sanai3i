@@ -1,0 +1,280 @@
+:host {
+    display: block;
+  }
+  
+  .messages-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+  }
+  
+  // Header Styles
+  .header {
+    background-color: #E24C4C;
+    padding: 24px 16px 16px;
+  
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+  
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+  
+      i {
+        color: white;
+        font-size: 20px;
+      }
+  
+      h1 {
+        color: white;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  
+    .unread-badge {
+      position: absolute;
+      left: -48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      min-width: 24px;
+    }
+  }
+  
+  // Search Bar Styles
+  .search-bar {
+    margin-bottom: 16px;
+  
+    .search-input-container {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+  
+      .search-input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 10px 16px;
+        color: white;
+        font-size: 14px;
+  
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+  
+        &:focus {
+          outline: none;
+        }
+      }
+  
+      i {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 16px;
+      }
+    }
+  }
+  
+  // Filter Pills Styles
+  .filter-pills {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 0;
+    -webkit-overflow-scrolling: touch;
+    
+    // Hide scrollbar
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  
+    button {
+      padding: 6px 24px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: transparent;
+      color: white;
+  
+      &.pill-inactive {
+        background: rgba(255, 255, 255, 0.2);
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+        }
+      }
+  
+      &.pill-active {
+        background: white;
+        color: #E24C4C;
+        border-color: white;
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
+  }
+  
+  // Messages List Styles
+  .messages-list {
+    padding: 16px;
+  }
+  
+  .message-card {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: all 0.2s ease;
+  
+    &.unread {
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: #E24C4C;
+        border-radius: 4px 0 0 4px;
+      }
+    }
+  
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .message-content {
+      padding: 16px;
+    }
+  
+    .message-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: absolute;
+      left: 16px;
+      top: 16px;
+  
+      .time {
+        color: #6b7280;
+        font-size: 14px;
+      }
+  
+      .unread-count {
+        background: #E24C4C;
+        color: white;
+        font-size: 12px;
+        font-weight: 700;
+        min-width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        padding: 0 6px;
+      }
+    }
+  }
+  
+  // Avatar and User Info Styles
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .avatar-container {
+    position: relative;
+    
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      object-fit: cover;
+      background-color: #f3f4f6;
+    }
+  
+    .online-indicator {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 14px;
+      height: 14px;
+      background-color: #10b981;
+      border-radius: 999px;
+      border: 2px solid white;
+    }
+  }
+  
+  .user-details {
+    .user-name {
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 4px;
+    }
+  
+    .user-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #6b7280;
+  
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+  
+        i {
+          color: #fbbf24;
+        }
+      }
+  
+      .separator {
+        color: #d1d5db;
+      }
+  
+      .job-count {
+        color: #9ca3af;
+      }
+    }
+  }
+  
+  .message-preview {
+    color: #4b5563;
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp:2;
+    -webkit-box-orient: vertical;
+  
+    &.unread-message {
+      font-weight: 500;
+    }
+  }
+  

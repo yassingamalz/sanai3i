@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MessagesComponent } from './pages/messages/messages.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -9,6 +10,7 @@ import { MessagesComponent } from './pages/messages/messages.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     RouterModule.forChild([
       {
         path: '',
