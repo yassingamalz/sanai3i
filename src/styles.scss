@@ -14,76 +14,7 @@ html, body {
   width: 100%;
 }
 
-/* Layout Container */
-.app-container {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-/* Search Bar */
-.search-wrapper {
-  padding: 1rem;
-  margin: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.search-container {
-  position: relative;
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin: 0;
-  width: 100%;
-}
-
-.search-input {
-  width: 100%;
-  padding: 0.75rem 2.5rem 0.75rem 1rem;
-  border: none;
-  border-radius: 1rem;
-  background-color: transparent;
-  font-size: 1rem;
-  outline: none;
-}
-
-.search-icon {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #9ca3af;
-}
-
-/* Services List */
-.services-list {
-  padding: 1rem;
-  margin: 0;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.service-card {
-  background-color: white;
-  border-radius: 1rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  box-sizing: border-box;
-}
-
 /* Utils */
-.full-width {
-  width: 100vw;
-  position: relative;
-  right: 50%;
-  transform: translateX(50%);
-  margin: 0;
-}
-
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -92,3 +23,15 @@ html, body {
   }
 }
 
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
