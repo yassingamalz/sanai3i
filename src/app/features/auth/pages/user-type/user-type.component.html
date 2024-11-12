@@ -1,1 +1,28 @@
-<p>user-type works!</p>
+<div class="user-type-container">
+    <div class="logo">صنايعي</div>
+    <div class="type-label">اختر نوع الحساب</div>
+    
+    <div class="options-container">
+      <button (click)="selectType('customer')" class="type-option">
+        <div class="option-content">
+          <i class="fas fa-user icon"></i>
+          <div class="option-text">
+            <div class="option-title">عميل</div>
+            <div class="option-description">ابحث عن خدمات وصنايعية</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </button>
+      
+      <button (click)="selectType('worker')" class="type-option">
+        <div class="option-content">
+          <i class="fas fa-tools icon"></i>
+          <div class="option-text">
+            <div class="option-title">صنايعي</div>
+            <div class="option-description">قدم خدماتك واستقبل طلبات</div>
+          </div>
+        </div>
+        <i class="fas fa-chevron-right arrow"></i>
+      </button>
+    </div>
+  </div>
