@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { DiscoverModule } from './features/discover/discover.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DiscoverModule } from './features/discover/discover.module';
     CoreModule,
     SharedModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     DiscoverModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
