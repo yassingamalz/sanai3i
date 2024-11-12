@@ -1,8 +1,56 @@
-// Component-specific styles
 :host {
   display: block;
-  height: 100vh;
-  overflow: hidden;
+}
+
+// Input styles
+.fa-times {
+  transition: color 0.2s ease;
+  font-size: 1rem;
+}
+
+.fa-map-marker-alt {
+  font-size: 1.25rem;
+}
+
+// Category button styles
+.category-btn {
+  flex-shrink: 0;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  &.active {
+    background-color: white;
+    color: #E24C4C;
+    border-color: transparent;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+  }
+  
+  &:not(.active) {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+// Scroll utilities
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 // Map styles
@@ -14,42 +62,44 @@
   }
 
   .leaflet-control-container {
-    display: none;
+    .leaflet-control-zoom {
+      display: none;
+    }
   }
 
   .current-location-marker {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #E24C4C;
+    background-color: #E24C4C;
     animation: pulse 2s infinite;
   }
 
   .provider-marker {
-    border: 2px solid white;
+    width: 32px !important;
+    height: 32px !important;
     border-radius: 50%;
+    border: 2px solid white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #E24C4C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
   }
 }
 
-// Provider card
-.provider-card {
-  @apply absolute bottom-20 left-4 right-4;
-  transition: transform 0.3s ease-out;
-  
-  &.active {
-    transform: translateY(0);
-  }
-}
-
-// Animations
 @keyframes pulse {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(226, 76, 76, 0.4);
   }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
+  70% {
+    box-shadow: 0 0 0 10px rgba(226, 76, 76, 0);
   }
   100% {
-    transform: scale(1);
-    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(226, 76, 76, 0);
   }
 }

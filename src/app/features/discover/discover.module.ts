@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     LeafletModule,
     RouterModule.forChild([
-      { path: '', component: DiscoverComponent }
+      { path: '', component: DiscoverComponent, data: { reuseComponent: false } }
     ])
   ]
 })

@@ -1,37 +1,35 @@
-<!-- discover.component.html -->
 <div class="h-screen flex flex-col bg-white">
-  <header class="bg-[#E24C4C] py-4">
+  <header class="bg-[#E24C4C]">
     <!-- Search Container -->
-    <div class="search-wrapper">
-      <div class="search-container">
-        <input 
+    <div class="px-4 pt-8 pb-3">
+      <div class="bg-white rounded-full flex items-center h-11 pl-3 pr-4">
+        <i class="fas fa-times text-gray-400 cursor-pointer hover:text-gray-600" (click)="clearAddress()"></i>
+        <input
           type="text"
           [(ngModel)]="searchQuery"
           (ngModelChange)="onSearchChange($event)"
           placeholder="البحث عن عنوان"
-          class="search-input"
+          class="flex-1 h-full border-0 bg-transparent text-gray-700 text-sm text-right px-3 focus:outline-none"
           dir="rtl"
         />
+        <i class="fas fa-map-marker-alt text-[#E24C4C] text-lg"></i>
       </div>
     </div>
 
     <!-- Categories -->
-    <div class="px-4">
+    <div class="px-4 pb-3">
       <div class="flex gap-2 overflow-x-auto no-scrollbar" dir="rtl">
         <button 
           *ngFor="let category of categories"
           (click)="selectCategory(category.id)"
-          class="px-5 py-1.5 rounded-full text-sm min-w-fit whitespace-nowrap transition-colors duration-200"
-          [ngClass]="{
-            'bg-white text-[#E24C4C]': selectedCategory === category.id,
-            'text-white bg-opacity-10 bg-white hover:bg-opacity-20': selectedCategory !== category.id
-          }">
+          class="category-btn"
+          [class.active]="selectedCategory === category.id">
           {{category.name}}
         </button>
       </div>
     </div>
   </header>
-
+  
   <!-- Map -->
   <main class="flex-1 relative">
     <div leaflet
@@ -42,22 +40,20 @@
 
     <!-- Provider Card -->
     <div *ngIf="selectedProvider" 
-         class="provider-card">
-      <div class="service-card">
-        <div class="flex gap-4">
-          <img [src]="selectedProvider.image" 
-               [alt]="selectedProvider.name" 
-               class="w-20 h-20 rounded-xl object-cover"/>
-          <div class="flex-1 text-right">
-            <h3 class="font-bold text-lg text-gray-900">{{selectedProvider.name}}</h3>
-            <p class="text-sm text-gray-600 mt-1">{{selectedProvider.service}}</p>
-            <div class="flex items-center justify-end mt-2">
-              <span class="text-sm font-medium">{{selectedProvider.distance}}</span>
-              <span class="mx-2 text-gray-300">•</span>
-              <div class="flex items-center">
-                <span class="text-sm font-medium mr-1">{{selectedProvider.rating}}</span>
-                <i class="fas fa-star text-yellow-400"></i>
-              </div>
+         class="absolute bottom-20 left-4 right-4 bg-white rounded-xl shadow-lg p-4">
+      <div class="flex gap-4">
+        <img [src]="selectedProvider.image" 
+             [alt]="selectedProvider.name" 
+             class="w-20 h-20 rounded-xl object-cover"/>
+        <div class="flex-1 text-right">
+          <h3 class="font-bold text-lg text-gray-900">{{selectedProvider.name}}</h3>
+          <p class="text-sm text-gray-600 mt-1">{{selectedProvider.service}}</p>
+          <div class="flex items-center justify-end mt-2">
+            <span class="text-sm font-medium">{{selectedProvider.distance}}</span>
+            <span class="mx-2 text-gray-300">•</span>
+            <div class="flex items-center">
+              <span class="text-sm font-medium mr-1">{{selectedProvider.rating}}</span>
+              <i class="fas fa-star text-yellow-400"></i>
             </div>
           </div>
         </div>
