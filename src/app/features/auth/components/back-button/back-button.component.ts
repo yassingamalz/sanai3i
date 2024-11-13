@@ -1,28 +1,22 @@
-// back-button.component.ts
 import { Component, Input } from '@angular/core';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-back-button',
-  template: `
-    <button (click)="onBack()" class="flex items-center text-[#ef4444] py-2">
-      <i class="fas fa-chevron-left ml-2"></i>
-      {{ text }}
-    </button>
-  `,
-  styles: [`
-    :host {
-      display: block;
-      padding: 1rem;
-    }
-  `]
+  templateUrl: './back-button.component.html',
+  styleUrls: ['./back-button.component.scss']
 })
 export class BackButtonComponent {
   @Input() text: string = 'رجوع';
+  @Input() redirectUrl?: string;
 
-  constructor(private location: Location) {}
+  constructor(private router: Router) {}
 
-  onBack(): void {
-    this.location.back();
+  navigateBack(): void {
+    if (this.redirectUrl) {
+      this.router.navigate([this.redirectUrl]);
+    } else {
+      window.history.back();
+    }
   }
 }
