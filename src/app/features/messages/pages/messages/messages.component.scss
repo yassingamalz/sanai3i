@@ -9,7 +9,7 @@
   
   // Header Styles
   .header {
-    background-color: #E24C4C;
+    background-color: #ef4444;
     padding: 24px 16px 16px;
   
     .header-content {
@@ -123,7 +123,7 @@
   
       &.pill-active {
         background: white;
-        color: #E24C4C;
+        color: #ef4444;
         border-color: white;
         
         &:hover {
@@ -155,7 +155,7 @@
         top: 0;
         bottom: 0;
         width: 4px;
-        background-color: #E24C4C;
+        background-color: #ef4444;
         border-radius: 4px 0 0 4px;
       }
     }
@@ -183,7 +183,7 @@
       }
   
       .unread-count {
-        background: #E24C4C;
+        background: #ef4444;
         color: white;
         font-size: 12px;
         font-weight: 700;

@@ -10,7 +10,7 @@
   
   // Header Styles
   .profile-header {
-    background-color: #E24C4C;
+    background-color: #ef4444;
     padding: 3rem 1rem 1rem;
     margin-bottom: -1rem;
     border-radius: 0px 0px 20px;
@@ -144,7 +144,7 @@
           gap: 0.75rem;
     
           i {
-            color: #E24C4C;
+            color: #ef4444;
             font-size: 1.25rem;
           }
         }
@@ -178,11 +178,11 @@
     transition: all 0.2s ease;
     
     &.selected {
-      border-color: #E24C4C;
+      border-color: #ef4444;
       background-color: rgba(255, 59, 48, 0.05);
       
       i {
-        color: #E24C4C;
+        color: #ef4444;
       }
     }
     
@@ -216,7 +216,7 @@
         gap: 0.75rem;
         
         i {
-          color: #E24C4C;
+          color: #ef4444;
           width: 1.25rem;
         }
       }
@@ -226,7 +226,7 @@
       .balance {
         font-size: 1.5rem;
         font-weight: 600;
-        color: #E24C4C;
+        color: #ef4444;
       }
       
       .balance-label {
@@ -242,7 +242,7 @@
     border: none;
     cursor: pointer;
     width: 100%;
-    background: #E24C4C;
+    background: #ef4444;
     color: #ffffff;
     padding: 1rem;
     border-radius: 0.75rem;
@@ -256,7 +256,7 @@
   
     &:hover {
       background-color: #fff5f5;
-      color: #E24C4C;
+      color: #ef4444;
     }
   
     &:active {

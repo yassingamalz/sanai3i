@@ -9,7 +9,7 @@
 
 // Header Styles
 .header-section {
-  background: linear-gradient(to bottom, #E24C4C, #E24C4C);
+  background: linear-gradient(to bottom, #ef4444, #ef4444);
   min-height: 120px;
   padding: 2rem 1rem 1.5rem;
   margin-bottom: -1rem;
@@ -106,7 +106,7 @@
 
 // Search Section
 .search-section {
-  background-color: #E24C4C;
+  background-color: #ef4444;
   padding: 1.5rem 1rem;
   margin-bottom: 1rem;
 }
@@ -158,7 +158,7 @@
     background-color: rgba(226, 76, 76, 0.05);
     
     .fa-chevron-left {
-      color: #E24C4C;
+      color: #ef4444;
     }
   }
 }
@@ -372,7 +372,7 @@
 }
 
 // Utility Classes
-.text-primary { color: #E24C4C; }
+.text-primary { color: #ef4444; }
 .text-success { color: #10b981; }
 .text-danger { color: #ef4444; }
 
