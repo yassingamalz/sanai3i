@@ -25,6 +25,8 @@ import { trigger, style, animate, transition, state } from '@angular/animations'
 export class HomeComponent implements AfterViewInit {
   @ViewChildren('serviceCard') serviceCards!: QueryList<ElementRef>;
 
+  searchQuery: string = '';
+    
   services = [
     { id: 1, name: 'كهربائي', icon: '⚡', description: 'تصليح وصيانة كهرباء' },
     { id: 2, name: 'سباك', icon: '🔧', description: 'تصليح مواسير وحنفيات' },
@@ -132,6 +134,16 @@ export class HomeComponent implements AfterViewInit {
 
   trackByWorkerId(index: number, item: any): number {
     return item.id;
+  }
+
+  onSearch(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.searchQuery = target.value;
+    // Implement search logic here
+  }
+
+  clearSearch(): void {
+    this.searchQuery = '';
   }
 
   ngOnDestroy() {
