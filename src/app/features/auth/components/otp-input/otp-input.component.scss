@@ -1,32 +1,54 @@
-// otp-input.component.scss
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  direction: ltr;
+  margin: 1rem 0 2rem;
+  padding: 0 1rem;
+}
+
 .otp-input {
-    width: 4rem;
-    height: 4rem;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border: 2px solid #e5e7eb;
-    border-radius: 0.75rem;
-    
-    &:focus {
-      outline: none;
-      border-color: #ef4444;
-      box-shadow: 0 0 0 1px #ef4444;
-    }
-  }
+  width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+  color: #1f2937;
+  padding: 0;
+  caret-color: #ef4444;
   
-  .dir-ltr {
-    direction: ltr;
+  &:focus {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
   }
-  
+
+  &:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+  }
+
   // Remove number spinner buttons
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  
-  input[type=number] {
+
+  &[type=number] {
     -moz-appearance: textfield;
-    appearance:textfield ;
+    appearance: textfield;
   }
+}
+
+@media (max-width: 400px) {
+  .otp-input {
+    width: 3rem;
+    height: 5rem;
+    font-size: 1.125rem;
+  }
+}
