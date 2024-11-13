@@ -1,0 +1,40 @@
+<!-- phone-register.component.html -->
+<div class="min-h-screen bg-white">
+    <app-back-button text="رجوع"></app-back-button>
+  
+    <div class="px-4 pt-8">
+      <h1 class="text-2xl font-bold text-gray-900">التسجيل برقم الهاتف</h1>
+      <p class="mt-2 text-gray-600">أدخل رقم هاتفك للتسجيل</p>
+    </div>
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="px-4 pt-8 space-y-6">
+      <!-- Phone Field -->
+      <div>
+        <label class="block text-sm font-medium text-gray-700">رقم الهاتف</label>
+        <input type="tel"
+               formControlName="phone"
+               class="mt-1 auth-input"
+               placeholder="05xxxxxxxx">
+        <span class="text-sm text-red-500" *ngIf="form.get('phone')?.errors?.['pattern'] && form.get('phone')?.touched">
+          يرجى إدخال رقم هاتف صحيح
+        </span>
+      </div>
+  
+      <!-- Terms Checkbox -->
+      <div class="flex items-center">
+        <input type="checkbox"
+               id="terms"
+               formControlName="acceptTerms"
+               class="w-4 h-4 text-[#ef4444] border-gray-300 rounded focus:ring-[#ef4444]">
+        <label for="terms" class="mr-2 text-sm text-gray-600">
+          أوافق على <a href="#" class="text-[#ef4444]">الشروط والأحكام</a>
+        </label>
+      </div>
+  
+      <button type="submit"
+              [disabled]="!form.valid || submitting"
+              class="w-full bg-[#ef4444] text-white py-4 rounded-xl font-bold disabled:opacity-50">
+        {{ submitting ? 'جاري التسجيل...' : 'التالي' }}
+      </button>
+    </form>
+  </div>

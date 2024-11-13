@@ -1,0 +1,48 @@
+<div class="min-h-screen bg-white">
+    <!-- Back Button -->
+    <div class="px-4 pt-4">
+      <button (click)="goBack()" 
+              class="text-red-500 flex items-center gap-2 focus:outline-none hover:text-red-600">
+        <i class="fas fa-chevron-left"></i>
+        <span>رجوع</span>
+      </button>
+    </div>
+  
+    <!-- Title Section -->
+    <div class="px-4 pt-8">
+      <h1 class="text-3xl font-bold text-gray-900">تأكيد رقم الهاتف</h1>
+      <p class="mt-2 text-gray-600">أدخل رمز التحقق المرسل إلى هاتفك</p>
+    </div>
+  
+    <!-- OTP Input Section -->
+    <div class="px-4 pt-8">
+      <div class="flex justify-between gap-3 mb-8 direction-rtl">
+        <ng-container *ngFor="let _ of [1,2,3,4]; let i = index">
+          <input type="text" 
+                 maxlength="1"
+                 [id]="'otp-' + (i+1)"
+                 (keyup)="onOtpChange($event, i+1)"
+                 (paste)="onPaste($event)"
+                 class="w-16 h-16 text-center text-2xl font-bold border-2 border-gray-200 rounded-xl focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-colors" />
+        </ng-container>
+      </div>
+  
+      <!-- Verify Button -->
+      <button (click)="verify()" 
+              [disabled]="!isComplete"
+              class="w-full bg-red-500 text-white py-4 rounded-xl font-bold disabled:opacity-50 hover:bg-red-600 transition-colors">
+        تحقق الآن
+      </button>
+  
+      <!-- Resend Section -->
+      <div class="mt-6 text-center">
+        <p class="text-gray-600">
+          لم يصلك الرمز؟
+          <button (click)="resendCode()" 
+                  class="text-red-500 font-medium hover:text-red-600 focus:outline-none">
+            إعادة الإرسال
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>

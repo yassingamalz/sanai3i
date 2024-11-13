@@ -23,6 +23,6 @@
     }
   
     navigate(route: string): void {
-      this.router.navigate(['/auth/user-type']);
+      this.router.navigate(['/auth/'+route]);
     }
   }

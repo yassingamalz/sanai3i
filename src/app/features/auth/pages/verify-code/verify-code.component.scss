@@ -1,0 +1,23 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: white;
+  }
+  
+  // Remove number input spinners
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  
+  .direction-rtl {
+    direction: rtl;
+  }
+  
+  // Add any additional custom styles not covered by Tailwind

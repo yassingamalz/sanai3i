@@ -1,0 +1,103 @@
+<div class="min-h-screen bg-white">
+    <!-- Back Button -->
+    <div class="px-4 pt-4">
+      <button (click)="goBack()" 
+              class="text-red-500 flex items-center gap-2 hover:text-red-600 transition-colors focus:outline-none">
+        <i class="fas fa-chevron-left"></i>
+        <span>رجوع</span>
+      </button>
+    </div>
+  
+    <!-- Title -->
+    <div class="px-4 pt-8">
+      <h1 class="text-3xl font-bold text-gray-900">أكمل بياناتك</h1>
+      <p class="mt-2 text-gray-600">
+        {{ isWorker ? 'أدخل بياناتك كمقدم خدمة' : 'أدخل بياناتك الشخصية' }}
+      </p>
+    </div>
+  
+    <!-- Profile Form -->
+    <form [formGroup]="profileForm" 
+          (ngSubmit)="onSubmit()" 
+          class="px-4 pt-8 space-y-6">
+      
+      <!-- Common Fields -->
+      <div class="space-y-4">
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label">الاسم الكامل</label>
+          <input type="text" 
+                 formControlName="fullName"
+                 class="form-input"
+                 [class.error]="hasError('fullName', 'required')">
+          <span *ngIf="hasError('fullName', 'required')" 
+                class="error-message">
+            هذا الحقل مطلوب
+          </span>
+        </div>
+  
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label">البريد الإلكتروني</label>
+          <input type="email" 
+                 formControlName="email"
+                 class="form-input"
+                 [class.error]="hasError('email', 'required') || hasError('email', 'email')">
+          <span *ngIf="hasError('email', 'required')" 
+                class="error-message">
+            هذا الحقل مطلوب
+          </span>
+          <span *ngIf="hasError('email', 'email')" 
+                class="error-message">
+            البريد الإلكتروني غير صحيح
+          </span>
+        </div>
+  
+        <!-- Worker-specific fields -->
+        <ng-container *ngIf="isWorker">
+          <!-- Service Type -->
+          <div class="form-group">
+            <label class="form-label">نوع الخدمة</label>
+            <select formControlName="serviceType"
+                    class="form-select"
+                    [class.error]="hasError('serviceType', 'required')">
+              <option value="">اختر نوع الخدمة</option>
+              <option *ngFor="let type of serviceTypes"
+                      [value]="type.id">
+                {{ type.name }}
+              </option>
+            </select>
+            <span *ngIf="hasError('serviceType', 'required')" 
+                  class="error-message">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+  
+          <!-- Experience -->
+          <div class="form-group">
+            <label class="form-label">سنوات الخبرة</label>
+            <input type="number" 
+                   formControlName="experience"
+                   class="form-input"
+                   [class.error]="hasError('experience', 'required')">
+            <span *ngIf="hasError('experience', 'required')" 
+                  class="error-message">
+              هذا الحقل مطلوب
+            </span>
+          </div>
+        </ng-container>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit"
+              [disabled]="!profileForm.valid || submitting"
+              class="submit-button"
+              [class.loading]="submitting">
+        <span [class.opacity-0]="submitting">
+          {{ submitting ? 'جاري التسجيل...' : 'إكمال التسجيل' }}
+        </span>
+        <div *ngIf="submitting" 
+             class="spinner"></div>
+      </button>
+    </form>
+  </div>

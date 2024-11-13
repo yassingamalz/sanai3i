@@ -1,0 +1,9 @@
+<div class="flex justify-between gap-3 mb-8 dir-ltr">
+    <input *ngFor="let digit of otp; let i = index"
+           type="text"
+           maxlength="1"
+           [id]="'otp-' + i"
+           class="otp-input"
+           (input)="onDigitInput($event, i)"
+           (keydown)="onKeyDown($event, i)">
+  </div>

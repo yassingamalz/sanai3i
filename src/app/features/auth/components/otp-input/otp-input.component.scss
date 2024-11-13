@@ -1,0 +1,32 @@
+// otp-input.component.scss
+.otp-input {
+    width: 4rem;
+    height: 4rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    
+    &:focus {
+      outline: none;
+      border-color: #ef4444;
+      box-shadow: 0 0 0 1px #ef4444;
+    }
+  }
+  
+  .dir-ltr {
+    direction: ltr;
+  }
+  
+  // Remove number spinner buttons
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+    appearance:textfield ;
+  }

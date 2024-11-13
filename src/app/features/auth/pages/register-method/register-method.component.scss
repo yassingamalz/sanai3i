@@ -1,0 +1,28 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    background-color: white;
+  }
+  
+  .register-method-button {
+    &:active {
+      transform: scale(0.98);
+      transition: transform 0.2s ease-in-out;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
+    }
+  }
+  
+  .transition-smooth {
+    transition: all 0.2s ease-in-out;
+  }
+
+  @media (hover: none) {
+    button:active {
+      background-color: rgba(0, 0, 0, 0.05);
+      transform: scale(0.98);
+    }
+  }
