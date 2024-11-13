@@ -17,6 +17,13 @@ interface Section {
   forWorker?: boolean;
 }
 
+interface Stats {
+  id: string;
+  title: string;
+  value: number;
+  icon?: string;
+}
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -36,7 +43,7 @@ interface Section {
 })
 export class ProfileComponent implements OnInit {
   expandedSections: { [key: string]: boolean } = {
-    personal: true,
+    personal: false,
     addresses: false,
     notifications: false,
     wallet: false,
@@ -52,12 +59,18 @@ export class ProfileComponent implements OnInit {
     { id: 'wallet', title: 'المحفظة', icon: 'wallet', forWorker: true },
     { id: 'language', title: 'اللغة', icon: 'globe' },
     { id: 'terms', title: 'الشروط والأحكام', icon: 'file-text' },
-    { id: 'contact', title: 'اتصل بنا', icon: 'help-circle' }
+    { id: 'contact', title: 'اتصل بنا', icon: 'headset' }
+  ];
+
+  readonly stats: Stats[] = [
+    { id: 'rating', title: 'التقييم', value: 4.8 },
+    { id: 'services', title: 'الخدمات', value: 150 },
+    { id: 'balance', title: 'الرصيد', value: 2500 }
   ];
 
   userData = {
     name: 'أحمد محمد',
-    type: 'عضو ذهبي',
+    type: 'صنايعي',
     phone: '01234567890',
     email: 'ahmed@example.com',
     rating: 4.8,
@@ -92,9 +105,13 @@ export class ProfileComponent implements OnInit {
     return this.authService.getCurrentUser()?.type;
   }
 
+  get isWorker() {
+    return this.userType === 'worker';
+  }
+
   get filteredSections(): Section[] {
     return this.sections.filter(section => 
-      !section.forWorker || (section.forWorker && this.userType === 'worker')
+      !section.forWorker || (section.forWorker && this.isWorker)
     );
   }
 

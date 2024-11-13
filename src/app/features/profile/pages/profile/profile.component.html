@@ -2,7 +2,7 @@
   <!-- Header -->
   <header class="profile-header">
     <div class="header-content">
-      <i class="fas fa-chevron-left text-white"></i>
+      <i class="fas fa-gear fa-2xl text-white"></i>
       <h1>الإعدادات</h1>
     </div>
   </header>
@@ -13,7 +13,13 @@
       <div class="profile-info">
         <img [src]="'/api/placeholder/96/96'" [alt]="userData.name" />
         <div class="user-details">
-          <h2>{{userData.name}}</h2>
+          <div class="name-rating">
+            <h2>{{userData.name}}</h2>
+            <div class="rating" *ngIf="isWorker">
+              <span>{{userData.rating}}</span>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
           <p>{{userData.type}}</p>
         </div>
         <i class="fas fa-chevron-left"></i>
@@ -21,46 +27,28 @@
     </div>
   </div>
 
+  <!-- Stats Grid - Only shown for workers -->
+  <div class="stats-grid" *ngIf="isWorker">
+    <div class="stat-card" *ngFor="let stat of stats">
+      <div class="stat-value">{{stat.value}}</div>
+      <div class="stat-title">{{stat.title}}</div>
+    </div>
+  </div>
+
   <!-- Settings Sections -->
   <div class="settings-container">
-    <!-- Addresses Section -->
-    <div class="settings-section">
-      <div class="section-header">
-        <h3>العناوين</h3>
-      </div>
-      <div class="addresses-list">
-        <div *ngFor="let address of userData.addresses"
-             [class.selected]="address.isDefault"
-             class="address-card"
-             (click)="setDefaultAddress(address.id)">
-          <div class="address-info">
-            <div class="address-title">{{address.title}}</div>
-            <div class="address-details">{{address.details}}</div>
-          </div>
-          <i *ngIf="address.isDefault" class="fas fa-check"></i>
-        </div>
-      </div>
-    </div>
-
-    <!-- Other Sections -->
-    <div *ngFor="let section of filteredSections" 
-         class="settings-section">
-      <div class="section-header" 
-           (click)="toggleSection(section.id)">
+    <div *ngFor="let section of filteredSections" class="settings-section">
+      <div class="section-header" (click)="toggleSection(section.id)">
         <div class="header-title">
           <i class="fas fa-{{section.icon}}"></i>
           <span>{{section.title}}</span>
         </div>
-        <i class="fas fa-chevron-left"
-           [class.expanded]="expandedSections[section.id]">
-        </i>
+        <i class="fas fa-chevron-left" [class.expanded]="expandedSections[section.id]"></i>
       </div>
 
-      <div class="section-content" 
-           *ngIf="expandedSections[section.id]"
-           [@expandCollapse]>
+      <div class="section-content" *ngIf="expandedSections[section.id]" [@expandCollapse]>
         <!-- Wallet Section -->
-        <ng-container *ngIf="section.id === 'wallet' && userType === 'worker'">
+        <ng-container *ngIf="section.id === 'wallet' && isWorker">
           <div class="wallet-content">
             <div class="balance">{{userData.balance}} جنيه</div>
             <div class="balance-label">الرصيد الحالي</div>
@@ -77,10 +65,6 @@
             <div class="info-item">
               <i class="fas fa-envelope"></i>
               <span>{{userData.email}}</span>
-            </div>
-            <div class="info-item" *ngIf="userType === 'worker'">
-              <i class="fas fa-star"></i>
-              <span>{{userData.rating}} تقييم</span>
             </div>
           </div>
         </ng-container>
