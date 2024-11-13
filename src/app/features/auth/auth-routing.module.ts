@@ -7,6 +7,7 @@ import { EmailRegisterComponent } from './pages/email-register/email-register.co
 import { PhoneRegisterComponent } from './pages/phone-register/phone-register.component';
 import { RegisterMethodComponent } from './pages/register-method/register-method.component';
 import { VerifyCodeComponent } from './pages/verify-code/verify-code.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'complete-profile',
     component: CompleteProfileComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',

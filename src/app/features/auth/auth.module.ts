@@ -12,6 +12,7 @@ import { CompleteProfileComponent } from './pages/complete-profile/complete-prof
 import { OtpInputComponent } from './components/otp-input/otp-input.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VerifyCodeComponent,
     CompleteProfileComponent,
     OtpInputComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

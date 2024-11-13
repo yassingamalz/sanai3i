@@ -1,0 +1,65 @@
+<!-- login.component.html -->
+<div class="login-container">
+    <!-- Header Section -->
+    <header class="header">
+      <app-back-button [redirectUrl]="'/auth/welcome'" text="رجوع"></app-back-button>
+    </header>
+  
+    <!-- Content Section -->
+    <main class="main-content">
+      <!-- Title Section -->
+      <div class="title-section">
+        <div class="icon-circle">
+          <i class="fas fa-sign-in-alt"></i>
+        </div>
+        <h1 class="title">{{ getStepTitle() }}</h1>
+        <p class="subtitle">{{ getStepSubtitle() }}</p>
+      </div>
+  
+      <!-- Form -->
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+        <!-- Step 1: Email/Phone Input -->
+        <div *ngIf="currentStep === 1" class="form-group">
+          <label class="form-label">البريد الإلكتروني / رقم الهاتف</label>
+          <div class="input-container">
+            <input 
+              type="text"
+              formControlName="emailOrPhone"
+              class="input-field"
+              [class.error]="form.get('emailOrPhone')?.errors && form.get('emailOrPhone')?.touched"
+              placeholder="أدخل البريد الإلكتروني أو رقم الهاتف">
+          </div>
+          <span class="error-message" 
+                *ngIf="getErrorMessage()">
+            {{ getErrorMessage() }}
+          </span>
+        </div>
+  
+        <!-- Step 2: OTP Verification -->
+        <div *ngIf="currentStep === 2" class="form-group">
+          <label class="form-label">رمز التحقق</label>
+          <app-otp-input 
+            formControlName="verificationCode"
+            (completed)="onOtpCompleted($event)">
+          </app-otp-input>
+          <div class="resend-code">
+            <button 
+              type="button" 
+              class="resend-button"
+              [disabled]="resendDisabled"
+              (click)="onResendCode()">
+              {{ resendDisabled ? 'إعادة الإرسال خلال ' + resendTimer + ' ثانية' : 'إعادة إرسال الرمز' }}
+            </button>
+          </div>
+        </div>
+  
+        <!-- Submit Button -->
+        <button 
+          type="submit"
+          [disabled]="!form.valid || submitting"
+          class="submit-button">
+          {{ submitting ? 'جاري التحقق...' : 'التالي' }}
+        </button>
+      </form>
+    </main>
+  </div>
