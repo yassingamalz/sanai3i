@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "ngnew": "ng build --configuration production --base-href=https://yassingamalz.github.io/sanai3i/ && npx angular-cli-ghpages --dir=dist/sanai3i/browser"
   },
   "private": true,
   "dependencies": {
