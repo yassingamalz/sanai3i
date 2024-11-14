@@ -1,100 +1,49 @@
-<div class="pb-20">
-  <!-- Header -->
-  <div class="header">
-    <div class="header-content">
-      <h1 class="title">{{pageTitle}}</h1>
-      <div class="flex items-center gap-3">
-        <button class="filter-btn" (click)="openFilters()">
-          <i class="fas fa-filter"></i>
-        </button>
-        <button *ngIf="userType === 'customer'" 
-                class="new-request-btn" 
-                (click)="openNewRequest()">
-          <i class="fas fa-plus"></i>
-          <span>طلب جديد</span>
-        </button>
-      </div>
+<div class="min-h-screen bg-gray-50">
+  <header class="header">
+    <app-back-button [redirectUrl]="'/'" text="رجوع"></app-back-button>
+    <h1 class="title">كل الخدمات</h1>
+  </header>
+
+  <div class="search-container">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearch($event)"
+        placeholder="البحث عن خدمة"
+      >
     </div>
   </div>
 
-  <!-- Tabs -->
-  <div class="tabs-container">
-    <div class="tabs-scroll no-scrollbar">
-      <button *ngFor="let status of orderStatuses"
-              class="tab-btn"
-              [class.active]="currentStatus === status.id"
-              (click)="setStatus(status.id)">
-        <i [class]="status.icon"></i>
-        <span>{{status.label}}</span>
-        <span class="counter">{{status.count}}</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Cards -->
-  <div class="cards-container">
-    <div *ngFor="let proposal of proposals" class="service-card">
-      <!-- Status Banner -->
-      <div [class]="'status-banner ' + proposal.status">
-        <i [class]="getStatusIcon(proposal.status)"></i>
-        <span>{{getStatusLabel(proposal.status)}}</span>
-      </div>
-
-      <div class="card-content">
-        <!-- Header -->
-        <div class="card-header">
-          <div>
-            <h3 class="service-title">{{proposal.service}}</h3>
-            <div class="info-text">
-              <i class="fas fa-map-marker-alt"></i>
-              <span>{{proposal.location}}</span>
-              <span>•</span>
-              <span>{{proposal.distance}} كم</span>
-            </div>
-          </div>
-          <div class="flex flex-col items-end">
-            <div class="rating-badge">
-              <i class="fas fa-star text-yellow-500"></i>
-              <span>{{proposal.rating}}</span>
-            </div>
-            <span class="text-sm text-gray-500 mt-1">
-              {{proposal.completedJobs}} خدمة منفذة
+  <div class="services-container">
+    <div class="services-grid" [@staggerAnimation]="displayedServices.length">
+      <div *ngFor="let service of displayedServices; let i = index; trackBy: trackByServiceId"
+           class="service-card"
+           (click)="onServiceClick(service.id)">
+        <div class="service-icon">{{service.icon}}</div>
+        <h3 class="service-title">{{service.name}}</h3>
+        <p class="service-description">{{service.description}}</p>
+        <div class="service-stats" *ngIf="service.totalRequests">
+          <span class="requests">{{service.totalRequests}} طلب</span>
+          <div class="trend" *ngIf="service.trend">
+            <i class="fas" 
+               [class.fa-arrow-trend-up]="service.trend === 'up'"
+               [class.fa-arrow-trend-down]="service.trend === 'down'"
+               [class.trend-up]="service.trend === 'up'"
+               [class.trend-down]="service.trend === 'down'">
+            </i>
+            <span [class.trend-up]="service.trend === 'up'"
+                  [class.trend-down]="service.trend === 'down'">
+              {{service.trendValue}}%
             </span>
           </div>
         </div>
-
-        <!-- Time and Description -->
-        <div class="info-text">
-          <i class="fas fa-clock"></i>
-          <span>{{proposal.time}} • {{proposal.date}}</span>
-        </div>
-        
-        <p class="description-text">{{proposal.description}}</p>
-
-        <!-- Price and Location -->
-        <div class="flex justify-between items-center">
-          <div class="price-text">
-            {{proposal.cost}} جنيه
-          </div>
-          <button *ngIf="proposal.status === 'inProgress'"
-                  class="track-location-btn">
-            <i class="fas fa-location-arrow animate-pulse"></i>
-            <span>تتبع الموقع</span>
-          </button>
-        </div>
       </div>
+    </div>
 
-      <!-- Actions -->
-      <div class="actions-container">
-        <button class="primary-btn">
-          <i [class]="getActionButtonIcon()"></i>
-          <span>{{actionButtonLabel}}</span>
-        </button>
-        <button class="secondary-btn">
-          <i class="fas fa-comments"></i>
-          <span>تفاوض</span>
-        </button>
-      </div>
+    <div *ngIf="displayedServices.length === 0 && !isLoading" class="no-results">
+      لا توجد نتائج للبحث
     </div>
   </div>
 </div>
