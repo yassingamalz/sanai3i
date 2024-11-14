@@ -14,6 +14,57 @@
   </div>
 </header>
 
+  <!-- All Services Section -->
+  <section class="content-section">
+    <div class="section-header">
+      <div class="header-content">
+        <h2 class="section-title">كل الخدمات</h2>
+        <div class="header-icons" (click)="navigateToFullList('all-services')">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div *ngFor="let service of services; let i = index; trackBy: trackByServiceId" 
+           #serviceCard
+           class="grid-card"
+           [@fadeInUp]="shouldAnimate(i) ? 'in' : 'void'">
+        <div class="service-icon">{{service.icon}}</div>
+        <h3 class="card-title">{{service.name}}</h3>
+        <p class="card-subtitle">{{service.description}}</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Top Workers Section -->
+  <section class="content-section">
+    <div class="section-header">
+      <div class="header-content">
+        <h2 class="section-title">أفضل الصنايعية</h2>
+        <div class="header-icons" (click)="navigateToFullList('top-workers')">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+      </div>
+    </div>
+    <div class="cards-container">
+      <div *ngFor="let worker of topWorkers; trackBy: trackByWorkerId" 
+           class="worker-card"
+           (click)="onWorkerClick(worker)">
+        <img [src]="worker.image" [alt]="worker.name" class="worker-image" />
+        <div class="worker-info">
+          <h3 class="card-title">{{worker.name}}</h3>
+          <p class="card-subtitle">{{worker.service}}</p>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <span>{{worker.rating}} • {{worker.completedJobs}} خدمة</span>
+          </div>
+        </div>
+        <i class="fas fa-chevron-right arrow-icon"></i>
+      </div>
+    </div>
+  </section>
+  
   <!-- Top Services Section -->
   <section class="content-section">
     <div class="section-header">
@@ -50,56 +101,6 @@
               </span>
             </div>
           </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Top Workers Section -->
-  <section class="content-section">
-    <div class="section-header">
-      <div class="header-content">
-        <h2 class="section-title">أفضل الصنايعية</h2>
-        <div class="header-icons" (click)="navigateToFullList('top-workers')">
-          <i class="fas fa-chevron-left"></i>
-        </div>
-      </div>
-    </div>
-    <div class="cards-container">
-      <div *ngFor="let worker of topWorkers; trackBy: trackByWorkerId" 
-           class="worker-card"
-           (click)="onWorkerClick(worker)">
-        <img [src]="worker.image" [alt]="worker.name" class="worker-image" />
-        <div class="worker-info">
-          <h3 class="card-title">{{worker.name}}</h3>
-          <p class="card-subtitle">{{worker.service}}</p>
-          <div class="rating">
-            <i class="fas fa-star"></i>
-            <span>{{worker.rating}} • {{worker.completedJobs}} خدمة</span>
-          </div>
-        </div>
-        <i class="fas fa-chevron-right arrow-icon"></i>
-      </div>
-    </div>
-  </section>
-
-  <!-- All Services Section -->
-  <section class="content-section">
-    <div class="section-header">
-      <div class="header-content">
-        <h2 class="section-title">كل الخدمات</h2>
-        <div class="header-icons" (click)="navigateToFullList('all-services')">
-          <i class="fas fa-chevron-left"></i>
-        </div>
-      </div>
-    </div>
-    <div class="services-grid">
-      <div *ngFor="let service of services; let i = index; trackBy: trackByServiceId" 
-           #serviceCard
-           class="grid-card"
-           [@fadeInUp]="shouldAnimate(i) ? 'in' : 'void'">
-        <div class="service-icon">{{service.icon}}</div>
-        <h3 class="card-title">{{service.name}}</h3>
-        <p class="card-subtitle">{{service.description}}</p>
       </div>
     </div>
   </section>
