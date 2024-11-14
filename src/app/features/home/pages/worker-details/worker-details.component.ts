@@ -1,7 +1,8 @@
-// worker-details.component.ts
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { ViewportScroller } from '@angular/common';
+import { filter, Subscription } from 'rxjs';
 
 interface Review {
   id: number;
@@ -51,10 +52,12 @@ interface Worker {
     ])
   ]
 })
-export class WorkerDetailsComponent implements OnInit {
+export class WorkerDetailsComponent implements OnInit, OnDestroy {
+  private routerSubscription: Subscription;
   workerId: number = 0;
   activeTab: 'services' | 'reviews' = 'services';
   isLoading = true;
+  isFavorite = false;
 
   worker: Worker = {
     id: 1,
@@ -113,14 +116,46 @@ export class WorkerDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private viewportScroller: ViewportScroller
+  ) {
+    // Subscribe to router events for scroll to top
+    this.routerSubscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.scrollToTop();
+    });
+  }
 
   ngOnInit(): void {
+    // Get worker ID from route params
     this.workerId = this.route.snapshot.params['id'];
-    // Simulate API call
+    
+    // Simulate API call to fetch worker details
+    this.loadWorkerDetails();
+  }
+
+  ngOnDestroy() {
+    // Clean up subscription
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
+  }
+
+  private scrollToTop() {
     setTimeout(() => {
+      window.scrollTo(0, 0);
+      this.viewportScroller.scrollToPosition([0, 0]);
+    }, 100);
+  }
+
+  private loadWorkerDetails() {
+    this.isLoading = true;
+    // Simulate API delay
+    setTimeout(() => {
+      // In real app, you would fetch worker data here
       this.isLoading = false;
+      this.scrollToTop();
     }, 500);
   }
 
@@ -134,13 +169,28 @@ export class WorkerDetailsComponent implements OnInit {
         title: this.worker.name,
         text: `${this.worker.name} - ${this.worker.service}`,
         url: window.location.href
-      });
+      }).catch((error) => console.log('Error sharing:', error));
+    } else {
+      // Fallback for browsers that don't support Web Share API
+      this.copyToClipboard(window.location.href);
     }
   }
 
+  private copyToClipboard(text: string): void {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        // You might want to show a toast or notification here
+        console.log('Link copied to clipboard');
+      })
+      .catch(err => {
+        console.error('Failed to copy text:', err);
+      });
+  }
+
   onAddToFavorites(): void {
-    // Implement favorites logic
-    console.log('Added to favorites');
+    this.isFavorite = !this.isFavorite;
+    // In real app, you would make an API call here
+    console.log(`${this.isFavorite ? 'Added to' : 'Removed from'} favorites`);
   }
 
   switchTab(tab: 'services' | 'reviews'): void {
@@ -152,7 +202,43 @@ export class WorkerDetailsComponent implements OnInit {
   }
 
   onContactClick(): void {
-    // Implement contact logic
+    // In real app, you would implement chat/call functionality
     console.log('Contact clicked');
+  }
+
+  onServiceSelect(service: Service): void {
+    // Handle service selection
+    console.log('Selected service:', service);
+  }
+
+  formatPrice(price: number): string {
+    return `${price.toLocaleString('ar-EG')} جنيه`;
+  }
+
+  calculateAverageRating(): number {
+    if (!this.worker.reviews.length) return 0;
+    const sum = this.worker.reviews.reduce((acc, review) => acc + review.rating, 0);
+    return Number((sum / this.worker.reviews.length).toFixed(1));
+  }
+
+  // Helper method to format dates (you might want to use a proper date library in production)
+  formatDate(date: string): string {
+    return date; // In real app, implement proper date formatting
+  }
+
+  // Method to handle image preview (you might want to implement a proper image viewer)
+  onImageClick(image: string): void {
+    console.log('Image clicked:', image);
+  }
+
+  // Handle loading state UI
+  get loadingTemplate() {
+    return this.isLoading;
+  }
+
+  // Error handling
+  handleError(error: any): void {
+    console.error('Error:', error);
+    // Implement proper error handling
   }
 }
