@@ -4,6 +4,7 @@ import { trigger, style, animate, transition, query, stagger } from '@angular/an
 import { debounceTime, Subject } from 'rxjs';
 import { ServicesService } from '../../../../core/services/services.service';
 import { MainService } from '../../../../shared/interfaces/service.interface';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-services-list',
@@ -13,13 +14,13 @@ import { MainService } from '../../../../shared/interfaces/service.interface';
     trigger('staggerAnimation', [
       transition('* => *', [
         query(':enter', [
-          style({ 
+          style({
             opacity: 0,
             transform: 'translateY(20px)'
           }),
           stagger(50, [
-            animate('400ms cubic-bezier(0.35, 0, 0.25, 1)', 
-              style({ 
+            animate('400ms cubic-bezier(0.35, 0, 0.25, 1)',
+              style({
                 opacity: 1,
                 transform: 'translateY(0)'
               })
@@ -39,6 +40,7 @@ export class ServicesListComponent implements OnInit, OnDestroy {
   private searchSubject = new Subject<string>();
 
   constructor(
+    private viewportScroller: ViewportScroller,
     private servicesService: ServicesService,
     private router: Router
   ) {
@@ -46,6 +48,8 @@ export class ServicesListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+    this.viewportScroller.scrollToPosition([0, 0]);
     this.loadServices();
   }
 
@@ -63,18 +67,18 @@ export class ServicesListComponent implements OnInit, OnDestroy {
 
   private filterServices(query: string): void {
     this.displayedServices = []; // Clear the display array
-    
+
     requestAnimationFrame(() => {
       if (!query.trim()) {
         this.filteredServices = [...this.services];
       } else {
         const searchTerm = query.toLowerCase().trim();
-        this.filteredServices = [...this.services].filter(service => 
+        this.filteredServices = [...this.services].filter(service =>
           service.name.toLowerCase().includes(searchTerm) ||
           service.description.toLowerCase().includes(searchTerm)
         );
       }
-      
+
       requestAnimationFrame(() => {
         this.displayedServices = [...this.filteredServices];
       });
@@ -89,7 +93,7 @@ export class ServicesListComponent implements OnInit, OnDestroy {
           this.services = services;
           this.filteredServices = services;
           this.isLoading = false;
-          
+
           requestAnimationFrame(() => {
             this.displayedServices = [...services];
           });
