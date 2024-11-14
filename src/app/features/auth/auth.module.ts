@@ -13,6 +13,7 @@ import { OtpInputComponent } from './components/otp-input/otp-input.component';
 import { BackButtonComponent } from './components/back-button/back-button.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
@@ -25,14 +26,14 @@ import { LoginComponent } from './pages/login/login.component';
     VerifyCodeComponent,
     CompleteProfileComponent,
     OtpInputComponent,
-    BackButtonComponent,
     LoginComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class AuthModule { }

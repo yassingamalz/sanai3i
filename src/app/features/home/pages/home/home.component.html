@@ -66,7 +66,8 @@
     </div>
     <div class="cards-container">
       <div *ngFor="let worker of topWorkers; trackBy: trackByWorkerId" 
-           class="worker-card">
+           class="worker-card"
+           (click)="onWorkerClick(worker)">
         <img [src]="worker.image" [alt]="worker.name" class="worker-image" />
         <div class="worker-info">
           <h3 class="card-title">{{worker.name}}</h3>

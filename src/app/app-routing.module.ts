@@ -2,6 +2,7 @@
   import { RouterModule, Routes } from '@angular/router';
   import { MainLayoutComponent } from './core/layout/main-layout/main-layout.component';
   import { AuthGuard } from './core/guards/auth.guard';
+import { WorkerDetailsComponent } from './features/home/pages/worker-details/worker-details.component';
 
   const routes: Routes = [
     {
@@ -32,7 +33,8 @@
           path: 'discover',
           loadChildren: () => import('./features/discover/discover.module').then(m => m.DiscoverModule),
           canActivate: [AuthGuard]
-        }
+        },
+        { path: 'worker/:id', component: WorkerDetailsComponent },
       ]
     },
     {

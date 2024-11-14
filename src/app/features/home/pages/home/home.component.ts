@@ -149,4 +149,8 @@ export class HomeComponent implements AfterViewInit {
   ngOnDestroy() {
     // Cleanup if needed
   }
+  
+  onWorkerClick(worker: any): void {
+    this.router.navigate(['/worker', worker.id]);
+  }
 }
