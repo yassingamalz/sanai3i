@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1731624675575,
+  "timestamp": 1731624798660,
   "index": "https://yassingamalz.github.io/sanai3i/index.html",
   "assetGroups": [
     {
@@ -33,7 +33,7 @@
         "https://yassingamalz.github.io/sanai3i/main-XYKOOU6H.js",
         "https://yassingamalz.github.io/sanai3i/manifest.webmanifest",
         "https://yassingamalz.github.io/sanai3i/polyfills-FFHMD2TL.js",
-        "https://yassingamalz.github.io/sanai3i/styles-JPUZKILE.css"
+        "https://yassingamalz.github.io/sanai3i/styles-HE55DTDZ.css"
       ],
       "patterns": []
     },
@@ -94,14 +94,14 @@
     "https://yassingamalz.github.io/sanai3i/chunk-VSLMR3JL.js": "f8e2c98745a59e8006a7de882243ae84ebf19306",
     "https://yassingamalz.github.io/sanai3i/chunk-ZNR6Q3OX.js": "95700461e3c675bd493bb4ff3e5f911d562cf5d4",
     "https://yassingamalz.github.io/sanai3i/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "https://yassingamalz.github.io/sanai3i/index.html": "25768f0467bc240fbfff170d9395f12671366468",
+    "https://yassingamalz.github.io/sanai3i/index.html": "e400b1c40196c9ace711ef4aa769675e93903224",
     "https://yassingamalz.github.io/sanai3i/main-XYKOOU6H.js": "c8599abe5f348fb271b0b15c704f0f8c4a5588e0",
     "https://yassingamalz.github.io/sanai3i/manifest.webmanifest": "f4e79666afb4af6058b7f270a606b4b9b51b0c81",
     "https://yassingamalz.github.io/sanai3i/media/layers-2x-TBM42ERR.png": "152a162333e46d24f9d89f566312fc0c64011dee",
     "https://yassingamalz.github.io/sanai3i/media/layers-55W3Q4RM.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
     "https://yassingamalz.github.io/sanai3i/media/marker-icon-2V3QKKVC.png": "60a90bcbb2b42b7ddb4556db94eb7c1084b0e5da",
     "https://yassingamalz.github.io/sanai3i/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "https://yassingamalz.github.io/sanai3i/styles-JPUZKILE.css": "e421ea586c049d20d40dcfb444a9c21a7aa3bf6c"
+    "https://yassingamalz.github.io/sanai3i/styles-HE55DTDZ.css": "5b814eddd65081c40d65e508524e29d0cf3ed501"
   },
   "navigationUrls": [
     {
