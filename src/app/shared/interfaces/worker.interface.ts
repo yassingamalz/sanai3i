@@ -40,7 +40,7 @@ export interface Review {
     rating: number;
     completedJobs: number;
     image: string;
-    position?: [number, number];
+    position: [number, number];
     availability?: string;
     about?: string;
     address: string;

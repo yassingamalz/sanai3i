@@ -1,100 +1,100 @@
 <div class="pb-20">
-    <!-- Header -->
-    <div class="header">
-      <div class="header-content">
-        <h1 class="title">{{pageTitle}}</h1>
-        <div class="flex items-center gap-3">
-          <button class="filter-btn" (click)="openFilters()">
-            <i class="fas fa-filter"></i>
-          </button>
-          <button *ngIf="userType === 'customer'" 
-                  class="new-request-btn" 
-                  (click)="openNewRequest()">
-            <i class="fas fa-plus"></i>
-            <span>طلب جديد</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Tabs -->
-    <div class="tabs-container">
-      <div class="tabs-scroll no-scrollbar">
-        <button *ngFor="let status of orderStatuses"
-                class="tab-btn"
-                [class.active]="currentStatus === status.id"
-                (click)="setStatus(status.id)">
-          <i [class]="status.icon"></i>
-          <span>{{status.label}}</span>
-          <span class="counter">{{status.count}}</span>
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content">
+      <h1 class="title">{{pageTitle}}</h1>
+      <div class="flex items-center gap-3">
+        <button class="filter-btn" (click)="openFilters()">
+          <i class="fas fa-filter"></i>
+        </button>
+        <button *ngIf="userType === 'customer'" 
+                class="new-request-btn" 
+                (click)="openNewRequest()">
+          <i class="fas fa-plus"></i>
+          <span>طلب جديد</span>
         </button>
       </div>
     </div>
-  
-    <!-- Cards -->
-    <div class="cards-container">
-      <div *ngFor="let proposal of proposals" class="request-card">
-        <!-- Status Banner -->
-        <div [class]="'status-banner ' + proposal.status">
-          <i [class]="getStatusIcon(proposal.status)"></i>
-          <span>{{getStatusLabel(proposal.status)}}</span>
-        </div>
-  
-        <div class="card-content">
-          <!-- Header -->
-          <div class="card-header">
-            <div>
-              <h3 class="request-title">{{proposal.request}}</h3>
-              <div class="info-text">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>{{proposal.location}}</span>
-                <span>•</span>
-                <span>{{proposal.distance}} كم</span>
-              </div>
-            </div>
-            <div class="flex flex-col items-end">
-              <div class="rating-badge">
-                <i class="fas fa-star text-yellow-500"></i>
-                <span>{{proposal.rating}}</span>
-              </div>
-              <span class="text-sm text-gray-500 mt-1">
-                {{proposal.completedJobs}} خدمة منفذة
-              </span>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs-container">
+    <div class="tabs-scroll no-scrollbar">
+      <button *ngFor="let status of orderStatuses"
+              class="tab-btn"
+              [class.active]="currentStatus === status.id"
+              (click)="setStatus(status.id)">
+        <i [class]="status.icon"></i>
+        <span>{{status.label}}</span>
+        <span class="counter">{{status.count}}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Cards -->
+  <div class="cards-container">
+    <div *ngFor="let proposal of proposals" class="request-card">
+      <!-- Status Banner -->
+      <div [class]="getStatusClass(proposal.status)">
+        <i [class]="getStatusIcon(proposal.status)"></i>
+        <span>{{getStatusLabel(proposal.status)}}</span>
+      </div>
+
+      <div class="card-content">
+        <!-- Header -->
+        <div class="card-header">
+          <div>
+            <h3 class="request-title">{{proposal.service}}</h3>
+            <div class="info-text">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>{{proposal.location.address}}</span>
+              <span *ngIf="proposal.distance">•</span>
+              <span *ngIf="proposal.distance">{{proposal.distance}}</span>
             </div>
           </div>
-  
-          <!-- Time and Description -->
-          <div class="info-text">
-            <i class="fas fa-clock"></i>
-            <span>{{proposal.time}} • {{proposal.date}}</span>
-          </div>
-          
-          <p class="description-text">{{proposal.description}}</p>
-  
-          <!-- Price and Location -->
-          <div class="flex justify-between items-center">
-            <div class="price-text">
-              {{proposal.cost}} جنيه
+          <div class="flex flex-col items-end" *ngIf="proposal.worker">
+            <div class="rating-badge">
+              <i class="fas fa-star text-yellow-500"></i>
+              <span>{{proposal.worker.rating}}</span>
             </div>
-            <button *ngIf="proposal.status === 'inProgress'"
-                    class="track-location-btn">
-              <i class="fas fa-location-arrow animate-pulse"></i>
-              <span>تتبع الموقع</span>
-            </button>
+            <span class="text-sm text-gray-500 mt-1">
+              {{proposal.worker.completedJobs}} خدمة منفذة
+            </span>
           </div>
         </div>
-  
-        <!-- Actions -->
-        <div class="actions-container">
-          <button class="primary-btn">
-            <i [class]="getActionButtonIcon()"></i>
-            <span>{{actionButtonLabel}}</span>
-          </button>
-          <button class="secondary-btn">
-            <i class="fas fa-comments"></i>
-            <span>تفاوض</span>
+
+        <!-- Time and Description -->
+        <div class="info-text">
+          <i class="fas fa-clock"></i>
+          <span>{{proposal.scheduledTime}} • {{proposal.scheduledDate}}</span>
+        </div>
+        
+        <p class="description-text">{{proposal.description}}</p>
+
+        <!-- Price and Location -->
+        <div class="flex justify-between items-center">
+          <div class="price-text">
+            {{proposal.estimatedCost}} جنيه
+          </div>
+          <button *ngIf="proposal.status === 'inProgress'"
+                  class="track-location-btn">
+            <i class="fas fa-location-arrow animate-pulse"></i>
+            <span>تتبع الموقع</span>
           </button>
         </div>
       </div>
+
+      <!-- Actions -->
+      <div class="actions-container">
+        <button class="primary-btn" (click)="handleAction(proposal)">
+          <i [class]="getActionButtonIcon()"></i>
+          <span>{{actionButtonLabel}}</span>
+        </button>
+        <button class="secondary-btn">
+          <i class="fas fa-comments"></i>
+          <span>تفاوض</span>
+        </button>
+      </div>
     </div>
   </div>
+</div>

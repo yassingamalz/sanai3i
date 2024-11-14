@@ -5,20 +5,22 @@ import { ServicesListComponent } from './pages/services-list/services-list.compo
 import { RequestsListComponent } from './pages/requests-list/requests-list.component';
 import { ServiceDetailsComponent } from './pages/service-details/service-details.component';
 import { SharedModule } from '../../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewRequestComponent } from './pages/new-request/new-request.component';
 
 @NgModule({
   declarations: [
     ServicesListComponent,
     RequestsListComponent,
-    ServiceDetailsComponent
+    ServiceDetailsComponent,
+    NewRequestComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
-      { path: '', component: RequestsListComponent },
       {
         path: 'all-services',
         component: ServicesListComponent
@@ -26,7 +28,7 @@ import { FormsModule } from '@angular/forms';
       {
         path: ':id',
         component: ServiceDetailsComponent
-      }
+      },
     ])
   ]
 })

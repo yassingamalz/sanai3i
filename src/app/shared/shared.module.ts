@@ -4,12 +4,14 @@ import { RouterModule } from '@angular/router';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { BackButtonComponent } from '../features/auth/components/back-button/back-button.component';
+import { UrlSanitizerPipe } from './pipes/urlSanitizer.pipe';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     SearchBarComponent,
-    BackButtonComponent
+    BackButtonComponent,
+    UrlSanitizerPipe
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { BackButtonComponent } from '../features/auth/components/back-button/bac
   exports: [
     NavBarComponent,
     BackButtonComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    UrlSanitizerPipe
   ]
 })
 export class SharedModule { }

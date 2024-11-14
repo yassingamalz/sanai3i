@@ -1,77 +1,95 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject, combineLatest } from 'rxjs';
+import { takeUntil, map } from 'rxjs/operators';
 import { AuthService } from '../../../../core/services/auth.service';
+import { RequestDataService } from '../../../../core/services/request.service';
+import { RequestViewModel } from '../../../../shared/interfaces/request-view.interface';
+import { RequestStatus } from '../../../../shared/interfaces/request.interface';
+import { WorkerService } from '../../../../core/services/worker.service';
 
-interface RequestProposal {
-  id: number;
-  request: string;
-  location: string;
-  distance: string;
-  cost: number;
-  description: string;
-  time: string;
-  date: string;
-  rating: number;
-  completedJobs: number;
-  status: 'pending' | 'inProgress' | 'completed' | 'cancelled';
-}
+
+type ExtendedStatus = RequestStatus | 'all';
 
 @Component({
   selector: 'app-requests-list',
   templateUrl: './requests-list.component.html',
   styleUrls: ['./requests-list.component.scss']
 })
-export class RequestsListComponent implements OnInit {
-handleAction(_t24: RequestProposal) {
-throw new Error('Method not implemented.');
-}
-getActionLabel(arg0: any) {
-throw new Error('Method not implemented.');
-}
-getActionIcon(arg0: any) {
-throw new Error('Method not implemented.');
-}
-  currentStatus: string = 'inProgress';
+export class RequestsListComponent implements OnInit, OnDestroy {
+  private destroy$ = new Subject<void>();
+  currentStatus: ExtendedStatus = 'inProgress';
+  proposals: RequestViewModel[] = [];
   
-  orderStatuses = [
-    { id: 'all', label: 'الكل', icon: 'fas fa-list', count: 5 },
-    { id: 'pending', label: 'قيد الانتظار', icon: 'fas fa-clock', count: 2 },
-    { id: 'inProgress', label: 'جاري التنفيذ', icon: 'fas fa-spinner', count: 2 },
-    { id: 'completed', label: 'مكتملة', icon: 'fas fa-check-circle', count: 1 }
-  ];
+  get orderStatuses() {
+    const allStatus = {
+      id: 'all' as ExtendedStatus,
+      label: 'الكل',
+      icon: 'fas fa-list',
+      count: this.getTotalCount()
+    };
 
-  proposals: RequestProposal[] = [
-    {
-      id: 1,
-      request: 'تصليح تكييف',
-      location: 'المعادي، القاهرة',
-      distance: '2.5',
-      cost: 350,
-      description: 'تكييف لا يبرد بشكل جيد',
-      time: '15:30',
-      date: '2024-11-12',
-      rating: 4.8,
-      completedJobs: 120,
-      status: 'inProgress'
-    },
-    {
-      id: 2,
-      request: 'صيانة عامة',
-      location: 'مدينة نصر، القاهرة',
-      distance: '4.2',
-      cost: 250,
-      description: 'صيانة دورية',
-      time: '14:00',
-      date: '2024-11-12',
-      rating: 4.5,
-      completedJobs: 85,
-      status: 'pending'
-    }
-  ];
+    const statusEntries = Object.entries(this.requestService.statusConfig).map(([id, config]) => ({
+      id: id as RequestStatus,
+      label: config.label,
+      icon: `fas fa-${config.icon}`,
+      count: this.getStatusCount(id as RequestStatus)
+    }));
 
-  constructor(private authService: AuthService) {}
+    return [allStatus, ...statusEntries];
+  }
+
+  constructor(
+    private authService: AuthService,
+    private requestService: RequestDataService,
+    private workerService: WorkerService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    // Initialize with filtered data if needed
+    this.loadRequests();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private loadRequests() {
+    const requests$ = this.requestService.getRequests(
+      this.currentStatus === 'all' ? undefined : this.currentStatus
+    );
+
+    const workers$ = this.workerService.getWorkers();
+
+    combineLatest([requests$, workers$])
+      .pipe(
+        map(([requests, workers]) => {
+          return requests.map(request => {
+            const worker = request.workerId 
+              ? workers.find(w => w.id === request.workerId)
+              : undefined;
+
+            return {
+              ...request,
+              worker: worker ? {
+                name: worker.name,
+                rating: worker.rating,
+                completedJobs: worker.completedJobs,
+                image: worker.image
+              } : undefined,
+              distance: worker ? this.calculateDistance(
+                request.location.coordinates,
+                worker.position
+              ) : undefined
+            } as RequestViewModel;
+          });
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(requestViewModels => {
+        this.proposals = requestViewModels;
+      });
   }
 
   get userType() {
@@ -86,55 +104,40 @@ throw new Error('Method not implemented.');
     return this.userType === 'worker' ? 'قبول الطلب' : 'تفاصيل الطلب';
   }
 
-  setStatus(status: string) {
+  setStatus(status: ExtendedStatus) {
     this.currentStatus = status;
-    // Implement filtering logic here
+    this.loadRequests();
   }
 
-  getStatusClass(status: string): string {
-    const baseClasses = 'px-4 py-2 text-sm font-medium flex items-center justify-end gap-2';
-    switch (status) {
-      case 'pending':
-        return `${baseClasses} bg-yellow-50 text-yellow-700`;
-      case 'inProgress':
-        return `${baseClasses} bg-blue-50 text-blue-700`;
-      case 'completed':
-        return `${baseClasses} bg-green-50 text-green-700`;
-      case 'cancelled':
-        return `${baseClasses} bg-red-50 text-red-700`;
-      default:
-        return baseClasses;
-    }
+  getStatusClass(status: RequestStatus): string {
+    const colorClasses = {
+      pending: 'bg-yellow-50 text-yellow-700',
+      inProgress: 'bg-blue-50 text-blue-700',
+      completed: 'bg-green-50 text-green-700',
+      cancelled: 'bg-red-50 text-red-700',
+      accepted: 'bg-indigo-50 text-indigo-700',
+      draft: 'bg-gray-50 text-gray-700'
+    };
+    
+    return `status-banner ${colorClasses[status]}`;
   }
 
-  getStatusIcon(status: string): string {
-    switch (status) {
-      case 'pending':
-        return 'fas fa-clock text-yellow-500';
-      case 'inProgress':
-        return 'fas fa-spinner fa-spin text-blue-500';
-      case 'completed':
-        return 'fas fa-check-circle text-green-500';
-      case 'cancelled':
-        return 'fas fa-times-circle text-red-500';
-      default:
-        return 'fas fa-circle';
-    }
+  getStatusIcon(status: RequestStatus): string {
+    const config = this.requestService.getStatusDetails(status);
+    const iconClasses = {
+      pending: 'text-yellow-500',
+      inProgress: 'text-blue-500',
+      completed: 'text-green-500',
+      cancelled: 'text-red-500',
+      accepted: 'text-indigo-500',
+      draft: 'text-gray-500'
+    };
+    
+    return `fas fa-${config.icon} ${iconClasses[status]}`;
   }
 
-  getStatusLabel(status: string): string {
-    switch (status) {
-      case 'pending':
-        return 'قيد الانتظار';
-      case 'inProgress':
-        return 'جاري التنفيذ';
-      case 'completed':
-        return 'مكتملة';
-      case 'cancelled':
-        return 'ملغية';
-      default:
-        return '';
-    }
+  getStatusLabel(status: RequestStatus): string {
+    return this.requestService.getStatusDetails(status).label;
   }
 
   getActionButtonIcon(): string {
@@ -142,10 +145,54 @@ throw new Error('Method not implemented.');
   }
 
   openNewRequest() {
-    // Implement new request logic
+    this.router.navigate(['/requests/new-request']);
   }
 
   openFilters() {
     // Implement filters logic
+  }
+
+  handleAction(proposal: RequestViewModel) {
+    if (this.userType === 'worker') {
+      this.acceptRequest(proposal);
+    } else {
+      this.viewRequestDetails(proposal);
+    }
+  }
+
+  private acceptRequest(proposal: RequestViewModel) {
+    console.log('Accepting request:', proposal.id);
+  }
+
+  private viewRequestDetails(proposal: RequestViewModel) {
+    this.router.navigate(['/requests', proposal.id]);
+  }
+
+  private getTotalCount(): number {
+    return this.proposals.length;
+  }
+
+  private getStatusCount(status: RequestStatus): number {
+    return this.proposals.filter(p => p.status === status).length;
+  }
+
+  private calculateDistance(coord1: [number, number], coord2: [number, number]): string {
+    const R = 6371;
+    const dLat = this.deg2rad(coord2[0] - coord1[0]);
+    const dLon = this.deg2rad(coord2[1] - coord1[1]);
+    const a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(this.deg2rad(coord1[0])) * Math.cos(this.deg2rad(coord2[0])) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const distance = R * c;
+    
+    return distance < 1 
+      ? `${Math.round(distance * 1000)} م` 
+      : `${distance.toFixed(1)} كم`;
+  }
+
+  private deg2rad(deg: number): number {
+    return deg * (Math.PI/180);
   }
 }

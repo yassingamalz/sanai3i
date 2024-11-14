@@ -25,6 +25,11 @@ import { WorkerDetailsComponent } from './features/home/pages/worker-details/wor
           canActivate: [AuthGuard]
         },
         {
+          path: 'requests',
+          loadChildren: () => import('./features/services/requests.module').then(m => m.RequestsModule),
+          canActivate: [AuthGuard]
+        },
+        {
           path: 'messages',
           loadChildren: () => import('./features/messages/messages.module').then(m => m.MessagesModule),
           canActivate: [AuthGuard]
