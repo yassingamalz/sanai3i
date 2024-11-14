@@ -1,0 +1,125 @@
+<div class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <header class="header">
+        <app-back-button [redirectUrl]="'/services/all-services'" text="رجوع"></app-back-button>
+    </header>
+
+    <!-- Service Overview -->
+    <div class="relative px-4 -mt-16" @cardWithContentAnimation>
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="content-wrapper">
+                <div class="flex flex-col items-center">
+                    <div class="service-icon mb-4">
+                        <i [class]="service.icon"></i>
+                    </div>
+                    <h2 class="text-xl font-bold">{{service.name}}</h2>
+                    <p class="text-gray-600 mt-2 text-center">{{service.description}}</p>
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 gap-4 w-full mt-6">
+                        <div class="stat-card">
+                            <i class="fas fa-users text-blue-500"></i>
+                            <div class="stat-info">
+                                <span class="stat-value">{{stats.totalWorkers}}</span>
+                                <span class="stat-label">مقدم خدمة</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-star text-yellow-500"></i>
+                            <div class="stat-info">
+                                <span class="stat-value">{{stats.averageRating}}</span>
+                                <span class="stat-label">متوسط التقييم</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle text-green-500"></i>
+                            <div class="stat-info">
+                                <span class="stat-value">{{stats.completedJobs}}</span>
+                                <span class="stat-label">خدمة مكتملة</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-money-bill text-red-500"></i>
+                            <div class="stat-info">
+                                <span class="stat-value">{{stats.averagePrice}} جنيه</span>
+                                <span class="stat-label">متوسط السعر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Items Section -->
+    <div class="content-container">
+        <div class="section-header">
+            <h3 class="section-title">الخدمات</h3>
+            <a class="view-all">عرض الكل »</a>
+        </div>
+
+        <div class="service-items-list">
+            <div *ngFor="let item of serviceSections[0].items" class="service-item-card">
+                <div class="service-item-content">
+                    <h4 class="service-item-title">{{item.name}}</h4>
+                    <p class="service-item-description">{{item.description}}</p>
+                </div>
+                <div class="service-item-price">
+                    <span>{{item.price}} جنيه</span>
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Workers Section -->
+    <div class="content-container">
+        <div class="section-header">
+            <h3 class="section-title">أفضل مقدمي الخدمة</h3>
+            <a class="view-all">عرض الكل »</a>
+        </div>
+
+        <div class="workers-scroll">
+            <div class="workers-grid">
+                <div *ngFor="let worker of topWorkers" class="worker-card" (click)="onWorkerClick(worker.id)">
+                    <img [src]="worker.image" [alt]="worker.name" class="worker-image" />
+                    <h4 class="worker-name">{{worker.name}}</h4>
+                    <div class="worker-rating">
+                        <div class="stars">
+                            <i class="fas fa-star" *ngFor="let star of getStarArray(worker.rating)"></i>
+                        </div>
+                        <span class="rating-value">{{worker.rating}}</span>
+                    </div>
+                    <p class="completed-jobs">{{worker.completedJobs}} خدمة مكتملة</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Services -->
+    <div class="content-container">
+        <div class="section-header">
+            <h3 class="section-title">خدمات متعلقة</h3>
+        </div>
+
+        <div class="services-scroll">
+            <div class="services-grid">
+                <div *ngFor="let relatedService of relatedServices" class="service-card"
+                    (click)="router.navigate(['/services', relatedService.id])">
+                    <div class="service-icon">
+                        <i [class]="relatedService.icon"></i>
+                    </div>
+                    <h4 class="service-name">{{relatedService.name}}</h4>
+                    <p class="service-description">{{relatedService.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Button Fixed -->
+    <div class="fixed-button-container">
+        <button class="request-btn" (click)="onRequestService()">
+            اطلب الخدمة
+        </button>
+    </div>
+</div>

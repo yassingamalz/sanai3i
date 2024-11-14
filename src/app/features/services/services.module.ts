@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
         component: ServicesListComponent
       },
       {
-        path: 'service/:id',
+        path: ':id',
         component: ServiceDetailsComponent
       }
     ])
