@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { trigger, style, animate, transition, state, query, stagger, sequence, group } from '@angular/animations';
 import { ServicesService } from '../../../../core/services/services.service';
-import { MainService, ServiceSection, Worker } from '../../../../shared/interfaces/service.interface';
+import { MainService, ServiceSection } from '../../../../shared/interfaces/service.interface';
 import { ViewportScroller } from '@angular/common';
+import { finalize, forkJoin, Observable, of } from 'rxjs';
+import { WorkerService } from '../../../../core/services/worker.service';
+import { Worker } from '../../../../shared/interfaces/worker.interface';
 
 @Component({
   selector: 'app-service-details',
@@ -36,123 +39,81 @@ export class ServiceDetailsComponent implements OnInit {
     icon: '',
     totalRequests: 0,
     trend: 'up',
-    trendValue: 0
+    trendValue: 0,
+    category: ''
   };
-
   stats = {
     totalWorkers: 0,
     averageRating: 0,
     completedJobs: 0,
     averagePrice: 0
   };
-
-  topWorkers: Worker[] = [
-    {
-      id: 1,
-      name: 'أحمد محمد',
-      image: '/api/placeholder/120/120',
-      rating: 4.8,
-      completedJobs: 156,
-      service: 'كهربائي',
-      responseRate: 95,
-      about: 'خبرة ١٥ عام في مجال الكهرباء',
-      address: 'المعادي، القاهرة'
-    },
-    {
-      id: 2,
-      name: 'محمود علي',
-      image: '/api/placeholder/120/120',
-      rating: 4.9,
-      completedJobs: 203,
-      service: 'كهربائي',
-      responseRate: 98,
-      about: 'متخصص في الصيانة الكهربائية',
-      address: 'مدينة نصر، القاهرة'
-    }
-  ];
-
-  serviceSections: ServiceSection[] = [
-    {
-      id: 1,
-      title: 'الخدمات',
-      items: [
-        {
-          id: 1,
-          name: 'صيانة عامة',
-          price: 150,
-          description: 'فحص وإصلاح المشاكل الكهربائية العامة'
-        },
-        {
-          id: 2,
-          name: 'تركيب أجهزة',
-          price: 200,
-          description: 'تركيب وتوصيل الأجهزة الكهربائية'
-        },
-        {
-          id: 3,
-          name: 'تمديدات كهربائية',
-          price: 300,
-          description: 'تمديد وصيانة الأسلاك الكهربائية'
-        }
-      ]
-    }
-  ];
-
-  suggestedServices: MainService[] = [
-    {
-      id: 2,
-      name: 'سباكة',
-      description: 'خدمات السباكة المنزلية',
-      icon: 'fas fa-wrench',
-      totalRequests: 850,
-      trend: 'up',
-      trendValue: 12
-    }
-    // ... more suggested services
-  ];
-
+  topWorkers: Worker[] = [];
+  serviceSections: ServiceSection[] = [];
+  suggestedServices: MainService[] = [];
   relatedServices: MainService[] = [];
   isLoading = true;
 
   constructor(
     private viewportScroller: ViewportScroller,
     private servicesService: ServicesService,
+    private workerService: WorkerService, 
     private route: ActivatedRoute,
     public router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
     this.viewportScroller.scrollToPosition([0, 0]);
     const serviceId = Number(this.route.snapshot.params['id']);
-    this.loadServiceDetails(serviceId);
-
+    this.loadData(serviceId);
   }
 
-  private loadServiceDetails(id: number): void {
+  private loadData(serviceId: number): void {
     this.isLoading = true;
-    this.servicesService.getServiceById(id).subscribe({
-      next: (service) => {
+
+    const serviceSections: ServiceSection[] = [
+      {
+        id: 1,
+        title: 'الخدمات',
+        items: [
+          { id: 1, name: 'صيانة عامة', price: 150, description: 'فحص وإصلاح المشاكل الكهربائية العامة' },
+          { id: 2, name: 'تركيب أجهزة', price: 200, description: 'تركيب وتوصيل الأجهزة الكهربائية' },
+          { id: 3, name: 'تمديدات كهربائية', price: 300, description: 'تمديد وصيانة الأسلاك الكهربائية' }
+        ]
+      }
+    ];
+
+    // Get service details and workers in parallel
+    forkJoin({
+      service: this.servicesService.getServiceById(serviceId),
+      workers: this.workerService.getWorkers() 
+    }).pipe(
+      finalize(() => this.isLoading = false)
+    ).subscribe({
+      next: ({ service, workers }) => {
         if (service) {
           this.service = service;
-          this.loadAdditionalData();
+          this.serviceSections = serviceSections;
+          
+          // Get 2 random workers
+          this.topWorkers = this.getRandomWorkers(workers, 2);
+          
+          this.updateStats(this.topWorkers);
+          this.loadRelatedServices();
         }
       },
-      error: (error) => {
-        console.error('Error loading service:', error);
-        this.isLoading = false;
-      }
+      error: (error) => console.error('Error loading data:', error)
     });
-  }
+}
 
-  private loadAdditionalData(): void {
-    this.stats = {
-      totalWorkers: 156,
-      averageRating: 4.8,
-      completedJobs: 1250,
-      averagePrice: 180
-    };
+private getRandomWorkers(workers: Worker[], count: number): Worker[] {
+    return [...workers]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, count);
+}
 
+  private loadRelatedServices(): void {
     this.relatedServices = [
       {
         id: 2,
@@ -161,7 +122,8 @@ export class ServiceDetailsComponent implements OnInit {
         icon: 'fas fa-wrench',
         totalRequests: 850,
         trend: 'up',
-        trendValue: 12
+        trendValue: 12,
+        category: ''
       },
       {
         id: 3,
@@ -170,15 +132,23 @@ export class ServiceDetailsComponent implements OnInit {
         icon: 'fas fa-hammer',
         totalRequests: 650,
         trend: 'up',
-        trendValue: 8
+        trendValue: 8,
+        category: ''
       }
     ];
+  }
 
-    this.isLoading = false;
+  private updateStats(workers: Worker[]): void {
+    this.stats = {
+      totalWorkers: workers.length,
+      averageRating: Number((workers.reduce((acc, w) => acc + w.rating, 0) / workers.length).toFixed(2)),
+      completedJobs: workers.reduce((acc, w) => acc + w.completedJobs, 0),
+      averagePrice: Number(180.00.toFixed(2))
+    };
   }
 
   onWorkerClick(workerId: number): void {
-    this.router.navigate(['/workers', workerId]);
+    this.router.navigate(['/worker', workerId]);
   }
 
   getStarArray(rating: number): number[] {

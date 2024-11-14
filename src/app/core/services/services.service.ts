@@ -6,10 +6,10 @@ import { MainService, SubService } from '../../shared/interfaces/service.interfa
   providedIn: 'root'
 })
 export class ServicesService {
-  // services.service.ts
   private services: MainService[] = [
     {
       id: 1,
+      category: 'electric',
       name: 'كهرباء',
       icon: '⚡',
       description: 'خدمات الكهرباء والصيانة',
@@ -37,6 +37,7 @@ export class ServicesService {
     },
     {
       id: 2,
+      category: 'plumbing',
       name: 'سباكة',
       icon: '🔧',
       description: 'خدمات السباكة والصيانة',
@@ -46,6 +47,7 @@ export class ServicesService {
     },
     {
       id: 3,
+      category: 'carpentry',
       name: 'نجارة',
       icon: '🪚',
       description: 'خدمات النجارة وإصلاح الأثاث',
@@ -55,6 +57,7 @@ export class ServicesService {
     },
     {
       id: 4,
+      category: 'painting',
       name: 'دهانات',
       icon: '🎨',
       description: 'خدمات الدهان والديكور',
@@ -64,6 +67,7 @@ export class ServicesService {
     },
     {
       id: 5,
+      category: 'hvac',
       name: 'تكييف',
       icon: '❄️',
       description: 'صيانة وتركيب التكييف',
@@ -73,6 +77,7 @@ export class ServicesService {
     },
     {
       id: 6,
+      category: 'cleaning',
       name: 'تنظيف',
       icon: '🧹',
       description: 'خدمات التنظيف المنزلي',
@@ -82,6 +87,7 @@ export class ServicesService {
     },
     {
       id: 7,
+      category: 'appliances',
       name: 'أجهزة منزلية',
       icon: '🔌',
       description: 'إصلاح الأجهزة المنزلية',
@@ -91,6 +97,7 @@ export class ServicesService {
     },
     {
       id: 8,
+      category: 'moving',
       name: 'نقل أثاث',
       icon: '🚛',
       description: 'خدمات نقل وتركيب الأثاث',
@@ -100,6 +107,7 @@ export class ServicesService {
     },
     {
       id: 9,
+      category: 'blacksmith',
       name: 'حدادة',
       icon: '⚒️',
       description: 'أعمال الحدادة والمعادن',
@@ -109,6 +117,7 @@ export class ServicesService {
     },
     {
       id: 10,
+      category: 'glass',
       name: 'زجاج ومرايا',
       icon: '🪟',
       description: 'تركيب وإصلاح الزجاج',
@@ -117,10 +126,11 @@ export class ServicesService {
       trendValue: 2
     }
   ];
+
   constructor() { }
 
   getAllServices(): Observable<MainService[]> {
-    return of(this.services).pipe(delay(500)); // Simulate API delay
+    return of(this.services).pipe(delay(500));
   }
 
   getServiceById(id: number): Observable<MainService | undefined> {
@@ -131,5 +141,18 @@ export class ServicesService {
   getSubServices(mainServiceId: number): Observable<SubService[]> {
     const service = this.services.find(s => s.id === mainServiceId);
     return of(service?.subServices || []).pipe(delay(300));
+  }
+
+  getRelatedServices(serviceId: number): Observable<MainService[]> {
+    const service = this.services.find(s => s.id === serviceId);
+    if (!service) return of([]);
+    
+    // Get 2 random services excluding current service
+    const related = this.services
+      .filter(s => s.id !== serviceId)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2);
+      
+    return of(related).pipe(delay(300));
   }
 }

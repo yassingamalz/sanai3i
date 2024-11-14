@@ -1,4 +1,5 @@
 export interface MainService {
+    category: string;
     id: number;
     name: string;
     icon: string;
@@ -17,21 +18,6 @@ export interface MainService {
     price: number;
     estimatedTime?: string;
     icon?: string;
-  }
-
-  export interface Worker {
-    id: number;
-    name: string;
-    image: string;
-    rating: number;
-    completedJobs: number;
-    service: string;
-    responseRate: number;
-    about?: string;
-    address?: string;
-    availability?: string;
-    price?: number;
-    lastOnline?: string;
   }
 
   export interface ServiceItem {

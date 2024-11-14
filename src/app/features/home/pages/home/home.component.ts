@@ -1,6 +1,25 @@
-import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, OnInit, OnDestroy, TrackByFunction } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, style, animate, transition, state } from '@angular/animations';
+import { Subject } from 'rxjs';
+import { takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { WorkerService } from '../../../../core/services/worker.service';
+import { Worker } from '../../../../shared/interfaces/worker.interface';
+
+interface Service {
+  id: number;
+  name: string;
+  icon: string;
+  description: string;
+}
+
+interface TopService {
+  id: number;
+  name: string;
+  count: number;
+  trend: 'up' | 'down';
+  trendValue: number;
+}
 
 @Component({
   selector: 'app-home',
@@ -22,12 +41,14 @@ import { trigger, style, animate, transition, state } from '@angular/animations'
     ])
   ]
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('serviceCard') serviceCards!: QueryList<ElementRef>;
 
   searchQuery: string = '';
-    
-  services = [
+  private searchSubject = new Subject<string>();
+  private destroy$ = new Subject<void>();
+  
+  services: Service[] = [
     { id: 1, name: 'كهربائي', icon: '⚡', description: 'تصليح وصيانة كهرباء' },
     { id: 2, name: 'سباك', icon: '🔧', description: 'تصليح مواسير وحنفيات' },
     { id: 3, name: 'نجار', icon: '🪚', description: 'تصليح وصيانة الأثاث' },
@@ -36,56 +57,26 @@ export class HomeComponent implements AfterViewInit {
     { id: 6, name: 'تنظيف', icon: '🧹', description: 'خدمات النظافة المنزلية' }
   ];
 
-  topServices = [
-    { 
-      id: 1, 
-      name: 'تصليح تكييف', 
-      count: 120, 
-      trend: 'up',
-      trendValue: 15 
-    },
-    { 
-      id: 2, 
-      name: 'سباكة', 
-      count: 95, 
-      trend: 'up',
-      trendValue: 8
-    },
-    { 
-      id: 3, 
-      name: 'كهرباء', 
-      count: 85, 
-      trend: 'down',
-      trendValue: -5
-    }
+  topServices: TopService[] = [
+    { id: 1, name: 'تصليح تكييف', count: 120, trend: 'up', trendValue: 15 },
+    { id: 2, name: 'سباكة', count: 95, trend: 'up', trendValue: 8 },
+    { id: 3, name: 'كهرباء', count: 85, trend: 'down', trendValue: -5 }
   ];
 
-  topWorkers = [
-    { 
-      id: 1, 
-      name: 'عم حسن', 
-      service: 'كهربائي', 
-      rating: 4.9, 
-      jobs: 230, 
-      image: '/api/placeholder/64/64' 
-    },
-    { 
-      id: 2, 
-      name: 'أستاذ محمد', 
-      service: 'سباك', 
-      rating: 4.8, 
-      jobs: 180, 
-      image: '/api/placeholder/64/64' 
-    }
-  ];
-
+  topWorkers: Worker[] = [];
   cardStates: { [key: number]: boolean } = {};
   isLoading = true;
 
-  constructor(private router: Router) {
-    this.services.forEach((_, index) => {
-      this.cardStates[index] = false;
-    });
+  constructor(
+    private router: Router,
+    private workerService: WorkerService
+  ) {
+    this.initializeCardStates();
+    this.setupSearchSubscription();
+  }
+
+  ngOnInit() {
+    this.loadTopWorkers();
   }
 
   ngAfterViewInit() {
@@ -95,8 +86,67 @@ export class HomeComponent implements AfterViewInit {
     }, 100);
   }
 
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  // Search handling
+  private setupSearchSubscription() {
+    this.searchSubject.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      takeUntil(this.destroy$)
+    ).subscribe(query => {
+      this.performSearch(query);
+    });
+  }
+
+  onSearch(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.searchQuery = target.value;
+    this.searchSubject.next(this.searchQuery);
+  }
+
+  private performSearch(query: string) {
+    if (query.trim()) {
+      this.workerService.searchWorkers(query)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(workers => {
+          // Handle search results
+          console.log('Search results:', workers);
+        });
+    }
+  }
+
+  clearSearch(): void {
+    this.searchQuery = '';
+    this.searchSubject.next('');
+  }
+
+  // Worker data loading
+  private loadTopWorkers() {
+    this.workerService.getTopWorkers(3)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(workers => {
+        this.topWorkers = workers;
+      });
+  }
+
+  // Navigation
   navigateToFullList(section: string): void {
     this.router.navigate(['/services', section]);
+  }
+
+  onWorkerClick(worker: Worker): void {
+    this.router.navigate(['/worker', worker.id]);
+  }
+
+  // Animation and intersection observer
+  private initializeCardStates() {
+    this.services.forEach((_, index) => {
+      this.cardStates[index] = false;
+    });
   }
 
   private setupIntersectionObserver() {
@@ -128,29 +178,10 @@ export class HomeComponent implements AfterViewInit {
     return !this.isLoading && this.cardStates[index];
   }
 
-  trackByServiceId(index: number, item: any): number {
-    return item.id;
-  }
-
-  trackByWorkerId(index: number, item: any): number {
-    return item.id;
-  }
-
-  onSearch(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    this.searchQuery = target.value;
-    // Implement search logic here
-  }
-
-  clearSearch(): void {
-    this.searchQuery = '';
-  }
-
-  ngOnDestroy() {
-    // Cleanup if needed
-  }
+  // Tracking
+  trackByServiceId: TrackByFunction<Service> = (index: number, item: Service) => item.id;
   
-  onWorkerClick(worker: any): void {
-    this.router.navigate(['/worker', worker.id]);
-  }
+  trackByTopServiceId: TrackByFunction<TopService> = (index: number, item: TopService) => item.id;
+  
+  trackByWorkerId: TrackByFunction<Worker> = (index: number, item: Worker) => item.id;
 }

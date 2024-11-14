@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { icon, latLng, marker, tileLayer, Map, Layer, Icon } from 'leaflet';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { WorkerService } from '../../../../core/services/worker.service';
 
 export interface ServiceProvider {
   id: number;
@@ -14,6 +16,7 @@ export interface ServiceProvider {
   position: [number, number];
   jobs?: number;
   address?: string;
+  completedJobs?: number;
 }
 
 @Component({
@@ -25,7 +28,6 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
   private destroy$ = new Subject<void>();
   private resizeListener: () => void;
   private mapContainer: HTMLElement | null = null;
-  
   protected Math = Math;
 
   categories = [
@@ -36,47 +38,9 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
     { id: 'painter', name: 'نقاش' }
   ];
 
-  providers: ServiceProvider[] = [
-    {
-      id: 1,
-      name: 'عم حسن',
-      service: 'كهربائي',
-      category: 'electrician',
-      rating: 4.9,
-      distance: '0.3 كم',
-      image: '/api/placeholder/80/80',
-      position: [30.0444, 31.2357],
-      jobs: 230,
-      address: 'المعادي، القاهرة'
-    },
-    {
-      id: 2,
-      name: 'أستاذ محمد',
-      service: 'سباك',
-      category: 'plumber',
-      rating: 4.8,
-      distance: '0.5 كم',
-      image: '/api/placeholder/80/80',
-      position: [30.0454, 31.2367],
-      jobs: 180,
-      address: 'المعادي، القاهرة'
-    },
-    {
-      id: 3,
-      name: 'الحاج كريم',
-      service: 'نقاش',
-      category: 'painter',
-      rating: 4.7,
-      distance: '0.7 كم',
-      image: '/api/placeholder/80/80',
-      position: [30.0434, 31.2347],
-      jobs: 150,
-      address: 'المعادي، القاهرة'
-    }
-  ];
-
   map: Map | null = null;
   markers: Layer[] = [];
+  providers: ServiceProvider[] = [];
   selectedCategory = 'all';
   currentPosition: [number, number] = [30.0444, 31.2357];
   currentAddress = 'القاهرة، المعادي';
@@ -110,7 +74,10 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
     zoomControl: false
   };
 
-  constructor() {
+  constructor(
+    private workerService: WorkerService,
+    private router: Router
+  ) {
     this.resizeListener = () => {
       if (this.map) {
         setTimeout(() => this.map?.invalidateSize(), 100);
@@ -119,8 +86,8 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
+    this.loadWorkersFromService();
     this.initializeMap();
-    this.loadProviders();
   }
 
   ngAfterViewInit() {
@@ -134,61 +101,68 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnDestroy() {
     try {
-      // First remove markers
       if (this.markers.length) {
-        this.markers.forEach(marker => {
-          if (marker) {
-            marker.remove();
-          }
-        });
+        this.markers.forEach(marker => marker?.remove());
         this.markers = [];
       }
-  
-      // Remove resize listener
+
       if (this.resizeListener) {
         window.removeEventListener('resize', this.resizeListener);
       }
-  
-      // Clean up map
+
       if (this.map) {
         this.map.off();
         this.map.remove();
         
-        // Get the map container
         this.mapContainer = document.querySelector('.leaflet-container');
-        if (this.mapContainer) {
-          this.mapContainer.remove();
-        }
+        this.mapContainer?.remove();
       }
-  
-      // Null out the map reference
+
       this.map = null;
-  
-      // Complete observables
       this.destroy$.next();
       this.destroy$.complete();
+
+      window.removeEventListener('openWorkerProfile', this.handleWorkerProfileClick as EventListener);
     } catch (e) {
       console.error('Error cleaning up map:', e);
     }
   }
-  
+
+  private loadWorkersFromService() {
+    this.workerService.getWorkers()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(workers => {
+        this.providers = workers.map(worker => ({
+          id: worker.id,
+          name: worker.name,
+          service: worker.service,
+          category: worker.category,
+          rating: Number(worker.rating.toFixed(2)),
+          distance: '0.0 km',
+          image: worker.image || '/api/placeholder/80/80',
+          position: worker.position || this.currentPosition,
+          jobs: worker.completedJobs,
+          address: worker.address,
+          completedJobs: worker.completedJobs
+        }));
+        this.loadProviders();
+      });
+  }
+
   onMapReady(map: Map) {
-    if (this.map) {
-      return; 
-    }
+    if (this.map) return;
     
     this.map = map;
-    
-    // Add resize listener
     window.addEventListener('resize', this.resizeListener);
-  
-    // Add click handler to close provider card
-    map.on('click', () => {
-      this.clearSelectedProvider();
-    });
-  
+    window.addEventListener('openWorkerProfile', this.handleWorkerProfileClick as EventListener);
+    
+    map.on('click', () => this.clearSelectedProvider());
     this.updateMarkers();
   }
+
+  private handleWorkerProfileClick = (event: CustomEvent) => {
+    this.navigateToWorkerProfile(event.detail);
+  };
 
   initializeMap() {
     if (navigator.geolocation) {
@@ -231,23 +205,16 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
   updateMarkers() {
     if (!this.map) return;
 
-    // Clear existing markers
-    this.markers.forEach(marker => {
-      if (marker && this.map) {
-        marker.removeFrom(this.map); 
-      }
-    });
+    this.markers.forEach(marker => marker.removeFrom(this.map!));
     this.markers = [];
 
-    // Add current location marker
     const currentLocationMarker = marker(this.currentPosition, {
       icon: this.currentLocationIcon
     }).bindPopup('موقعك الحالي');
-
+    
     this.markers.push(currentLocationMarker);
     currentLocationMarker.addTo(this.map);
 
-    // Add provider markers
     this.providers.forEach(provider => {
       const popupContent = `
         <div class="provider-popup" dir="rtl">
@@ -257,6 +224,11 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
             <span class="text-yellow-500 mr-1">⭐</span>
             <span>${provider.rating}</span>
           </div>
+          <button 
+            onclick="window.dispatchEvent(new CustomEvent('openWorkerProfile', {detail: ${provider.id}}))"
+            class="mt-2 px-3 py-1 bg-red-500 text-white rounded-full text-sm hover:bg-red-600 transition-colors">
+            عرض الملف الشخصي
+          </button>
         </div>
       `;
 
@@ -270,13 +242,13 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
       .on('click', () => this.selectProvider(provider));
 
       this.markers.push(providerMarker);
-      providerMarker.addTo(this.map!); 
-        });
+      providerMarker.addTo(this.map!);
+    });
   }
 
   selectCategory(categoryId: string) {
     this.selectedCategory = categoryId;
-    this.selectedProvider = null; // Clear selected provider when changing category
+    this.selectedProvider = null;
     this.loadProviders();
   }
 
@@ -285,6 +257,10 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.map) {
       this.map.setView(provider.position, this.map.getZoom());
     }
+  }
+
+  navigateToWorkerProfile(workerId: number) {
+    this.router.navigate(['/worker', workerId]);
   }
 
   clearAddress() {
@@ -298,11 +274,10 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
 
   onSearchChange(event: any) {
     this.searchQuery = event.target.value;
-    // Implement search logic here
   }
 
   private calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): string {
-    const R = 6371; // Earth's radius in km
+    const R = 6371;
     const dLat = this.deg2rad(lat2 - lat1);
     const dLon = this.deg2rad(lon2 - lon1);
     const a = 
