@@ -58,9 +58,9 @@
             <a class="view-all">عرض الكل »</a>
         </div>
 
-        <div class="service-items-list">
+        <div *ngIf="serviceSections[0]?.items" class="service-items-list">
             <div *ngFor="let item of serviceSections[0].items" class="service-item-card"
-            (click)="onSubServiceClick(item)">
+                (click)="onSubServiceClick(item)">
                 <div class="service-item-content">
                     <h4 class="service-item-title">{{item.name}}</h4>
                     <p class="service-item-description">{{item.description}}</p>
@@ -106,7 +106,7 @@
         <div class="services-scroll">
             <div class="services-grid">
                 <div *ngFor="let relatedService of relatedServices" class="service-card"
-                    (click)="router.navigate(['/services', relatedService.id])">
+                    (click)="onRelatedServiceClick(relatedService.id)">
                     <div class="service-icon">
                         <i [class]="relatedService.faIcon"></i>
                     </div>

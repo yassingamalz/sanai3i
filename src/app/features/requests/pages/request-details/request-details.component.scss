@@ -1,109 +1,57 @@
 $primary-red: #ef4444;
 $primary-dark: darken($primary-red, 10%);
 $border-color: #e5e7eb;
-$card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05),
-              0 1px 2px rgba(0, 0, 0, 0.1);
-$hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
-               0 2px 4px rgba(0, 0, 0, 0.05);
-
-// Mixins
-@mixin button-base {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none;
-  outline: none;
-  gap: 0.5rem;
-  
-  &:active {
-    transform: translateY(1px);
-  }
-}
-
-@mixin button-shadow {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
-              0 1px 2px rgba(0, 0, 0, 0.1);
-              
-  &:hover {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08),
-                0 2px 4px rgba(0, 0, 0, 0.12);
-  }
-  
-  &:active {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-  }
-}
+$card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+$hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
 
 :host {
   display: block;
   min-height: 100vh;
   background-color: #f8f9fa;
-  padding-bottom: 160px;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .header {
-    background: #ef4444;
-    padding: 1rem 1.5rem 1rem;
-    position: relative;
-  
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 2rem;
-      background: linear-gradient(to bottom right, #ef4444 50%, transparent 50%);
-    }
-  
-    .title {
-      color: white;
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-top: 0.5rem;
-    }
-  }
-
-// Header Styles
-.header-curved {
   background: $primary-red;
+  padding: 2rem 1.5rem 6rem;
   position: relative;
-  padding-bottom: 2rem;
-  
+  margin-bottom: -4rem;
+
   &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 1.5rem;
-    background: white;
-    border-radius: 2rem 2rem 0 0;
+    height: 2rem;
+    background: linear-gradient(to bottom right, $primary-red 50%, transparent 50%);
+  }
+
+  .header-content {
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 3rem;
   }
 }
 
-.back-btn {
-  @include button-base;
-  color: white;
-  font-size: 0.875rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  &:active {
-    background: rgba(255, 255, 255, 0.2);
-  }
+.content-wrapper {
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-bottom: 180px;
 }
 
-// Card Styles
 .custom-card {
   background: white;
   border-radius: 1rem;
@@ -111,6 +59,11 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   border: none;
   box-shadow: $card-shadow;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 1rem;
+
+  .card-content {
+    padding: 1.25rem;
+  }
 
   &:hover {
     box-shadow: $hover-shadow;
@@ -124,14 +77,11 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   margin-bottom: 1rem;
 }
 
-// Status Banner Styles
 .status-banner {
   padding: 0.75rem 1rem;
-  border-radius: 0.75rem;
   font-size: 0.875rem;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 1.25rem;
 
   &.status-pending {
     background-color: #fef3c7;
@@ -154,7 +104,6 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   }
 }
 
-// Info Text Styles
 .info-text {
   display: flex;
   align-items: center;
@@ -167,7 +116,6 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   }
 }
 
-// Rating Badge
 .rating-badge {
   background: #fef3c7;
   color: #92400e;
@@ -190,12 +138,11 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   text-align: center;
 }
 
-// Photos Grid
 .photos-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 }
 
 .photo-item {
@@ -222,7 +169,6 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   }
 }
 
-// Service Provider Section
 .provider-header {
   display: flex;
   gap: 1rem;
@@ -251,7 +197,6 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   line-height: 1.4;
 }
 
-// Stats Grid
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -265,8 +210,7 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   border-radius: 0.75rem;
   text-align: center;
   transition: all 0.2s ease;
-  border: none;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid $border-color;
 
   &:hover {
     background: white;
@@ -292,25 +236,33 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   }
 }
 
-// Contact Buttons
 .contact-buttons {
   display: flex;
   gap: 0.75rem;
 }
 
 .contact-btn {
-  @include button-base;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1;
+  gap: 0.5rem;
   height: 2.75rem;
   background: #f8fafc;
   color: #4b5563;
   border-radius: 0.75rem;
   font-size: 0.875rem;
-  @include button-shadow;
+  transition: all 0.2s ease;
+  border: 1px solid $border-color;
 
   &:hover {
     background: #f1f5f9;
     transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(1px);
   }
 
   i {
@@ -318,190 +270,164 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   }
 }
 
-// Track Button
-.track-btn {
-  @include button-base;
+.location-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: white;
   color: $primary-red;
-  padding: 0.5rem 0.75rem;
+  border: 1px solid $primary-red;
   border-radius: 0.75rem;
   font-size: 0.875rem;
-  background: rgba($primary-red, 0.04);
-  @include button-shadow;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: rgba($primary-red, 0.08);
+    background: rgba($primary-red, 0.05);
     transform: translateY(-1px);
   }
 
-  &.tracking-active {
+  &.active {
+    background: rgba($primary-red, 0.1);
     animation: pulse 2s infinite;
+  }
+
+  i {
+    font-size: 1rem;
   }
 }
 
-// Cost Summary
-.cost-summary {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+.price-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $primary-red;
 }
 
-.cost-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #6b7280;
-  font-size: 0.9375rem;
+.cost-summary {
+  .cost-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    color: #374151;
 
-  &.discount {
-    color: #059669;
+    &.discount {
+      color: #22c55e;
+    }
   }
 }
 
 .total-section {
-  margin: 1.5rem 0;
+  border-top: 1px dashed $border-color;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+
+  .total-label {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .total-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+  }
+
+  .total-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $primary-red;
+  }
 }
 
-.total-label {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1f2937;
-}
-
-.total-subtitle {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 0.25rem;
-}
-
-.total-amount {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: $primary-red;
-}
-
-// Payment Method
 .payment-method {
-  border-top: 1px solid rgba($border-color, 0.5);
-  padding-top: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid $border-color;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #6b7280;
 
   .payment-type {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: #1f2937;
     font-weight: 500;
-  }
-}
 
-// Bottom Actions
-// Bottom Actions
-.bottom-actions {
-  position: fixed;
-  bottom: 84px; // Accounts for navbar + gap
-  left: 0;
-  right: 0;
-  padding: 1rem;
-  background: white;
-  display: flex;
-  gap: 0.75rem;
-  z-index: 49;
-  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
-
-  @media (max-width: 640px) {
-    bottom: 80px;
-    padding: 0.75rem 1rem;
-  }
-}
-
-// Bottom Actions
-.bottom-actions {
-    position: fixed;
-    bottom: 84px; // Accounts for navbar + gap
-    left: 0;
-    right: 0;
-    padding: 1rem;
-    background: white;
-    display: flex;
-    gap: 0.75rem;
-    z-index: 49;
-    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
-  
-    @media (max-width: 640px) {
-      bottom: 80px;
-      padding: 0.75rem 1rem;
+    i {
+      color: #9ca3af;
     }
   }
-  
-  // Action Buttons
+}
+
+.bottom-actions {
+  position: fixed;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  background: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid $border-color;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.05);
+
   .action-btn {
-    flex: 1;
-    height: 3rem;
+    width: 100%;
+    padding: 0.875rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    font-weight: 500;
-    font-size: 0.9375rem;
-    border-radius: 0.75rem;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    border: none;
-  
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+
     i {
-      font-size: 1.125rem;
+      font-size: 1.25rem;
     }
-  
+
     &.primary {
-      background: #ef4444;
+      background: $primary-red;
       color: white;
-      box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
-  
+      border: none;
+      box-shadow: 0 2px 4px rgba($primary-red, 0.2);
+
       &:hover {
-        background: #dc2626;
+        background: $primary-dark;
         transform: translateY(-1px);
-        box-shadow: 0 4px 6px rgba(239, 68, 68, 0.25);
+        box-shadow: 0 4px 6px rgba($primary-red, 0.25);
       }
-  
+
       &:active {
         transform: translateY(1px);
-        box-shadow: 0 1px 2px rgba(239, 68, 68, 0.2);
       }
     }
-  
+
     &.secondary {
       background: white;
-      color: #ef4444;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  
+      color: $primary-red;
+      border: 2px solid $primary-red;
+
       &:hover {
-        background: rgba(239, 68, 68, 0.04);
+        background: rgba($primary-red, 0.05);
         transform: translateY(-1px);
-        box-shadow: 0 4px 6px rgba(239, 68, 68, 0.1);
       }
-  
+
       &:active {
         transform: translateY(1px);
-        background: rgba(239, 68, 68, 0.08);
-        box-shadow: 0 1px 2px rgba(239, 68, 68, 0.1);
-      }
-    }
-  
-    @media (max-width: 640px) {
-      height: 2.75rem;
-      font-size: 0.875rem;
-  
-      i {
-        font-size: 1rem;
       }
     }
   }
+}
 
-// Animations
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -517,41 +443,15 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
   }
 }
 
-// Loading Skeleton
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    rgba(#f3f4f6, 0.8) 25%,
-    rgba(#e5e7eb, 0.8) 37%,
-    rgba(#f3f4f6, 0.8) 63%
-  );
-  background-size: 400% 100%;
-  animation: skeleton-loading 1.4s ease infinite;
-}
-
-@keyframes skeleton-loading {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0 50%;
-  }
-}
-
-// RTL Support
-[dir="rtl"] {
-  .back-btn i {
-    transform: scaleX(-1);
-  }
-
-  .info-text i {
-    margin-left: 0.5rem;
-    margin-right: 0;
-  }
-}
-
-// Responsive Adjustments
 @media (max-width: 640px) {
+  .header {
+    padding: 1.5rem 1rem 5rem;
+  }
+
+  .content-wrapper {
+    padding: 0 1rem;
+  }
+
   .photos-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -562,54 +462,32 @@ $hover-shadow: 0 4px 6px rgba(0, 0, 0, 0.05),
 
   .stat-item {
     padding: 0.75rem 0.5rem;
-
-    .stat-value {
-      font-size: 1rem;
-    }
-  }
-
-  .provider-image {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
-  .provider-name {
-    font-size: 1rem;
-  }
-
-  .total-amount {
-    font-size: 1.25rem;
   }
 
   .bottom-actions {
     padding: 0.75rem 1rem;
-    bottom: 80px;
-  }
-
-  .action-btn {
-    height: 2.75rem;
   }
 }
 
 ::ng-deep app-back-button {
-    .back-button {
-      background: transparent !important;
+  .back-button {
+    background: transparent !important;
+    color: white !important;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+
+    .icon {
       color: white !important;
-  
-      &:hover {
-        opacity: 0.9;
-      }
-  
-      &:active {
-        opacity: 0.8;
-      }
-  
-      .icon {
-        color: white !important;
-      }
-  
-      span {
-        color: white !important;
-      }
+    }
+
+    span {
+      color: white !important;
     }
   }
+}

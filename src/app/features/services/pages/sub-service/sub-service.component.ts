@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { trigger, style, animate, transition, group } from '@angular/animations';
 import { MainService, SubService } from '../../../../shared/interfaces/service.interface';
 import { ServicesService } from '../../../../core/services/services.service';
+import { ViewportScroller } from '@angular/common';
 
 interface ExtraOption {
   id: string;
@@ -41,6 +42,7 @@ export class SubServiceComponent implements OnInit {
   ];
 
   constructor(
+    private viewportScroller: ViewportScroller,
     private route: ActivatedRoute,
     private router: Router,
     private servicesService: ServicesService
@@ -49,6 +51,9 @@ export class SubServiceComponent implements OnInit {
   ngOnInit() {
     const mainServiceId = +this.route.snapshot.params['mainId'];
     const subServiceId = +this.route.snapshot.params['subId'];
+
+    window.scrollTo(0, 0);
+    this.viewportScroller.scrollToPosition([0, 0]);
 
     this.servicesService.getServiceById(mainServiceId).subscribe(service => {
       if (service) {
