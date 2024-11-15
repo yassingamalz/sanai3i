@@ -165,7 +165,7 @@ export class RequestsListComponent implements OnInit, OnDestroy {
   }
 
   private viewRequestDetails(proposal: RequestViewModel) {
-    this.router.navigate(['/requests', proposal.id]);
+    this.router.navigate(['requests',proposal.id]);
   }
 
   private getTotalCount(): number {
