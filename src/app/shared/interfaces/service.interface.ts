@@ -3,6 +3,7 @@ export interface MainService {
     id: number;
     name: string;
     icon: string;
+    faIcon?: string; 
     description: string;
     totalRequests?: number;
     trend?: 'up' | 'down';
@@ -18,6 +19,7 @@ export interface MainService {
     price: number;
     estimatedTime?: string;
     icon?: string;
+    faIcon?: string; 
   }
 
   export interface ServiceItem {

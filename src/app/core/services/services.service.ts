@@ -12,6 +12,7 @@ export class ServicesService {
       category: 'electric',
       name: 'كهرباء',
       icon: '⚡',
+      faIcon: 'fas fa-bolt',
       description: 'خدمات الكهرباء والصيانة',
       totalRequests: 85,
       trend: 'up',
@@ -23,7 +24,8 @@ export class ServicesService {
           name: 'صيانة عامة',
           description: 'فحص وإصلاح الأعطال الكهربائية',
           price: 150,
-          estimatedTime: '1-2 ساعات'
+          estimatedTime: '1-2 ساعات',
+          faIcon: 'fas fa-tools'
         },
         {
           id: 2,
@@ -31,7 +33,8 @@ export class ServicesService {
           name: 'تركيب أجهزة',
           description: 'تركيب وتوصيل الأجهزة الكهربائية',
           price: 200,
-          estimatedTime: '2-3 ساعات'
+          estimatedTime: '2-3 ساعات',
+          faIcon: 'fas fa-plug'
         }
       ]
     },
@@ -40,6 +43,7 @@ export class ServicesService {
       category: 'plumbing',
       name: 'سباكة',
       icon: '🔧',
+      faIcon: 'fas fa-wrench',
       description: 'خدمات السباكة والصيانة',
       totalRequests: 65,
       trend: 'up',
@@ -51,7 +55,8 @@ export class ServicesService {
           name: 'تصليح تسريبات',
           description: 'كشف وإصلاح تسريبات المياه',
           price: 180,
-          estimatedTime: '1-3 ساعات'
+          estimatedTime: '1-3 ساعات',
+          faIcon: 'fas fa-tint'
         },
         {
           id: 4,
@@ -59,7 +64,8 @@ export class ServicesService {
           name: 'صيانة الحمامات',
           description: 'إصلاح وتركيب أدوات الحمام',
           price: 220,
-          estimatedTime: '2-4 ساعات'
+          estimatedTime: '2-4 ساعات',
+          faIcon: 'fas fa-shower'
         },
         {
           id: 5,
@@ -67,7 +73,8 @@ export class ServicesService {
           name: 'تركيب فلاتر',
           description: 'تركيب وصيانة فلاتر المياه',
           price: 250,
-          estimatedTime: '1-2 ساعات'
+          estimatedTime: '1-2 ساعات',
+          faIcon: 'fas fa-filter'
         }
       ]
     },
@@ -76,6 +83,7 @@ export class ServicesService {
       category: 'carpentry',
       name: 'نجارة',
       icon: '🪚',
+      faIcon: 'fas fa-hammer',
       description: 'خدمات النجارة وإصلاح الأثاث',
       totalRequests: 45,
       trend: 'down',
@@ -87,7 +95,8 @@ export class ServicesService {
           name: 'إصلاح الأثاث',
           description: 'إصلاح وترميم الأثاث المنزلي',
           price: 200,
-          estimatedTime: '2-4 ساعات'
+          estimatedTime: '2-4 ساعات',
+          faIcon: 'fas fa-couch'
         },
         {
           id: 7,
@@ -95,7 +104,8 @@ export class ServicesService {
           name: 'تركيب أثاث',
           description: 'تجميع وتركيب الأثاث الجديد',
           price: 180,
-          estimatedTime: '3-5 ساعات'
+          estimatedTime: '3-5 ساعات',
+          faIcon: 'fas fa-chair'
         }
       ]
     },
@@ -104,6 +114,7 @@ export class ServicesService {
       category: 'painting',
       name: 'دهانات',
       icon: '🎨',
+      faIcon: 'fas fa-paint-roller',
       description: 'خدمات الدهان والديكور',
       totalRequests: 55,
       trend: 'up',
@@ -115,7 +126,8 @@ export class ServicesService {
           name: 'دهان داخلي',
           description: 'دهان الجدران الداخلية والأسقف',
           price: 300,
-          estimatedTime: '4-6 ساعات'
+          estimatedTime: '4-6 ساعات',
+          faIcon: 'fas fa-fill-drip'
         },
         {
           id: 9,
@@ -123,7 +135,8 @@ export class ServicesService {
           name: 'دهان خارجي',
           description: 'دهان الواجهات الخارجية',
           price: 400,
-          estimatedTime: '6-8 ساعات'
+          estimatedTime: '6-8 ساعات',
+          faIcon: 'fas fa-brush'
         },
         {
           id: 10,
@@ -131,7 +144,8 @@ export class ServicesService {
           name: 'ديكورات خاصة',
           description: 'تنفيذ دهانات ديكورية وتأثيرات خاصة',
           price: 500,
-          estimatedTime: '4-6 ساعات'
+          estimatedTime: '4-6 ساعات',
+          faIcon: 'fas fa-palette'
         }
       ]
     },
@@ -140,6 +154,7 @@ export class ServicesService {
       category: 'hvac',
       name: 'تكييف',
       icon: '❄️',
+      faIcon: 'fas fa-snowflake',
       description: 'صيانة وتركيب التكييف',
       totalRequests: 95,
       trend: 'up',
@@ -151,7 +166,8 @@ export class ServicesService {
           name: 'صيانة دورية',
           description: 'فحص وتنظيف وصيانة التكييف',
           price: 150,
-          estimatedTime: '1-2 ساعات'
+          estimatedTime: '1-2 ساعات',
+          faIcon: 'fas fa-tools'
         },
         {
           id: 12,
@@ -159,7 +175,8 @@ export class ServicesService {
           name: 'تركيب جديد',
           description: 'تركيب وتشغيل تكييف جديد',
           price: 300,
-          estimatedTime: '3-4 ساعات'
+          estimatedTime: '3-4 ساعات',
+          faIcon: 'fas fa-plus-circle'
         },
         {
           id: 13,
@@ -167,7 +184,8 @@ export class ServicesService {
           name: 'إصلاح أعطال',
           description: 'تشخيص وإصلاح مشاكل التكييف',
           price: 200,
-          estimatedTime: '2-3 ساعات'
+          estimatedTime: '2-3 ساعات',
+          faIcon: 'fas fa-wrench'
         }
       ]
     },
@@ -176,6 +194,7 @@ export class ServicesService {
       category: 'cleaning',
       name: 'تنظيف',
       icon: '🧹',
+      faIcon: 'fas fa-broom',
       description: 'خدمات التنظيف المنزلي',
       totalRequests: 75,
       trend: 'up',
@@ -187,7 +206,8 @@ export class ServicesService {
           name: 'تنظيف شامل',
           description: 'تنظيف شامل للمنزل',
           price: 400,
-          estimatedTime: '4-6 ساعات'
+          estimatedTime: '4-6 ساعات',
+          faIcon: 'fas fa-home'
         },
         {
           id: 15,
@@ -195,7 +215,8 @@ export class ServicesService {
           name: 'تنظيف السجاد',
           description: 'غسيل وتنظيف السجاد والموكيت',
           price: 200,
-          estimatedTime: '2-3 ساعات'
+          estimatedTime: '2-3 ساعات',
+          faIcon: 'fas fa-carpet'
         },
         {
           id: 16,
@@ -203,7 +224,8 @@ export class ServicesService {
           name: 'تنظيف الواجهات',
           description: 'تنظيف واجهات المباني والنوافذ',
           price: 300,
-          estimatedTime: '3-4 ساعات'
+          estimatedTime: '3-4 ساعات',
+          faIcon: 'fas fa-building'
         }
       ]
     },
@@ -212,6 +234,7 @@ export class ServicesService {
       category: 'appliances',
       name: 'أجهزة منزلية',
       icon: '🔌',
+      faIcon: 'fas fa-plug',
       description: 'إصلاح الأجهزة المنزلية',
       totalRequests: 60,
       trend: 'down',
@@ -223,7 +246,8 @@ export class ServicesService {
           name: 'إصلاح غسالات',
           description: 'تصليح وصيانة الغسالات',
           price: 200,
-          estimatedTime: '1-3 ساعات'
+          estimatedTime: '1-3 ساعات',
+          faIcon: 'fas fa-washer'
         },
         {
           id: 18,
@@ -231,7 +255,8 @@ export class ServicesService {
           name: 'إصلاح ثلاجات',
           description: 'صيانة وإصلاح الثلاجات',
           price: 250,
-          estimatedTime: '2-3 ساعات'
+          estimatedTime: '2-3 ساعات',
+          faIcon: 'fas fa-refrigerator'
         }
       ]
     },
@@ -240,6 +265,7 @@ export class ServicesService {
       category: 'moving',
       name: 'نقل أثاث',
       icon: '🚛',
+      faIcon: 'fas fa-truck',
       description: 'خدمات نقل وتركيب الأثاث',
       totalRequests: 40,
       trend: 'up',
@@ -251,7 +277,8 @@ export class ServicesService {
           name: 'نقل منزل كامل',
           description: 'خدمة نقل الأثاث للمنازل',
           price: 800,
-          estimatedTime: '4-8 ساعات'
+          estimatedTime: '4-8 ساعات',
+          faIcon: 'fas fa-truck-loading'
         },
         {
           id: 20,
@@ -259,7 +286,8 @@ export class ServicesService {
           name: 'نقل قطع محددة',
           description: 'نقل قطع أثاث مختارة',
           price: 300,
-          estimatedTime: '2-3 ساعات'
+          estimatedTime: '2-3 ساعات',
+          faIcon: 'fas fa-dolly'
         }
       ]
     },
@@ -268,6 +296,7 @@ export class ServicesService {
       category: 'blacksmith',
       name: 'حدادة',
       icon: '⚒️',
+      faIcon: 'fas fa-hammer',
       description: 'أعمال الحدادة والمعادن',
       totalRequests: 35,
       trend: 'up',
@@ -279,7 +308,8 @@ export class ServicesService {
           name: 'تصنيع أبواب',
           description: 'تصنيع وتركيب الأبواب المعدنية',
           price: 1200,
-          estimatedTime: '2-3 أيام'
+          estimatedTime: '2-3 أيام',
+          faIcon: 'fas fa-door-closed'
         },
         {
           id: 22,
@@ -287,7 +317,8 @@ export class ServicesService {
           name: 'إصلاح وصيانة',
           description: 'إصلاح المشغولات المعدنية',
           price: 200,
-          estimatedTime: '2-4 ساعات'
+          estimatedTime: '2-4 ساعات',
+          faIcon: 'fas fa-tools'
         }
       ]
     },
@@ -296,6 +327,7 @@ export class ServicesService {
       category: 'glass',
       name: 'زجاج ومرايا',
       icon: '🪟',
+      faIcon: 'fas fa-glass',
       description: 'تركيب وإصلاح الزجاج',
       totalRequests: 30,
       trend: 'down',
@@ -307,7 +339,8 @@ export class ServicesService {
           name: 'تركيب مرايا',
           description: 'تركيب وتثبيت المرايا',
           price: 250,
-          estimatedTime: '1-2 ساعات'
+          estimatedTime: '1-2 ساعات',
+          faIcon: 'fas fa-mirror'
         },
         {
           id: 24,
@@ -315,7 +348,8 @@ export class ServicesService {
           name: 'تغيير زجاج',
           description: 'استبدال الزجاج المكسور',
           price: 300,
-          estimatedTime: '2-3 ساعات'
+          estimatedTime: '2-3 ساعات',
+          faIcon: 'fas fa-window-maximize'
         }
       ]
     }
@@ -340,11 +374,11 @@ export class ServicesService {
   getRelatedServices(serviceId: number): Observable<MainService[]> {
     const service = this.services.find(s => s.id === serviceId);
     if (!service) return of([]);
-    
+
     // Get 2 random services from same category or random if none found
     const sameCategory = this.services
       .filter(s => s.id !== serviceId && s.category === service.category);
-    
+
     let related = sameCategory;
     if (sameCategory.length < 2) {
       const others = this.services
@@ -353,16 +387,16 @@ export class ServicesService {
         .slice(0, 2 - sameCategory.length);
       related = [...sameCategory, ...others];
     }
-    
+
     return of(related.slice(0, 2)).pipe(delay(300));
   }
 
   searchServices(query: string): Observable<MainService[]> {
-    const searchResults = this.services.filter(service => 
-      service.name.includes(query) || 
+    const searchResults = this.services.filter(service =>
+      service.name.includes(query) ||
       service.description.includes(query) ||
-      service.subServices?.some(sub => 
-        sub.name.includes(query) || 
+      service.subServices?.some(sub =>
+        sub.name.includes(query) ||
         sub.description.includes(query)
       )
     );
