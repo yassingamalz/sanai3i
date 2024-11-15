@@ -33,10 +33,10 @@
             <div class="text-left">
               <div class="rating-badge">
                 <i class="fas fa-star"></i>
-                <span>{{request?.worker?.rating}}</span>
+                <span>{{worker?.rating}}</span>
               </div>
               <div class="completed-jobs">
-                {{request?.worker?.completedJobs}} خدمة منفذة
+                {{worker?.completedJobs}} خدمة منفذة
               </div>
             </div>
           </div>
@@ -75,10 +75,10 @@
   
           <!-- Provider Header -->
           <div class="provider-header">
-            <img [src]="request?.worker?.image" [alt]="request?.worker?.name" class="provider-image">
+            <img [src]="worker?.image" [alt]="worker?.name" class="provider-image">
             <div class="flex-1">
-              <h4 class="provider-name">{{request?.worker?.name}}</h4>
-              <p class="provider-bio">{{request?.worker?.bio}}</p>
+              <h4 class="provider-name">{{worker?.name}}</h4>
+              <p class="provider-bio">{{worker?.about}}</p>
             </div>
           </div>
   
@@ -86,17 +86,17 @@
           <div class="stats-grid">
             <div class="stat-item">
               <i class="fas fa-star text-yellow-400"></i>
-              <div class="stat-value">{{request?.worker?.rating}}</div>
+              <div class="stat-value">{{worker?.rating}}</div>
               <div class="stat-label">التقييم</div>
             </div>
             <div class="stat-item">
               <i class="fas fa-award text-blue-400"></i>
-              <div class="stat-value">{{request?.worker?.completionRate}}</div>
+              <div class="stat-value">{{worker?.completionRate}}</div>
               <div class="stat-label">نسبة الإكمال</div>
             </div>
             <div class="stat-item">
               <i class="fas fa-comment text-green-400"></i>
-              <div class="stat-value">{{request?.worker?.responseRate}}</div>
+              <div class="stat-value">{{worker?.responseRate}}</div>
               <div class="stat-label">نسبة الرد</div>
             </div>
           </div>
@@ -124,19 +124,19 @@
           <div class="cost-summary">
             <div class="cost-item">
               <span>تكلفة الخدمة</span>
-              <span>{{costBreakdown.basePrice}} جنيه</span>
+              <span>{{costBreakdown?.basePrice}} جنيه</span>
             </div>
             <div class="cost-item">
               <span>ضريبة القيمة المضافة (14%)</span>
-              <span>{{costBreakdown.vat}} جنيه</span>
+              <span>{{costBreakdown?.vat}} جنيه</span>
             </div>
             <div class="cost-item">
               <span>رسوم الخدمة</span>
-              <span>{{costBreakdown.serviceFee}} جنيه</span>
+              <span>{{costBreakdown?.serviceFee}} جنيه</span>
             </div>
             <div class="cost-item discount">
               <span>خصم</span>
-              <span>-{{costBreakdown.discount}} جنيه</span>
+              <span>-{{costBreakdown?.discount}} جنيه</span>
             </div>
           </div>
   
@@ -146,7 +146,7 @@
               <h4 class="total-label">الإجمالي</h4>
               <p class="total-subtitle">شامل الضريبة</p>
             </div>
-            <span class="total-amount">{{costBreakdown.total}} جنيه</span>
+            <span class="total-amount">{{costBreakdown?.total}} جنيه</span>
           </div>
   
           <!-- Payment Method -->

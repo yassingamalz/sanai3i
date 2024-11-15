@@ -21,7 +21,7 @@ export interface RequestLocation {
   }
   
   export type RequestStatus = 'draft' | 'pending' | 'accepted' | 'inProgress' | 'completed' | 'cancelled';
-  
+  export type PaymentMethod = 'cash' | 'card';
   export interface PaymentDetails {
     method: 'cash' | 'card';
     cardNumber?: string;

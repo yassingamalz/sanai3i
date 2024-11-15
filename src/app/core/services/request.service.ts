@@ -35,12 +35,12 @@ export class RequestDataService {
     },
     {
       id: 2,
-      category: 'plumber', 
+      category: 'plumber',
       service: 'صيانة عامة',
       description: 'هناك تسريب مياه بطيء تحت حوض المطبخ. يبدو أن الأنبوب تالف ويحتاج لاستبدال. نحتاج سباك في أسرع وقت لإصلاح المشكلة قبل أن تتفاقم.',
       location: {
         address: 'مدينة نصر، القاهرة',
-        coordinates: [30.0511, 31.2497]  
+        coordinates: [30.0511, 31.2497]
       },
       scheduledDate: '2024-11-14',
       scheduledTime: '10:00',
@@ -55,21 +55,21 @@ export class RequestDataService {
     {
       id: 3,
       category: 'electrician',
-      service: 'تصليح أجهزة',  
+      service: 'تصليح أجهزة',
       description: 'الغسالة لا تعمل. عند تشغيلها، لا يحدث شيء على الإطلاق. ربما تكون مشكلة كهربائية. أحتاج كهربائي لتشخيص المشكلة وإصلاحها إذا أمكن، أو نصيحة بشأن استبدالها إذا لزم الأمر.',
       location: {
         address: 'المهندسين، الجيزة',
         coordinates: [30.0611, 31.2083]
-      },  
+      },
       scheduledDate: '2024-11-15',
-      scheduledTime: '13:00', 
+      scheduledTime: '13:00',
       images: ['/api/placeholder/200/200', '/api/placeholder/200/200'],
       estimatedCost: 200,
       paymentMethod: 'cash',
       status: 'inProgress',
       createdAt: '2024-11-13T16:00:00',
       customerId: 1,
-      workerId: 2  
+      workerId: 2
     },
     {
       id: 4,
@@ -80,11 +80,11 @@ export class RequestDataService {
         address: 'شبرا، القاهرة',
         coordinates: [30.1283, 31.2497]
       },
-      scheduledDate: '2024-11-14', 
+      scheduledDate: '2024-11-14',
       scheduledTime: '09:00',
       images: [],
       estimatedCost: 300,
-      paymentMethod: 'cash',  
+      paymentMethod: 'cash',
       status: 'completed',
       createdAt: '2024-11-14T07:30:00',
       customerId: 3,
@@ -96,12 +96,12 @@ export class RequestDataService {
       service: 'صيانة عامة',
       description: 'هناك عدة مشاكل كهربائية صغيرة في المنزل. بعض المقابس لا تعمل، وهناك ضوء يومض في الحمام. نحتاج كهربائي لإجراء فحص شامل وإصلاح أي مشاكل.',
       location: {
-        address: 'المقطم، القاهرة',  
+        address: 'المقطم، القاهرة',
         coordinates: [30.0283, 31.3157]
       },
       scheduledDate: '2024-11-16',
       scheduledTime: '15:00',
-      images: ['/api/placeholder/200/200'],  
+      images: ['/api/placeholder/200/200'],
       estimatedCost: 150,
       paymentMethod: 'card',
       status: 'draft',
@@ -115,18 +115,18 @@ export class RequestDataService {
       description: 'هناك مشكلة في الصنابير في الحمامات. المياه لا تتدفق بشكل جيد ويبدو أن هناك تراكم في الأنابيب. نحتاج سباك لتنظيف وفحص نظام السباكة.',
       location: {
         address: 'مصر الجديدة، القاهرة',
-        coordinates: [30.0883, 31.3197] 
+        coordinates: [30.0883, 31.3197]
       },
-      scheduledDate: '2024-11-15', 
+      scheduledDate: '2024-11-15',
       scheduledTime: '11:00',
       images: [],
       estimatedCost: 120,
       paymentMethod: 'cash',
       status: 'pending',
-      createdAt: '2024-11-14T10:30:00', 
+      createdAt: '2024-11-14T10:30:00',
       customerId: 5
     },
-    {  
+    {
       id: 7,
       category: 'electrician',
       service: 'تصليح تكييف',
@@ -139,39 +139,39 @@ export class RequestDataService {
       scheduledTime: '16:00',
       images: ['/api/placeholder/200/200'],
       estimatedCost: 220,
-      paymentMethod: 'card',  
+      paymentMethod: 'card',
       status: 'accepted',
-      createdAt: '2024-11-14T12:00:00', 
+      createdAt: '2024-11-14T12:00:00',
       customerId: 6,
       workerId: 2
     },
     {
       id: 8,
-      category: 'plumber',  
+      category: 'plumber',
       service: 'طوارئ',
       description: 'هناك تسرب كبير للمياه في المنزل! يبدو أن أحد الأنابيب الرئيسية انفجر. نحتاج سباك في حالة طوارئ فورًا لإيقاف التسرب وإصلاح المشكلة قبل أن يتضرر المنزل بأكمله.',
       location: {
-        address: 'مدينة العبور، القاهرة', 
+        address: 'مدينة العبور، القاهرة',
         coordinates: [30.1811, 31.6083]
       },
       scheduledDate: '2024-11-14',
-      scheduledTime: '20:00', 
+      scheduledTime: '20:00',
       images: ['/api/placeholder/200/200', '/api/placeholder/200/200', '/api/placeholder/200/200'],
       estimatedCost: 400,
       paymentMethod: 'cash',
       status: 'inProgress',
       createdAt: '2024-11-14T19:30:00',
-      customerId: 7, 
+      customerId: 7,
       workerId: 3
     },
     {
       id: 9,
       category: 'electrician',
       service: 'تصليح أجهزة',
-      description: 'الفرن الكهربائي لا يسخن بشكل صحيح. يبدأ التسخين ولكنه لا يصل أبدًا إلى درجة الحرارة المطلوبة. أحتاج كهربائي للتحقق من المشكلة وإصلاحها.',  
+      description: 'الفرن الكهربائي لا يسخن بشكل صحيح. يبدأ التسخين ولكنه لا يصل أبدًا إلى درجة الحرارة المطلوبة. أحتاج كهربائي للتحقق من المشكلة وإصلاحها.',
       location: {
         address: '6 أكتوبر، الجيزة',
-        coordinates: [29.9511, 31.0083] 
+        coordinates: [29.9511, 31.0083]
       },
       scheduledDate: '2024-11-16',
       scheduledTime: '12:00',
@@ -188,9 +188,9 @@ export class RequestDataService {
       service: 'صيانة عامة',
       description: 'نود إجراء فحص وصيانة عامة لنظام السباكة في منزلنا. لم تكن هناك أي مشاكل كبيرة، لكننا نريد التأكد من أن كل شيء يعمل بشكل سليم ومنع أي مشكلات مستقبلية.',
       location: {
-        address: 'الرحاب، القاهرة', 
+        address: 'الرحاب، القاهرة',
         coordinates: [30.0611, 31.4917]
-      },  
+      },
       scheduledDate: '2024-11-17',
       scheduledTime: '10:00',
       images: [],
@@ -198,7 +198,7 @@ export class RequestDataService {
       paymentMethod: 'card',
       status: 'pending',
       createdAt: '2024-11-14T18:00:00',
-      customerId: 9  
+      customerId: 9
     }
   ];
 
@@ -238,7 +238,7 @@ export class RequestDataService {
     { id: 'card' as const, name: 'بطاقة ائتمان', icon: 'credit-card' }
   ];
 
-  constructor() {}
+  constructor() { }
 
   // Request Management
   getCurrentRequest(): Observable<Partial<ServiceRequest>> {
@@ -250,6 +250,11 @@ export class RequestDataService {
       ...this.currentRequest.value,
       ...request
     });
+  }
+
+  getRequest(id: number): Observable<ServiceRequest> {
+    const request = this.mockRequests.find(r => r.id === id);
+    return request ? of(request) : of();
   }
 
   getRequests(status?: RequestStatus): Observable<ServiceRequest[]> {
@@ -270,17 +275,25 @@ export class RequestDataService {
     return of(newRequest);
   }
 
+  updateRequestStatus(id: number, status: RequestStatus): Observable<void> {
+    const request = this.mockRequests.find(r => r.id === id);
+    if (request) {
+      request.status = status;
+    }
+    return of();
+  }
+
   // Utility Methods
   calculateEstimatedCost(category: string, service: string): number {
     const categoryData = this.categories.find(c => c.id === category);
     const serviceData = categoryData?.services.find(s => s.id === service);
     const basePrice = serviceData?.basePrice || 0;
-    return Math.round(basePrice + (Math.random() * 50)); 
+    return Math.round(basePrice + (Math.random() * 50));
   }
 
   getAvailableTimeSlots(date: string): string[] {
     return [
-      '09:00', '10:00', '11:00', '12:00', '13:00', 
+      '09:00', '10:00', '11:00', '12:00', '13:00',
       '14:00', '15:00', '16:00', '17:00', '18:00'
     ];
   }
@@ -305,5 +318,21 @@ export class RequestDataService {
 
   getServicesByCategory(categoryId: string) {
     return this.categories.find(c => c.id === categoryId)?.services || [];
+  }
+
+  calculateVAT(amount: number): number {
+    return amount * 0.14;
+  }
+
+  getServiceFee(): number {
+    return 10;
+  }
+
+  getDiscount(): number {
+    return 15;
+  }
+
+  calculateTotalCost(base: number, vat: number, fee: number, discount: number): number {
+    return base + vat + fee - discount;
   }
 }
