@@ -18,39 +18,187 @@ export class RequestDataService {
     {
       id: 1,
       category: 'electrician',
-      service: 'تصليح تكيف',
-      description: 'تكييف لا يبرد بشكل جيد',
+      service: 'تصليح تكييف',
+      description: 'التكييف في غرفة النوم لا يعمل بشكل جيد. لا يبرد الهواء كما ينبغي وهناك صوت غريب يصدر منه عند التشغيل. أحتاج لفني لفحص المشكلة وإصلاحها.',
       location: {
         address: 'المعادي، القاهرة',
         coordinates: [30.0444, 31.2357]
       },
       scheduledDate: '2024-11-14',
       scheduledTime: '14:00',
-      images: ['/api/placeholder/200/200'],
+      images: ['/api/placeholder/200/200', '/api/placeholder/200/200'],
       estimatedCost: 250,
       paymentMethod: 'cash',
       status: 'pending',
-      createdAt: '2024-11-14T10:00:00',
+      createdAt: '2024-11-13T10:00:00',
       customerId: 1
     },
     {
       id: 2,
-      category: 'plumber',
-      service: 'سباكه',
-      description: 'تسريب مياه في المطبخ',
+      category: 'plumber', 
+      service: 'صيانة عامة',
+      description: 'هناك تسريب مياه بطيء تحت حوض المطبخ. يبدو أن الأنبوب تالف ويحتاج لاستبدال. نحتاج سباك في أسرع وقت لإصلاح المشكلة قبل أن تتفاقم.',
       location: {
         address: 'مدينة نصر، القاهرة',
-        coordinates: [30.0511, 31.2497]
+        coordinates: [30.0511, 31.2497]  
       },
       scheduledDate: '2024-11-14',
-      scheduledTime: '16:00',
+      scheduledTime: '10:00',
       images: ['/api/placeholder/200/200'],
+      estimatedCost: 180,
+      paymentMethod: 'cash',
+      status: 'accepted',
+      createdAt: '2024-11-13T14:30:00',
+      customerId: 2,
+      workerId: 3
+    },
+    {
+      id: 3,
+      category: 'electrician',
+      service: 'تصليح أجهزة',  
+      description: 'الغسالة لا تعمل. عند تشغيلها، لا يحدث شيء على الإطلاق. ربما تكون مشكلة كهربائية. أحتاج كهربائي لتشخيص المشكلة وإصلاحها إذا أمكن، أو نصيحة بشأن استبدالها إذا لزم الأمر.',
+      location: {
+        address: 'المهندسين، الجيزة',
+        coordinates: [30.0611, 31.2083]
+      },  
+      scheduledDate: '2024-11-15',
+      scheduledTime: '13:00', 
+      images: ['/api/placeholder/200/200', '/api/placeholder/200/200'],
+      estimatedCost: 200,
+      paymentMethod: 'cash',
+      status: 'inProgress',
+      createdAt: '2024-11-13T16:00:00',
+      customerId: 1,
+      workerId: 2  
+    },
+    {
+      id: 4,
+      category: 'plumber',
+      service: 'طوارئ',
+      description: 'يوجد انسداد شديد في الحمام ولا يمكن استخدامه على الإطلاق. حاولنا استخدام المكبس لكن دون جدوى. نحتاج سباك طوارئ للقدوم في أسرع وقت ممكن!',
+      location: {
+        address: 'شبرا، القاهرة',
+        coordinates: [30.1283, 31.2497]
+      },
+      scheduledDate: '2024-11-14', 
+      scheduledTime: '09:00',
+      images: [],
+      estimatedCost: 300,
+      paymentMethod: 'cash',  
+      status: 'completed',
+      createdAt: '2024-11-14T07:30:00',
+      customerId: 3,
+      workerId: 1
+    },
+    {
+      id: 5,
+      category: 'electrician',
+      service: 'صيانة عامة',
+      description: 'هناك عدة مشاكل كهربائية صغيرة في المنزل. بعض المقابس لا تعمل، وهناك ضوء يومض في الحمام. نحتاج كهربائي لإجراء فحص شامل وإصلاح أي مشاكل.',
+      location: {
+        address: 'المقطم، القاهرة',  
+        coordinates: [30.0283, 31.3157]
+      },
+      scheduledDate: '2024-11-16',
+      scheduledTime: '15:00',
+      images: ['/api/placeholder/200/200'],  
       estimatedCost: 150,
       paymentMethod: 'card',
-      status: 'inProgress',
+      status: 'draft',
       createdAt: '2024-11-14T09:00:00',
-      customerId: 1,
+      customerId: 4
+    },
+    {
+      id: 6,
+      category: 'plumber',
+      service: 'صيانة عامة',
+      description: 'هناك مشكلة في الصنابير في الحمامات. المياه لا تتدفق بشكل جيد ويبدو أن هناك تراكم في الأنابيب. نحتاج سباك لتنظيف وفحص نظام السباكة.',
+      location: {
+        address: 'مصر الجديدة، القاهرة',
+        coordinates: [30.0883, 31.3197] 
+      },
+      scheduledDate: '2024-11-15', 
+      scheduledTime: '11:00',
+      images: [],
+      estimatedCost: 120,
+      paymentMethod: 'cash',
+      status: 'pending',
+      createdAt: '2024-11-14T10:30:00', 
+      customerId: 5
+    },
+    {  
+      id: 7,
+      category: 'electrician',
+      service: 'تصليح تكييف',
+      description: 'التكييف في الصالة توقف عن العمل فجأة. كان يعمل بشكل جيد ولكن الآن لا يعمل على الإطلاق. نحتاج كهربائي لمعرفة ما إذا كان يمكن إصلاحه أو يلزم استبداله.',
+      location: {
+        address: 'الدقي، الجيزة',
+        coordinates: [30.0539, 31.2103]
+      },
+      scheduledDate: '2024-11-15',
+      scheduledTime: '16:00',
+      images: ['/api/placeholder/200/200'],
+      estimatedCost: 220,
+      paymentMethod: 'card',  
+      status: 'accepted',
+      createdAt: '2024-11-14T12:00:00', 
+      customerId: 6,
       workerId: 2
+    },
+    {
+      id: 8,
+      category: 'plumber',  
+      service: 'طوارئ',
+      description: 'هناك تسرب كبير للمياه في المنزل! يبدو أن أحد الأنابيب الرئيسية انفجر. نحتاج سباك في حالة طوارئ فورًا لإيقاف التسرب وإصلاح المشكلة قبل أن يتضرر المنزل بأكمله.',
+      location: {
+        address: 'مدينة العبور، القاهرة', 
+        coordinates: [30.1811, 31.6083]
+      },
+      scheduledDate: '2024-11-14',
+      scheduledTime: '20:00', 
+      images: ['/api/placeholder/200/200', '/api/placeholder/200/200', '/api/placeholder/200/200'],
+      estimatedCost: 400,
+      paymentMethod: 'cash',
+      status: 'inProgress',
+      createdAt: '2024-11-14T19:30:00',
+      customerId: 7, 
+      workerId: 3
+    },
+    {
+      id: 9,
+      category: 'electrician',
+      service: 'تصليح أجهزة',
+      description: 'الفرن الكهربائي لا يسخن بشكل صحيح. يبدأ التسخين ولكنه لا يصل أبدًا إلى درجة الحرارة المطلوبة. أحتاج كهربائي للتحقق من المشكلة وإصلاحها.',  
+      location: {
+        address: '6 أكتوبر، الجيزة',
+        coordinates: [29.9511, 31.0083] 
+      },
+      scheduledDate: '2024-11-16',
+      scheduledTime: '12:00',
+      images: ['/api/placeholder/200/200'],
+      estimatedCost: 180,
+      paymentMethod: 'cash',
+      status: 'draft',
+      createdAt: '2024-11-14T16:00:00',
+      customerId: 8
+    },
+    {
+      id: 10,
+      category: 'plumber',
+      service: 'صيانة عامة',
+      description: 'نود إجراء فحص وصيانة عامة لنظام السباكة في منزلنا. لم تكن هناك أي مشاكل كبيرة، لكننا نريد التأكد من أن كل شيء يعمل بشكل سليم ومنع أي مشكلات مستقبلية.',
+      location: {
+        address: 'الرحاب، القاهرة', 
+        coordinates: [30.0611, 31.4917]
+      },  
+      scheduledDate: '2024-11-17',
+      scheduledTime: '10:00',
+      images: [],
+      estimatedCost: 100,
+      paymentMethod: 'card',
+      status: 'pending',
+      createdAt: '2024-11-14T18:00:00',
+      customerId: 9  
     }
   ];
 
