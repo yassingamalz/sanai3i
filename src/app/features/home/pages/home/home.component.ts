@@ -42,6 +42,7 @@ interface TopService {
   ]
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+
   @ViewChildren('serviceCard') serviceCards!: QueryList<ElementRef>;
 
   searchQuery: string = '';
@@ -137,6 +138,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   navigateToFullList(section: string): void {
     this.router.navigate(['/services', section]);
   }
+
+  openService(id: number) {
+    this.router.navigate(['/services', id]);
+    }
 
   onWorkerClick(worker: Worker): void {
     this.router.navigate(['/worker', worker.id]);

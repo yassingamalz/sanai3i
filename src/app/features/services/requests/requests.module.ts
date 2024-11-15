@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { NewRequestComponent } from './pages/new-request/new-request.component';
-import { RequestsListComponent } from './pages/requests-list/requests-list.component';
-import { RequestDetailsComponent } from '../requests/pages/request-details/request-details.component';
-import { RequestStatusPipe } from '../../shared/pipes/request-status.pipe';
-import { SharedModule } from '../../shared/shared.module';
+import { NewRequestComponent } from '../pages/new-request/new-request.component';
+import { RequestsListComponent } from '../pages/requests-list/requests-list.component';
+import { RequestDetailsComponent } from '../../requests/pages/request-details/request-details.component';
+import { RequestStatusPipe } from '../../../shared/pipes/request-status.pipe';
+import { SharedModule } from '../../../shared/shared.module';
 
 
 @NgModule({

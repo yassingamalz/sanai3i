@@ -7,13 +7,15 @@ import { ServiceDetailsComponent } from './pages/service-details/service-details
 import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewRequestComponent } from './pages/new-request/new-request.component';
+import { SubServiceComponent } from './pages/sub-service/sub-service.component';
 
 @NgModule({
   declarations: [
     ServicesListComponent,
     RequestsListComponent,
     ServiceDetailsComponent,
-    NewRequestComponent
+    NewRequestComponent,
+    SubServiceComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,8 @@ import { NewRequestComponent } from './pages/new-request/new-request.component';
         path: ':id',
         component: ServiceDetailsComponent
       },
+      { path: ':mainId/sub-service/:subId',
+         component: SubServiceComponent }
     ])
   ]
 })

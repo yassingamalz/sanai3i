@@ -28,6 +28,7 @@
       <div *ngFor="let service of services; let i = index; trackBy: trackByServiceId" 
            #serviceCard
            class="grid-card"
+           (click)="openService(service.id)"
            [@fadeInUp]="shouldAnimate(i) ? 'in' : 'void'">
         <div class="service-icon">{{service.icon}}</div>
         <h3 class="card-title">{{service.name}}</h3>

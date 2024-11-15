@@ -1,7 +1,7 @@
 <div class="min-h-screen bg-gray-50">
     <!-- Header -->
     <header class="header">
-        <app-back-button [redirectUrl]="'/services/all-services'" text="رجوع"></app-back-button>
+        <app-back-button [redirectUrl]="'services/all-services'" text="رجوع"></app-back-button>
     </header>
 
     <!-- Service Overview -->
@@ -59,7 +59,8 @@
         </div>
 
         <div class="service-items-list">
-            <div *ngFor="let item of serviceSections[0].items" class="service-item-card">
+            <div *ngFor="let item of serviceSections[0].items" class="service-item-card"
+            (click)="onSubServiceClick(item)">
                 <div class="service-item-content">
                     <h4 class="service-item-title">{{item.name}}</h4>
                     <p class="service-item-description">{{item.description}}</p>

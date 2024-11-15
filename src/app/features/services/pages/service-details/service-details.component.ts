@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { trigger, style, animate, transition, state, query, stagger, sequence, group } from '@angular/animations';
 import { ServicesService } from '../../../../core/services/services.service';
-import { MainService, ServiceSection } from '../../../../shared/interfaces/service.interface';
+import { MainService, ServiceItem, ServiceSection } from '../../../../shared/interfaces/service.interface';
 import { ViewportScroller } from '@angular/common';
 import { finalize, forkJoin, Observable, of } from 'rxjs';
 import { WorkerService } from '../../../../core/services/worker.service';
@@ -71,72 +71,38 @@ export class ServiceDetailsComponent implements OnInit {
 
   private loadData(serviceId: number): void {
     this.isLoading = true;
-
-    const serviceSections: ServiceSection[] = [
-      {
-        id: 1,
-        title: 'الخدمات',
-        items: [
-          { id: 1, name: 'صيانة عامة', price: 150, description: 'فحص وإصلاح المشاكل الكهربائية العامة' },
-          { id: 2, name: 'تركيب أجهزة', price: 200, description: 'تركيب وتوصيل الأجهزة الكهربائية' },
-          { id: 3, name: 'تمديدات كهربائية', price: 300, description: 'تمديد وصيانة الأسلاك الكهربائية' }
-        ]
-      }
-    ];
-
-    // Get service details and workers in parallel
+  
     forkJoin({
       service: this.servicesService.getServiceById(serviceId),
-      workers: this.workerService.getWorkers() 
+      subServices: this.servicesService.getSubServices(serviceId),
+      workers: this.workerService.getWorkers(),
+      relatedServices: this.servicesService.getRelatedServices(serviceId)
     }).pipe(
       finalize(() => this.isLoading = false)
     ).subscribe({
-      next: ({ service, workers }) => {
+      next: ({ service, subServices, workers, relatedServices }) => {
         if (service) {
           this.service = service;
-          this.serviceSections = serviceSections;
-          
-          // Get 2 random workers
+          this.serviceSections = [{
+            id: 1,
+            title: 'الخدمات',
+            items: subServices
+          }];
           this.topWorkers = this.getRandomWorkers(workers, 2);
-          
+          this.relatedServices = relatedServices;
           this.updateStats(this.topWorkers);
-          this.loadRelatedServices();
         }
       },
       error: (error) => console.error('Error loading data:', error)
     });
-}
+  }
+  
 
 private getRandomWorkers(workers: Worker[], count: number): Worker[] {
     return [...workers]
       .sort(() => Math.random() - 0.5)
       .slice(0, count);
 }
-
-  private loadRelatedServices(): void {
-    this.relatedServices = [
-      {
-        id: 2,
-        name: 'سباكة',
-        description: 'خدمات السباكة المنزلية',
-        icon: 'fas fa-wrench',
-        totalRequests: 850,
-        trend: 'up',
-        trendValue: 12,
-        category: ''
-      },
-      {
-        id: 3,
-        name: 'نجارة',
-        description: 'خدمات النجارة وإصلاح الأثاث',
-        icon: 'fas fa-hammer',
-        totalRequests: 650,
-        trend: 'up',
-        trendValue: 8,
-        category: ''
-      }
-    ];
-  }
 
   private updateStats(workers: Worker[]): void {
     this.stats = {
@@ -153,6 +119,10 @@ private getRandomWorkers(workers: Worker[], count: number): Worker[] {
 
   getStarArray(rating: number): number[] {
     return Array(Math.floor(rating)).fill(0);
+  }
+
+  onSubServiceClick(subService: ServiceItem): void {
+    this.router.navigate(['/services', this.service.id, 'sub-service', subService.id]);
   }
 
   onRequestService(): void {

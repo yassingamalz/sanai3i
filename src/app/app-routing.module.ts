@@ -26,7 +26,7 @@ import { WorkerDetailsComponent } from './features/home/pages/worker-details/wor
         },
         {
           path: 'requests',
-          loadChildren: () => import('./features/services/requests.module').then(m => m.RequestsModule),
+          loadChildren: () => import('./features/services/requests/requests.module').then(m => m.RequestsModule),
           canActivate: [AuthGuard]
         },
         {
