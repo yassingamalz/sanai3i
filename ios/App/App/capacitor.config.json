@@ -1,0 +1,6 @@
+{
+	"appId": "com.sanai3i.app",
+	"appName": "sanai3i",
+	"webDir": "dist/sanai3i/browser",
+	"packageClassList": []
+}
