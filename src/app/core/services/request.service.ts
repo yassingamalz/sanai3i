@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { ServiceRequest, RequestStep, RequestStatus, PaymentDetails } from '../../shared/interfaces/request.interface';
+import { Observable, of, BehaviorSubject, throwError } from 'rxjs';
+import { ServiceRequest, RequestStep, RequestStatus, PaymentDetails, NegotiationHistory, PriceUpdate } from '../../shared/interfaces/request.interface';
 @Injectable({
   providedIn: 'root'
 })
 export class RequestDataService {
   private currentRequest = new BehaviorSubject<Partial<ServiceRequest>>({});
+  private negotiationHistory: NegotiationHistory[] = [];
 
   readonly steps: RequestStep[] = [
     { id: 1, title: 'نوع الخدمة', subtitle: 'اختر الخدمة المطلوبة', icon: 'tools', completed: false },
@@ -281,6 +282,57 @@ export class RequestDataService {
       request.status = status;
     }
     return of();
+  }
+  
+  updateRequestPrice(requestId: number, update: PriceUpdate): Observable<void> {
+    const request = this.mockRequests.find(r => r.id === requestId);
+    if (!request || typeof request.estimatedCost !== 'number') {
+      return throwError(() => new Error('Request not found or invalid price'));
+    }
+  
+    const percentageChange = Number((
+      ((update.price - request.estimatedCost) / request.estimatedCost) * 100
+    ).toFixed(1));
+  
+    // Validate price change is within ±15%
+    if (Math.abs(percentageChange) > 15) {
+      return throwError(() => new Error('Price change exceeds allowed limit of ±15%'));
+    }
+  
+    // Add to negotiation history
+    this.negotiationHistory.push({
+      id: this.negotiationHistory.length + 1,
+      requestId,
+      price: update.price,
+      message: update.message,
+      type: 'customer',
+      timestamp: new Date().toISOString(),
+      percentageChange
+    });
+  
+    // Update the request's estimated cost
+    request.estimatedCost = update.price;
+  
+    return of(void 0);
+  }
+
+  getNegotiationHistory(requestId: number): Observable<NegotiationHistory[]> {
+    return of(this.negotiationHistory
+      .filter(n => n.requestId === requestId)
+      .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+    );
+  }
+
+  validatePriceChange(originalPrice: number, newPrice: number): boolean {
+    const percentageChange = ((newPrice - originalPrice) / originalPrice) * 100;
+    return Math.abs(percentageChange) <= 15;
+  }
+
+  calculatePriceRange(originalPrice: number): { min: number; max: number } {
+    return {
+      min: Math.floor(originalPrice * 0.85),
+      max: Math.ceil(originalPrice * 1.15)
+    };
   }
 
   // Utility Methods

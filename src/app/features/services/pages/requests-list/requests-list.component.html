@@ -7,9 +7,7 @@
         <button class="filter-btn" (click)="openFilters()">
           <i class="fas fa-filter"></i>
         </button>
-        <button *ngIf="userType === 'customer'" 
-                class="new-request-btn" 
-                (click)="openNewRequest()">
+        <button *ngIf="userType === 'customer'" class="new-request-btn" (click)="openNewRequest()">
           <i class="fas fa-plus"></i>
           <span>طلب جديد</span>
         </button>
@@ -20,10 +18,8 @@
   <!-- Tabs -->
   <div class="tabs-container">
     <div class="tabs-scroll no-scrollbar">
-      <button *ngFor="let status of orderStatuses"
-              class="tab-btn"
-              [class.active]="currentStatus === status.id"
-              (click)="setStatus(status.id)">
+      <button *ngFor="let status of orderStatuses" class="tab-btn" [class.active]="currentStatus === status.id"
+        (click)="setStatus(status.id)">
         <i [class]="status.icon"></i>
         <span>{{status.label}}</span>
         <span class="counter">{{status.count}}</span>
@@ -68,7 +64,7 @@
           <i class="fas fa-clock"></i>
           <span>{{proposal.scheduledTime}} • {{proposal.scheduledDate}}</span>
         </div>
-        
+
         <p class="description-text">{{proposal.description}}</p>
 
         <!-- Price and Location -->
@@ -76,8 +72,7 @@
           <div class="price-text">
             {{proposal.estimatedCost}} جنيه
           </div>
-          <button *ngIf="proposal.status === 'inProgress'"
-                  class="track-location-btn">
+          <button *ngIf="proposal.status === 'inProgress'" class="track-location-btn">
             <i class="fas fa-location-arrow animate-pulse"></i>
             <span>تتبع الموقع</span>
           </button>
@@ -90,7 +85,7 @@
           <i [class]="getActionButtonIcon()"></i>
           <span>{{actionButtonLabel}}</span>
         </button>
-        <button class="secondary-btn">
+        <button *ngIf="canNegotiate(proposal)" class="secondary-btn" (click)="openNegotiation(proposal)">
           <i class="fas fa-comments"></i>
           <span>تفاوض</span>
         </button>

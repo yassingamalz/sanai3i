@@ -1,13 +1,16 @@
+// requests-list.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, combineLatest } from 'rxjs';
 import { takeUntil, map } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+
 import { AuthService } from '../../../../core/services/auth.service';
 import { RequestDataService } from '../../../../core/services/request.service';
-import { RequestViewModel } from '../../../../shared/interfaces/request-view.interface';
-import { RequestStatus } from '../../../../shared/interfaces/request.interface';
 import { WorkerService } from '../../../../core/services/worker.service';
-
+import { RequestViewModel } from '../../../../shared/interfaces/request-view.interface';
+import { PriceNegotiationData, PriceNegotiationResult, RequestStatus } from '../../../../shared/interfaces/request.interface';
+import { PriceNegotiationComponent } from '../../../../shared/components/price-negotiation/price-negotiation.component';
 
 type ExtendedStatus = RequestStatus | 'all';
 
@@ -20,7 +23,8 @@ export class RequestsListComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
   currentStatus: ExtendedStatus = 'inProgress';
   proposals: RequestViewModel[] = [];
-  
+  isLoading = true;
+
   get orderStatuses() {
     const allStatus = {
       id: 'all' as ExtendedStatus,
@@ -43,8 +47,9 @@ export class RequestsListComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private requestService: RequestDataService,
     private workerService: WorkerService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private dialog: MatDialog,
+  ) { }
 
   ngOnInit() {
     this.loadRequests();
@@ -56,6 +61,7 @@ export class RequestsListComponent implements OnInit, OnDestroy {
   }
 
   private loadRequests() {
+    this.isLoading = true;
     const requests$ = this.requestService.getRequests(
       this.currentStatus === 'all' ? undefined : this.currentStatus
     );
@@ -66,7 +72,7 @@ export class RequestsListComponent implements OnInit, OnDestroy {
       .pipe(
         map(([requests, workers]) => {
           return requests.map(request => {
-            const worker = request.workerId 
+            const worker = request.workerId
               ? workers.find(w => w.id === request.workerId)
               : undefined;
 
@@ -87,8 +93,51 @@ export class RequestsListComponent implements OnInit, OnDestroy {
         }),
         takeUntil(this.destroy$)
       )
-      .subscribe(requestViewModels => {
-        this.proposals = requestViewModels;
+      .subscribe({
+        next: (requestViewModels) => {
+          this.proposals = requestViewModels;
+          this.isLoading = false;
+        },
+        error: (error) => {
+          console.error('Error loading requests:', error);
+          this.isLoading = false;
+        }
+      });
+  }
+
+  openNegotiation(proposal: RequestViewModel) {
+    const dialogRef = this.dialog.open(PriceNegotiationComponent, {
+      data: {
+        requestId: proposal.id,
+        originalPrice: proposal.estimatedCost,
+        serviceName: proposal.service
+      },
+      width: '360px',
+      maxWidth: '95vw',
+      panelClass: ['custom-negotiation-dialog'],
+      hasBackdrop: true,
+      backdropClass: 'dialog-backdrop',
+      autoFocus: false
+    })
+
+    dialogRef.afterClosed()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(result => {
+        if (result?.accepted && result.price) {
+          this.requestService.updateRequestPrice(proposal.id || 0, {
+            price: result.price,
+            message: result.message
+          })
+            .pipe(takeUntil(this.destroy$))
+            .subscribe({
+              next: () => {
+                this.loadRequests();
+              },
+              error: (error) => {
+                console.error('Error updating price:', error);
+              }
+            });
+        }
       });
   }
 
@@ -118,7 +167,7 @@ export class RequestsListComponent implements OnInit, OnDestroy {
       accepted: 'bg-indigo-50 text-indigo-700',
       draft: 'bg-gray-50 text-gray-700'
     };
-    
+
     return `status-banner ${colorClasses[status]}`;
   }
 
@@ -132,7 +181,7 @@ export class RequestsListComponent implements OnInit, OnDestroy {
       accepted: 'text-indigo-500',
       draft: 'text-gray-500'
     };
-    
+
     return `fas fa-${config.icon} ${iconClasses[status]}`;
   }
 
@@ -142,6 +191,10 @@ export class RequestsListComponent implements OnInit, OnDestroy {
 
   getActionButtonIcon(): string {
     return this.userType === 'worker' ? 'fas fa-check' : 'fas fa-info-circle';
+  }
+
+  canNegotiate(proposal: RequestViewModel): boolean {
+    return this.userType === 'worker' && proposal.status === 'pending';
   }
 
   openNewRequest() {
@@ -154,18 +207,35 @@ export class RequestsListComponent implements OnInit, OnDestroy {
 
   handleAction(proposal: RequestViewModel) {
     if (this.userType === 'worker') {
-      this.acceptRequest(proposal);
+      if (proposal.status === 'pending') {
+        this.acceptRequest(proposal);
+      } else {
+        this.openNegotiation(proposal);
+      }
     } else {
       this.viewRequestDetails(proposal);
     }
   }
 
   private acceptRequest(proposal: RequestViewModel) {
-    console.log('Accepting request:', proposal.id);
+    if (proposal.status !== 'pending') {
+      return;
+    }
+
+    this.requestService.updateRequestStatus(proposal.id || 0, 'accepted')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: () => {
+          this.loadRequests();
+        },
+        error: (error) => {
+          console.error('Error accepting request:', error);
+        }
+      });
   }
 
   private viewRequestDetails(proposal: RequestViewModel) {
-    this.router.navigate(['requests',proposal.id]);
+    this.router.navigate(['requests', proposal.id]);
   }
 
   private getTotalCount(): number {
@@ -180,19 +250,19 @@ export class RequestsListComponent implements OnInit, OnDestroy {
     const R = 6371;
     const dLat = this.deg2rad(coord2[0] - coord1[0]);
     const dLon = this.deg2rad(coord2[1] - coord1[1]);
-    const a = 
-      Math.sin(dLat/2) * Math.sin(dLat/2) +
-      Math.cos(this.deg2rad(coord1[0])) * Math.cos(this.deg2rad(coord2[0])) * 
-      Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(this.deg2rad(coord1[0])) * Math.cos(this.deg2rad(coord2[0])) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c;
-    
-    return distance < 1 
-      ? `${Math.round(distance * 1000)} م` 
+
+    return distance < 1
+      ? `${Math.round(distance * 1000)} م`
       : `${distance.toFixed(1)} كم`;
   }
 
   private deg2rad(deg: number): number {
-    return deg * (Math.PI/180);
+    return deg * (Math.PI / 180);
   }
 }

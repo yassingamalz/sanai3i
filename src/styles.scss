@@ -4,7 +4,8 @@
 @import 'leaflet/dist/leaflet.css';
 
 /* Global RTL and Base Styles */
-html, body {
+html,
+body {
   direction: rtl;
   margin: 0;
   padding: 0;
@@ -17,8 +18,82 @@ html, body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
+// Global dialog styles
+.dialog-backdrop {
+  background: rgba(0, 0, 0, 0.45) !important;
+  backdrop-filter: blur(8px);
+}
+
+::ng-deep .custom-negotiation-dialog {
+  .mat-dialog-container {
+    padding: 0 !important;
+    border-radius: 16px !important;
+    overflow: visible !important;
+    background: white !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .mat-dialog-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-height: none !important;
+  }
+}
+// RTL support for Material Dialog
+.mat-dialog-container {
+  direction: rtl;
+}
+
+// Fix for number input spinners
+input[type=number] {
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+// Optional: Custom scrollbar styling
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// Optional: Animation classes
+.fade-in {
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

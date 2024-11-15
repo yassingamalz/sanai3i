@@ -1,0 +1,149 @@
+.dialog-content {
+  width: 100%;
+  background: white;
+  position: relative;
+  
+  // Close button
+  .close-button {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover {
+      color: #333;
+    }
+  }
+
+  // Header
+  .header {
+    text-align: center;
+    padding: 20px 20px 16px;
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #111827;
+      margin: 0 0 20px;
+    }
+
+    .price {
+      color: #ef4444;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .price-description {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .price-range {
+      color: #888;
+      font-size: 14px;
+    }
+  }
+
+  // Form
+  form {
+    padding: 0 20px 20px;
+
+    .form-group {
+      margin-bottom: 16px;
+
+      label {
+        display: block;
+        text-align: right;
+        color: #374151;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      input, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        font-size: 16px;
+        
+        &:focus {
+          outline: none;
+          border-color: #ef4444;
+          box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+        }
+
+        &::placeholder {
+          color: #9ca3af;
+        }
+      }
+
+      input[type="number"] {
+        text-align: right;
+        direction: ltr;
+      }
+
+      textarea {
+        height: 100px;
+        resize: none;
+      }
+    }
+
+    // Buttons
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+
+      button {
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        flex: 1;
+        cursor: pointer;
+        border: none;
+
+        &.cancel {
+          background: transparent;
+          color: #666;
+          
+          &:hover {
+            color: #333;
+          }
+        }
+
+        &.submit {
+          background: #ef4444;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          
+          &:hover:not(:disabled) {
+            background: #dc2626;
+          }
+
+          &:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+          }
+
+          i {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}

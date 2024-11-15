@@ -37,3 +37,38 @@ export interface RequestLocation {
     icon: string;
     completed: boolean;
   }
+
+  export interface NegotiationHistory {
+    id: number;
+    requestId: number;
+    price: number;
+    message?: string;
+    type: 'provider' | 'customer';
+    timestamp: string;
+    percentageChange: number;
+  }
+  
+  export interface PriceUpdate {
+    price: number;
+    message?: string;
+  }
+
+  export interface PriceNegotiationData {
+    requestId: number;
+    originalPrice: number;
+    serviceName: string;
+  }
+  
+  export interface PriceNegotiationResult {
+    price?: number;
+    accepted: boolean;
+  }
+  
+  export interface NegotiationOffer {
+    id: number;
+    price: number;
+    message: string;
+    type: 'provider' | 'customer';
+    timestamp: Date;
+    percentageChange: number;
+  }

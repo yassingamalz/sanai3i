@@ -1,0 +1,44 @@
+<!-- price-negotiation.component.html -->
+<div class="dialog-content" dir="rtl">
+  <button class="close-button" (click)="close()">
+    <i class="fas fa-times"></i>
+  </button>
+
+  <div class="header">
+    <h2>تفاوض على السعر</h2>
+    <div class="price">{{data.originalPrice}} جنيه</div>
+    <div class="price-description">السعر المبدئي للخدمة</div>
+    <div class="price-range">السعر المسموح: {{minPrice}} - {{maxPrice}} جنيه</div>
+  </div>
+
+  <form [formGroup]="offerForm" (ngSubmit)="submitOffer()">
+    <div class="form-group">
+      <label>السعر المقترح</label>
+      <input 
+        type="number"
+        formControlName="price"
+        [min]="minPrice"
+        [max]="maxPrice">
+    </div>
+
+    <div class="form-group">
+      <label>رسالة (اختياري)</label>
+      <textarea 
+        formControlName="message"
+        placeholder="اكتب رسالتك هنا..."></textarea>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="cancel" (click)="close()">
+        إلغاء
+      </button>
+      <button 
+        type="submit" 
+        class="submit"
+        [disabled]="!canSubmit()">
+        <i class="fas fa-paper-plane"></i>
+        إرسال العرض
+      </button>
+    </div>
+  </form>
+</div>
