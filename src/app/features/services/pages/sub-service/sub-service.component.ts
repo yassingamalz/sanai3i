@@ -19,7 +19,7 @@ interface ExtraOption {
     trigger('fadeSlide', [
       transition(':enter', [
         style({ transform: 'translateY(20px)', opacity: 0 }),
-        animate('400ms cubic-bezier(0.4, 0, 0.2, 1)', 
+        animate('400ms cubic-bezier(0.4, 0, 0.2, 1)',
           style({ transform: 'translateY(0)', opacity: 1 })
         )
       ])
@@ -29,6 +29,9 @@ interface ExtraOption {
 export class SubServiceComponent implements OnInit {
   mainService: MainService | undefined;
   subService: SubService | undefined;
+  paymentMethod: 'cash' | 'card' = 'cash';
+
+
   quantity = 1;
   extras: ExtraOption[] = [
     { id: 'tools', name: 'توفير المعدات', price: 35.00 },
@@ -41,12 +44,12 @@ export class SubServiceComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private servicesService: ServicesService
-  ) {}
+  ) { }
 
   ngOnInit() {
     const mainServiceId = +this.route.snapshot.params['mainId'];
     const subServiceId = +this.route.snapshot.params['subId'];
-    
+
     this.servicesService.getServiceById(mainServiceId).subscribe(service => {
       if (service) {
         this.mainService = service;
@@ -65,6 +68,10 @@ export class SubServiceComponent implements OnInit {
 
   toggleExtra(extra: ExtraOption) {
     extra.selected = !extra.selected;
+  }
+
+  selectPayment(method: 'cash' | 'card') {
+    this.paymentMethod = method;
   }
 
   updateQuantity(increment: boolean) {
