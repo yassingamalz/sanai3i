@@ -1,0 +1,50 @@
+<div class="featured-slider">
+  <div class="slider-container" [class.loading]="loading">
+    <!-- Loading Indicator -->
+    <div class="loading-indicator" *ngIf="loading">
+      <span>Loading...</span>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button class="nav-button prev" (click)="prev()" *ngIf="!loading && featuredAds.length > 1"
+      [class.disabled]="loading">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="nav-button next" (click)="next()" *ngIf="!loading && featuredAds.length > 1"
+      [class.disabled]="loading">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+    <!-- Slides -->
+    <div class="slides-wrapper">
+      <div *ngFor="let ad of featuredAds; let i = index" class="slide" [class.active]="i === currentIndex"
+        [ngStyle]="getSlidePosition(i)">
+        <div class="background-image">
+          <img [src]="ad.image" [alt]="ad.title">
+        </div>
+        <div class="slide-content">
+          <div class="left-content">
+            <h2>{{ad.title}}</h2>
+            <p>{{ad.subtitle}}</p>
+          </div>
+          <div class="right-content">
+            <div *ngIf="ad.discount" class="discount">
+              <span class="percentage">{{ad.discount.split('%')[0]}}%</span>
+              <span class="text">off</span>
+            </div>
+            <button (click)="navigateToAd(ad)">
+              {{ad.actionText}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dots -->
+    <div class="dots" *ngIf="!loading && featuredAds.length > 1">
+      <button *ngFor="let ad of featuredAds; let i = index" class="dot" [class.active]="i === currentIndex"
+        (click)="goToSlide(i)" [disabled]="loading">
+      </button>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { WorkerDetailsComponent } from './pages/worker-details/worker-details.component';
 import { SharedModule } from '../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
+import { FeaturedSliderComponent } from '../../shared/components/featured-slider/featured-slider.component';
 
 @NgModule({
   declarations: [
