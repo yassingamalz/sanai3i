@@ -34,3 +34,9 @@ export interface MainService {
     title: string;
     items: ServiceItem[];
   }
+
+  export interface TrendySubService extends SubService {
+    totalRequests: number;
+    trend: 'up' | 'down';
+    trendValue: number;
+  }

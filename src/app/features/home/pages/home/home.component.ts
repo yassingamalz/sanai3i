@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, OnInit, OnDestroy, TrackByFunction } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, OnInit, OnDestroy, TrackByFunction, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, style, animate, transition, state } from '@angular/animations';
 import { Subject, forkJoin } from 'rxjs';
@@ -6,7 +6,7 @@ import { takeUntil, debounceTime, distinctUntilChanged, finalize } from 'rxjs/op
 import { WorkerService } from '../../../../core/services/worker.service';
 import { ServicesService } from '../../../../core/services/services.service';
 import { Worker } from '../../../../shared/interfaces/worker.interface';
-import { MainService } from '../../../../shared/interfaces/service.interface';
+import { MainService, SubService, TrendySubService } from '../../../../shared/interfaces/service.interface';
 
 @Component({
   selector: 'app-home',
@@ -33,23 +33,32 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   // Search related properties
   searchQuery: string = '';
+  searchResults: SubService[] = [];
+  isSearching: boolean = false;
+  showResults: boolean = false;
+  selectedResultIndex: number = -1;
   private searchSubject = new Subject<string>();
-  private destroy$ = new Subject<void>();
-  
+  private searchCache: Map<string, SubService[]> = new Map();
+
   // Data properties
   services: MainService[] = [];
-  topServices: MainService[] = [];
+  topSubServices: TrendySubService[] = [];
   topWorkers: Worker[] = [];
+  private mainServicesMap: Map<number, MainService> = new Map();
   
   // UI State properties
   cardStates: { [key: number]: boolean } = {};
   isLoading = true;
   errorMessage: string | null = null;
+  
+  // Cleanup
+  private destroy$ = new Subject<void>();
 
   constructor(
     private router: Router,
     private workerService: WorkerService,
-    private servicesService: ServicesService
+    private servicesService: ServicesService,
+    private elementRef: ElementRef
   ) {
     this.setupSearchSubscription();
   }
@@ -59,7 +68,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    // Initialize animation states after a brief delay
     setTimeout(() => {
       this.initializeAnimations();
     }, 100);
@@ -68,6 +76,64 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  // Click outside handler
+  @HostListener('document:click', ['$event'])
+  handleClickOutside(event: Event) {
+    const clickedInside = this.elementRef.nativeElement.contains(event.target);
+    if (!clickedInside) {
+      this.showResults = false;
+      this.selectedResultIndex = -1;
+    }
+  }
+
+  // Keyboard navigation
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardNavigation(event: KeyboardEvent) {
+    if (!this.showResults) return;
+
+    switch (event.key) {
+      case 'ArrowDown':
+        event.preventDefault();
+        this.selectedResultIndex = Math.min(
+          this.selectedResultIndex + 1,
+          this.searchResults.length - 1
+        );
+        this.scrollToSelectedResult();
+        break;
+
+      case 'ArrowUp':
+        event.preventDefault();
+        this.selectedResultIndex = Math.max(this.selectedResultIndex - 1, -1);
+        this.scrollToSelectedResult();
+        break;
+
+      case 'Enter':
+        if (this.selectedResultIndex >= 0 && this.searchResults[this.selectedResultIndex]) {
+          const result = this.searchResults[this.selectedResultIndex];
+          this.navigateToSubService(result.mainServiceId, result.id);
+        }
+        break;
+
+      case 'Escape':
+        this.showResults = false;
+        this.selectedResultIndex = -1;
+        break;
+    }
+  }
+
+  private scrollToSelectedResult() {
+    if (this.selectedResultIndex >= 0) {
+      const resultElements = document.querySelectorAll('.search-result-item');
+      const selectedElement = resultElements[this.selectedResultIndex] as HTMLElement;
+      if (selectedElement) {
+        selectedElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest'
+        });
+      }
+    }
   }
 
   // Data Loading Methods
@@ -93,9 +159,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       next: ({ services, workers }) => {
         this.services = services;
         this.topWorkers = workers;
-        this.topServices = [...services]
-          .sort((a, b) => (b.totalRequests || 0) - (a.totalRequests || 0))
-          .slice(0, 3);
+        
+        // Initialize mainServicesMap and process trendy subservices
+        this.processTrendySubServices(services);
         
         // Initialize card states
         this.services.forEach((_, index) => {
@@ -110,19 +176,33 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  // Animation Methods
-  private initializeAnimations(): void {
-    if (this.services.length) {
-      this.services.forEach((_, index) => {
-        setTimeout(() => {
-          this.cardStates[index] = true;
-        }, index * 100); // Stagger the animations
+  private processTrendySubServices(services: MainService[]): void {
+    const allSubServices: TrendySubService[] = [];
+    
+    // Build mainServicesMap and collect subservices
+    services.forEach(service => {
+      this.mainServicesMap.set(service.id, service);
+      
+      // Get trendy data from main service
+      const { totalRequests, trend, trendValue } = service;
+      
+      service.subServices?.forEach(subService => {
+        // Add as trendy subservice using parent service's trend data
+        if (totalRequests && trend && trendValue) {
+          allSubServices.push({
+            ...subService,
+            totalRequests,
+            trend,
+            trendValue
+          });
+        }
       });
-    }
-  }
+    });
 
-  shouldAnimate(index: number): boolean {
-    return !this.isLoading && this.cardStates[index];
+    // Sort by totalRequests and get top 3
+    this.topSubServices = allSubServices
+      .sort((a, b) => b.totalRequests - a.totalRequests)
+      .slice(0, 3);
   }
 
   // Search Methods
@@ -139,28 +219,103 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   onSearch(event: Event): void {
     const target = event.target as HTMLInputElement;
     this.searchQuery = target.value;
-    this.searchSubject.next(this.searchQuery);
+    this.selectedResultIndex = -1;
+    
+    if (this.searchQuery.trim()) {
+      this.showResults = true;
+      this.searchSubject.next(this.searchQuery);
+    } else {
+      this.searchResults = [];
+      this.showResults = false;
+    }
   }
 
   private performSearch(query: string): void {
-    if (query.trim()) {
-      this.servicesService.searchServices(query)
-        .pipe(takeUntil(this.destroy$))
-        .subscribe({
-          next: (results) => {
-            console.log('Search results:', results);
-            // Handle search results as needed
-          },
-          error: (error) => {
-            console.error('Search error:', error);
-          }
-        });
+    if (!query.trim()) {
+      this.searchResults = [];
+      this.isSearching = false;
+      return;
     }
+
+    const cachedResults = this.searchCache.get(query);
+    if (cachedResults) {
+      this.searchResults = cachedResults;
+      return;
+    }
+
+    this.isSearching = true;
+    const searchLower = query.toLowerCase();
+
+    // Search through existing services first
+    let results: SubService[] = [];
+    this.services.forEach(service => {
+      service.subServices?.forEach(subService => {
+        if (this.matchesSearch(subService, searchLower)) {
+          results.push(subService);
+        }
+      });
+    });
+
+    // If we have local results, use them
+    if (results.length > 0) {
+      this.searchResults = results;
+      this.searchCache.set(query, results);
+      this.isSearching = false;
+      return;
+    }
+
+    // Otherwise, make the API call
+    this.servicesService.searchServices(query)
+      .pipe(
+        takeUntil(this.destroy$),
+        finalize(() => {
+          this.isSearching = false;
+        })
+      )
+      .subscribe({
+        next: (services) => {
+          results = services.flatMap(service => 
+            (service.subServices || []).filter(subService =>
+              this.matchesSearch(subService, searchLower)
+            )
+          );
+          this.searchResults = results;
+          this.searchCache.set(query, results);
+        },
+        error: (error) => {
+          console.error('Search error:', error);
+          this.searchResults = [];
+        }
+      });
+  }
+
+  private matchesSearch(subService: SubService, searchLower: string): boolean {
+    return (
+      subService.name.toLowerCase().includes(searchLower) ||
+      subService.description.toLowerCase().includes(searchLower)
+    );
   }
 
   clearSearch(): void {
     this.searchQuery = '';
-    this.searchSubject.next('');
+    this.searchResults = [];
+    this.showResults = false;
+    this.selectedResultIndex = -1;
+  }
+
+  // Animation Methods
+  private initializeAnimations(): void {
+    if (this.services.length) {
+      this.services.forEach((_, index) => {
+        setTimeout(() => {
+          this.cardStates[index] = true;
+        }, index * 100);
+      });
+    }
+  }
+
+  shouldAnimate(index: number): boolean {
+    return !this.isLoading && this.cardStates[index];
   }
 
   // Navigation Methods
@@ -172,53 +327,29 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.router.navigate(['/services', id]);
   }
 
+  navigateToSubService(mainServiceId: number, subServiceId: number): void {
+    this.router.navigate(['/services', mainServiceId, 'sub-service', subServiceId]);
+    this.showResults = false;
+    this.clearSearch();
+  }
+
   onWorkerClick(worker: Worker): void {
     this.router.navigate(['/worker', worker.id]);
   }
 
-  // Error Handling
-  retryLoading(): void {
-    this.loadInitialData();
+  // Helper Methods
+  getMainService(mainServiceId: number): MainService | undefined {
+    return this.mainServicesMap.get(mainServiceId);
   }
 
   // Tracking Methods
   trackByServiceId: TrackByFunction<MainService> = (index: number, item: MainService) => item.id;
   
   trackByWorkerId: TrackByFunction<Worker> = (index: number, item: Worker) => item.id;
+  
+  trackBySubServiceId: TrackByFunction<TrendySubService> = 
+    (index: number, item: TrendySubService) => `${item.mainServiceId}-${item.id}`;
 
-  // Helper Methods
-  getTotalRequests(): number {
-    return this.topServices.reduce((total, service) => total + (service.totalRequests || 0), 0);
-  }
-
-  hasSearchResults(): boolean {
-    return this.searchQuery.trim().length > 0 && this.services.length > 0;
-  }
-
-  getServiceIcon(service: MainService): string {
-    return service.faIcon || service.icon;
-  }
-
-  // UI Helper Methods
-  isTrendingUp(service: MainService): boolean {
-    return service.trend === 'up';
-  }
-
-  getTrendClass(service: MainService): string {
-    return service.trend === 'up' ? 'text-success' : 'text-danger';
-  }
-
-  // Additional Methods for Home UI
-  getServiceRowClass(index: number): string {
-    return index % 2 === 0 ? 'bg-gray-50' : 'bg-white';
-  }
-
-  getDisplayedServices(): MainService[] {
-    return this.services.slice(0, 6); // Show first 6 services only
-  }
-
-  getServiceProgress(service: MainService): number {
-    const maxRequests = Math.max(...this.topServices.map(s => s.totalRequests || 0));
-    return ((service.totalRequests || 0) / maxRequests) * 100;
-  }
+  trackBySearchResult: TrackByFunction<SubService> = (index: number, item: SubService) => 
+    `${item.mainServiceId}-${item.id}`;
 }
