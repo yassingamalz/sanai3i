@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { RouterModule } from '@angular/router';
 import { DiscoverComponent } from './pages/discover/discover.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [DiscoverComponent],
@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     LeafletModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       { path: '', component: DiscoverComponent, data: { reuseComponent: false } }
     ])

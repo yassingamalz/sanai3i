@@ -1,62 +1,153 @@
-<div class="h-screen flex flex-col bg-white">
-  <header class="bg-[#ef4444]">
-    <!-- Search Container -->
-    <div class="px-4 pt-8 pb-3">
-      <div class="bg-white rounded-full flex items-center h-11 pl-3 pr-4">
-        <i class="fas fa-times text-gray-400 cursor-pointer hover:text-gray-600" (click)="clearAddress()"></i>
-        <input
-          type="text"
-          [(ngModel)]="searchQuery"
-          (ngModelChange)="onSearchChange($event)"
-          placeholder="البحث عن عنوان"
-          class="flex-1 h-full border-0 bg-transparent text-gray-700 text-sm text-right px-3 focus:outline-none"
-          dir="rtl"
+<div class="flex-col">
+  <!-- Header Section -->
+  <header>
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-container">
+        <div class="search-icons">
+          <i class="fas" 
+             [class.fa-times]="!isLoadingLocation" 
+             (click)="clearSearch()">
+          </i>
+        </div>
+        <input 
+          class="search-input" 
+          [formControl]="searchControl" 
+          placeholder="البحث عن عنوان" 
+          dir="rtl" 
+          [attr.aria-label]="'Search address'"
         />
-        <i class="fas fa-map-marker-alt text-[#ef4444] text-lg"></i>
+        <div class="search-icons">
+          <i class="fas fa-map-marker-alt" 
+          [class.fa-spinner]="isLoadingLocation"
+          [class.fa-spin]="isLoadingLocation"
+             (click)="!isLoadingLocation && getCurrentLocation()"
+             [class.disabled]="isLoadingLocation">
+          </i>
+        </div>
+      </div>
+
+      <!-- Address Results Dropdown -->
+      <div class="search-results" *ngIf="showAddressResults && addressResults.length > 0">
+        <div class="address-item" 
+             *ngFor="let address of addressResults" 
+             (click)="selectAddress(address)"
+             [attr.aria-label]="address.mainText + ' - ' + address.subText">
+          <i class="address-icon" 
+             [class.fas.fa-history]="address.type === 'recent'"
+             [class.fas.fa-map-marker-alt]="address.type === 'result'">
+          </i>
+          <div class="address-details">
+            <div class="main-text">{{address.mainText}}</div>
+            <div class="sub-text">{{address.subText}}</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Categories -->
-    <div class="px-4 pb-3">
-      <div class="flex gap-2 overflow-x-auto no-scrollbar" dir="rtl">
-        <button 
-          *ngFor="let category of categories"
-          (click)="selectCategory(category.id)"
-          class="category-btn"
-          [class.active]="selectedCategory === category.id">
-          {{category.name}}
+    <!-- Categories Section -->
+    <div class="categories-section">
+      <div class="categories-scroll">
+        <button *ngFor="let category of categories"
+                class="category-button"
+                [class.active]="selectedCategory === category.id"
+                (click)="selectCategory(category.id)"
+                [attr.aria-label]="category.name"
+                [attr.aria-pressed]="selectedCategory === category.id">
+          <span class="category-text">{{category.name}}</span>
         </button>
       </div>
     </div>
   </header>
-  
-  <!-- Map -->
-  <main class="flex-1 relative">
+
+  <!-- Map Section -->
+  <main class="map-container">
     <div leaflet
          [leafletOptions]="options"
          (leafletMapReady)="onMapReady($event)"
-         class="absolute inset-0">
+         class="leaflet-container">
     </div>
 
     <!-- Provider Card -->
     <div *ngIf="selectedProvider" 
-         class="absolute bottom-20 left-4 right-4 bg-white rounded-xl shadow-lg p-4">
-      <div class="flex gap-4">
-        <img [src]="selectedProvider.image" 
-             [alt]="selectedProvider.name" 
-             class="w-20 h-20 rounded-xl object-cover"/>
-        <div class="flex-1 text-right">
-          <h3 class="font-bold text-lg text-gray-900">{{selectedProvider.name}}</h3>
-          <p class="text-sm text-gray-600 mt-1">{{selectedProvider.service}}</p>
-          <div class="flex items-center justify-end mt-2">
-            <span class="text-sm font-medium">{{selectedProvider.distance}}</span>
-            <span class="mx-2 text-gray-300">•</span>
-            <div class="flex items-center">
-              <span class="text-sm font-medium mr-1">{{selectedProvider.rating}}</span>
-              <i class="fas fa-star text-yellow-400"></i>
+         class="provider-card"
+         [@slideUp]
+         (touchstart)="onTouchStart($event)"
+         (touchmove)="onTouchMove($event)"
+         (touchend)="onTouchEnd()"
+         [class.touch-none]="true"
+         [attr.aria-label]="getAriaLabel(selectedProvider)">
+      
+      <!-- Close Button -->
+      <button class="close-button" 
+              (click)="clearSelectedProvider()"
+              aria-label="Close provider details">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <div class="card-content">
+        <div class="provider-info">
+          <img [src]="selectedProvider.image" 
+               [alt]="selectedProvider.name" 
+               class="provider-image" />
+          
+          <div class="provider-details">
+            <h3 class="provider-name">{{selectedProvider.name}}</h3>
+            <p class="provider-service">{{selectedProvider.service}}</p>
+            
+            <div class="stats-grid">
+              <!-- Rating -->
+              <div class="stat-item">
+                <div class="stat-value" [style.color]="getRatingColor(selectedProvider.rating)">
+                  {{formatRating(selectedProvider.rating)}}
+                </div>
+                <div class="stat-label">التقييم</div>
+              </div>
+              
+              <!-- Distance -->
+              <div class="stat-item">
+                <div class="stat-value" [style.color]="getDistanceColor(getProviderDistance(selectedProvider))">
+                  {{getProviderDistance(selectedProvider)}}
+                </div>
+                <div class="stat-label">المسافة</div>
+              </div>
+              
+              <!-- Completed Jobs -->
+              <div class="stat-item">
+                <div class="stat-value">{{selectedProvider.completedJobs}}</div>
+                <div class="stat-label">{{getCompletedJobsText(selectedProvider.completedJobs)}}</div>
+              </div>
+              
+              <!-- Response Time -->
+              <div class="stat-item">
+                <div class="stat-value">{{selectedProvider.responseRate || '15د'}}</div>
+                <div class="stat-label">وقت الرد</div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Swipe Indicators -->
+      <div class="swipe-indicators">
+        <div *ngFor="let provider of providers; let i = index" 
+             class="indicator"
+             [class.active]="provider.id === selectedProvider.id">
+        </div>
+      </div>
+
+      <!-- Card Actions -->
+      <div class="card-actions">
+        <button class="action-button primary"
+                (click)="requestService(selectedProvider)"
+                [attr.aria-label]="'Request service from ' + selectedProvider.name">
+          طلب خدمة
+        </button>
+        <button class="action-button secondary"
+                (click)="navigateToWorkerProfile(selectedProvider.id)"
+                [attr.aria-label]="'View profile of ' + selectedProvider.name">
+          عرض الملف
+        </button>
       </div>
     </div>
   </main>

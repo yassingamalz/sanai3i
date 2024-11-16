@@ -9,6 +9,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { DiscoverModule } from './features/discover/discover.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpConfigInterceptor } from './core/interceptors/http-config.interceptor';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     CoreModule,
     SharedModule,
     AppRoutingModule,
@@ -29,6 +32,11 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     })
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpConfigInterceptor,
+      multi: true
+    },
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
