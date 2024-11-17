@@ -15,81 +15,73 @@
       <stop offset="0%" style="stop-color:#FFD5B3"/>
       <stop offset="100%" style="stop-color:#FFC090"/>
     </linearGradient>
-
-    <!-- Available status glow -->
-    <filter id="availableGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
-    </filter>
   </defs>
 
-  <!-- Availability Animation -->
+  <!-- Wave Circles -->
   <g transform="translate(175 175)">
-    <!-- Rotating Status Circles -->
-    <circle cx="70" cy="0" r="8" fill="#4CAF50" opacity="0.8">
-      <animate attributeName="opacity"
-               values="0.8;0.3;0.8"
-               dur="1.5s"
-               repeatCount="indefinite"/>
-      <animateTransform attributeName="transform"
-                       type="rotate"
-                       from="0 0 0"
-                       to="360 0 0"
-                       dur="8s"
-                       repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="-70" cy="0" r="8" fill="#4CAF50" opacity="0.8">
-      <animate attributeName="opacity"
-               values="0.8;0.3;0.8"
-               dur="1.5s"
-               repeatCount="indefinite"/>
-      <animateTransform attributeName="transform"
-                       type="rotate"
-                       from="180 0 0"
-                       to="540 0 0"
-                       dur="8s"
-                       repeatCount="indefinite"/>
-    </circle>
-
-    <!-- Pulsing Wave Rings -->
-    <circle cx="0" cy="0" r="90" 
-            stroke="#4CAF50" 
-            stroke-width="2" 
+    <!-- First Wave -->
+    <circle cx="0" cy="0" r="120" 
+            stroke="#E24C4C" 
+            stroke-width="3" 
             fill="none" 
             opacity="0">
       <animate attributeName="r"
-               values="70;90;70"
+               values="80;120;80"
                dur="3s"
                repeatCount="indefinite"/>
       <animate attributeName="opacity"
-               values="0.5;0;0.5"
+               values="0.6;0;0.6"
                dur="3s"
                repeatCount="indefinite"/>
       <animate attributeName="stroke-width"
-               values="2;1;2"
+               values="3;1;3"
                dur="3s"
                repeatCount="indefinite"/>
     </circle>
 
-    <circle cx="0" cy="0" r="90" 
-            stroke="#4CAF50" 
-            stroke-width="2" 
+    <!-- Second Wave -->
+    <circle cx="0" cy="0" r="120" 
+            stroke="#E24C4C" 
+            stroke-width="3" 
             fill="none" 
             opacity="0">
       <animate attributeName="r"
-               values="70;90;70"
+               values="80;120;80"
                dur="3s"
                begin="1s"
                repeatCount="indefinite"/>
       <animate attributeName="opacity"
-               values="0.5;0;0.5"
+               values="0.6;0;0.6"
                dur="3s"
                begin="1s"
                repeatCount="indefinite"/>
       <animate attributeName="stroke-width"
-               values="2;1;2"
+               values="3;1;3"
                dur="3s"
                begin="1s"
+               repeatCount="indefinite"/>
+    </circle>
+
+    <!-- Third Wave -->
+    <circle cx="0" cy="0" r="120" 
+            stroke="#E24C4C" 
+            stroke-width="3" 
+            fill="none" 
+            opacity="0">
+      <animate attributeName="r"
+               values="80;120;80"
+               dur="3s"
+               begin="2s"
+               repeatCount="indefinite"/>
+      <animate attributeName="opacity"
+               values="0.6;0;0.6"
+               dur="3s"
+               begin="2s"
+               repeatCount="indefinite"/>
+      <animate attributeName="stroke-width"
+               values="3;1;3"
+               dur="3s"
+               begin="2s"
                repeatCount="indefinite"/>
     </circle>
   </g>
@@ -129,16 +121,4 @@
       c3.163,1.728,6.347,3.474,9.472,5.202C257.397,234.117,251.551,279.56,257.694,332.002z" 
       fill="url(#redGradient)"/>
   </g>
-
-  <!-- Available Status Indicator -->
-  <circle cx="290" cy="60" r="12" fill="#4CAF50" filter="url(#availableGlow)">
-    <animate attributeName="r"
-             values="12;14;12"
-             dur="2s"
-             repeatCount="indefinite"/>
-    <animate attributeName="opacity"
-             values="1;0.8;1"
-             dur="2s"
-             repeatCount="indefinite"/>
-  </circle>
 </svg>
