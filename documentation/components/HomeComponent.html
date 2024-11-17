@@ -1,0 +1,3659 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sanai3i documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sanai3i documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HomeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/home/pages/home/home.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>AfterViewInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-home</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./home.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./home.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cardStates" >cardStates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#errorMessage" >errorMessage</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#isSearching" >isSearching</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mainServicesMap" >mainServicesMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#searchCache" >searchCache</a>
+                            </li>
+                            <li>
+                                <a href="#searchQuery" >searchQuery</a>
+                            </li>
+                            <li>
+                                <a href="#searchResults" >searchResults</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#searchSubject" >searchSubject</a>
+                            </li>
+                            <li>
+                                <a href="#selectedResultIndex" >selectedResultIndex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#serviceCards" >serviceCards</a>
+                            </li>
+                            <li>
+                                <a href="#services" >services</a>
+                            </li>
+                            <li>
+                                <a href="#showResults" >showResults</a>
+                            </li>
+                            <li>
+                                <a href="#topSubServices" >topSubServices</a>
+                            </li>
+                            <li>
+                                <a href="#topWorkers" >topWorkers</a>
+                            </li>
+                            <li>
+                                <a href="#trackBySearchResult" >trackBySearchResult</a>
+                            </li>
+                            <li>
+                                <a href="#trackByServiceId" >trackByServiceId</a>
+                            </li>
+                            <li>
+                                <a href="#trackBySubServiceId" >trackBySubServiceId</a>
+                            </li>
+                            <li>
+                                <a href="#trackByWorkerId" >trackByWorkerId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clearSearch" >clearSearch</a>
+                            </li>
+                            <li>
+                                <a href="#getMainService" >getMainService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#handleClickOutside" >handleClickOutside</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#handleKeyboardNavigation" >handleKeyboardNavigation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initializeAnimations" >initializeAnimations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadInitialData" >loadInitialData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#matchesSearch" >matchesSearch</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToFullList" >navigateToFullList</a>
+                            </li>
+                            <li>
+                                <a href="#navigateToSubService" >navigateToSubService</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSearch" >onSearch</a>
+                            </li>
+                            <li>
+                                <a href="#onWorkerClick" >onWorkerClick</a>
+                            </li>
+                            <li>
+                                <a href="#openService" >openService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#performSearch" >performSearch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#processTrendySubServices" >processTrendySubServices</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#scrollToSelectedResult" >scrollToSelectedResult</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setupSearchSubscription" >setupSearchSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#shouldAnimate" >shouldAnimate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#document:click" >document:click</a>
+                            </li>
+                            <li>
+                                <a href="#window:keydown" >window:keydown</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: Router, workerService: <a href="../injectables/WorkerService.html" target="_self">WorkerService</a>, servicesService: <a href="../injectables/ServicesService.html" target="_self">ServicesService</a>, elementRef: ElementRef)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:55</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>workerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WorkerService.html" target="_self" >WorkerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>servicesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ServicesService.html" target="_self" >ServicesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>elementRef</td>
+                                                  
+                                                        <td>
+                                                                    <code>ElementRef</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+    <section data-compodoc="block-methods">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document:click"></a>
+                    <span class="name">
+                        <span ><b>document:click</b></span>
+                        <a href="#document:click"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>document:click(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="window:keydown"></a>
+                    <span class="name">
+                        <span ><b>window:keydown</b></span>
+                        <a href="#window:keydown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>window:keydown(event: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSearch"></a>
+                    <span class="name">
+                        <span ><b>clearSearch</b></span>
+                        <a href="#clearSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearSearch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="299"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMainService"></a>
+                    <span class="name">
+                        <span ><b>getMainService</b></span>
+                        <a href="#getMainService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMainService(mainServiceId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="341"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:341</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mainServiceId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/MainService.html" target="_self" >MainService | undefined</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleClickOutside"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>handleClickOutside</b></span>
+                        <a href="#handleClickOutside"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleClickOutside(event: Event)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;document:click&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleKeyboardNavigation"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>handleKeyboardNavigation</b></span>
+                        <a href="#handleKeyboardNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleKeyboardNavigation(event: KeyboardEvent)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;window:keydown&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>KeyboardEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeAnimations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initializeAnimations</b></span>
+                        <a href="#initializeAnimations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initializeAnimations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="307"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:307</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadInitialData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadInitialData</b></span>
+                        <a href="#loadInitialData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadInitialData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchesSearch"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>matchesSearch</b></span>
+                        <a href="#matchesSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>matchesSearch(subService: <a href="../interfaces/SubService.html" target="_self">SubService</a>, searchLower: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="292"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:292</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subService</td>
+                                            <td>
+                                                            <code><a href="../interfaces/SubService.html" target="_self" >SubService</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>searchLower</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToFullList"></a>
+                    <span class="name">
+                        <span ><b>navigateToFullList</b></span>
+                        <a href="#navigateToFullList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToFullList(section: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="322"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:322</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>section</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateToSubService"></a>
+                    <span class="name">
+                        <span ><b>navigateToSubService</b></span>
+                        <a href="#navigateToSubService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateToSubService(mainServiceId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, subServiceId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="330"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:330</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mainServiceId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>subServiceId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSearch"></a>
+                    <span class="name">
+                        <span ><b>onSearch</b></span>
+                        <a href="#onSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSearch(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:219</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onWorkerClick"></a>
+                    <span class="name">
+                        <span ><b>onWorkerClick</b></span>
+                        <a href="#onWorkerClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onWorkerClick(worker: <a href="../interfaces/Worker.html" target="_self">Worker</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="336"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:336</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>worker</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Worker.html" target="_self" >Worker</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openService"></a>
+                    <span class="name">
+                        <span ><b>openService</b></span>
+                        <a href="#openService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openService(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="326"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:326</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="performSearch"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>performSearch</b></span>
+                        <a href="#performSearch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>performSearch(query: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processTrendySubServices"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>processTrendySubServices</b></span>
+                        <a href="#processTrendySubServices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processTrendySubServices(services: <a href="../interfaces/MainService.html" target="_self">MainService[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="179"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:179</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>services</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MainService.html" target="_self" >MainService[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToSelectedResult"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>scrollToSelectedResult</b></span>
+                        <a href="#scrollToSelectedResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>scrollToSelectedResult()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setupSearchSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setupSearchSubscription</b></span>
+                        <a href="#setupSearchSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setupSearchSubscription()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldAnimate"></a>
+                    <span class="name">
+                        <span ><b>shouldAnimate</b></span>
+                        <a href="#shouldAnimate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>shouldAnimate(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="317"
+                                    class="link-to-prism">src/app/features/home/pages/home/home.component.ts:317</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cardStates"></a>
+                    <span class="name">
+                        <span ><b>cardStates</b></span>
+                        <a href="#cardStates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorMessage"></a>
+                    <span class="name">
+                        <span ><b>errorMessage</b></span>
+                        <a href="#errorMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSearching"></a>
+                    <span class="name">
+                        <span ><b>isSearching</b></span>
+                        <a href="#isSearching"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mainServicesMap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mainServicesMap</b></span>
+                        <a href="#mainServicesMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MainService.html" target="_self" >Map&lt;number | MainService&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchCache"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>searchCache</b></span>
+                        <a href="#searchCache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SubService.html" target="_self" >Map&lt;string | SubService[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchQuery"></a>
+                    <span class="name">
+                        <span ><b>searchQuery</b></span>
+                        <a href="#searchQuery"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchResults"></a>
+                    <span class="name">
+                        <span ><b>searchResults</b></span>
+                        <a href="#searchResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SubService.html" target="_self" >SubService[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>searchSubject</b></span>
+                        <a href="#searchSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedResultIndex"></a>
+                    <span class="name">
+                        <span ><b>selectedResultIndex</b></span>
+                        <a href="#selectedResultIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>-1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serviceCards"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>serviceCards</b></span>
+                        <a href="#serviceCards"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>QueryList&lt;ElementRef&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChildren(&#x27;serviceCard&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="services"></a>
+                    <span class="name">
+                        <span ><b>services</b></span>
+                        <a href="#services"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MainService.html" target="_self" >MainService[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showResults"></a>
+                    <span class="name">
+                        <span ><b>showResults</b></span>
+                        <a href="#showResults"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="topSubServices"></a>
+                    <span class="name">
+                        <span ><b>topSubServices</b></span>
+                        <a href="#topSubServices"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TrendySubService[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="topWorkers"></a>
+                    <span class="name">
+                        <span ><b>topWorkers</b></span>
+                        <a href="#topWorkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Worker.html" target="_self" >Worker[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackBySearchResult"></a>
+                    <span class="name">
+                        <span ><b>trackBySearchResult</b></span>
+                        <a href="#trackBySearchResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SubService.html" target="_self" >TrackByFunction&lt;SubService&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="353" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:353</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByServiceId"></a>
+                    <span class="name">
+                        <span ><b>trackByServiceId</b></span>
+                        <a href="#trackByServiceId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MainService.html" target="_self" >TrackByFunction&lt;MainService&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="346" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:346</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackBySubServiceId"></a>
+                    <span class="name">
+                        <span ><b>trackBySubServiceId</b></span>
+                        <a href="#trackBySubServiceId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TrackByFunction&lt;TrendySubService&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="350" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:350</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByWorkerId"></a>
+                    <span class="name">
+                        <span ><b>trackByWorkerId</b></span>
+                        <a href="#trackByWorkerId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Worker.html" target="_self" >TrackByFunction&lt;Worker&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="348" class="link-to-prism">src/app/features/home/pages/home/home.component.ts:348</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList, OnInit, OnDestroy, TrackByFunction, HostListener } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { trigger, style, animate, transition, state } from &#x27;@angular/animations&#x27;;
+import { Subject, forkJoin } from &#x27;rxjs&#x27;;
+import { takeUntil, debounceTime, distinctUntilChanged, finalize } from &#x27;rxjs/operators&#x27;;
+import { WorkerService } from &#x27;../../../../core/services/worker.service&#x27;;
+import { ServicesService } from &#x27;../../../../core/services/services.service&#x27;;
+import { Worker } from &#x27;../../../../shared/interfaces/worker.interface&#x27;;
+import { MainService, SubService, TrendySubService } from &#x27;../../../../shared/interfaces/service.interface&#x27;;
+
+@Component({
+  selector: &#x27;app-home&#x27;,
+  templateUrl: &#x27;./home.component.html&#x27;,
+  styleUrls: [&#x27;./home.component.scss&#x27;],
+  animations: [
+    trigger(&#x27;fadeInUp&#x27;, [
+      state(&#x27;void&#x27;, style({
+        opacity: 0,
+        transform: &#x27;translateY(20px)&#x27;
+      })),
+      state(&#x27;in&#x27;, style({
+        opacity: 1,
+        transform: &#x27;translateY(0)&#x27;
+      })),
+      transition(&#x27;void &#x3D;&gt; in&#x27;, [
+        animate(&#x27;0.8s 0.3s ease-out&#x27;)
+      ])
+    ])
+  ]
+})
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChildren(&#x27;serviceCard&#x27;) serviceCards!: QueryList&lt;ElementRef&gt;;
+
+  // Search related properties
+  searchQuery: string &#x3D; &#x27;&#x27;;
+  searchResults: SubService[] &#x3D; [];
+  isSearching: boolean &#x3D; false;
+  showResults: boolean &#x3D; false;
+  selectedResultIndex: number &#x3D; -1;
+  private searchSubject &#x3D; new Subject&lt;string&gt;();
+  private searchCache: Map&lt;string, SubService[]&gt; &#x3D; new Map();
+
+  // Data properties
+  services: MainService[] &#x3D; [];
+  topSubServices: TrendySubService[] &#x3D; [];
+  topWorkers: Worker[] &#x3D; [];
+  private mainServicesMap: Map&lt;number, MainService&gt; &#x3D; new Map();
+  
+  // UI State properties
+  cardStates: { [key: number]: boolean } &#x3D; {};
+  isLoading &#x3D; true;
+  errorMessage: string | null &#x3D; null;
+  
+  // Cleanup
+  private destroy$ &#x3D; new Subject&lt;void&gt;();
+
+  constructor(
+    private router: Router,
+    private workerService: WorkerService,
+    private servicesService: ServicesService,
+    private elementRef: ElementRef
+  ) {
+    this.setupSearchSubscription();
+  }
+
+  ngOnInit() {
+    this.loadInitialData();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() &#x3D;&gt; {
+      this.initializeAnimations();
+    }, 100);
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  // Click outside handler
+  @HostListener(&#x27;document:click&#x27;, [&#x27;$event&#x27;])
+  handleClickOutside(event: Event) {
+    const clickedInside &#x3D; this.elementRef.nativeElement.contains(event.target);
+    if (!clickedInside) {
+      this.showResults &#x3D; false;
+      this.selectedResultIndex &#x3D; -1;
+    }
+  }
+
+  // Keyboard navigation
+  @HostListener(&#x27;window:keydown&#x27;, [&#x27;$event&#x27;])
+  handleKeyboardNavigation(event: KeyboardEvent) {
+    if (!this.showResults) return;
+
+    switch (event.key) {
+      case &#x27;ArrowDown&#x27;:
+        event.preventDefault();
+        this.selectedResultIndex &#x3D; Math.min(
+          this.selectedResultIndex + 1,
+          this.searchResults.length - 1
+        );
+        this.scrollToSelectedResult();
+        break;
+
+      case &#x27;ArrowUp&#x27;:
+        event.preventDefault();
+        this.selectedResultIndex &#x3D; Math.max(this.selectedResultIndex - 1, -1);
+        this.scrollToSelectedResult();
+        break;
+
+      case &#x27;Enter&#x27;:
+        if (this.selectedResultIndex &gt;&#x3D; 0 &amp;&amp; this.searchResults[this.selectedResultIndex]) {
+          const result &#x3D; this.searchResults[this.selectedResultIndex];
+          this.navigateToSubService(result.mainServiceId, result.id);
+        }
+        break;
+
+      case &#x27;Escape&#x27;:
+        this.showResults &#x3D; false;
+        this.selectedResultIndex &#x3D; -1;
+        break;
+    }
+  }
+
+  private scrollToSelectedResult() {
+    if (this.selectedResultIndex &gt;&#x3D; 0) {
+      const resultElements &#x3D; document.querySelectorAll(&#x27;.search-result-item&#x27;);
+      const selectedElement &#x3D; resultElements[this.selectedResultIndex] as HTMLElement;
+      if (selectedElement) {
+        selectedElement.scrollIntoView({
+          behavior: &#x27;smooth&#x27;,
+          block: &#x27;nearest&#x27;
+        });
+      }
+    }
+  }
+
+  // Data Loading Methods
+  private loadInitialData(): void {
+    this.isLoading &#x3D; true;
+    this.errorMessage &#x3D; null;
+
+    const services$ &#x3D; this.servicesService.getAllServices();
+    const workers$ &#x3D; this.workerService.getTopWorkers(3);
+
+    forkJoin({
+      services: services$,
+      workers: workers$
+    }).pipe(
+      takeUntil(this.destroy$),
+      finalize(() &#x3D;&gt; {
+        setTimeout(() &#x3D;&gt; {
+          this.isLoading &#x3D; false;
+          this.initializeAnimations();
+        }, 300);
+      })
+    ).subscribe({
+      next: ({ services, workers }) &#x3D;&gt; {
+        this.services &#x3D; services;
+        this.topWorkers &#x3D; workers;
+        
+        // Initialize mainServicesMap and process trendy subservices
+        this.processTrendySubServices(services);
+        
+        // Initialize card states
+        this.services.forEach((_, index) &#x3D;&gt; {
+          this.cardStates[index] &#x3D; false;
+        });
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error loading data:&#x27;, error);
+        this.errorMessage &#x3D; &#x27;حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى.&#x27;;
+        this.isLoading &#x3D; false;
+      }
+    });
+  }
+
+  private processTrendySubServices(services: MainService[]): void {
+    const allSubServices: TrendySubService[] &#x3D; [];
+    
+    // Build mainServicesMap and collect subservices
+    services.forEach(service &#x3D;&gt; {
+      this.mainServicesMap.set(service.id, service);
+      
+      // Get trendy data from main service
+      const { totalRequests, trend, trendValue } &#x3D; service;
+      
+      service.subServices?.forEach(subService &#x3D;&gt; {
+        // Add as trendy subservice using parent service&#x27;s trend data
+        if (totalRequests &amp;&amp; trend &amp;&amp; trendValue) {
+          allSubServices.push({
+            ...subService,
+            totalRequests,
+            trend,
+            trendValue
+          });
+        }
+      });
+    });
+
+    // Sort by totalRequests and get top 3
+    this.topSubServices &#x3D; allSubServices
+      .sort((a, b) &#x3D;&gt; b.totalRequests - a.totalRequests)
+      .slice(0, 3);
+  }
+
+  // Search Methods
+  private setupSearchSubscription(): void {
+    this.searchSubject.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      takeUntil(this.destroy$)
+    ).subscribe(query &#x3D;&gt; {
+      this.performSearch(query);
+    });
+  }
+
+  onSearch(event: Event): void {
+    const target &#x3D; event.target as HTMLInputElement;
+    this.searchQuery &#x3D; target.value;
+    this.selectedResultIndex &#x3D; -1;
+    
+    if (this.searchQuery.trim()) {
+      this.showResults &#x3D; true;
+      this.searchSubject.next(this.searchQuery);
+    } else {
+      this.searchResults &#x3D; [];
+      this.showResults &#x3D; false;
+    }
+  }
+
+  private performSearch(query: string): void {
+    if (!query.trim()) {
+      this.searchResults &#x3D; [];
+      this.isSearching &#x3D; false;
+      return;
+    }
+
+    const cachedResults &#x3D; this.searchCache.get(query);
+    if (cachedResults) {
+      this.searchResults &#x3D; cachedResults;
+      return;
+    }
+
+    this.isSearching &#x3D; true;
+    const searchLower &#x3D; query.toLowerCase();
+
+    // Search through existing services first
+    let results: SubService[] &#x3D; [];
+    this.services.forEach(service &#x3D;&gt; {
+      service.subServices?.forEach(subService &#x3D;&gt; {
+        if (this.matchesSearch(subService, searchLower)) {
+          results.push(subService);
+        }
+      });
+    });
+
+    // If we have local results, use them
+    if (results.length &gt; 0) {
+      this.searchResults &#x3D; results;
+      this.searchCache.set(query, results);
+      this.isSearching &#x3D; false;
+      return;
+    }
+
+    // Otherwise, make the API call
+    this.servicesService.searchServices(query)
+      .pipe(
+        takeUntil(this.destroy$),
+        finalize(() &#x3D;&gt; {
+          this.isSearching &#x3D; false;
+        })
+      )
+      .subscribe({
+        next: (services) &#x3D;&gt; {
+          results &#x3D; services.flatMap(service &#x3D;&gt; 
+            (service.subServices || []).filter(subService &#x3D;&gt;
+              this.matchesSearch(subService, searchLower)
+            )
+          );
+          this.searchResults &#x3D; results;
+          this.searchCache.set(query, results);
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Search error:&#x27;, error);
+          this.searchResults &#x3D; [];
+        }
+      });
+  }
+
+  private matchesSearch(subService: SubService, searchLower: string): boolean {
+    return (
+      subService.name.toLowerCase().includes(searchLower) ||
+      subService.description.toLowerCase().includes(searchLower)
+    );
+  }
+
+  clearSearch(): void {
+    this.searchQuery &#x3D; &#x27;&#x27;;
+    this.searchResults &#x3D; [];
+    this.showResults &#x3D; false;
+    this.selectedResultIndex &#x3D; -1;
+  }
+
+  // Animation Methods
+  private initializeAnimations(): void {
+    if (this.services.length) {
+      this.services.forEach((_, index) &#x3D;&gt; {
+        setTimeout(() &#x3D;&gt; {
+          this.cardStates[index] &#x3D; true;
+        }, index * 100);
+      });
+    }
+  }
+
+  shouldAnimate(index: number): boolean {
+    return !this.isLoading &amp;&amp; this.cardStates[index];
+  }
+
+  // Navigation Methods
+  navigateToFullList(section: string): void {
+    this.router.navigate([&#x27;/services&#x27;, section]);
+  }
+
+  openService(id: number): void {
+    this.router.navigate([&#x27;/services&#x27;, id]);
+  }
+
+  navigateToSubService(mainServiceId: number, subServiceId: number): void {
+    this.router.navigate([&#x27;/services&#x27;, mainServiceId, &#x27;sub-service&#x27;, subServiceId]);
+    this.showResults &#x3D; false;
+    this.clearSearch();
+  }
+
+  onWorkerClick(worker: Worker): void {
+    this.router.navigate([&#x27;/worker&#x27;, worker.id]);
+  }
+
+  // Helper Methods
+  getMainService(mainServiceId: number): MainService | undefined {
+    return this.mainServicesMap.get(mainServiceId);
+  }
+
+  // Tracking Methods
+  trackByServiceId: TrackByFunction&lt;MainService&gt; &#x3D; (index: number, item: MainService) &#x3D;&gt; item.id;
+  
+  trackByWorkerId: TrackByFunction&lt;Worker&gt; &#x3D; (index: number, item: Worker) &#x3D;&gt; item.id;
+  
+  trackBySubServiceId: TrackByFunction&lt;TrendySubService&gt; &#x3D; 
+    (index: number, item: TrendySubService) &#x3D;&gt; &#x60;${item.mainServiceId}-${item.id}&#x60;;
+
+  trackBySearchResult: TrackByFunction&lt;SubService&gt; &#x3D; (index: number, item: SubService) &#x3D;&gt; 
+    &#x60;${item.mainServiceId}-${item.id}&#x60;;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- Header Section --&gt;
+&lt;header class&#x3D;&quot;bg-[#ef4444]&quot;&gt;
+  &lt;div class&#x3D;&quot;px-4 pt-8 pb-3&quot;&gt;
+    &lt;div class&#x3D;&quot;search-container&quot;&gt;
+      &lt;div class&#x3D;&quot;bg-white rounded-full flex items-center h-11 shadow-sm relative&quot;&gt;
+        &lt;span class&#x3D;&quot;flex-1 text-gray-700 text-sm mr-4 text-right relative&quot;&gt;
+          &lt;input 
+            type&#x3D;&quot;text&quot; 
+            class&#x3D;&quot;search-input w-full pr-10 pl-4&quot; 
+            [placeholder]&#x3D;&quot;&#x27;البحث عن خدمة&#x27;&quot;
+            [(ngModel)]&#x3D;&quot;searchQuery&quot;
+            (input)&#x3D;&quot;onSearch($event)&quot;
+            (focus)&#x3D;&quot;showResults &#x3D; true&quot;
+          &gt;
+          &lt;i *ngIf&#x3D;&quot;!isSearching&quot; class&#x3D;&quot;fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2&quot;&gt;&lt;/i&gt;
+          &lt;div *ngIf&#x3D;&quot;isSearching&quot; class&#x3D;&quot;search-spinner absolute right-3 top-1/2 -translate-y-1/2&quot;&gt;&lt;/div&gt;
+          &lt;i *ngIf&#x3D;&quot;searchQuery&quot; 
+             class&#x3D;&quot;fas fa-times text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer&quot; 
+             (click)&#x3D;&quot;clearSearch()&quot;&gt;
+          &lt;/i&gt;
+        &lt;/span&gt;
+        &lt;div class&#x3D;&quot;flex items-center ml-4&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-home text-[#ef4444] text-lg&quot;&gt;&lt;/i&gt;
+          &lt;span class&#x3D;&quot;text-[#ef4444] mr-2 font-medium&quot;&gt;الرئيسية&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Search Results Dropdown --&gt;
+      &lt;div *ngIf&#x3D;&quot;showResults &amp;&amp; (isSearching || searchResults.length &gt; 0 || searchQuery)&quot; 
+           class&#x3D;&quot;search-results-dropdown&quot;&gt;
+        &lt;!-- Loading State --&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;isSearching&quot;&gt;
+          &lt;div class&#x3D;&quot;search-result-item shimmer&quot; *ngFor&#x3D;&quot;let i of [1,2,3]&quot;&gt;
+            &lt;div class&#x3D;&quot;skeleton-icon&quot;&gt;&lt;/div&gt;
+            &lt;div class&#x3D;&quot;flex-1&quot;&gt;
+              &lt;div class&#x3D;&quot;skeleton-text w-3/4&quot;&gt;&lt;/div&gt;
+              &lt;div class&#x3D;&quot;skeleton-text w-1/2&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/ng-container&gt;
+
+        &lt;!-- Results --&gt;
+        &lt;ng-container *ngIf&#x3D;&quot;!isSearching &amp;&amp; searchResults.length &gt; 0&quot;&gt;
+          &lt;div *ngFor&#x3D;&quot;let result of searchResults; let i &#x3D; index; trackBy: trackBySearchResult&quot; 
+               class&#x3D;&quot;search-result-item&quot;
+               [class.selected]&#x3D;&quot;i &#x3D;&#x3D;&#x3D; selectedResultIndex&quot;
+               (mouseenter)&#x3D;&quot;selectedResultIndex &#x3D; i&quot;
+               (click)&#x3D;&quot;navigateToSubService(result.mainServiceId, result.id)&quot;&gt;
+            &lt;i [class]&#x3D;&quot;getMainService(result.mainServiceId)?.faIcon || &#x27;fas fa-circle&#x27;&quot; 
+               class&#x3D;&quot;service-icon&quot;&gt;&lt;/i&gt;
+            &lt;div class&#x3D;&quot;flex-1&quot;&gt;
+              &lt;h4 class&#x3D;&quot;result-title&quot;&gt;{{result.name}}&lt;/h4&gt;
+              &lt;p class&#x3D;&quot;result-subtitle&quot;&gt;
+                &lt;span class&#x3D;&quot;main-service-name&quot;&gt;{{getMainService(result.mainServiceId)?.name}}&lt;/span&gt;
+                &lt;span class&#x3D;&quot;separator&quot;&gt;•&lt;/span&gt;
+                &lt;span class&#x3D;&quot;price&quot;&gt;{{result.price}} جنيه&lt;/span&gt;
+              &lt;/p&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/ng-container&gt;
+
+        &lt;!-- No Results --&gt;
+        &lt;div *ngIf&#x3D;&quot;!isSearching &amp;&amp; searchResults.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; searchQuery&quot; 
+             class&#x3D;&quot;no-results&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-search text-gray-400 mb-2 text-lg&quot;&gt;&lt;/i&gt;
+          &lt;p&gt;لا توجد نتائج تطابق بحثك&lt;/p&gt;
+          &lt;p class&#x3D;&quot;text-sm text-gray-500 mt-1&quot;&gt;حاول البحث بكلمات مختلفة&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+
+&lt;app-featured-slider&gt;&lt;/app-featured-slider&gt;
+&lt;!-- All Services Section --&gt;
+&lt;section class&#x3D;&quot;content-section&quot;&gt;
+  &lt;div class&#x3D;&quot;section-header&quot;&gt;
+    &lt;div class&#x3D;&quot;header-content&quot;&gt;
+      &lt;h2 class&#x3D;&quot;section-title&quot;&gt;كل الخدمات&lt;/h2&gt;
+      &lt;div class&#x3D;&quot;header-icons&quot; (click)&#x3D;&quot;navigateToFullList(&#x27;all-services&#x27;)&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-chevron-left&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;services-grid&quot;&gt;
+    &lt;!-- Loading State --&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;isLoading&quot;&gt;
+      &lt;div class&#x3D;&quot;skeleton-grid-card&quot; *ngFor&#x3D;&quot;let item of [1,2,3,4,5,6]&quot;&gt;
+        &lt;div class&#x3D;&quot;skeleton-icon shimmer&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;skeleton-text shimmer w-2/3 mx-auto&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;skeleton-text shimmer w-3/4 mx-auto&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+    
+    &lt;!-- Loaded State with Animation --&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!isLoading&quot;&gt;
+      &lt;div *ngFor&#x3D;&quot;let service of services; let i &#x3D; index; trackBy: trackByServiceId&quot; 
+           #serviceCard
+           class&#x3D;&quot;grid-card&quot;
+           (click)&#x3D;&quot;openService(service.id)&quot;
+           [@fadeInUp]&#x3D;&quot;shouldAnimate(i) ? &#x27;in&#x27; : &#x27;void&#x27;&quot;&gt;
+        &lt;div class&#x3D;&quot;service-icon&quot;&gt;{{service.icon}}&lt;/div&gt;
+        &lt;h3 class&#x3D;&quot;card-title&quot;&gt;{{service.name}}&lt;/h3&gt;
+        &lt;p class&#x3D;&quot;card-subtitle&quot;&gt;{{service.description}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Top Workers Section --&gt;
+&lt;section class&#x3D;&quot;content-section&quot;&gt;
+  &lt;div class&#x3D;&quot;section-header&quot;&gt;
+    &lt;div class&#x3D;&quot;header-content&quot;&gt;
+      &lt;h2 class&#x3D;&quot;section-title&quot;&gt;أفضل الصنايعية&lt;/h2&gt;
+      &lt;div class&#x3D;&quot;header-icons&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-chevron-left&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;cards-container&quot;&gt;
+    &lt;!-- Loading State --&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;isLoading&quot;&gt;
+      &lt;div class&#x3D;&quot;worker-card&quot; *ngFor&#x3D;&quot;let item of [1,2,3]&quot;&gt;
+        &lt;div class&#x3D;&quot;skeleton-circle shimmer&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;flex-1&quot;&gt;
+          &lt;div class&#x3D;&quot;skeleton-text shimmer w-2/3&quot;&gt;&lt;/div&gt;
+          &lt;div class&#x3D;&quot;skeleton-text shimmer w-1/2&quot;&gt;&lt;/div&gt;
+          &lt;div class&#x3D;&quot;skeleton-text shimmer w-1/3&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+
+    &lt;!-- Loaded State --&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!isLoading&quot;&gt;
+      &lt;div *ngFor&#x3D;&quot;let worker of topWorkers; trackBy: trackByWorkerId&quot; class&#x3D;&quot;worker-card&quot;
+        (click)&#x3D;&quot;onWorkerClick(worker)&quot;&gt;
+        &lt;img [src]&#x3D;&quot;worker.image&quot; [alt]&#x3D;&quot;worker.name&quot; class&#x3D;&quot;worker-image&quot; /&gt;
+        &lt;div class&#x3D;&quot;worker-info&quot;&gt;
+          &lt;h3 class&#x3D;&quot;card-title&quot;&gt;{{worker.name}}&lt;/h3&gt;
+          &lt;p class&#x3D;&quot;card-subtitle&quot;&gt;{{worker.service}}&lt;/p&gt;
+          &lt;div class&#x3D;&quot;rating&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-star&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;{{worker.rating}} • {{worker.completedJobs}} خدمة&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;i class&#x3D;&quot;fas fa-chevron-right arrow-icon&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- Top Services Section --&gt;
+&lt;section class&#x3D;&quot;content-section&quot;&gt;
+  &lt;div class&#x3D;&quot;section-header&quot;&gt;
+    &lt;div class&#x3D;&quot;header-content&quot;&gt;
+      &lt;div class&#x3D;&quot;header-title&quot;&gt;
+        &lt;h2 class&#x3D;&quot;section-title&quot;&gt;الخدمات الأكثر طلباً&lt;/h2&gt;
+        &lt;span class&#x3D;&quot;request-count&quot; *ngIf&#x3D;&quot;!isLoading&quot;&gt;{{topSubServices[0].totalRequests || 0}} طلب&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;header-icons&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-chevron-left&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;cards-container&quot;&gt;
+    &lt;!-- Loading State --&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;isLoading&quot;&gt;
+      &lt;div class&#x3D;&quot;skeleton-card&quot; *ngFor&#x3D;&quot;let item of [1,2,3]&quot;&gt;
+        &lt;div class&#x3D;&quot;service-content&quot;&gt;
+          &lt;div class&#x3D;&quot;skeleton-text shimmer w-2/3&quot;&gt;&lt;/div&gt;
+          &lt;div class&#x3D;&quot;skeleton-text shimmer w-1/4&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+    
+    &lt;!-- Loaded State --&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!isLoading&quot;&gt;
+      &lt;div *ngFor&#x3D;&quot;let subService of topSubServices; trackBy: trackBySubServiceId&quot; 
+           class&#x3D;&quot;service-card&quot; 
+           (click)&#x3D;&quot;navigateToSubService(subService.mainServiceId, subService.id)&quot;&gt;
+        &lt;div class&#x3D;&quot;service-content&quot;&gt;
+          &lt;div class&#x3D;&quot;service-info&quot;&gt;
+            &lt;div class&#x3D;&quot;flex items-center gap-2&quot;&gt;
+              &lt;i [class]&#x3D;&quot;getMainService(subService.mainServiceId)?.faIcon&quot; class&#x3D;&quot;text-[#ef4444]&quot;&gt;&lt;/i&gt;
+              &lt;h3 class&#x3D;&quot;card-title&quot;&gt;{{subService.name}}&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;flex items-center gap-2 mt-1&quot;&gt;
+              &lt;span class&#x3D;&quot;request-count&quot;&gt;{{subService.totalRequests}} طلب&lt;/span&gt;
+              &lt;span class&#x3D;&quot;text-sm text-gray-500&quot;&gt;•&lt;/span&gt;
+              &lt;span class&#x3D;&quot;text-sm text-gray-500&quot;&gt;{{getMainService(subService.mainServiceId)?.name}}&lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;trend-container&quot;&gt;
+            &lt;i class&#x3D;&quot;fa-solid&quot; 
+               [class.fa-arrow-trend-up]&#x3D;&quot;subService.trend &#x3D;&#x3D;&#x3D; &#x27;up&#x27;&quot;
+               [class.fa-arrow-trend-down]&#x3D;&quot;subService.trend &#x3D;&#x3D;&#x3D; &#x27;down&#x27;&quot;
+               [class.text-success]&#x3D;&quot;subService.trend &#x3D;&#x3D;&#x3D; &#x27;up&#x27;&quot;
+               [class.text-danger]&#x3D;&quot;subService.trend &#x3D;&#x3D;&#x3D; &#x27;down&#x27;&quot;&gt;
+            &lt;/i&gt;
+            &lt;span class&#x3D;&quot;trend-value&quot; 
+                  [class.text-success]&#x3D;&quot;subService.trend &#x3D;&#x3D;&#x3D; &#x27;up&#x27;&quot;
+                  [class.text-danger]&#x3D;&quot;subService.trend &#x3D;&#x3D;&#x3D; &#x27;down&#x27;&quot;&gt;
+              {{subService.trendValue}}%
+            &lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./home.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// Base Container Styles
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding-bottom: 5rem;
+  overflow-x: hidden;
+}
+
+// Shimmer Animation
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.shimmer {
+  background: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 800px 104px;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: shimmer;
+  animation-timing-function: linear;
+}
+
+// Skeleton Components
+.skeleton-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  height: 100px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 2px 4px -1px rgba(0, 0, 0, 0.03),
+              0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.skeleton-grid-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  height: 140px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 2px 4px -1px rgba(0, 0, 0, 0.03),
+              0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.skeleton-circle {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.skeleton-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  margin: 0 auto 0.75rem auto;
+}
+
+// Header Styles
+.header-section {
+  background: linear-gradient(to bottom, #ef4444, #ef4444);
+  min-height: 120px;
+  padding: 2rem 1rem 1.5rem;
+  margin-bottom: -1rem;
+}
+
+.header-content {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0 0.5rem;
+  
+  i {
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  h1 {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+}
+
+.search-wrapper {
+  position: relative;
+  background: white;
+  border-radius: 9999px;
+  height: 3rem;
+  padding: 0 1.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  
+  &amp;:focus-within {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.search-input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: right;
+  direction: rtl;
+  font-size: 1rem;
+  color: #1f2937;
+  padding-left: 2.5rem;
+  
+  &amp;::placeholder {
+    color: #9ca3af;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 1.25rem;
+}
+
+.home-container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+// Search Section
+.search-section {
+  background-color: #ef4444;
+  padding: 1.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.search-wrapper {
+  position: relative;
+  background: white;
+  border-radius: 999px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &amp;:focus-within {
+    box-shadow: 0 0 0 2px rgba(226, 76, 76, 0.2);
+  }
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+  direction: rtl;
+  
+  &amp;::placeholder {
+    color: #9ca3af;
+  }
+}
+
+// Section Headers
+.section-header {
+  cursor: pointer;
+  user-select: none;
+  padding: 1rem;
+  transition: background-color 0.2s ease;
+  border-radius: 0.5rem;
+  
+  &amp;:hover {
+    background-color: rgba(226, 76, 76, 0.05);
+    
+    .fa-chevron-left {
+      color: #ef4444;
+    }
+  }
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+// Content Sections
+.content-section {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+// Cards Container
+.cards-container {
+  transition: all 0.3s ease-in-out;
+  max-height: 2000px;
+  opacity: 1;
+  overflow: hidden;
+  
+  &amp;.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Service Cards
+.service-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 2px 4px -1px rgba(0, 0, 0, 0.03),
+              0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &amp;:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(226, 76, 76, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .service-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .service-info {
+    text-align: right;
+  }
+}
+
+// Worker Cards
+.worker-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 2px 4px -1px rgba(0, 0, 0, 0.03),
+              0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &amp;:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(226, 76, 76, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.worker-image {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.worker-info {
+  flex: 1;
+  text-align: right;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+  
+  .fa-star {
+    color: #fbbf24;
+  }
+}
+
+// Services Grid
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  transition: all 0.3s ease-in-out;
+  
+  &amp;.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.grid-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 2px 4px -1px rgba(0, 0, 0, 0.03),
+              0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &amp;:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(226, 76, 76, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .service-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+// Typography
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  color: #6b7280;
+  line-height: 1.25;
+}
+
+.request-count {
+  font-size: 0.875rem;
+  color: #085e0c;
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(19, 186, 44, 0.1);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+// Icons and Utilities
+.fa-chevron-left {
+  transition: transform 0.3s ease;
+  color: #9ca3af;
+  font-size: 1rem;
+  
+  &amp;.rotate-90 {
+    transform: rotate(-90deg);
+  }
+}
+
+.arrow-icon {
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+.trend-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  .trend-value {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .text-success {
+    color: #10b981;
+  }
+  
+  .text-danger {
+    color: #ef4444;
+  }
+}
+
+// Utility Classes
+.text-primary { color: #ef4444; }
+.text-success { color: #10b981; }
+.text-danger { color: #ef4444; }
+
+.mb-4 { margin-bottom: 1rem; }
+
+// Animation Classes
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: 640px) {
+  .header-section {
+    padding: 1.5rem 1rem 1.25rem;
+  }
+  
+  .title-wrapper {
+    margin-bottom: 0.75rem;
+    
+    h1 {
+      font-size: 1.125rem;
+    }
+  }
+  
+  .search-wrapper {
+    height: 2.75rem;
+  }
+  
+  .services-grid {
+    gap: 0.75rem;
+  }
+  
+  .grid-card {
+    padding: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.125rem;
+  }
+  
+  .worker-image {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  
+  .skeleton-circle {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  z-index: 50;
+}
+
+.search-input {
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: right;
+  direction: rtl;
+  font-size: 1rem;
+  color: #1f2937;
+  
+  &amp;::placeholder {
+    color: #9ca3af;
+  }
+}
+
+.search-results-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 0.5rem;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &amp;:hover,
+  &amp;.selected {
+    background-color: #f3f4f6;
+  }
+
+  .service-icon {
+    font-size: 1.25rem;
+    color: #ef4444;
+    min-width: 24px;
+    text-align: center;
+  }
+
+  .result-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+  }
+
+  .result-subtitle {
+    font-size: 0.75rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .separator {
+      color: #9ca3af;
+    }
+
+    .main-service-name {
+      color: #ef4444;
+    }
+
+    .price {
+      color: #059669;
+    }
+  }
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #6b7280;
+
+  i {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+
+    &amp;:first-of-type {
+      color: #374151;
+      font-weight: 500;
+    }
+  }
+}
+
+
+.no-results {
+  text-align: center;
+  padding: 1rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+// Loading animations
+.search-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #f3f4f6;
+  border-top-color: #ef4444;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skeleton-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.skeleton-text {
+  height: 0.875rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
+
+  &amp;:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Make the dropdown scrollbar nice
+.search-results-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  z-index: 50;
+
+  &amp;:empty {
+    display: none;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- Header Section --><header class="bg-[#ef4444]">  <div class="px-4 pt-8 pb-3">    <div class="search-container">      <div class="bg-white rounded-full flex items-center h-11 shadow-sm relative">        <span class="flex-1 text-gray-700 text-sm mr-4 text-right relative">          <input             type="text"             class="search-input w-full pr-10 pl-4"             [placeholder]="\'البحث عن خدمة\'"            [(ngModel)]="searchQuery"            (input)="onSearch($event)"            (focus)="showResults = true"          >          <i *ngIf="!isSearching" class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>          <div *ngIf="isSearching" class="search-spinner absolute right-3 top-1/2 -translate-y-1/2"></div>          <i *ngIf="searchQuery"              class="fas fa-times text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer"              (click)="clearSearch()">          </i>        </span>        <div class="flex items-center ml-4">          <i class="fas fa-home text-[#ef4444] text-lg"></i>          <span class="text-[#ef4444] mr-2 font-medium">الرئيسية</span>        </div>      </div>      <!-- Search Results Dropdown -->      <div *ngIf="showResults && (isSearching || searchResults.length > 0 || searchQuery)"            class="search-results-dropdown">        <!-- Loading State -->        <ng-container *ngIf="isSearching">          <div class="search-result-item shimmer" *ngFor="let i of [1,2,3]">            <div class="skeleton-icon"></div>            <div class="flex-1">              <div class="skeleton-text w-3/4"></div>              <div class="skeleton-text w-1/2"></div>            </div>          </div>        </ng-container>        <!-- Results -->        <ng-container *ngIf="!isSearching && searchResults.length > 0">          <div *ngFor="let result of searchResults; let i = index; trackBy: trackBySearchResult"                class="search-result-item"               [class.selected]="i === selectedResultIndex"               (mouseenter)="selectedResultIndex = i"               (click)="navigateToSubService(result.mainServiceId, result.id)">            <i [class]="getMainService(result.mainServiceId)?.faIcon || \'fas fa-circle\'"                class="service-icon"></i>            <div class="flex-1">              <h4 class="result-title">{{result.name}}</h4>              <p class="result-subtitle">                <span class="main-service-name">{{getMainService(result.mainServiceId)?.name}}</span>                <span class="separator">•</span>                <span class="price">{{result.price}} جنيه</span>              </p>            </div>          </div>        </ng-container>        <!-- No Results -->        <div *ngIf="!isSearching && searchResults.length === 0 && searchQuery"              class="no-results">          <i class="fas fa-search text-gray-400 mb-2 text-lg"></i>          <p>لا توجد نتائج تطابق بحثك</p>          <p class="text-sm text-gray-500 mt-1">حاول البحث بكلمات مختلفة</p>        </div>      </div>    </div>  </div></header><app-featured-slider></app-featured-slider><!-- All Services Section --><section class="content-section">  <div class="section-header">    <div class="header-content">      <h2 class="section-title">كل الخدمات</h2>      <div class="header-icons" (click)="navigateToFullList(\'all-services\')">        <i class="fas fa-chevron-left"></i>      </div>    </div>  </div>  <div class="services-grid">    <!-- Loading State -->    <ng-container *ngIf="isLoading">      <div class="skeleton-grid-card" *ngFor="let item of [1,2,3,4,5,6]">        <div class="skeleton-icon shimmer"></div>        <div class="skeleton-text shimmer w-2/3 mx-auto"></div>        <div class="skeleton-text shimmer w-3/4 mx-auto"></div>      </div>    </ng-container>        <!-- Loaded State with Animation -->    <ng-container *ngIf="!isLoading">      <div *ngFor="let service of services; let i = index; trackBy: trackByServiceId"            #serviceCard           class="grid-card"           (click)="openService(service.id)"           [@fadeInUp]="shouldAnimate(i) ? \'in\' : \'void\'">        <div class="service-icon">{{service.icon}}</div>        <h3 class="card-title">{{service.name}}</h3>        <p class="card-subtitle">{{service.description}}</p>      </div>    </ng-container>  </div></section><!-- Top Workers Section --><section class="content-section">  <div class="section-header">    <div class="header-content">      <h2 class="section-title">أفضل الصنايعية</h2>      <div class="header-icons">        <i class="fas fa-chevron-left"></i>      </div>    </div>  </div>  <div class="cards-container">    <!-- Loading State -->    <ng-container *ngIf="isLoading">      <div class="worker-card" *ngFor="let item of [1,2,3]">        <div class="skeleton-circle shimmer"></div>        <div class="flex-1">          <div class="skeleton-text shimmer w-2/3"></div>          <div class="skeleton-text shimmer w-1/2"></div>          <div class="skeleton-text shimmer w-1/3"></div>        </div>      </div>    </ng-container>    <!-- Loaded State -->    <ng-container *ngIf="!isLoading">      <div *ngFor="let worker of topWorkers; trackBy: trackByWorkerId" class="worker-card"        (click)="onWorkerClick(worker)">        <img [src]="worker.image" [alt]="worker.name" class="worker-image" />        <div class="worker-info">          <h3 class="card-title">{{worker.name}}</h3>          <p class="card-subtitle">{{worker.service}}</p>          <div class="rating">            <i class="fas fa-star"></i>            <span>{{worker.rating}} • {{worker.completedJobs}} خدمة</span>          </div>        </div>        <i class="fas fa-chevron-right arrow-icon"></i>      </div>    </ng-container>  </div></section><!-- Top Services Section --><section class="content-section">  <div class="section-header">    <div class="header-content">      <div class="header-title">        <h2 class="section-title">الخدمات الأكثر طلباً</h2>        <span class="request-count" *ngIf="!isLoading">{{topSubServices[0].totalRequests || 0}} طلب</span>      </div>      <div class="header-icons">        <i class="fas fa-chevron-left"></i>      </div>    </div>  </div>  <div class="cards-container">    <!-- Loading State -->    <ng-container *ngIf="isLoading">      <div class="skeleton-card" *ngFor="let item of [1,2,3]">        <div class="service-content">          <div class="skeleton-text shimmer w-2/3"></div>          <div class="skeleton-text shimmer w-1/4"></div>        </div>      </div>    </ng-container>        <!-- Loaded State -->    <ng-container *ngIf="!isLoading">      <div *ngFor="let subService of topSubServices; trackBy: trackBySubServiceId"            class="service-card"            (click)="navigateToSubService(subService.mainServiceId, subService.id)">        <div class="service-content">          <div class="service-info">            <div class="flex items-center gap-2">              <i [class]="getMainService(subService.mainServiceId)?.faIcon" class="text-[#ef4444]"></i>              <h3 class="card-title">{{subService.name}}</h3>            </div>            <div class="flex items-center gap-2 mt-1">              <span class="request-count">{{subService.totalRequests}} طلب</span>              <span class="text-sm text-gray-500">•</span>              <span class="text-sm text-gray-500">{{getMainService(subService.mainServiceId)?.name}}</span>            </div>          </div>          <div class="trend-container">            <i class="fa-solid"                [class.fa-arrow-trend-up]="subService.trend === \'up\'"               [class.fa-arrow-trend-down]="subService.trend === \'down\'"               [class.text-success]="subService.trend === \'up\'"               [class.text-danger]="subService.trend === \'down\'">            </i>            <span class="trend-value"                   [class.text-success]="subService.trend === \'up\'"                  [class.text-danger]="subService.trend === \'down\'">              {{subService.trendValue}}%            </span>          </div>        </div>      </div>    </ng-container>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BackButtonComponent', 'selector': 'app-back-button'},{'name': 'CompleteProfileComponent', 'selector': 'app-complete-profile'},{'name': 'DiscoverComponent', 'selector': 'app-discover'},{'name': 'EmailRegisterComponent', 'selector': 'app-email-register'},{'name': 'FeaturedSliderComponent', 'selector': 'app-featured-slider'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MessagesComponent', 'selector': 'app-messages'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NewRequestComponent', 'selector': 'app-new-request'},{'name': 'OtpInputComponent', 'selector': 'app-otp-input'},{'name': 'PhoneRegisterComponent', 'selector': 'app-phone-register'},{'name': 'PriceNegotiationComponent', 'selector': 'app-price-negotiation'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterMethodComponent', 'selector': 'app-register-method'},{'name': 'RequestDetailsComponent', 'selector': 'app-request-details'},{'name': 'RequestsListComponent', 'selector': 'app-requests-list'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'ServiceDetailsComponent', 'selector': 'app-service-details'},{'name': 'ServicesListComponent', 'selector': 'app-services-list'},{'name': 'SubServiceComponent', 'selector': 'app-sub-service'},{'name': 'UserTypeComponent', 'selector': 'app-user-type'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'},{'name': 'WorkerDetailsComponent', 'selector': 'app-worker-details'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HomeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

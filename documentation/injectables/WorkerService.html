@@ -1,0 +1,1625 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sanai3i documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sanai3i documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >WorkerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/services/worker.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#DEFAULT_IMAGE" >DEFAULT_IMAGE</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#favoriteWorkersSubject" >favoriteWorkersSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#STORAGE_KEY" >STORAGE_KEY</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#workers" >workers</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateDistance" >calculateDistance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deg2rad" >deg2rad</a>
+                            </li>
+                            <li>
+                                <a href="#getTopWorkers" >getTopWorkers</a>
+                            </li>
+                            <li>
+                                <a href="#getWorkerById" >getWorkerById</a>
+                            </li>
+                            <li>
+                                <a href="#getWorkers" >getWorkers</a>
+                            </li>
+                            <li>
+                                <a href="#getWorkersByCategory" >getWorkersByCategory</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isWorkerFavorite" >isWorkerFavorite</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadFavorites" >loadFavorites</a>
+                            </li>
+                            <li>
+                                <a href="#searchWorkers" >searchWorkers</a>
+                            </li>
+                            <li>
+                                <a href="#toggleFavorite" >toggleFavorite</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="235" class="link-to-prism">src/app/core/services/worker.service.ts:235</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateDistance"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateDistance</b></span>
+                        <a href="#calculateDistance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateDistance(coord1: [number, number], coord2: [number, number])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="271"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:271</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>coord1</td>
+                                            <td>
+                                                        <code>[number, number]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>coord2</td>
+                                            <td>
+                                                        <code>[number, number]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deg2rad"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deg2rad</b></span>
+                        <a href="#deg2rad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deg2rad(deg: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="285"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:285</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>deg</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTopWorkers"></a>
+                    <span class="name">
+                        <span ><b>getTopWorkers</b></span>
+                        <a href="#getTopWorkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTopWorkers(limit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>limit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>5</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Worker.html" target="_self" >Observable&lt;Worker[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWorkerById"></a>
+                    <span class="name">
+                        <span ><b>getWorkerById</b></span>
+                        <a href="#getWorkerById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWorkerById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="243"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:243</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Worker.html" target="_self" >Observable&lt;Worker&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWorkers"></a>
+                    <span class="name">
+                        <span ><b>getWorkers</b></span>
+                        <a href="#getWorkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWorkers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:239</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Worker.html" target="_self" >Observable&lt;Worker[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWorkersByCategory"></a>
+                    <span class="name">
+                        <span ><b>getWorkersByCategory</b></span>
+                        <a href="#getWorkersByCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getWorkersByCategory(category: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="251"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:251</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>category</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Worker.html" target="_self" >Observable&lt;Worker[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isWorkerFavorite"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isWorkerFavorite</b></span>
+                        <a href="#isWorkerFavorite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isWorkerFavorite(workerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="308"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:308</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>workerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadFavorites"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadFavorites</b></span>
+                        <a href="#loadFavorites"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadFavorites()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="303"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:303</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>number[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchWorkers"></a>
+                    <span class="name">
+                        <span ><b>searchWorkers</b></span>
+                        <a href="#searchWorkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>searchWorkers(query: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>query</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Worker.html" target="_self" >Observable&lt;Worker[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleFavorite"></a>
+                    <span class="name">
+                        <span ><b>toggleFavorite</b></span>
+                        <a href="#toggleFavorite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleFavorite(workerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="289"
+                                    class="link-to-prism">src/app/core/services/worker.service.ts:289</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>workerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_IMAGE"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>DEFAULT_IMAGE</b></span>
+                        <a href="#DEFAULT_IMAGE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;assets/worker.webp&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/core/services/worker.service.ts:10</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="favoriteWorkersSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>favoriteWorkersSubject</b></span>
+                        <a href="#favoriteWorkersSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;number[]&gt;(this.loadFavorites())</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/core/services/worker.service.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="STORAGE_KEY"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>STORAGE_KEY</b></span>
+                        <a href="#STORAGE_KEY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;favoriteWorkers&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/services/worker.service.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>workers</b></span>
+                        <a href="#workers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Worker.html" target="_self" >Worker[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      id: 1,
+      name: &#x27;عم حسن&#x27;,
+      service: &#x27;كهربائي&#x27;,
+      category: &#x27;electrician&#x27;,
+      rating: 4.9,
+      completedJobs: 230,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;المعادي، القاهرة&#x27;,
+      responseRate: 95,
+      completionRate: 98,
+      position: [30.0444, 31.2357],
+      about: &#x27;خبرة ٢٠ عام في مجال الكهرباء، متخصص في صيانة وتركيب جميع الأجهزة الكهربائية&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة عامة&#x27;, price: 150, description: &#x27;فحص وإصلاح المشاكل الكهربائية العامة&#x27; },
+        { id: 2, name: &#x27;تركيب أجهزة&#x27;, price: 200, description: &#x27;تركيب وتوصيل الأجهزة الكهربائية&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;أحمد محمود&#x27;, userImage: this.DEFAULT_IMAGE, rating: 5, text: &#x27;ممتاز جداً وسريع في العمل&#x27;, date: &#x27;منذ يومين&#x27; }],
+      totalReviews: 180,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 5 دقائق&#x27;
+    },
+    {
+      id: 2,
+      name: &#x27;محمد السيد&#x27;,
+      service: &#x27;سباك&#x27;,
+      category: &#x27;plumber&#x27;,
+      rating: 4.8,
+      completedJobs: 195,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;مدينة نصر، القاهرة&#x27;,
+      responseRate: 92,
+      completionRate: 96,
+      position: [30.0484, 31.2387],
+      about: &#x27;متخصص في جميع أعمال السباكة والصيانة المنزلية&#x27;,
+      services: [
+        { id: 1, name: &#x27;تصليح تسريبات&#x27;, price: 120, description: &#x27;كشف وإصلاح تسريبات المياه&#x27; },
+        { id: 2, name: &#x27;تركيب أدوات صحية&#x27;, price: 180, description: &#x27;تركيب وصيانة الأدوات الصحية&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;محمود علي&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.8, text: &#x27;عمل ممتاز وسعر معقول&#x27;, date: &#x27;منذ 3 أيام&#x27; }],
+      totalReviews: 150,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ ساعة&#x27;
+    },
+    {
+      id: 3,
+      name: &#x27;أحمد كمال&#x27;,
+      service: &#x27;نجار&#x27;,
+      category: &#x27;carpenter&#x27;,
+      rating: 4.7,
+      completedJobs: 175,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;الزمالك، القاهرة&#x27;,
+      responseRate: 90,
+      completionRate: 94,
+      position: [30.0464, 31.2367],
+      about: &#x27;خبرة في تصنيع وإصلاح الأثاث الخشبي بجميع أنواعه&#x27;,
+      services: [
+        { id: 1, name: &#x27;تصليح أثاث&#x27;, price: 200, description: &#x27;إصلاح وصيانة الأثاث الخشبي&#x27; },
+        { id: 2, name: &#x27;تصنيع أثاث&#x27;, price: 500, description: &#x27;تصنيع أثاث حسب الطلب&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;كريم سعيد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.7, text: &#x27;حرفي ممتاز وأمين&#x27;, date: &#x27;منذ أسبوع&#x27; }],
+      totalReviews: 140,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 30 دقيقة&#x27;
+    },
+    {
+      id: 4,
+      name: &#x27;مصطفى حسين&#x27;,
+      service: &#x27;نقاش&#x27;,
+      category: &#x27;painter&#x27;,
+      rating: 4.9,
+      completedJobs: 210,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;المهندسين، الجيزة&#x27;,
+      responseRate: 94,
+      completionRate: 97,
+      position: [30.0454, 31.2347],
+      about: &#x27;متخصص في أعمال الدهانات والديكور&#x27;,
+      services: [
+        { id: 1, name: &#x27;دهانات&#x27;, price: 300, description: &#x27;دهانات حوائط وأسقف&#x27; },
+        { id: 2, name: &#x27;ورق حائط&#x27;, price: 250, description: &#x27;تركيب ورق حائط&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;سامح فؤاد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.9, text: &#x27;شغل نظيف جداً&#x27;, date: &#x27;منذ 5 أيام&#x27; }],
+      totalReviews: 160,
+      availability: &#x27;مشغول&#x27;,
+      lastOnline: &#x27;منذ 3 ساعات&#x27;
+    },
+    {
+      id: 5,
+      name: &#x27;كريم عادل&#x27;,
+      service: &#x27;كهربائي&#x27;,
+      category: &#x27;electrician&#x27;,
+      rating: 4.6,
+      completedJobs: 165,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;الدقي، الجيزة&#x27;,
+      responseRate: 88,
+      completionRate: 92,
+      position: [30.0434, 31.2327],
+      about: &#x27;متخصص في تركيب وصيانة الأجهزة الكهربائية&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة أجهزة&#x27;, price: 160, description: &#x27;صيانة الأجهزة المنزلية&#x27; },
+        { id: 2, name: &#x27;تمديدات كهربائية&#x27;, price: 220, description: &#x27;تركيب وصيانة التمديدات&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;هاني محمد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.6, text: &#x27;سريع في التنفيذ&#x27;, date: &#x27;منذ 4 أيام&#x27; }],
+      totalReviews: 130,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 15 دقيقة&#x27;
+    },
+    {
+      id: 6,
+      name: &#x27;سمير فتحي&#x27;,
+      service: &#x27;سباك&#x27;,
+      category: &#x27;plumber&#x27;,
+      rating: 4.5,
+      completedJobs: 145,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;شبرا، القاهرة&#x27;,
+      responseRate: 86,
+      completionRate: 90,
+      position: [30.0414, 31.2307],
+      about: &#x27;خبرة في جميع أعمال السباكة والصيانة&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة عامة&#x27;, price: 130, description: &#x27;صيانة شبكات المياه&#x27; },
+        { id: 2, name: &#x27;تركيبات&#x27;, price: 170, description: &#x27;تركيب وتغيير المواسير&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;عمر أحمد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.5, text: &#x27;خدمة جيدة وسعر مناسب&#x27;, date: &#x27;منذ أسبوع&#x27; }],
+      totalReviews: 110,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ ساعتين&#x27;
+    },
+    {
+      id: 7,
+      name: &#x27;رامي السيد&#x27;,
+      service: &#x27;نجار&#x27;,
+      category: &#x27;carpenter&#x27;,
+      rating: 4.8,
+      completedJobs: 185,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;العباسية، القاهرة&#x27;,
+      responseRate: 93,
+      completionRate: 95,
+      position: [30.0404, 31.2297],
+      about: &#x27;متخصص في تصنيع وتركيب الأثاث الخشبي&#x27;,
+      services: [
+        { id: 1, name: &#x27;تركيب مطابخ&#x27;, price: 400, description: &#x27;تركيب وصيانة المطابخ&#x27; },
+        { id: 2, name: &#x27;تصليح أثاث&#x27;, price: 180, description: &#x27;إصلاح الأثاث المنزلي&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;حسام علي&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.8, text: &#x27;حرفي ماهر وملتزم&#x27;, date: &#x27;منذ 6 أيام&#x27; }],
+      totalReviews: 145,
+      availability: &#x27;مشغول&#x27;,
+      lastOnline: &#x27;منذ 4 ساعات&#x27;
+    },
+    {
+      id: 8,
+      name: &#x27;عماد حسن&#x27;,
+      service: &#x27;نقاش&#x27;,
+      category: &#x27;painter&#x27;,
+      rating: 4.7,
+      completedJobs: 155,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;حلوان، القاهرة&#x27;,
+      responseRate: 89,
+      completionRate: 93,
+      position: [30.0394, 31.2287],
+      about: &#x27;خبرة في أعمال الديكور والدهانات الحديثة&#x27;,
+      services: [
+        { id: 1, name: &#x27;دهانات حديثة&#x27;, price: 280, description: &#x27;دهانات بتقنيات حديثة&#x27; },
+        { id: 2, name: &#x27;ديكورات&#x27;, price: 350, description: &#x27;تنفيذ ديكورات متنوعة&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;نادر محمد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.7, text: &#x27;ذوق راقي في العمل&#x27;, date: &#x27;منذ 3 أيام&#x27; }],
+      totalReviews: 120,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 45 دقيقة&#x27;
+    },
+    {
+      id: 9,
+      name: &#x27;وليد عبدالله&#x27;,
+      service: &#x27;كهربائي&#x27;,
+      category: &#x27;electrician&#x27;,
+      rating: 4.4,
+      completedJobs: 135,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;العجوزة، الجيزة&#x27;,
+      responseRate: 85,
+      completionRate: 89,
+      position: [30.0384, 31.2277],
+      about: &#x27;متخصص في الصيانة الكهربائية المنزلية&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة منزلية&#x27;, price: 140, description: &#x27;صيانة كهرباء المنزل&#x27; },
+        { id: 2, name: &#x27;تركيب إضاءة&#x27;, price: 190, description: &#x27;تركيب وحدات إضاءة&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;طارق سعيد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.4, text: &#x27;خدمة جيدة بشكل عام&#x27;, date: &#x27;منذ أسبوع&#x27; }],
+      totalReviews: 100,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 20 دقيقة&#x27;
+    },
+    {
+      id: 10,
+      name: &#x27;هشام كامل&#x27;,
+      service: &#x27;سباك&#x27;,
+      category: &#x27;plumber&#x27;,
+      rating: 4.6,
+      completedJobs: 160,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;المقطم، القاهرة&#x27;,
+      responseRate: 87,
+      completionRate: 91,
+      position: [30.0374, 31.2267],
+      about: &#x27;متخصص في صيانة شبكات المياه والصرف&#x27;,
+      services: [
+        { id: 1, name: &#x27;كشف تسريبات&#x27;, price: 160, description: &#x27;كشف وإصلاح التسريبات&#x27; },
+        { id: 2, name: &#x27;صيانة شبكات&#x27;, price: 200, description: &#x27;صيانة شبكات المياه&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;رامي حسن&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.6, text: &#x27;دقيق في العمل ومنظم&#x27;, date: &#x27;منذ 5 أيام&#x27; }],
+      totalReviews: 125,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ ساعة&#x27;
+    }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/core/services/worker.service.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Observable, BehaviorSubject, of, throwError } from &#x27;rxjs&#x27;;
+import { map, delay } from &#x27;rxjs/operators&#x27;;
+import { Worker } from &#x27;../../shared/interfaces/worker.interface&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class WorkerService {
+  private readonly DEFAULT_IMAGE &#x3D; &#x27;assets/worker.webp&#x27;;
+  private readonly STORAGE_KEY &#x3D; &#x27;favoriteWorkers&#x27;;
+  private favoriteWorkersSubject &#x3D; new BehaviorSubject&lt;number[]&gt;(this.loadFavorites());
+  
+  private workers: Worker[] &#x3D; [
+    {
+      id: 1,
+      name: &#x27;عم حسن&#x27;,
+      service: &#x27;كهربائي&#x27;,
+      category: &#x27;electrician&#x27;,
+      rating: 4.9,
+      completedJobs: 230,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;المعادي، القاهرة&#x27;,
+      responseRate: 95,
+      completionRate: 98,
+      position: [30.0444, 31.2357],
+      about: &#x27;خبرة ٢٠ عام في مجال الكهرباء، متخصص في صيانة وتركيب جميع الأجهزة الكهربائية&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة عامة&#x27;, price: 150, description: &#x27;فحص وإصلاح المشاكل الكهربائية العامة&#x27; },
+        { id: 2, name: &#x27;تركيب أجهزة&#x27;, price: 200, description: &#x27;تركيب وتوصيل الأجهزة الكهربائية&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;أحمد محمود&#x27;, userImage: this.DEFAULT_IMAGE, rating: 5, text: &#x27;ممتاز جداً وسريع في العمل&#x27;, date: &#x27;منذ يومين&#x27; }],
+      totalReviews: 180,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 5 دقائق&#x27;
+    },
+    {
+      id: 2,
+      name: &#x27;محمد السيد&#x27;,
+      service: &#x27;سباك&#x27;,
+      category: &#x27;plumber&#x27;,
+      rating: 4.8,
+      completedJobs: 195,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;مدينة نصر، القاهرة&#x27;,
+      responseRate: 92,
+      completionRate: 96,
+      position: [30.0484, 31.2387],
+      about: &#x27;متخصص في جميع أعمال السباكة والصيانة المنزلية&#x27;,
+      services: [
+        { id: 1, name: &#x27;تصليح تسريبات&#x27;, price: 120, description: &#x27;كشف وإصلاح تسريبات المياه&#x27; },
+        { id: 2, name: &#x27;تركيب أدوات صحية&#x27;, price: 180, description: &#x27;تركيب وصيانة الأدوات الصحية&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;محمود علي&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.8, text: &#x27;عمل ممتاز وسعر معقول&#x27;, date: &#x27;منذ 3 أيام&#x27; }],
+      totalReviews: 150,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ ساعة&#x27;
+    },
+    {
+      id: 3,
+      name: &#x27;أحمد كمال&#x27;,
+      service: &#x27;نجار&#x27;,
+      category: &#x27;carpenter&#x27;,
+      rating: 4.7,
+      completedJobs: 175,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;الزمالك، القاهرة&#x27;,
+      responseRate: 90,
+      completionRate: 94,
+      position: [30.0464, 31.2367],
+      about: &#x27;خبرة في تصنيع وإصلاح الأثاث الخشبي بجميع أنواعه&#x27;,
+      services: [
+        { id: 1, name: &#x27;تصليح أثاث&#x27;, price: 200, description: &#x27;إصلاح وصيانة الأثاث الخشبي&#x27; },
+        { id: 2, name: &#x27;تصنيع أثاث&#x27;, price: 500, description: &#x27;تصنيع أثاث حسب الطلب&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;كريم سعيد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.7, text: &#x27;حرفي ممتاز وأمين&#x27;, date: &#x27;منذ أسبوع&#x27; }],
+      totalReviews: 140,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 30 دقيقة&#x27;
+    },
+    {
+      id: 4,
+      name: &#x27;مصطفى حسين&#x27;,
+      service: &#x27;نقاش&#x27;,
+      category: &#x27;painter&#x27;,
+      rating: 4.9,
+      completedJobs: 210,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;المهندسين، الجيزة&#x27;,
+      responseRate: 94,
+      completionRate: 97,
+      position: [30.0454, 31.2347],
+      about: &#x27;متخصص في أعمال الدهانات والديكور&#x27;,
+      services: [
+        { id: 1, name: &#x27;دهانات&#x27;, price: 300, description: &#x27;دهانات حوائط وأسقف&#x27; },
+        { id: 2, name: &#x27;ورق حائط&#x27;, price: 250, description: &#x27;تركيب ورق حائط&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;سامح فؤاد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.9, text: &#x27;شغل نظيف جداً&#x27;, date: &#x27;منذ 5 أيام&#x27; }],
+      totalReviews: 160,
+      availability: &#x27;مشغول&#x27;,
+      lastOnline: &#x27;منذ 3 ساعات&#x27;
+    },
+    {
+      id: 5,
+      name: &#x27;كريم عادل&#x27;,
+      service: &#x27;كهربائي&#x27;,
+      category: &#x27;electrician&#x27;,
+      rating: 4.6,
+      completedJobs: 165,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;الدقي، الجيزة&#x27;,
+      responseRate: 88,
+      completionRate: 92,
+      position: [30.0434, 31.2327],
+      about: &#x27;متخصص في تركيب وصيانة الأجهزة الكهربائية&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة أجهزة&#x27;, price: 160, description: &#x27;صيانة الأجهزة المنزلية&#x27; },
+        { id: 2, name: &#x27;تمديدات كهربائية&#x27;, price: 220, description: &#x27;تركيب وصيانة التمديدات&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;هاني محمد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.6, text: &#x27;سريع في التنفيذ&#x27;, date: &#x27;منذ 4 أيام&#x27; }],
+      totalReviews: 130,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 15 دقيقة&#x27;
+    },
+    {
+      id: 6,
+      name: &#x27;سمير فتحي&#x27;,
+      service: &#x27;سباك&#x27;,
+      category: &#x27;plumber&#x27;,
+      rating: 4.5,
+      completedJobs: 145,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;شبرا، القاهرة&#x27;,
+      responseRate: 86,
+      completionRate: 90,
+      position: [30.0414, 31.2307],
+      about: &#x27;خبرة في جميع أعمال السباكة والصيانة&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة عامة&#x27;, price: 130, description: &#x27;صيانة شبكات المياه&#x27; },
+        { id: 2, name: &#x27;تركيبات&#x27;, price: 170, description: &#x27;تركيب وتغيير المواسير&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;عمر أحمد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.5, text: &#x27;خدمة جيدة وسعر مناسب&#x27;, date: &#x27;منذ أسبوع&#x27; }],
+      totalReviews: 110,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ ساعتين&#x27;
+    },
+    {
+      id: 7,
+      name: &#x27;رامي السيد&#x27;,
+      service: &#x27;نجار&#x27;,
+      category: &#x27;carpenter&#x27;,
+      rating: 4.8,
+      completedJobs: 185,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;العباسية، القاهرة&#x27;,
+      responseRate: 93,
+      completionRate: 95,
+      position: [30.0404, 31.2297],
+      about: &#x27;متخصص في تصنيع وتركيب الأثاث الخشبي&#x27;,
+      services: [
+        { id: 1, name: &#x27;تركيب مطابخ&#x27;, price: 400, description: &#x27;تركيب وصيانة المطابخ&#x27; },
+        { id: 2, name: &#x27;تصليح أثاث&#x27;, price: 180, description: &#x27;إصلاح الأثاث المنزلي&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;حسام علي&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.8, text: &#x27;حرفي ماهر وملتزم&#x27;, date: &#x27;منذ 6 أيام&#x27; }],
+      totalReviews: 145,
+      availability: &#x27;مشغول&#x27;,
+      lastOnline: &#x27;منذ 4 ساعات&#x27;
+    },
+    {
+      id: 8,
+      name: &#x27;عماد حسن&#x27;,
+      service: &#x27;نقاش&#x27;,
+      category: &#x27;painter&#x27;,
+      rating: 4.7,
+      completedJobs: 155,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;حلوان، القاهرة&#x27;,
+      responseRate: 89,
+      completionRate: 93,
+      position: [30.0394, 31.2287],
+      about: &#x27;خبرة في أعمال الديكور والدهانات الحديثة&#x27;,
+      services: [
+        { id: 1, name: &#x27;دهانات حديثة&#x27;, price: 280, description: &#x27;دهانات بتقنيات حديثة&#x27; },
+        { id: 2, name: &#x27;ديكورات&#x27;, price: 350, description: &#x27;تنفيذ ديكورات متنوعة&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;نادر محمد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.7, text: &#x27;ذوق راقي في العمل&#x27;, date: &#x27;منذ 3 أيام&#x27; }],
+      totalReviews: 120,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 45 دقيقة&#x27;
+    },
+    {
+      id: 9,
+      name: &#x27;وليد عبدالله&#x27;,
+      service: &#x27;كهربائي&#x27;,
+      category: &#x27;electrician&#x27;,
+      rating: 4.4,
+      completedJobs: 135,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;العجوزة، الجيزة&#x27;,
+      responseRate: 85,
+      completionRate: 89,
+      position: [30.0384, 31.2277],
+      about: &#x27;متخصص في الصيانة الكهربائية المنزلية&#x27;,
+      services: [
+        { id: 1, name: &#x27;صيانة منزلية&#x27;, price: 140, description: &#x27;صيانة كهرباء المنزل&#x27; },
+        { id: 2, name: &#x27;تركيب إضاءة&#x27;, price: 190, description: &#x27;تركيب وحدات إضاءة&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;طارق سعيد&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.4, text: &#x27;خدمة جيدة بشكل عام&#x27;, date: &#x27;منذ أسبوع&#x27; }],
+      totalReviews: 100,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ 20 دقيقة&#x27;
+    },
+    {
+      id: 10,
+      name: &#x27;هشام كامل&#x27;,
+      service: &#x27;سباك&#x27;,
+      category: &#x27;plumber&#x27;,
+      rating: 4.6,
+      completedJobs: 160,
+      image: this.DEFAULT_IMAGE,
+      address: &#x27;المقطم، القاهرة&#x27;,
+      responseRate: 87,
+      completionRate: 91,
+      position: [30.0374, 31.2267],
+      about: &#x27;متخصص في صيانة شبكات المياه والصرف&#x27;,
+      services: [
+        { id: 1, name: &#x27;كشف تسريبات&#x27;, price: 160, description: &#x27;كشف وإصلاح التسريبات&#x27; },
+        { id: 2, name: &#x27;صيانة شبكات&#x27;, price: 200, description: &#x27;صيانة شبكات المياه&#x27; }
+      ],
+      reviews: [{ id: 1, userName: &#x27;رامي حسن&#x27;, userImage: this.DEFAULT_IMAGE, rating: 4.6, text: &#x27;دقيق في العمل ومنظم&#x27;, date: &#x27;منذ 5 أيام&#x27; }],
+      totalReviews: 125,
+      availability: &#x27;متاح&#x27;,
+      lastOnline: &#x27;منذ ساعة&#x27;
+    }
+  ];
+
+  constructor() {}
+
+  getWorkers(): Observable&lt;Worker[]&gt; {
+    return of(this.workers);
+  }
+
+  getWorkerById(id: number): Observable&lt;Worker&gt; {
+    const worker &#x3D; this.workers.find(w &#x3D;&gt; w.id &#x3D;&#x3D;&#x3D; Number(id));
+    if (!worker) {
+      return throwError(() &#x3D;&gt; new Error(&#x27;Worker not found&#x27;));
+    }
+    return of(worker).pipe(delay(500));
+  }
+
+  getWorkersByCategory(category: string): Observable&lt;Worker[]&gt; {
+    return of(this.workers.filter(worker &#x3D;&gt; worker.category &#x3D;&#x3D;&#x3D; category));
+  }
+
+  getTopWorkers(limit: number &#x3D; 5): Observable&lt;Worker[]&gt; {
+    return of(this.workers
+      .sort((a, b) &#x3D;&gt; b.rating - a.rating)
+      .slice(0, limit)
+    );
+  }
+
+  searchWorkers(query: string): Observable&lt;Worker[]&gt; {
+    const searchTerm &#x3D; query.toLowerCase();
+    return of(this.workers.filter(worker &#x3D;&gt; 
+      worker.name.toLowerCase().includes(searchTerm) ||
+      worker.service.toLowerCase().includes(searchTerm) ||
+      worker.address.toLowerCase().includes(searchTerm)
+    ));
+  }
+
+  private calculateDistance(coord1: [number, number], coord2: [number, number]): number {
+    const [lat1, lon1] &#x3D; coord1;
+    const [lat2, lon2] &#x3D; coord2;
+    const R &#x3D; 6371; // Earth&#x27;s radius in km
+    const dLat &#x3D; this.deg2rad(lat2 - lat1);
+    const dLon &#x3D; this.deg2rad(lon2 - lon1);
+    const a &#x3D; 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c &#x3D; 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  }
+
+  private deg2rad(deg: number): number {
+    return deg * (Math.PI/180);
+  }
+
+  toggleFavorite(workerId: number): Observable&lt;boolean&gt; {
+    const favorites &#x3D; this.favoriteWorkersSubject.value;
+    const isFavorite &#x3D; favorites.includes(workerId);
+    
+    const newFavorites &#x3D; isFavorite 
+      ? favorites.filter(id &#x3D;&gt; id !&#x3D;&#x3D; workerId)
+      : [...favorites, workerId];
+    
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(newFavorites));
+    this.favoriteWorkersSubject.next(newFavorites);
+    
+    return of(!isFavorite);
+  }
+
+  private loadFavorites(): number[] {
+    const stored &#x3D; localStorage.getItem(this.STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  }
+
+  private isWorkerFavorite(workerId: number): boolean {
+    return this.favoriteWorkersSubject.value.includes(workerId);
+  }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'WorkerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

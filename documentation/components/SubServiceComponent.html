@@ -1,0 +1,1627 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sanai3i documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sanai3i documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SubServiceComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/services/pages/sub-service/sub-service.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sub-service</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sub-service.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sub-service.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#extras" >extras</a>
+                            </li>
+                            <li>
+                                <a href="#mainService" >mainService</a>
+                            </li>
+                            <li>
+                                <a href="#paymentMethod" >paymentMethod</a>
+                            </li>
+                            <li>
+                                <a href="#quantity" >quantity</a>
+                            </li>
+                            <li>
+                                <a href="#subService" >subService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#placeOrder" >placeOrder</a>
+                            </li>
+                            <li>
+                                <a href="#selectPayment" >selectPayment</a>
+                            </li>
+                            <li>
+                                <a href="#toggleExtra" >toggleExtra</a>
+                            </li>
+                            <li>
+                                <a href="#updateQuantity" >updateQuantity</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#totalPrice" >totalPrice</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(viewportScroller: ViewportScroller, route: ActivatedRoute, router: Router, servicesService: <a href="../injectables/ServicesService.html" target="_self">ServicesService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>viewportScroller</td>
+                                                  
+                                                        <td>
+                                                                    <code>ViewportScroller</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>servicesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ServicesService.html" target="_self" >ServicesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="placeOrder"></a>
+                    <span class="name">
+                        <span ><b>placeOrder</b></span>
+                        <a href="#placeOrder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>placeOrder()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectPayment"></a>
+                    <span class="name">
+                        <span ><b>selectPayment</b></span>
+                        <a href="#selectPayment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectPayment(method: "cash" | "card")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>method</td>
+                                            <td>
+                                                        <code>&quot;cash&quot; | &quot;card&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleExtra"></a>
+                    <span class="name">
+                        <span ><b>toggleExtra</b></span>
+                        <a href="#toggleExtra"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleExtra(extra: <a href="../interfaces/ExtraOption.html" target="_self">ExtraOption</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>extra</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ExtraOption.html" target="_self" >ExtraOption</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateQuantity"></a>
+                    <span class="name">
+                        <span ><b>updateQuantity</b></span>
+                        <a href="#updateQuantity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateQuantity(increment: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="82"
+                                    class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>increment</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extras"></a>
+                    <span class="name">
+                        <span ><b>extras</b></span>
+                        <a href="#extras"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ExtraOption.html" target="_self" >ExtraOption[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { id: &#x27;tools&#x27;, name: &#x27;توفير المعدات&#x27;, price: 35.00 },
+    { id: &#x27;express&#x27;, name: &#x27;خدمة سريعة&#x27;, price: 50.00 },
+    { id: &#x27;warranty&#x27;, name: &#x27;ضمان إضافي&#x27;, price: 25.00 },
+    { id: &#x27;inspection&#x27;, name: &#x27;فحص شامل&#x27;, price: 30.00 }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mainService"></a>
+                    <span class="name">
+                        <span ><b>mainService</b></span>
+                        <a href="#mainService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MainService.html" target="_self" >MainService | undefined</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paymentMethod"></a>
+                    <span class="name">
+                        <span ><b>paymentMethod</b></span>
+                        <a href="#paymentMethod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>&quot;cash&quot; | &quot;card&quot;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;cash&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quantity"></a>
+                    <span class="name">
+                        <span ><b>quantity</b></span>
+                        <a href="#quantity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subService"></a>
+                    <span class="name">
+                        <span ><b>subService</b></span>
+                        <a href="#subService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/SubService.html" target="_self" >SubService | undefined</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalPrice"></a>
+                        <span class="name"><b>totalPrice</b><a href="#totalPrice"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>totalPrice()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/features/services/pages/sub-service/sub-service.component.ts:66</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { trigger, style, animate, transition, group } from &#x27;@angular/animations&#x27;;
+import { MainService, SubService } from &#x27;../../../../shared/interfaces/service.interface&#x27;;
+import { ServicesService } from &#x27;../../../../core/services/services.service&#x27;;
+import { ViewportScroller } from &#x27;@angular/common&#x27;;
+
+interface ExtraOption {
+  id: string;
+  name: string;
+  price: number;
+  selected?: boolean;
+}
+
+@Component({
+  selector: &#x27;app-sub-service&#x27;,
+  templateUrl: &#x27;./sub-service.component.html&#x27;,
+  styleUrls: [&#x27;./sub-service.component.scss&#x27;],
+  animations: [
+    trigger(&#x27;fadeSlide&#x27;, [
+      transition(&#x27;:enter&#x27;, [
+        style({ transform: &#x27;translateY(20px)&#x27;, opacity: 0 }),
+        animate(&#x27;400ms cubic-bezier(0.4, 0, 0.2, 1)&#x27;,
+          style({ transform: &#x27;translateY(0)&#x27;, opacity: 1 })
+        )
+      ])
+    ])
+  ]
+})
+export class SubServiceComponent implements OnInit {
+  mainService: MainService | undefined;
+  subService: SubService | undefined;
+  paymentMethod: &#x27;cash&#x27; | &#x27;card&#x27; &#x3D; &#x27;cash&#x27;;
+
+
+  quantity &#x3D; 1;
+  extras: ExtraOption[] &#x3D; [
+    { id: &#x27;tools&#x27;, name: &#x27;توفير المعدات&#x27;, price: 35.00 },
+    { id: &#x27;express&#x27;, name: &#x27;خدمة سريعة&#x27;, price: 50.00 },
+    { id: &#x27;warranty&#x27;, name: &#x27;ضمان إضافي&#x27;, price: 25.00 },
+    { id: &#x27;inspection&#x27;, name: &#x27;فحص شامل&#x27;, price: 30.00 }
+  ];
+
+  constructor(
+    private viewportScroller: ViewportScroller,
+    private route: ActivatedRoute,
+    private router: Router,
+    private servicesService: ServicesService
+  ) { }
+
+  ngOnInit() {
+    const mainServiceId &#x3D; +this.route.snapshot.params[&#x27;mainId&#x27;];
+    const subServiceId &#x3D; +this.route.snapshot.params[&#x27;subId&#x27;];
+
+    window.scrollTo(0, 0);
+    this.viewportScroller.scrollToPosition([0, 0]);
+
+    this.servicesService.getServiceById(mainServiceId).subscribe(service &#x3D;&gt; {
+      if (service) {
+        this.mainService &#x3D; service;
+        this.subService &#x3D; service.subServices?.find(sub &#x3D;&gt; sub.id &#x3D;&#x3D;&#x3D; subServiceId);
+      }
+    });
+  }
+
+  get totalPrice(): number {
+    const basePrice &#x3D; this.subService?.price || 0;
+    const extrasPrice &#x3D; this.extras
+      .filter(extra &#x3D;&gt; extra.selected)
+      .reduce((sum, extra) &#x3D;&gt; sum + extra.price, 0);
+    return (basePrice + extrasPrice) * this.quantity;
+  }
+
+  toggleExtra(extra: ExtraOption) {
+    extra.selected &#x3D; !extra.selected;
+  }
+
+  selectPayment(method: &#x27;cash&#x27; | &#x27;card&#x27;) {
+    this.paymentMethod &#x3D; method;
+  }
+
+  updateQuantity(increment: boolean) {
+    if (increment &amp;&amp; this.quantity &lt; 10) {
+      this.quantity++;
+    } else if (!increment &amp;&amp; this.quantity &gt; 1) {
+      this.quantity--;
+    }
+  }
+
+  placeOrder() {
+    const order &#x3D; {
+      mainService: this.mainService?.id,
+      subService: this.subService?.id,
+      quantity: this.quantity,
+      extras: this.extras.filter(e &#x3D;&gt; e.selected).map(e &#x3D;&gt; e.id),
+      totalPrice: this.totalPrice
+    };
+    console.log(&#x27;Placing order:&#x27;, order);
+    // Navigate to confirmation or payment
+    this.router.navigate([&#x27;/order/confirm&#x27;], { state: { order } });
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;min-h-screen bg-gray-50&quot; @fadeSlide&gt;
+  &lt;!-- Header --&gt;
+  &lt;header class&#x3D;&quot;header&quot;&gt;
+    &lt;div class&#x3D;&quot;header-content&quot;&gt;
+      &lt;app-back-button [redirectUrl]&#x3D;&quot;&#x27;/services/&#x27; + mainService?.id&quot; text&#x3D;&quot;رجوع&quot;&gt;&lt;/app-back-button&gt;
+      &lt;h1 class&#x3D;&quot;title&quot;&gt;{{subService?.name}}&lt;/h1&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Main Content --&gt;
+  &lt;main class&#x3D;&quot;content-wrapper&quot;&gt;
+    &lt;!-- Service Description --&gt;
+    &lt;div class&#x3D;&quot;service-description&quot;&gt;
+      &lt;h4&gt;وصف الخدمة&lt;/h4&gt;
+      &lt;p&gt;{{subService?.description}}&lt;/p&gt;
+      &lt;div class&#x3D;&quot;duration-cost mt-4&quot;&gt;
+        &lt;div class&#x3D;&quot;duration&quot;&gt;
+          &lt;span class&#x3D;&quot;tag blue&quot;&gt;
+            &lt;i class&#x3D;&quot;far fa-clock ml-1&quot;&gt;&lt;/i&gt;
+            المدة المتوقعة: {{subService?.estimatedTime}}
+          &lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;cost mt-2&quot;&gt;
+          &lt;span class&#x3D;&quot;tag green&quot;&gt;
+            &lt;i class&#x3D;&quot;far fa-money-bill-alt ml-1&quot;&gt;&lt;/i&gt;
+            التكلفة الأساسية: {{subService?.price}} جنيه
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;service-tags mt-4&quot;&gt;
+        &lt;span class&#x3D;&quot;tag red&quot;&gt;ضمان سنة&lt;/span&gt;
+        &lt;span class&#x3D;&quot;tag blue&quot;&gt;خدمة معتمدة&lt;/span&gt;
+        &lt;span class&#x3D;&quot;tag green&quot;&gt;دعم فني&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Extras Section --&gt;
+    &lt;div class&#x3D;&quot;extras-section&quot;&gt;
+      &lt;h3 class&#x3D;&quot;text-lg font-bold text-gray-900 mb-4&quot;&gt;إضافات اختيارية&lt;/h3&gt;
+      &lt;div class&#x3D;&quot;space-y-4&quot;&gt;
+        &lt;div *ngFor&#x3D;&quot;let extra of extras&quot; 
+             (click)&#x3D;&quot;toggleExtra(extra)&quot;
+             class&#x3D;&quot;extra-option&quot;
+             [class.selected]&#x3D;&quot;extra.selected&quot;&gt;
+          &lt;div class&#x3D;&quot;extra-content&quot;&gt;
+            &lt;div class&#x3D;&quot;flex items-center&quot;&gt;
+              &lt;div class&#x3D;&quot;radio-btn&quot;&gt;
+                &lt;div class&#x3D;&quot;radio-inner&quot; [class.active]&#x3D;&quot;extra.selected&quot;&gt;&lt;/div&gt;
+              &lt;/div&gt;
+              &lt;span class&#x3D;&quot;mr-3 font-medium text-gray-900&quot;&gt;{{extra.name}}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;span class&#x3D;&quot;price&quot;&gt;+{{extra.price}} جنيه&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Quantity Section --&gt;
+    &lt;div class&#x3D;&quot;quantity-section&quot;&gt;
+      &lt;h3 class&#x3D;&quot;quantity-label&quot;&gt;الكمية&lt;/h3&gt;
+      &lt;div class&#x3D;&quot;quantity-controls&quot;&gt;
+        &lt;button (click)&#x3D;&quot;updateQuantity(false)&quot;
+                [disabled]&#x3D;&quot;quantity &lt;&#x3D; 1&quot;
+                class&#x3D;&quot;quantity-btn&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-minus&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;span class&#x3D;&quot;quantity-value&quot;&gt;{{quantity}}&lt;/span&gt;
+        &lt;button (click)&#x3D;&quot;updateQuantity(true)&quot;
+                [disabled]&#x3D;&quot;quantity &gt;&#x3D; 10&quot;
+                class&#x3D;&quot;quantity-btn&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-plus&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Payment Method --&gt;
+    &lt;div class&#x3D;&quot;payment-section&quot;&gt;
+      &lt;h3&gt;طريقة الدفع&lt;/h3&gt;
+      &lt;div class&#x3D;&quot;payment-methods&quot;&gt;
+        &lt;label class&#x3D;&quot;payment-method&quot; [class.selected]&#x3D;&quot;paymentMethod &#x3D;&#x3D;&#x3D; &#x27;cash&#x27;&quot;&gt;
+          &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;payment&quot; (change)&#x3D;&quot;selectPayment(&#x27;cash&#x27;)&quot; [checked]&#x3D;&quot;paymentMethod &#x3D;&#x3D;&#x3D; &#x27;cash&#x27;&quot;&gt;
+          &lt;div class&#x3D;&quot;method-content&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-money-bill&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;نقدي&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/label&gt;
+        &lt;label class&#x3D;&quot;payment-method&quot; [class.selected]&#x3D;&quot;paymentMethod &#x3D;&#x3D;&#x3D; &#x27;card&#x27;&quot;&gt;
+          &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;payment&quot; (change)&#x3D;&quot;selectPayment(&#x27;card&#x27;)&quot; [checked]&#x3D;&quot;paymentMethod &#x3D;&#x3D;&#x3D; &#x27;card&#x27;&quot;&gt;
+          &lt;div class&#x3D;&quot;method-content&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-credit-card&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;بطاقة ائتمان&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;!-- Bottom Bar --&gt;
+  &lt;div class&#x3D;&quot;bottom-bar&quot;&gt;
+    &lt;div class&#x3D;&quot;bottom-content&quot;&gt;
+      &lt;div class&#x3D;&quot;price-row&quot;&gt;
+        &lt;span class&#x3D;&quot;price-label&quot;&gt;الإجمالي&lt;/span&gt;
+        &lt;span class&#x3D;&quot;price-value&quot;&gt;{{totalPrice}} جنيه&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;button (click)&#x3D;&quot;placeOrder()&quot; class&#x3D;&quot;order-button&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-check-circle&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;طلب الخدمة&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./sub-service.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding-bottom: 180px;
+}
+
+.header {
+  background: #ef4444;
+  padding: 2rem 1.5rem 6rem;
+  position: relative;
+  margin-bottom: -4rem;
+
+  &amp;::after {
+    content: &#x27;&#x27;;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(to bottom right, #ef4444 50%, transparent 50%);
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 640px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 3rem;
+  }
+}
+
+::ng-deep app-back-button {
+  .back-button {
+    background: transparent !important;
+    color: white !important;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &amp;:hover {
+      opacity: 0.9;
+    }
+
+    &amp;:active {
+      opacity: 0.8;
+    }
+
+    .icon {
+      color: white !important;
+    }
+
+    span {
+      color: white !important;
+    }
+  }
+}
+
+.content-wrapper {
+  padding: 0 1rem 120px;
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  
+  h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .service-meta {
+    margin-top: 1rem;
+    i {
+      color: #6b7280;
+    }
+  }
+}
+
+.service-description {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #4b5563;
+    line-height: 1.6;
+  }
+
+  .duration-cost {
+    margin-top: 1rem;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    
+    &amp;.red {
+      background: #fef2f2;
+      color: #ef4444;
+    }
+    
+    &amp;.blue {
+      background: #eff6ff;
+      color: #3b82f6;
+    }
+    
+    &amp;.green {
+      background: #f0fdf4;
+      color: #22c55e;
+    }
+
+    i {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.extras-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+}
+
+.extra-option {
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+  position: relative;
+  overflow: hidden;
+
+  &amp;::before {
+    content: &#x27;&#x27;;
+    position: absolute;
+    inset: 0;
+    background: #fef2f2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  &amp;:hover::before {
+    opacity: 1;
+  }
+
+  .extra-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .radio-btn {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #e5e7eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: white;
+    margin-right: 0.75rem;
+
+    .radio-inner {
+      width: 12px;
+      height: 12px;
+      background-color: #ef4444;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 0.3s ease;
+
+      &amp;.active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .price {
+    font-weight: 500;
+    color: #374151;
+  }
+
+  &amp;.selected {
+    border-color: #ef4444;
+    
+    &amp;::before {
+      opacity: 1;
+    }
+
+    .radio-btn {
+      border-color: #ef4444;
+      
+      .radio-inner {
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+.quantity-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+  .quantity-label {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+    text-align: right;
+  }
+
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  .quantity-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: #374151;
+    transition: all 0.2s ease;
+
+    &amp;:not(:disabled) {
+      &amp;:hover {
+        background: #ef4444;
+        border-color: #ef4444;
+        color: white;
+      }
+    }
+
+    &amp;:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .quantity-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    min-width: 2.5rem;
+    text-align: center;
+  }
+}
+
+.payment-section {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 4rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+  .payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .payment-method {
+    width: 100%;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+
+    input[type&#x3D;&quot;radio&quot;] {
+      display: none;
+    }
+
+    .method-content {
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      direction: rtl;
+    }
+
+    &amp;:hover {
+      border-color: #ef4444;
+      background: #fef2f2;
+    }
+
+    &amp;.selected {
+      border-color: #ef4444;
+      background: #fef2f2;
+    }
+
+    i {
+      font-size: 1.25rem;
+      color: #374151;
+    }
+
+    span {
+      font-weight: 500;
+      color: #374151;
+    }
+  }
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 40;
+
+  .bottom-content {
+    background: white;
+    padding: 1rem;
+    max-width: 640px;
+    margin: 0 auto;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .price-label {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: #1f2937;
+    }
+
+    .price-value {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #ef4444;
+    }
+  }
+
+  .order-button {
+    width: 100%;
+    background: #ef4444;
+    color: white;
+    padding: 0.875rem;
+    border-radius: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    transition: all 0.2s ease;
+    border: none;
+    outline: none;
+    margin-bottom: 0.5rem;
+
+    i {
+      font-size: 1.25rem;
+    }
+
+    &amp;:hover {
+      background: #dc2626;
+      transform: translateY(-1px);
+    }
+
+    &amp;:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 1.5rem 1rem 5rem;
+  }
+
+  .content-wrapper {
+    padding: 0 1rem;
+  }
+
+  .service-card,
+  .extras-section,
+  .quantity-section,
+  .payment-section {
+    padding: 1.25rem;
+  }
+
+  .bottom-bar {
+    .bottom-content {
+      padding: 1rem;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="min-h-screen bg-gray-50" @fadeSlide>  <!-- Header -->  <header class="header">    <div class="header-content">      <app-back-button [redirectUrl]="\'/services/\' + mainService?.id" text="رجوع"></app-back-button>      <h1 class="title">{{subService?.name}}</h1>    </div>  </header>  <!-- Main Content -->  <main class="content-wrapper">    <!-- Service Description -->    <div class="service-description">      <h4>وصف الخدمة</h4>      <p>{{subService?.description}}</p>      <div class="duration-cost mt-4">        <div class="duration">          <span class="tag blue">            <i class="far fa-clock ml-1"></i>            المدة المتوقعة: {{subService?.estimatedTime}}          </span>        </div>        <div class="cost mt-2">          <span class="tag green">            <i class="far fa-money-bill-alt ml-1"></i>            التكلفة الأساسية: {{subService?.price}} جنيه          </span>        </div>      </div>      <div class="service-tags mt-4">        <span class="tag red">ضمان سنة</span>        <span class="tag blue">خدمة معتمدة</span>        <span class="tag green">دعم فني</span>      </div>    </div>    <!-- Extras Section -->    <div class="extras-section">      <h3 class="text-lg font-bold text-gray-900 mb-4">إضافات اختيارية</h3>      <div class="space-y-4">        <div *ngFor="let extra of extras"              (click)="toggleExtra(extra)"             class="extra-option"             [class.selected]="extra.selected">          <div class="extra-content">            <div class="flex items-center">              <div class="radio-btn">                <div class="radio-inner" [class.active]="extra.selected"></div>              </div>              <span class="mr-3 font-medium text-gray-900">{{extra.name}}</span>            </div>            <span class="price">+{{extra.price}} جنيه</span>          </div>        </div>      </div>    </div>    <!-- Quantity Section -->    <div class="quantity-section">      <h3 class="quantity-label">الكمية</h3>      <div class="quantity-controls">        <button (click)="updateQuantity(false)"                [disabled]="quantity <= 1"                class="quantity-btn">          <i class="fas fa-minus"></i>        </button>        <span class="quantity-value">{{quantity}}</span>        <button (click)="updateQuantity(true)"                [disabled]="quantity >= 10"                class="quantity-btn">          <i class="fas fa-plus"></i>        </button>      </div>    </div>    <!-- Payment Method -->    <div class="payment-section">      <h3>طريقة الدفع</h3>      <div class="payment-methods">        <label class="payment-method" [class.selected]="paymentMethod === \'cash\'">          <input type="radio" name="payment" (change)="selectPayment(\'cash\')" [checked]="paymentMethod === \'cash\'">          <div class="method-content">            <i class="fas fa-money-bill"></i>            <span>نقدي</span>          </div>        </label>        <label class="payment-method" [class.selected]="paymentMethod === \'card\'">          <input type="radio" name="payment" (change)="selectPayment(\'card\')" [checked]="paymentMethod === \'card\'">          <div class="method-content">            <i class="fas fa-credit-card"></i>            <span>بطاقة ائتمان</span>          </div>        </label>      </div>    </div>  </main>  <!-- Bottom Bar -->  <div class="bottom-bar">    <div class="bottom-content">      <div class="price-row">        <span class="price-label">الإجمالي</span>        <span class="price-value">{{totalPrice}} جنيه</span>      </div>      <button (click)="placeOrder()" class="order-button">        <i class="fas fa-check-circle"></i>        <span>طلب الخدمة</span>      </button>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BackButtonComponent', 'selector': 'app-back-button'},{'name': 'CompleteProfileComponent', 'selector': 'app-complete-profile'},{'name': 'DiscoverComponent', 'selector': 'app-discover'},{'name': 'EmailRegisterComponent', 'selector': 'app-email-register'},{'name': 'FeaturedSliderComponent', 'selector': 'app-featured-slider'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MessagesComponent', 'selector': 'app-messages'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NewRequestComponent', 'selector': 'app-new-request'},{'name': 'OtpInputComponent', 'selector': 'app-otp-input'},{'name': 'PhoneRegisterComponent', 'selector': 'app-phone-register'},{'name': 'PriceNegotiationComponent', 'selector': 'app-price-negotiation'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterMethodComponent', 'selector': 'app-register-method'},{'name': 'RequestDetailsComponent', 'selector': 'app-request-details'},{'name': 'RequestsListComponent', 'selector': 'app-requests-list'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'ServiceDetailsComponent', 'selector': 'app-service-details'},{'name': 'ServicesListComponent', 'selector': 'app-services-list'},{'name': 'SubServiceComponent', 'selector': 'app-sub-service'},{'name': 'UserTypeComponent', 'selector': 'app-user-type'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'},{'name': 'WorkerDetailsComponent', 'selector': 'app-worker-details'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SubServiceComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SubServiceComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

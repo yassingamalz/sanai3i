@@ -1,0 +1,2457 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sanai3i documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sanai3i documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EmailRegisterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/auth/pages/email-register/email-register.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-email-register</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./email-register.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./email-register.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#countdownInterval" >countdownInterval</a>
+                            </li>
+                            <li>
+                                <a href="#currentStep" >currentStep</a>
+                            </li>
+                            <li>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#redirectCountdown" >redirectCountdown</a>
+                            </li>
+                            <li>
+                                <a href="#showConfirmPassword" >showConfirmPassword</a>
+                            </li>
+                            <li>
+                                <a href="#showPassword" >showPassword</a>
+                            </li>
+                            <li>
+                                <a href="#submitting" >submitting</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getStepSubtitle" >getStepSubtitle</a>
+                            </li>
+                            <li>
+                                <a href="#getStepTitle" >getStepTitle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockCompleteRegistration" >mockCompleteRegistration</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockSendEmailVerification" >mockSendEmailVerification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockSendPhoneVerification" >mockSendPhoneVerification</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockSetupPassword" >mockSetupPassword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockSetUserType" >mockSetUserType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockVerifyEmail" >mockVerifyEmail</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mockVerifyPhone" >mockVerifyPhone</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onOtpCompleted" >onOtpCompleted</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#passwordMatchValidator" >passwordMatchValidator</a>
+                            </li>
+                            <li>
+                                <a href="#selectUserType" >selectUserType</a>
+                            </li>
+                            <li>
+                                <a href="#startRedirectCountdown" >startRedirectCountdown</a>
+                            </li>
+                            <li>
+                                <a href="#updateFormValidation" >updateFormValidation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStepSubtitle"></a>
+                    <span class="name">
+                        <span ><b>getStepSubtitle</b></span>
+                        <a href="#getStepSubtitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStepSubtitle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="244"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:244</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStepTitle"></a>
+                    <span class="name">
+                        <span ><b>getStepTitle</b></span>
+                        <a href="#getStepTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getStepTitle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockCompleteRegistration"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockCompleteRegistration</b></span>
+                        <a href="#mockCompleteRegistration"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockCompleteRegistration()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="201"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:201</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockSendEmailVerification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockSendEmailVerification</b></span>
+                        <a href="#mockSendEmailVerification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockSendEmailVerification()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockSendPhoneVerification"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockSendPhoneVerification</b></span>
+                        <a href="#mockSendPhoneVerification"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockSendPhoneVerification()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockSetupPassword"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockSetupPassword</b></span>
+                        <a href="#mockSetupPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockSetupPassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="185"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockSetUserType"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockSetUserType</b></span>
+                        <a href="#mockSetUserType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockSetUserType()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockVerifyEmail"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockVerifyEmail</b></span>
+                        <a href="#mockVerifyEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockVerifyEmail()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mockVerifyPhone"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mockVerifyPhone</b></span>
+                        <a href="#mockVerifyPhone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mockVerifyPhone()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="58"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onOtpCompleted"></a>
+                    <span class="name">
+                        <span ><b>onOtpCompleted</b></span>
+                        <a href="#onOtpCompleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onOtpCompleted(otp: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, type: "email" | "phone")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="220"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:220</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>otp</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                        <code>&quot;email&quot; | &quot;phone&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordMatchValidator"></a>
+                    <span class="name">
+                        <span ><b>passwordMatchValidator</b></span>
+                        <a href="#passwordMatchValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>passwordMatchValidator(form: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>form</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectUserType"></a>
+                    <span class="name">
+                        <span ><b>selectUserType</b></span>
+                        <a href="#selectUserType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selectUserType(type: "customer" | "worker")</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                        <code>&quot;customer&quot; | &quot;worker&quot;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startRedirectCountdown"></a>
+                    <span class="name">
+                        <span ><b>startRedirectCountdown</b></span>
+                        <a href="#startRedirectCountdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>startRedirectCountdown()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateFormValidation"></a>
+                    <span class="name">
+                        <span ><b>updateFormValidation</b></span>
+                        <a href="#updateFormValidation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateFormValidation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countdownInterval"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>countdownInterval</b></span>
+                        <a href="#countdownInterval"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentStep"></a>
+                    <span class="name">
+                        <span ><b>currentStep</b></span>
+                        <a href="#currentStep"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectCountdown"></a>
+                    <span class="name">
+                        <span ><b>redirectCountdown</b></span>
+                        <a href="#redirectCountdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>3</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showConfirmPassword"></a>
+                    <span class="name">
+                        <span ><b>showConfirmPassword</b></span>
+                        <a href="#showConfirmPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPassword"></a>
+                    <span class="name">
+                        <span ><b>showPassword</b></span>
+                        <a href="#showPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitting"></a>
+                    <span class="name">
+                        <span ><b>submitting</b></span>
+                        <a href="#submitting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/features/auth/pages/email-register/email-register.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-email-register&#x27;,
+  templateUrl: &#x27;./email-register.component.html&#x27;,
+  styleUrls: [&#x27;./email-register.component.scss&#x27;]
+})
+export class EmailRegisterComponent implements OnInit {
+  form: FormGroup;
+  submitting &#x3D; false;
+  currentStep &#x3D; 1;
+  showPassword &#x3D; false;
+  showConfirmPassword &#x3D; false;
+  redirectCountdown &#x3D; 3;
+  private countdownInterval: any;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    this.form &#x3D; this.fb.group({
+      email: [&#x27;&#x27;, [
+        Validators.required,
+        Validators.email
+      ]],
+      emailVerificationCode: [&#x27;&#x27;, [
+        Validators.required,
+        Validators.pattern(/^[0-9]{6}$/)
+      ]],
+      phone: [&#x27;&#x27;, [
+        Validators.required,
+        Validators.pattern(/^01[0125][0-9]{8}$/)
+      ]],
+      phoneVerificationCode: [&#x27;&#x27;, [
+        Validators.required,
+        Validators.pattern(/^[0-9]{6}$/)
+      ]],
+      password: [&#x27;&#x27;, [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/^(?&#x3D;.*[A-Za-z])(?&#x3D;.*\d)[A-Za-z\d@$!%*#?&amp;]{8,}$/)
+      ]],
+      confirmPassword: [&#x27;&#x27;, [
+        Validators.required
+      ]],
+      userType: [&#x27;&#x27;, Validators.required],
+      fullName: [&#x27;&#x27;, Validators.required],
+      address: [&#x27;&#x27;, Validators.required],
+      acceptTerms: [false, Validators.requiredTrue]
+    }, {
+      validators: this.passwordMatchValidator
+    });
+  }
+
+  ngOnInit() {
+    this.updateFormValidation();
+  }
+
+  ngOnDestroy() {
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+    }
+  }
+
+  passwordMatchValidator(form: FormGroup) {
+    const password &#x3D; form.get(&#x27;password&#x27;);
+    const confirmPassword &#x3D; form.get(&#x27;confirmPassword&#x27;);
+    
+    if (password?.value !&#x3D;&#x3D; confirmPassword?.value) {
+      confirmPassword?.setErrors({ passwordMismatch: true });
+    } else {
+      confirmPassword?.setErrors(null);
+    }
+    return null;
+  }
+
+  updateFormValidation() {
+    // Disable all controls initially
+    Object.keys(this.form.controls).forEach(key &#x3D;&gt; {
+      this.form.get(key)?.disable();
+    });
+
+    // Enable only the controls needed for current step
+    switch (this.currentStep) {
+      case 1: // Email Input
+        this.form.get(&#x27;email&#x27;)?.enable();
+        break;
+      case 2: // Email Verification
+        this.form.get(&#x27;emailVerificationCode&#x27;)?.enable();
+        break;
+      case 3: // Phone Input
+        this.form.get(&#x27;phone&#x27;)?.enable();
+        break;
+      case 4: // Phone Verification
+        this.form.get(&#x27;phoneVerificationCode&#x27;)?.enable();
+        break;
+      case 5: // Password Setup
+        this.form.get(&#x27;password&#x27;)?.enable();
+        this.form.get(&#x27;confirmPassword&#x27;)?.enable();
+        break;
+      case 6: // User Type Selection
+        this.form.get(&#x27;userType&#x27;)?.enable();
+        break;
+      case 7: // User Details
+        this.form.get(&#x27;fullName&#x27;)?.enable();
+        this.form.get(&#x27;address&#x27;)?.enable();
+        this.form.get(&#x27;acceptTerms&#x27;)?.enable();
+        break;
+    }
+  }
+
+  onSubmit(): void {
+    if (this.form.valid &amp;&amp; !this.submitting) {
+      this.submitting &#x3D; true;
+
+      switch (this.currentStep) {
+        case 1:
+          this.mockSendEmailVerification();
+          break;
+        case 2:
+          this.mockVerifyEmail();
+          break;
+        case 3:
+          this.mockSendPhoneVerification();
+          break;
+        case 4:
+          this.mockVerifyPhone();
+          break;
+        case 5:
+          this.mockSetupPassword();
+          break;
+        case 6:
+          this.mockSetUserType();
+          break;
+        case 7:
+          this.mockCompleteRegistration();
+          break;
+      }
+    }
+  }
+
+  private mockSendEmailVerification() {
+    setTimeout(() &#x3D;&gt; {
+      this.submitting &#x3D; false;
+      this.currentStep &#x3D; 2;
+      this.updateFormValidation();
+    }, 1000);
+  }
+
+  private mockVerifyEmail() {
+    setTimeout(() &#x3D;&gt; {
+      this.submitting &#x3D; false;
+      this.currentStep &#x3D; 3;
+      this.updateFormValidation();
+    }, 1000);
+  }
+
+  private mockSendPhoneVerification() {
+    setTimeout(() &#x3D;&gt; {
+      this.submitting &#x3D; false;
+      this.currentStep &#x3D; 4;
+      this.updateFormValidation();
+    }, 1000);
+  }
+
+  private mockVerifyPhone() {
+    setTimeout(() &#x3D;&gt; {
+      this.submitting &#x3D; false;
+      this.currentStep &#x3D; 5;
+      this.updateFormValidation();
+    }, 1000);
+  }
+
+  selectUserType(type: &#x27;customer&#x27; | &#x27;worker&#x27;): void {
+    this.form.patchValue({ userType: type });
+    // Auto proceed to next step after selection
+    setTimeout(() &#x3D;&gt; {
+      this.onSubmit();
+    }, 300);
+  }
+
+  private mockSetupPassword() {
+    setTimeout(() &#x3D;&gt; {
+      this.submitting &#x3D; false;
+      this.currentStep &#x3D; 6;
+      this.updateFormValidation();
+    }, 1000);
+  }
+
+  private mockSetUserType() {
+    setTimeout(() &#x3D;&gt; {
+      this.submitting &#x3D; false;
+      this.currentStep &#x3D; 7;
+      this.updateFormValidation();
+    }, 1000);
+  }
+
+  private mockCompleteRegistration() {
+    setTimeout(() &#x3D;&gt; {
+      this.submitting &#x3D; false;
+      this.currentStep &#x3D; 8; // Success state
+      this.startRedirectCountdown();
+    }, 1000);
+  }
+
+  startRedirectCountdown() {
+    this.countdownInterval &#x3D; setInterval(() &#x3D;&gt; {
+      if (this.redirectCountdown &gt; 0) {
+        this.redirectCountdown--;
+      } else {
+        clearInterval(this.countdownInterval);
+        this.router.navigate([&#x27;/auth/login&#x27;]);
+      }
+    }, 1000);
+  }
+
+  onOtpCompleted(otp: string, type: &#x27;email&#x27; | &#x27;phone&#x27;) {
+    const controlName &#x3D; type &#x3D;&#x3D;&#x3D; &#x27;email&#x27; ? &#x27;emailVerificationCode&#x27; : &#x27;phoneVerificationCode&#x27;;
+    if (otp.length &#x3D;&#x3D;&#x3D; 6 &amp;&amp; this.form.get(controlName)?.valid) {
+      setTimeout(() &#x3D;&gt; {
+        this.form.patchValue({ [controlName]: otp });
+        this.onSubmit();
+      }, 200);
+    }
+  }
+
+  getStepTitle(): string {
+    switch (this.currentStep) {
+      case 1: return &#x27;التسجيل بالبريد الإلكتروني&#x27;;
+      case 2: return &#x27;تأكيد البريد الإلكتروني&#x27;;
+      case 3: return &#x27;إضافة رقم الهاتف&#x27;;
+      case 4: return &#x27;تأكيد رقم الهاتف&#x27;;
+      case 5: return &#x27;إنشاء كلمة المرور&#x27;;
+      case 6: return &#x27;نوع الحساب&#x27;;
+      case 7: return &#x27;معلومات المستخدم&#x27;;
+      case 8: return &#x27;اكتمل التسجيل&#x27;;
+      default: return &#x27;&#x27;;
+    }
+  }
+
+  getStepSubtitle(): string {
+    switch (this.currentStep) {
+      case 1: return &#x27;أدخل بريدك الإلكتروني للتسجيل&#x27;;
+      case 2: return &#x27;أدخل رمز التحقق المرسل إلى بريدك الإلكتروني&#x27;;
+      case 3: return &#x27;أدخل رقم هاتفك للمتابعة&#x27;;
+      case 4: return &#x27;أدخل رمز التحقق المرسل إلى رقم هاتفك&#x27;;
+      case 5: return &#x27;قم بإنشاء كلمة مرور قوية لحسابك&#x27;;
+      case 6: return &#x27;اختر نوع حسابك&#x27;;
+      case 7: return &#x27;أكمل معلومات حسابك&#x27;;
+      case 8: return &#x60;سيتم تحويلك إلى صفحة تسجيل الدخول خلال ${this.redirectCountdown} ثواني&#x60;;
+      default: return &#x27;&#x27;;
+    }
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- email-register.component.html --&gt;
+&lt;div class&#x3D;&quot;register-container&quot;&gt;
+  &lt;!-- Header Section --&gt;
+  &lt;header class&#x3D;&quot;header&quot;&gt;
+    &lt;app-back-button [redirectUrl]&#x3D;&quot;&#x27;/auth/register&#x27;&quot; text&#x3D;&quot;رجوع&quot;&gt;&lt;/app-back-button&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Content Section --&gt;
+  &lt;main class&#x3D;&quot;main-content&quot;&gt;
+    &lt;!-- Title Section --&gt;
+    &lt;div class&#x3D;&quot;title-section&quot;&gt;
+      &lt;div class&#x3D;&quot;icon-circle&quot;&gt;
+        &lt;i class&#x3D;&quot;fas&quot; 
+           [class.fa-envelope]&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 1 || currentStep &#x3D;&#x3D;&#x3D; 2&quot;
+           [class.fa-mobile-alt]&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 3 || currentStep &#x3D;&#x3D;&#x3D; 4&quot;
+           [class.fa-lock]&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 5&quot;
+           [class.fa-user]&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 6&quot;
+           [class.fa-address-card]&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 7&quot;
+           [class.fa-circle-info]&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 8&quot;&gt;
+        &lt;/i&gt;
+      &lt;/div&gt;
+      &lt;h1 class&#x3D;&quot;title&quot;&gt;{{ getStepTitle() }}&lt;/h1&gt;
+      &lt;p class&#x3D;&quot;subtitle&quot;&gt;{{ getStepSubtitle() }}&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Form --&gt;
+    &lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;form-container&quot;&gt;
+      &lt;!-- Step 1: Email Input --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 1&quot; class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;البريد الإلكتروني&lt;/label&gt;
+        &lt;div class&#x3D;&quot;input-container&quot;&gt;
+          &lt;input type&#x3D;&quot;email&quot;
+                 formControlName&#x3D;&quot;email&quot;
+                 class&#x3D;&quot;input-field&quot;
+                 placeholder&#x3D;&quot;example@mail.com&quot;
+                 dir&#x3D;&quot;ltr&quot;&gt;
+        &lt;/div&gt;
+        &lt;span class&#x3D;&quot;error-message&quot; 
+              *ngIf&#x3D;&quot;form.get(&#x27;email&#x27;)?.errors?.[&#x27;email&#x27;] &amp;&amp; form.get(&#x27;email&#x27;)?.touched&quot;&gt;
+          يرجى إدخال بريد إلكتروني صحيح
+        &lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Step 2: Email Verification --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 2&quot; class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;رمز التحقق&lt;/label&gt;
+        &lt;app-otp-input
+          formControlName&#x3D;&quot;emailVerificationCode&quot;
+          (completed)&#x3D;&quot;onOtpCompleted($event, &#x27;email&#x27;)&quot;&gt;
+        &lt;/app-otp-input&gt;
+        &lt;div class&#x3D;&quot;resend-code&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;resend-button&quot;&gt;
+            إعادة إرسال الرمز
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Step 3: Phone Input --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 3&quot; class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;رقم الهاتف&lt;/label&gt;
+        &lt;div class&#x3D;&quot;input-container&quot;&gt;
+          &lt;input type&#x3D;&quot;tel&quot;
+                 formControlName&#x3D;&quot;phone&quot;
+                 class&#x3D;&quot;phone-input&quot;
+                 placeholder&#x3D;&quot;01xxxxxxxxx&quot;
+                 maxlength&#x3D;&quot;11&quot;
+                 inputmode&#x3D;&quot;numeric&quot;&gt;
+        &lt;/div&gt;
+        &lt;span class&#x3D;&quot;error-message&quot; 
+              *ngIf&#x3D;&quot;form.get(&#x27;phone&#x27;)?.errors?.[&#x27;pattern&#x27;] &amp;&amp; form.get(&#x27;phone&#x27;)?.touched&quot;&gt;
+          يرجى إدخال رقم هاتف مصري صحيح
+        &lt;/span&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Step 4: Phone Verification --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 4&quot; class&#x3D;&quot;form-group&quot;&gt;
+        &lt;label class&#x3D;&quot;form-label&quot;&gt;رمز التحقق&lt;/label&gt;
+        &lt;app-otp-input
+          formControlName&#x3D;&quot;phoneVerificationCode&quot;
+          (completed)&#x3D;&quot;onOtpCompleted($event, &#x27;phone&#x27;)&quot;&gt;
+        &lt;/app-otp-input&gt;
+        &lt;div class&#x3D;&quot;resend-code&quot;&gt;
+          &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;resend-button&quot;&gt;
+            إعادة إرسال الرمز
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Step 5: Password Setup --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 5&quot; class&#x3D;&quot;form-groups&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;كلمة المرور&lt;/label&gt;
+          &lt;div class&#x3D;&quot;input-container&quot;&gt;
+            &lt;input [type]&#x3D;&quot;showPassword ? &#x27;text&#x27; : &#x27;password&#x27;&quot;
+                   formControlName&#x3D;&quot;password&quot;
+                   class&#x3D;&quot;password-input&quot;
+                   placeholder&#x3D;&quot;********&quot;&gt;
+            &lt;button type&#x3D;&quot;button&quot;
+                    class&#x3D;&quot;toggle-password&quot;
+                    (click)&#x3D;&quot;showPassword &#x3D; !showPassword&quot;&gt;
+              &lt;i class&#x3D;&quot;fas&quot; [class.fa-eye]&#x3D;&quot;!showPassword&quot; [class.fa-eye-slash]&#x3D;&quot;showPassword&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;تأكيد كلمة المرور&lt;/label&gt;
+          &lt;div class&#x3D;&quot;input-container&quot;&gt;
+            &lt;input [type]&#x3D;&quot;showConfirmPassword ? &#x27;text&#x27; : &#x27;password&#x27;&quot;
+                   formControlName&#x3D;&quot;confirmPassword&quot;
+                   class&#x3D;&quot;password-input&quot;
+                   placeholder&#x3D;&quot;********&quot;&gt;
+            &lt;button type&#x3D;&quot;button&quot;
+                    class&#x3D;&quot;toggle-password&quot;
+                    (click)&#x3D;&quot;showConfirmPassword &#x3D; !showConfirmPassword&quot;&gt;
+              &lt;i class&#x3D;&quot;fas&quot; [class.fa-eye]&#x3D;&quot;!showConfirmPassword&quot; [class.fa-eye-slash]&#x3D;&quot;showConfirmPassword&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;span class&#x3D;&quot;error-message&quot;
+                *ngIf&#x3D;&quot;form.get(&#x27;confirmPassword&#x27;)?.errors?.[&#x27;passwordMismatch&#x27;]&quot;&gt;
+            كلمة المرور غير متطابقة
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Step 6: User Type --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 6&quot; class&#x3D;&quot;options-container&quot;&gt;
+        &lt;button type&#x3D;&quot;button&quot; 
+                (click)&#x3D;&quot;selectUserType(&#x27;customer&#x27;)&quot; 
+                class&#x3D;&quot;type-option&quot;
+                [class.selected]&#x3D;&quot;form.get(&#x27;userType&#x27;)?.value &#x3D;&#x3D;&#x3D; &#x27;customer&#x27;&quot;&gt;
+          &lt;div class&#x3D;&quot;option-content&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-user icon&quot;&gt;&lt;/i&gt;
+            &lt;div class&#x3D;&quot;option-text&quot;&gt;
+              &lt;div class&#x3D;&quot;option-title&quot;&gt;عميل&lt;/div&gt;
+              &lt;div class&#x3D;&quot;option-description&quot;&gt;ابحث عن خدمات وصنايعية&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;i class&#x3D;&quot;fas fa-chevron-right arrow&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        
+        &lt;button type&#x3D;&quot;button&quot; 
+                (click)&#x3D;&quot;selectUserType(&#x27;worker&#x27;)&quot; 
+                class&#x3D;&quot;type-option&quot;
+                [class.selected]&#x3D;&quot;form.get(&#x27;userType&#x27;)?.value &#x3D;&#x3D;&#x3D; &#x27;worker&#x27;&quot;&gt;
+          &lt;div class&#x3D;&quot;option-content&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-tools icon&quot;&gt;&lt;/i&gt;
+            &lt;div class&#x3D;&quot;option-text&quot;&gt;
+              &lt;div class&#x3D;&quot;option-title&quot;&gt;صنايعي&lt;/div&gt;
+              &lt;div class&#x3D;&quot;option-description&quot;&gt;قدم خدماتك واستقبل طلبات&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;i class&#x3D;&quot;fas fa-chevron-right arrow&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Step 7: User Details --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 7&quot; class&#x3D;&quot;form-groups&quot;&gt;
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;الاسم الكامل&lt;/label&gt;
+          &lt;div class&#x3D;&quot;input-container&quot;&gt;
+            &lt;input type&#x3D;&quot;text&quot;
+                   formControlName&#x3D;&quot;fullName&quot;
+                   class&#x3D;&quot;input-field input-with-icon&quot;
+                   placeholder&#x3D;&quot;أدخل اسمك الكامل&quot;&gt;
+            &lt;div class&#x3D;&quot;input-icon-container&quot;&gt;
+              &lt;i class&#x3D;&quot;fas fa-user&quot;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+          &lt;label class&#x3D;&quot;form-label&quot;&gt;العنوان&lt;/label&gt;
+          &lt;div class&#x3D;&quot;input-container&quot;&gt;
+            &lt;input type&#x3D;&quot;text&quot;
+                   formControlName&#x3D;&quot;address&quot;
+                   class&#x3D;&quot;input-field input-with-icon&quot;
+                   placeholder&#x3D;&quot;أدخل عنوانك&quot;&gt;
+            &lt;div class&#x3D;&quot;input-icon-container&quot;&gt;
+              &lt;i class&#x3D;&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class&#x3D;&quot;terms-group&quot;&gt;
+          &lt;label class&#x3D;&quot;terms-label&quot;&gt;
+            &lt;input type&#x3D;&quot;checkbox&quot; formControlName&#x3D;&quot;acceptTerms&quot; class&#x3D;&quot;terms-checkbox&quot;&gt;
+            &lt;span class&#x3D;&quot;terms-text&quot;&gt;
+              أوافق على &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;terms-link&quot;&gt;الشروط والأحكام&lt;/a&gt;
+            &lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Step 8: Success --&gt;
+      &lt;div *ngIf&#x3D;&quot;currentStep &#x3D;&#x3D;&#x3D; 8&quot; class&#x3D;&quot;success-message&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-check-circle success-icon&quot;&gt;&lt;/i&gt;
+        &lt;h2 class&#x3D;&quot;success-title&quot;&gt;تم التسجيل بنجاح&lt;/h2&gt;
+        &lt;p class&#x3D;&quot;success-subtitle&quot;&gt;جاري تحويلك لصفحة تسجيل الدخول...&lt;/p&gt;
+        &lt;div class&#x3D;&quot;countdown&quot;&gt;{{ redirectCountdown }}&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Submit Button --&gt;
+      &lt;button *ngIf&#x3D;&quot;currentStep !&#x3D;&#x3D; 8&quot;
+              type&#x3D;&quot;submit&quot;
+              [disabled]&#x3D;&quot;!form.valid || submitting&quot;
+              class&#x3D;&quot;submit-button&quot;&gt;
+        {{ submitting ? &#x27;جاري التنفيذ...&#x27; : &#x27;التالي&#x27; }}
+      &lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./email-register.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">// email-register.component.scss
+
+// Container Layout
+.register-container {
+  min-height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+// Header
+.header {
+  padding: 1.25rem 1rem;
+  background-color: white;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+// Main Content
+.main-content {
+  flex: 1;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+// Title Section
+.title-section {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .icon-circle {
+    width: 64px;
+    height: 64px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+
+    i {
+      font-size: 1.75rem;
+      color: #ef4444;
+    }
+  }
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ef4444;
+    margin-bottom: 0.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+  }
+}
+
+// Form Container
+.form-container {
+  max-width: 24rem;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+// Form Groups
+.form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.form-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// Labels
+.form-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111827;
+  margin-bottom: 0.75rem;
+  text-align: right;
+}
+
+// Base Input Styles
+.input-base {
+  width: 100%;
+  height: 3.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  color: #111827;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+  text-align: right;
+  padding: 0 3rem 0 1rem;
+  box-sizing: border-box;
+
+  &amp;:focus {
+    outline: none;
+    border-color: #ef4444;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+  }
+
+  &amp;::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+    text-align: right;
+  }
+
+  &amp;:disabled {
+    background-color: #f3f4f6;
+    cursor: not-allowed;
+  }
+}
+
+// Input Types
+.input-field {
+  @extend .input-base;
+}
+
+.phone-input {
+  @extend .input-base;
+  direction: ltr;
+  letter-spacing: 1px;
+}
+
+.password-input {
+  @extend .input-base;
+  padding: 0 3rem;
+  letter-spacing: 2px;
+}
+
+// Input Container and Icons
+.input-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-container {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  pointer-events: none;
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+// Toggle Password Button
+.toggle-password {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &amp;:hover {
+    color: #374151;
+  }
+
+  i {
+    font-size: 1.25rem;
+  }
+}
+
+// User Type Styles
+.user-type-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.type-label {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #374151;
+  margin-bottom: 3rem;
+}
+
+.options-container {
+  width: 100%;
+  max-width: 24rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0;
+}
+
+.type-option {
+  width: 100%;
+  background-color: white;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 2px 4px -1px rgba(0, 0, 0, 0.03),
+              0 10px 15px -3px rgba(0, 0, 0, 0.05);
+
+  &amp;:hover, &amp;.selected {
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(226, 76, 76, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.option-content {
+  padding-right: 1rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #ef4444;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.option-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.option-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+.option-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.arrow {
+  color: #9ca3af;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+
+  .type-option:hover &amp;,
+  .type-option.selected &amp; {
+    transform: translateX(-4px);
+    color: #ef4444;
+  }
+}
+
+// Success Message Styles
+.success-message {
+  text-align: center;
+  padding: 2rem 0;
+
+  .success-icon {
+    font-size: 3rem;
+    color: #10b981;
+    margin-bottom: 1rem;
+  }
+
+  .success-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-subtitle {
+    color: #6b7280;
+    margin-bottom: 1rem;
+  }
+
+  .countdown {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ef4444;
+  }
+}
+
+// Error Message
+.error-message {
+  display: block;
+  font-size: 0.875rem;
+  color: #ef4444;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+// Terms Section
+.terms-group {
+  margin: 1.5rem 0;
+}
+
+.terms-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.terms-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  appearance: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+
+  &amp;:checked {
+    background-color: #ef4444;
+    border-color: #ef4444;
+
+    &amp;::after {
+      content: &#x27;✓&#x27;;
+      color: white;
+      font-size: 0.875rem;
+    }
+  }
+
+  &amp;:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+  }
+}
+
+.terms-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.terms-link {
+  color: #ef4444;
+  text-decoration: none;
+  font-weight: 500;
+
+  &amp;:hover {
+    text-decoration: underline;
+  }
+}
+
+// Submit Button
+.submit-button {
+  width: 65%;
+  height: 44px;
+  background-color: #fed7d7;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  margin: 1.5rem auto 0;
+  cursor: pointer;
+
+  &amp;:disabled {
+    background-color: #fed7d7;
+    cursor: not-allowed;
+  }
+
+  &amp;:not(:disabled) {
+    background-color: #ef4444;
+
+    &amp;:hover {
+      background-color: #dc2626;
+    }
+
+    &amp;:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+// OTP Input Styles
+:host ::ng-deep {
+  .otp-container {
+    margin: 1.5rem auto;
+    padding: 0;
+    max-width: 360px;
+    gap: 0.75rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .otp-input {
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: center;
+    color: #111827;
+    background: white;
+    transition: all 0.2s ease;
+    padding: 0;
+
+    &amp;:focus {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.1);
+      outline: none;
+    }
+  }
+}
+
+// Resend Code Section
+.resend-code {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.resend-button {
+  color: #ef4444;
+  font-size: 0.875rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &amp;:hover {
+    background-color: rgba(239, 68, 68, 0.05);
+    border-radius: 0.5rem;
+  }
+
+  &amp;:active {
+    transform: translateY(1px);
+  }
+
+  &amp;:disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+
+    &amp;:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: 400px) {
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .title-section {
+    margin-bottom: 2rem;
+
+    .icon-circle {
+      width: 56px;
+      height: 56px;
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+    .title {
+      font-size: 1.25rem;
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+    }
+  }
+
+  :host ::ng-deep {
+    .otp-container {
+      gap: 0.5rem;
+    }
+
+    .otp-input {
+      width: 2.75rem;
+      height: 2.75rem;
+      font-size: 1.125rem;
+    }
+  }
+
+  .submit-button {
+    width: 80%;
+  }
+
+  .type-option {
+    padding: 1.25rem;
+  }
+
+  .option-title {
+    font-size: 1.125rem;
+  }
+
+  .option-description {
+    font-size: 0.813rem;
+  }
+
+  .input-icon-container i {
+    font-size: 1.125rem;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- email-register.component.html --><div class="register-container">  <!-- Header Section -->  <header class="header">    <app-back-button [redirectUrl]="\'/auth/register\'" text="رجوع"></app-back-button>  </header>  <!-- Content Section -->  <main class="main-content">    <!-- Title Section -->    <div class="title-section">      <div class="icon-circle">        <i class="fas"            [class.fa-envelope]="currentStep === 1 || currentStep === 2"           [class.fa-mobile-alt]="currentStep === 3 || currentStep === 4"           [class.fa-lock]="currentStep === 5"           [class.fa-user]="currentStep === 6"           [class.fa-address-card]="currentStep === 7"           [class.fa-circle-info]="currentStep === 8">        </i>      </div>      <h1 class="title">{{ getStepTitle() }}</h1>      <p class="subtitle">{{ getStepSubtitle() }}</p>    </div>    <!-- Form -->    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">      <!-- Step 1: Email Input -->      <div *ngIf="currentStep === 1" class="form-group">        <label class="form-label">البريد الإلكتروني</label>        <div class="input-container">          <input type="email"                 formControlName="email"                 class="input-field"                 placeholder="example@mail.com"                 dir="ltr">        </div>        <span class="error-message"               *ngIf="form.get(\'email\')?.errors?.[\'email\'] && form.get(\'email\')?.touched">          يرجى إدخال بريد إلكتروني صحيح        </span>      </div>      <!-- Step 2: Email Verification -->      <div *ngIf="currentStep === 2" class="form-group">        <label class="form-label">رمز التحقق</label>        <app-otp-input          formControlName="emailVerificationCode"          (completed)="onOtpCompleted($event, \'email\')">        </app-otp-input>        <div class="resend-code">          <button type="button" class="resend-button">            إعادة إرسال الرمز          </button>        </div>      </div>      <!-- Step 3: Phone Input -->      <div *ngIf="currentStep === 3" class="form-group">        <label class="form-label">رقم الهاتف</label>        <div class="input-container">          <input type="tel"                 formControlName="phone"                 class="phone-input"                 placeholder="01xxxxxxxxx"                 maxlength="11"                 inputmode="numeric">        </div>        <span class="error-message"               *ngIf="form.get(\'phone\')?.errors?.[\'pattern\'] && form.get(\'phone\')?.touched">          يرجى إدخال رقم هاتف مصري صحيح        </span>      </div>      <!-- Step 4: Phone Verification -->      <div *ngIf="currentStep === 4" class="form-group">        <label class="form-label">رمز التحقق</label>        <app-otp-input          formControlName="phoneVerificationCode"          (completed)="onOtpCompleted($event, \'phone\')">        </app-otp-input>        <div class="resend-code">          <button type="button" class="resend-button">            إعادة إرسال الرمز          </button>        </div>      </div>      <!-- Step 5: Password Setup -->      <div *ngIf="currentStep === 5" class="form-groups">        <div class="form-group">          <label class="form-label">كلمة المرور</label>          <div class="input-container">            <input [type]="showPassword ? \'text\' : \'password\'"                   formControlName="password"                   class="password-input"                   placeholder="********">            <button type="button"                    class="toggle-password"                    (click)="showPassword = !showPassword">              <i class="fas" [class.fa-eye]="!showPassword" [class.fa-eye-slash]="showPassword"></i>            </button>          </div>        </div>        <div class="form-group">          <label class="form-label">تأكيد كلمة المرور</label>          <div class="input-container">            <input [type]="showConfirmPassword ? \'text\' : \'password\'"                   formControlName="confirmPassword"                   class="password-input"                   placeholder="********">            <button type="button"                    class="toggle-password"                    (click)="showConfirmPassword = !showConfirmPassword">              <i class="fas" [class.fa-eye]="!showConfirmPassword" [class.fa-eye-slash]="showConfirmPassword"></i>            </button>          </div>          <span class="error-message"                *ngIf="form.get(\'confirmPassword\')?.errors?.[\'passwordMismatch\']">            كلمة المرور غير متطابقة          </span>        </div>      </div>      <!-- Step 6: User Type -->      <div *ngIf="currentStep === 6" class="options-container">        <button type="button"                 (click)="selectUserType(\'customer\')"                 class="type-option"                [class.selected]="form.get(\'userType\')?.value === \'customer\'">          <div class="option-content">            <i class="fas fa-user icon"></i>            <div class="option-text">              <div class="option-title">عميل</div>              <div class="option-description">ابحث عن خدمات وصنايعية</div>            </div>          </div>          <i class="fas fa-chevron-right arrow"></i>        </button>                <button type="button"                 (click)="selectUserType(\'worker\')"                 class="type-option"                [class.selected]="form.get(\'userType\')?.value === \'worker\'">          <div class="option-content">            <i class="fas fa-tools icon"></i>            <div class="option-text">              <div class="option-title">صنايعي</div>              <div class="option-description">قدم خدماتك واستقبل طلبات</div>            </div>          </div>          <i class="fas fa-chevron-right arrow"></i>        </button>      </div>      <!-- Step 7: User Details -->      <div *ngIf="currentStep === 7" class="form-groups">        <div class="form-group">          <label class="form-label">الاسم الكامل</label>          <div class="input-container">            <input type="text"                   formControlName="fullName"                   class="input-field input-with-icon"                   placeholder="أدخل اسمك الكامل">            <div class="input-icon-container">              <i class="fas fa-user"></i>            </div>          </div>        </div>              <div class="form-group">          <label class="form-label">العنوان</label>          <div class="input-container">            <input type="text"                   formControlName="address"                   class="input-field input-with-icon"                   placeholder="أدخل عنوانك">            <div class="input-icon-container">              <i class="fas fa-map-marker-alt"></i>            </div>          </div>        </div>              <div class="terms-group">          <label class="terms-label">            <input type="checkbox" formControlName="acceptTerms" class="terms-checkbox">            <span class="terms-text">              أوافق على <a href="#" class="terms-link">الشروط والأحكام</a>            </span>          </label>        </div>      </div>      <!-- Step 8: Success -->      <div *ngIf="currentStep === 8" class="success-message">        <i class="fas fa-check-circle success-icon"></i>        <h2 class="success-title">تم التسجيل بنجاح</h2>        <p class="success-subtitle">جاري تحويلك لصفحة تسجيل الدخول...</p>        <div class="countdown">{{ redirectCountdown }}</div>      </div>      <!-- Submit Button -->      <button *ngIf="currentStep !== 8"              type="submit"              [disabled]="!form.valid || submitting"              class="submit-button">        {{ submitting ? \'جاري التنفيذ...\' : \'التالي\' }}      </button>    </form>  </main></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BackButtonComponent', 'selector': 'app-back-button'},{'name': 'CompleteProfileComponent', 'selector': 'app-complete-profile'},{'name': 'DiscoverComponent', 'selector': 'app-discover'},{'name': 'EmailRegisterComponent', 'selector': 'app-email-register'},{'name': 'FeaturedSliderComponent', 'selector': 'app-featured-slider'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MessagesComponent', 'selector': 'app-messages'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NewRequestComponent', 'selector': 'app-new-request'},{'name': 'OtpInputComponent', 'selector': 'app-otp-input'},{'name': 'PhoneRegisterComponent', 'selector': 'app-phone-register'},{'name': 'PriceNegotiationComponent', 'selector': 'app-price-negotiation'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterMethodComponent', 'selector': 'app-register-method'},{'name': 'RequestDetailsComponent', 'selector': 'app-request-details'},{'name': 'RequestsListComponent', 'selector': 'app-requests-list'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'ServiceDetailsComponent', 'selector': 'app-service-details'},{'name': 'ServicesListComponent', 'selector': 'app-services-list'},{'name': 'SubServiceComponent', 'selector': 'app-sub-service'},{'name': 'UserTypeComponent', 'selector': 'app-user-type'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'},{'name': 'WorkerDetailsComponent', 'selector': 'app-worker-details'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EmailRegisterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EmailRegisterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
