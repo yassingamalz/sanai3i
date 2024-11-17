@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1731850725230,
+  "timestamp": 1731851084445,
   "index": "/sanai3i/index.html",
   "assetGroups": [
     {
@@ -86,7 +86,7 @@
     "/sanai3i/assets/images/featured/cleaning.jpg": "753c7f9f856224a0bdaaac4bccc4c4a9a7cb3260",
     "/sanai3i/assets/images/featured/plumbing.jpg": "7b0b7878e6122bdb456d0eab9050b021ea53765a",
     "/sanai3i/assets/map/current-location-marker.svg": "2580e12f793ff85290f8649a6d391fcf54713f10",
-    "/sanai3i/assets/map/provider-marker.svg": "0d37df2c456903178beaffad05d6159ef6decb91",
+    "/sanai3i/assets/map/provider-marker.svg": "b3dd73bb872920aea91724e4f84cc9cfa9371103",
     "/sanai3i/assets/marker.svg": "8bbec0ed431c2107d7a393f708ccb51c839bbda6",
     "/sanai3i/assets/worker.webp": "5c9c2f769442535960239a4a662a3cf6b8075f14",
     "/sanai3i/chunk-3WBD3P7X.js": "af11c7c0d0436b4843eb638213226e9c634d65e5",
