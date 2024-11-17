@@ -1,0 +1,97 @@
+<div class="personal-info-container">
+  <!-- Profile Picture Section -->
+  <div class="profile-picture-section">
+    <div class="profile-picture" (click)="triggerFileInput()">
+      <img [src]="currentImage || userData.profilePicture">
+      <div class="upload-overlay" *ngIf="isEditing">
+        <i class="fas fa-camera"></i>
+      </div>
+    </div>
+    <input 
+      type="file" 
+      #fileInput 
+      hidden 
+      accept="image/*"
+      (change)="onImageSelected($event)"
+    >
+  </div>
+
+  <!-- Form -->
+  <form [formGroup]="personalInfoForm" (ngSubmit)="onSubmit()" class="info-form">
+    <div class="form-group">
+      <label>الاسم</label>
+      <div class="input-container">
+        <i class="fas fa-user"></i>
+        <input 
+          type="text" 
+          formControlName="name"
+          [placeholder]="isEditing ? 'أدخل اسمك' : ''"
+        >
+      </div>
+      <small class="error-message" *ngIf="personalInfoForm.get('name')?.errors && personalInfoForm.get('name')?.touched">
+        {{ getErrorMessage('name') }}
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>رقم الهاتف</label>
+      <div class="input-container">
+        <i class="fas fa-phone"></i>
+        <input 
+          type="tel" 
+          formControlName="phone"
+          [placeholder]="isEditing ? 'أدخل رقم هاتفك' : ''"
+        >
+      </div>
+      <small class="error-message" *ngIf="personalInfoForm.get('phone')?.errors && personalInfoForm.get('phone')?.touched">
+        {{ getErrorMessage('phone') }}
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>البريد الإلكتروني</label>
+      <div class="input-container">
+        <i class="fas fa-envelope"></i>
+        <input 
+          type="email" 
+          formControlName="email"
+          [placeholder]="isEditing ? 'أدخل بريدك الإلكتروني' : ''"
+        >
+      </div>
+      <small class="error-message" *ngIf="personalInfoForm.get('email')?.errors && personalInfoForm.get('email')?.touched">
+        {{ getErrorMessage('email') }}
+      </small>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="form-actions">
+      <button 
+        *ngIf="!isEditing" 
+        type="button" 
+        class="edit-button"
+        (click)="toggleEdit()"
+      >
+        <i class="fas fa-edit"></i>
+        تعديل
+      </button>
+
+      <ng-container *ngIf="isEditing">
+        <button 
+          type="button" 
+          class="cancel-button"
+          (click)="toggleEdit()"
+        >
+          إلغاء
+        </button>
+        <button 
+          type="submit" 
+          class="save-button"
+          [disabled]="personalInfoForm.invalid || !personalInfoForm.dirty"
+        >
+          <i class="fas fa-save"></i>
+          حفظ
+        </button>
+      </ng-container>
+    </div>
+  </form>
+</div>

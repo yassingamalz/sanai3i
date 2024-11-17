@@ -1,0 +1,46 @@
+<div class="section-content">
+    <!-- Add New Address Button -->
+    <button class="add-address-button" (click)="onAddAddress()">
+      <i class="fas fa-plus"></i>
+      <span>إضافة عنوان جديد</span>
+    </button>
+  
+    <!-- Addresses List -->
+    <div class="addresses-list">
+      <div 
+        *ngFor="let address of addresses" 
+        class="address-card"
+        [class.selected]="address.isDefault"
+        (click)="onSelectAddress(address)"
+      >
+        <div class="address-info">
+          <div class="address-title">
+            {{address.title}}
+            <span class="default-badge" *ngIf="address.isDefault">افتراضي</span>
+          </div>
+          <div class="address-details">
+            <span class="area">{{address.area}}</span>
+            <span class="separator">•</span>
+            <span class="details">{{address.details}}</span>
+          </div>
+        </div>
+  
+        <div class="address-actions">
+          <button 
+            *ngIf="!address.isDefault"
+            class="set-default-button"
+            (click)="onSetDefault(address, $event)"
+          >
+            تعيين كافتراضي
+          </button>
+          <button 
+            class="delete-button"
+            (click)="onDelete(address, $event)"
+            [class.delete-default]="address.isDefault"
+          >
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

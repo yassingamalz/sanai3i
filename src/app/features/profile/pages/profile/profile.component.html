@@ -1,4 +1,9 @@
 <div class="profile-container" dir="rtl">
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" *ngIf="isLoading">
+    <div class="loading-spinner"></div>
+  </div>
+
   <!-- Header -->
   <header class="profile-header">
     <div class="header-content">
@@ -10,8 +15,8 @@
   <!-- Profile Card -->
   <div class="profile-card-wrapper">
     <div class="profile-card">
-      <div class="profile-info">
-        <img [src]="'/api/placeholder/96/96'" [alt]="userData.name" />
+      <div class="profile-info" (click)="toggleSection('personal')">
+        <img [src]="userData.profilePicture || '/api/placeholder/96/96'" [alt]="userData.name" />
         <div class="user-details">
           <div class="name-rating">
             <h2>{{userData.name}}</h2>
@@ -47,27 +52,41 @@
       </div>
 
       <div class="section-content" *ngIf="expandedSections[section.id]" [@expandCollapse]>
+        <!-- Personal Info Section -->
+        <app-personal-info *ngIf="section.id === 'personal'" [userData]="userData"
+          (updateUserData)="onUpdatePersonalInfo($event)">
+        </app-personal-info>
+
+        <!-- Addresses Section -->
+        <app-addresses *ngIf="section.id === 'addresses'" [addresses]="userData.addresses">
+        </app-addresses>
+
+        <!-- Notifications Section -->
+        <app-notifications-settings *ngIf="section.id === 'notifications'">
+        </app-notifications-settings>
+
         <!-- Wallet Section -->
         <ng-container *ngIf="section.id === 'wallet' && isWorker">
-          <div class="wallet-content">
-            <div class="balance">{{userData.balance}} جنيه</div>
-            <div class="balance-label">الرصيد الحالي</div>
-          </div>
+          <app-wallet [balance]="userData.balance || 0">
+          </app-wallet>
         </ng-container>
 
-        <!-- Personal Info Section -->
-        <ng-container *ngIf="section.id === 'personal'">
-          <div class="personal-info">
-            <div class="info-item">
-              <i class="fas fa-phone"></i>
-              <span>{{userData.phone}}</span>
-            </div>
-            <div class="info-item">
-              <i class="fas fa-envelope"></i>
-              <span>{{userData.email}}</span>
-            </div>
-          </div>
-        </ng-container>
+        <!-- Language Settings -->
+        <app-language-settings *ngIf="section.id === 'language'" [selectedLanguage]="userData.languagePreference"
+          (languageChange)="onLanguageChange($event)">
+        </app-language-settings>
+
+        <!-- Terms Section -->
+        <app-terms *ngIf="section.id === 'terms'">
+        </app-terms>
+
+        <!-- Contact Section -->
+        <app-contact-us *ngIf="section.id === 'contact'" (submit)="onContactSubmit($event)">
+        </app-contact-us>
+
+        <!-- FAQ Section -->
+        <app-faq *ngIf="section.id === 'faq'">
+        </app-faq>
       </div>
     </div>
 

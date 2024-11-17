@@ -5,9 +5,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
 const routes: Routes = [
   {
     path: '',
-    component: ProfileComponent // Display ProfileComponent by default
+    component: ProfileComponent
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
