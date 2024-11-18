@@ -1,4 +1,3 @@
-<!-- messages.component.html -->
 <div class="messages-container" dir="rtl">
   <!-- Header -->
   <div class="header">
@@ -6,31 +5,24 @@
       <div class="header-title">
         <i class="fas fa-comment"></i>
         <h1>الرسائل</h1>
-        <div class="unread-badge">
+        <div class="unread-badge" *ngIf="getTotalUnreadCount() > 0">
           {{getTotalUnreadCount()}}
         </div>
       </div>
     </div>
-    
+
     <!-- Search Bar -->
     <div class="search-bar">
       <div class="search-input-container">
-        <input
-          type="text"
-          [(ngModel)]="searchQuery"
-          placeholder="ابحث في المحادثات..."
-          class="search-input"
-        />
+        <input type="text" [(ngModel)]="searchQuery" placeholder="ابحث في المحادثات..." class="search-input" />
         <i class="fas fa-search"></i>
       </div>
     </div>
 
     <!-- Filter Pills -->
     <div class="filter-pills">
-      <button *ngFor="let filter of filters"
-              [class.pill-active]="filter.active"
-              [class.pill-inactive]="!filter.active"
-              (click)="setActiveFilter(filter.id)">
+      <button *ngFor="let filter of filters" [class.pill-active]="filter.active" [class.pill-inactive]="!filter.active"
+        (click)="setActiveFilter(filter.id)">
         {{filter.label}}
       </button>
     </div>
@@ -38,38 +30,37 @@
 
   <!-- Messages List -->
   <div class="messages-list">
-    <div *ngFor="let message of filteredMessages" 
-         class="message-card"
-         [class.unread]="message.unread">
+    <div *ngFor="let thread of filteredThreads; trackBy: trackByThreadId" class="message-card"
+      [class.unread]="thread.unreadCount > 0" (click)="openThread(thread)">
       <div class="message-content">
         <!-- Time and Unread Count -->
         <div class="message-meta">
-          <span class="time">{{message.time}}</span>
-          <div *ngIf="message.unread" class="unread-count">
-            {{message.unread}}
+          <span class="time">{{formatTimestamp(thread.lastActivity)}}</span>
+          <div *ngIf="thread.unreadCount > 0" class="unread-count">
+            {{thread.unreadCount}}
           </div>
         </div>
-        
+
         <div class="message-header">
           <div class="user-info">
             <!-- Avatar -->
             <div class="avatar-container">
-              <img [src]="message.image" [alt]="message.name" class="avatar"/>
-              <div *ngIf="message.isOnline" class="online-indicator"></div>
+              <img [src]="thread.worker.image" [alt]="thread.worker.name" class="avatar" />
+              <div *ngIf="thread.status === 'active'" class="online-indicator"></div>
             </div>
-            
+
             <!-- User Details -->
             <div class="user-details">
-              <h3 class="user-name">{{message.name}}</h3>
+              <h3 class="user-name">{{thread.worker.name}}</h3>
               <div class="user-meta">
                 <span class="rating">
                   <i class="fas fa-star"></i>
-                  {{message.rating}}
+                  {{thread.worker.rating}}
                 </span>
                 <span class="separator">•</span>
-                <span class="service">{{message.service}}</span>
-                <span *ngIf="message.jobCount" class="job-count">
-                  ({{message.jobCount}} خدمة)
+                <span class="service">{{thread.worker.service}}</span>
+                <span *ngIf="thread.worker.completedJobs" class="job-count">
+                  ({{thread.worker.completedJobs}} خدمة)
                 </span>
               </div>
             </div>
@@ -77,10 +68,33 @@
         </div>
 
         <!-- Message Preview -->
-        <p class="message-preview" [class.unread-message]="message.unread">
-          {{message.message}}
+        <p class="message-preview" [class.unread-message]="thread.unreadCount > 0">
+          {{thread.lastMessage.content}}
         </p>
+
+        <!-- Service Request Info -->
+        <div *ngIf="thread.serviceRequest" class="service-request-info">
+          <span class="service-type">{{thread.serviceRequest.service}}</span>
+          <span class="status-badge" [class]="thread.serviceRequest.status">
+            {{thread.serviceRequest.status === 'pending' ? 'قيد الانتظار' :
+            thread.serviceRequest.status === 'in_progress' ? 'جاري التنفيذ' : 'مكتمل'}}
+          </span>
+        </div>
       </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!loading && filteredThreads.length === 0" class="empty-state">
+      <div class="empty-icon">
+        <i class="fas fa-comments"></i>
+      </div>
+      <h3 class="empty-text">لا توجد محادثات</h3>
+      <p class="empty-subtext">عند بدء محادثة جديدة مع أحد مقدمي الخدمات، ستظهر هنا</p>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-state">
+      <div class="spinner"></div>
     </div>
   </div>
 </div>

@@ -1,0 +1,202 @@
+<div class="chat-container" dir="rtl">
+  <!-- Header -->
+  <header class="chat-header">
+    <!-- Back Button -->
+    <div class="header-actions">
+      <button class="back-button" (click)="goBack()">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+    
+    <!-- Worker Info -->
+    <div class="worker-info" *ngIf="thread">
+      <div class="avatar-container">
+        <img [src]="thread.worker.image" [alt]="thread.worker.name" class="avatar"/>
+        <div *ngIf="thread.status === 'active'" class="online-indicator"></div>
+      </div>
+      
+      <div class="worker-details">
+        <h2>{{thread.worker.name}}</h2>
+        <div class="worker-meta">
+          <span class="rating">
+            <i class="fas fa-star"></i>
+            {{thread.worker.rating}}
+          </span>
+          <span class="separator">•</span>
+          <span class="service">{{thread.worker.service}}</span>
+          <span *ngIf="thread.worker.completedJobs" class="service">
+            ({{thread.worker.completedJobs}} خدمة)
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Actions -->
+    <div class="header-actions">
+      <button class="action-button" [matMenuTriggerFor]="menu">
+        <i class="fas fa-ellipsis-v"></i>
+      </button>
+      <mat-menu #menu="matMenu" class="message-options-menu">
+        <button mat-menu-item class="block-button" (click)="blockThread()">
+          <i class="fas fa-ban"></i>
+          <span>حظر المحادثة</span>
+        </button>
+        <button mat-menu-item class="delete-button" (click)="deleteThread()">
+          <i class="fas fa-trash"></i>
+          <span>حذف المحادثة</span>
+        </button>
+      </mat-menu>
+    </div>
+  </header>
+
+  <!-- Service Request Banner -->
+  <div class="service-request-banner" *ngIf="thread?.serviceRequest">
+    <div class="request-info">
+      <span class="service-type">{{thread?.serviceRequest?.service}}</span>
+      <span class="status-badge" [class]="thread?.serviceRequest?.status || ''">
+        {{thread?.serviceRequest?.status === 'pending' ? 'قيد الانتظار' :
+          thread?.serviceRequest?.status === 'in_progress' ? 'جاري التنفيذ' : 'مكتمل'}}
+      </span>
+    </div>
+  </div>
+
+  <!-- Messages Container -->
+  <main [class]="messagesContainerClass" #messageContainer>
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-spinner">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error" class="error-state">
+      <i class="fas fa-exclamation-circle"></i>
+      <p>{{error}}</p>
+      <button class="retry-button" (click)="loadThread(thread?.id!)">
+        <i class="fas fa-redo"></i>
+        إعادة المحاولة
+      </button>
+    </div>
+
+    <!-- Messages Content -->
+    <ng-container *ngIf="!loading && !error">
+      <!-- Empty State -->
+      <div *ngIf="messages.length === 0" class="empty-state">
+        <i class="fas fa-comments"></i>
+        <p class="empty-text">لا توجد رسائل</p>
+        <p class="empty-subtext">ابدأ محادثة جديدة الآن</p>
+      </div>
+
+      <!-- Messages Groups -->
+      <div class="messages-date-group" *ngFor="let group of messageGroups">
+        <!-- Date Divider -->
+        <div class="date-divider">
+          <span>{{group.date}}</span>
+        </div>
+        
+        <!-- Message Bubbles -->
+        <div class="message-bubble" 
+             *ngFor="let message of group.messages; let i = index"
+             [class.sent]="message.senderId === currentUserId"
+             [class.received]="message.senderId !== currentUserId"
+             [class.consecutive]="isConsecutiveMessage(message, group.messages[i-1])">
+          
+          <!-- Message Content -->
+          <div class="message-content" [ngSwitch]="message.type">
+            <!-- Text Message -->
+            <ng-container *ngSwitchCase="'text'">
+              {{message.content}}
+            </ng-container>
+
+            <!-- Image Message -->
+            <ng-container *ngSwitchCase="'image'">
+              <img [src]="message.content" 
+                   alt="صورة مرسلة" 
+                   class="message-image"
+                   loading="lazy"/>
+            </ng-container>
+
+            <!-- Location Message -->
+            <ng-container *ngSwitchCase="'location'">
+              <div class="location-preview">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>تم مشاركة الموقع</span>
+              </div>
+            </ng-container>
+
+            <!-- Service Request Message -->
+            <ng-container *ngSwitchCase="'service_request'">
+              <div class="service-request-card">
+                <i class="fas fa-tools"></i>
+                <span>طلب خدمة جديد</span>
+                <div class="request-details" *ngIf="message.serviceRequestId">
+                  <div class="service-info">
+                    <span class="service-name">{{thread?.serviceRequest?.service}}</span>
+                    <span class="service-status" [class]="thread?.serviceRequest?.status || ''">
+                      {{thread?.serviceRequest?.status === 'pending' ? 'قيد الانتظار' :
+                        thread?.serviceRequest?.status === 'in_progress' ? 'جاري التنفيذ' : 'مكتمل'}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+          <!-- Message Time and Status -->
+          <div class="message-time">
+            {{formatMessageTime(message.timestamp)}}
+            <ng-container *ngIf="message.senderId === currentUserId">
+              <i class="fas" 
+                 [class.fa-check]="!message.read"
+                 [class.fa-check-double]="message.read"
+                 [class.read]="message.read"></i>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div class="typing-indicator" *ngIf="showTypingIndicator">
+        <div class="typing-bubble">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span class="typing-text">يكتب...</span>
+      </div>
+    </ng-container>
+  </main>
+
+  <!-- Chat Input Area -->
+  <footer class="chat-input" [class.blocked]="thread?.status === 'blocked'">
+    <div class="input-container">
+      <!-- Attachment Button -->
+      <button class="attachment-button" 
+              [disabled]="thread?.status === 'blocked'"
+              (click)="openAttachmentMenu()">
+        <i class="fas fa-paperclip"></i>
+      </button>
+      
+      <!-- Message Input -->
+      <input type="text" 
+             [(ngModel)]="newMessage" 
+             (keyup.enter)="sendMessage()"
+             (input)="onInputChange()"
+             [placeholder]="thread?.status === 'blocked' ? 'تم حظر المحادثة' : 'اكتب رسالتك هنا...'"
+             [disabled]="thread?.status === 'blocked'"
+             #messageInput>
+      
+      <!-- Send Button -->
+      <button class="send-button" 
+              [disabled]="!newMessage.trim() || thread?.status === 'blocked'"
+              (click)="sendMessage()">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+
+    <!-- Blocked Message Banner -->
+    <div class="blocked-banner" *ngIf="thread?.status === 'blocked'">
+      <i class="fas fa-ban"></i>
+      <span>تم حظر المحادثة</span>
+    </div>
+  </footer>
+</div>
