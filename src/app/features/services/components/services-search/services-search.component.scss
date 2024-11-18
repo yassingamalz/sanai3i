@@ -1,0 +1,39 @@
+// services-search.component.scss
+.search-container {
+    padding: 0 1rem;
+    margin-top: -1.5rem;
+    position: relative;
+    z-index: 10;
+  
+    .search-bar {
+      background: white;
+      border-radius: 9999px;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  
+      i {
+        color: #9ca3af;
+        margin-left: 0.75rem;
+      }
+  
+      input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        padding: 0.5rem 0;
+        text-align: right;
+        color: #1f2937;
+  
+        &::placeholder {
+          color: #9ca3af;
+        }
+  
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }

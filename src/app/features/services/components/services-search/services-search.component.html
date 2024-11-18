@@ -1,0 +1,12 @@
+<!-- services-search.component.html -->
+<div class="search-container">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input 
+        type="text" 
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearch($event)"
+        placeholder="البحث عن خدمة"
+      >
+    </div>
+  </div>

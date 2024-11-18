@@ -1,0 +1,21 @@
+<!-- service-card.component.html -->
+<div class="service-card" (click)="onCardClick()">
+    <div class="service-icon">{{service.icon}}</div>
+    <h3 class="service-title">{{service.name}}</h3>
+    <p class="service-description">{{service.description}}</p>
+    <div class="service-stats" *ngIf="service.totalRequests">
+      <span class="requests">{{service.totalRequests}} طلب</span>
+      <div class="trend" *ngIf="service.trend">
+        <i class="fas" 
+           [class.fa-arrow-trend-up]="service.trend === 'up'"
+           [class.fa-arrow-trend-down]="service.trend === 'down'"
+           [class.trend-up]="service.trend === 'up'"
+           [class.trend-down]="service.trend === 'down'">
+        </i>
+        <span [class.trend-up]="service.trend === 'up'"
+              [class.trend-down]="service.trend === 'down'">
+          {{service.trendValue}}%
+        </span>
+      </div>
+    </div>
+  </div>

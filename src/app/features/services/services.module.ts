@@ -8,6 +8,11 @@ import { SharedModule } from '../../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewRequestComponent } from './pages/new-request/new-request.component';
 import { SubServiceComponent } from './pages/sub-service/sub-service.component';
+import { ServicesHeaderComponent } from './components/services-header/services-header.component';
+import { ServicesSearchComponent } from './components/services-search/services-search.component';
+import { ServicesGridComponent } from './components/services-grid/services-grid.component';
+import { ServiceCardComponent } from './components/service-card/service-card.component';
+import { NoResultsComponent } from './components/no-results/no-results.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,12 @@ import { SubServiceComponent } from './pages/sub-service/sub-service.component';
     RequestsListComponent,
     ServiceDetailsComponent,
     NewRequestComponent,
-    SubServiceComponent
+    SubServiceComponent,
+    ServicesHeaderComponent,
+    ServicesSearchComponent,
+    ServicesGridComponent,
+    ServiceCardComponent,
+    NoResultsComponent
   ],
   imports: [
     CommonModule,

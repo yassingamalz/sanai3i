@@ -1,0 +1,14 @@
+<!-- services-grid.component.html -->
+<div class="services-container">
+    <div class="services-grid" [@staggerAnimation]="services.length">
+      <app-service-card 
+        *ngFor="let service of services; trackBy: trackByServiceId"
+        [service]="service"
+        (cardClick)="serviceClick.emit($event)">
+      </app-service-card>
+    </div>
+    
+    <app-no-results 
+      *ngIf="services.length === 0 && !isLoading">
+    </app-no-results>
+  </div>

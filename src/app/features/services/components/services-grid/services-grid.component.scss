@@ -1,0 +1,10 @@
+.services-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    grid-auto-rows: 1fr;
+  }

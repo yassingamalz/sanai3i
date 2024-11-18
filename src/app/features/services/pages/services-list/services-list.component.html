@@ -1,49 +1,15 @@
+<!-- services-list.component.html -->
 <div class="min-h-screen bg-gray-50">
-  <header class="header">
-    <app-back-button [redirectUrl]="'/'" text="رجوع"></app-back-button>
-    <h1 class="title">كل الخدمات</h1>
-  </header>
-
-  <div class="search-container">
-    <div class="search-bar">
-      <i class="fas fa-search"></i>
-      <input 
-        type="text" 
-        [(ngModel)]="searchQuery"
-        (ngModelChange)="onSearch($event)"
-        placeholder="البحث عن خدمة"
-      >
-    </div>
-  </div>
-
-  <div class="services-container">
-    <div class="services-grid" [@staggerAnimation]="displayedServices.length">
-      <div *ngFor="let service of displayedServices; let i = index; trackBy: trackByServiceId"
-           class="service-card"
-           (click)="onServiceClick(service.id)">
-        <div class="service-icon">{{service.icon}}</div>
-        <h3 class="service-title">{{service.name}}</h3>
-        <p class="service-description">{{service.description}}</p>
-        <div class="service-stats" *ngIf="service.totalRequests">
-          <span class="requests">{{service.totalRequests}} طلب</span>
-          <div class="trend" *ngIf="service.trend">
-            <i class="fas" 
-               [class.fa-arrow-trend-up]="service.trend === 'up'"
-               [class.fa-arrow-trend-down]="service.trend === 'down'"
-               [class.trend-up]="service.trend === 'up'"
-               [class.trend-down]="service.trend === 'down'">
-            </i>
-            <span [class.trend-up]="service.trend === 'up'"
-                  [class.trend-down]="service.trend === 'down'">
-              {{service.trendValue}}%
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div *ngIf="displayedServices.length === 0 && !isLoading" class="no-results">
-      لا توجد نتائج للبحث
-    </div>
-  </div>
+  <app-services-header></app-services-header>
+  
+  <app-services-search
+    [searchQuery]="searchQuery"
+    (search)="onSearch($event)">
+  </app-services-search>
+  
+  <app-services-grid
+    [services]="displayedServices"
+    [isLoading]="isLoading"
+    (serviceClick)="onServiceClick($event)">
+  </app-services-grid>
 </div>
