@@ -131,6 +131,7 @@
     </p>
     <p class="comment">
                 <code>OnInit</code>
+                <code>OnDestroy</code>
     </p>
 
 
@@ -193,13 +194,20 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
                                 <a href="#filters" >filters</a>
                             </li>
                             <li>
-                                <a href="#messages" >messages</a>
+                                <a href="#loading" >loading</a>
                             </li>
                             <li>
                                 <a href="#searchQuery" >searchQuery</a>
+                            </li>
+                            <li>
+                                <a href="#threads" >threads</a>
                             </li>
                         </ul>
                     </td>
@@ -214,13 +222,36 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#archiveThread" >archiveThread</a>
+                            </li>
+                            <li>
+                                <a href="#formatTimestamp" >formatTimestamp</a>
+                            </li>
+                            <li>
                                 <a href="#getTotalUnreadCount" >getTotalUnreadCount</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadThreads" >loadThreads</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
                             </li>
                             <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
+                                <a href="#openThread" >openThread</a>
+                            </li>
+                            <li>
                                 <a href="#setActiveFilter" >setActiveFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setupSearchSubscription" >setupSearchSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#trackByThreadId" >trackByThreadId</a>
                             </li>
                         </ul>
                     </td>
@@ -239,7 +270,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                    <a href="#filteredMessages" >filteredMessages</a>
+                                    <a href="#filteredThreads" >filteredThreads</a>
                                 </li>
                             </ul>
                         </td>
@@ -248,6 +279,66 @@
     </table>
 </section>
 
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(messageService: <a href="../injectables/MessageService.html" target="_self">MessageService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
 
@@ -258,6 +349,152 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archiveThread"></a>
+                    <span class="name">
+                        <span ><b>archiveThread</b></span>
+                        <a href="#archiveThread"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>archiveThread(threadId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>threadId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatTimestamp"></a>
+                    <span class="name">
+                        <span ><b>formatTimestamp</b></span>
+                        <a href="#formatTimestamp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatTimestamp(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>date</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -278,8 +515,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="109"
-                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:109</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:124</a></div>
                         </td>
                     </tr>
 
@@ -289,6 +526,82 @@
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadThreads"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadThreads</b></span>
+                        <a href="#loadThreads"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadThreads()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
                 </td>
@@ -315,8 +628,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="74"
-                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:74</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -328,6 +641,73 @@
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                         </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openThread"></a>
+                    <span class="name">
+                        <span ><b>openThread</b></span>
+                        <a href="#openThread"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openThread(thread: <a href="../interfaces/ChatThread.html" target="_self">ChatThread</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>thread</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ChatThread.html" target="_self" >ChatThread</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -352,8 +732,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="78"
-                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:78</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:80</a></div>
                         </td>
                     </tr>
 
@@ -399,12 +779,156 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setupSearchSubscription"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setupSearchSubscription</b></span>
+                        <a href="#setupSearchSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setupSearchSubscription()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="trackByThreadId"></a>
+                    <span class="name">
+                        <span ><b>trackByThreadId</b></span>
+                        <a href="#trackByThreadId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>trackByThreadId(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, thread: <a href="../interfaces/ChatThread.html" target="_self">ChatThread</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>thread</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ChatThread.html" target="_self" >ChatThread</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section data-compodoc="block-properties">
     
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -427,13 +951,14 @@
                         <i>Default value : </i><code>[
     { id: &#x27;all&#x27;, label: &#x27;الكل&#x27;, active: true },
     { id: &#x27;unread&#x27;, label: &#x27;غير مقروءة&#x27;, active: false },
-    { id: &#x27;read&#x27;, label: &#x27;مقروءة&#x27;, active: false }
+    { id: &#x27;active&#x27;, label: &#x27;نشط&#x27;, active: false },
+    { id: &#x27;archived&#x27;, label: &#x27;مؤرشف&#x27;, active: false }
   ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -444,67 +969,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="messages"></a>
+                    <a name="loading"></a>
                     <span class="name">
-                        <span ><b>messages</b></span>
-                        <a href="#messages"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="../interfaces/Message.html" target="_self" >Message[]</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[
-    { 
-      id: 1, 
-      name: &#x27;عم حسن&#x27;, 
-      message: &#x27;حاكون عندك خلال ساعة&#x27;, 
-      time: &#x27;12:30&#x27;, 
-      unread: 2,
-      service: &#x27;كهربائي&#x27;,
-      rating: 4.8,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      status: &#x27;online&#x27;,
-      isOnline: true,
-      jobCount: 230
-    },
-    { 
-      id: 2, 
-      name: &#x27;أستاذ محمد&#x27;, 
-      message: &#x27;شكراً على تقييمك&#x27;, 
-      time: &#x27;11:45&#x27;, 
-      unread: 0,
-      service: &#x27;سباك&#x27;,
-      rating: 4.9,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      jobCount: 180
-    },
-    { 
-      id: 3, 
-      name: &#x27;الحاج كريم&#x27;, 
-      message: &#x27;يمكنني الحضور غداً في الصباح&#x27;, 
-      time: &#x27;أمس&#x27;, 
-      unread: 1,
-      service: &#x27;نقاش&#x27;,
-      rating: 4.7,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      isOnline: false,
-      jobCount: 150
-    }
-  ]</code>
+                        <i>Default value : </i><code>true</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -535,7 +1020,38 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="threads"></a>
+                    <span class="name">
+                        <span ><b>threads</b></span>
+                        <a href="#threads"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ChatThread.html" target="_self" >ChatThread[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -552,19 +1068,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="filteredMessages"></a>
-                        <span class="name"><b>filteredMessages</b><a href="#filteredMessages"><span class="icon ion-ios-link"></span></a></span>
+                        <a name="filteredThreads"></a>
+                        <span class="name"><b>filteredThreads</b><a href="#filteredThreads"><span class="icon ion-ios-link"></span></a></span>
                     </td>
                 </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>filteredMessages()</code></span>
+                        <span class="accessor"><b>get</b><code>filteredThreads()</code></span>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:85</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/features/messages/pages/messages/messages.component.ts:40</a></div>
                                 </td>
                             </tr>
 
@@ -575,81 +1091,83 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-
-interface Message {
-  id: number;
-  name: string;
-  message: string;
-  time: string;
-  unread: number;
-  service: string;
-  image: string;
-  rating?: number;
-  isWorker?: boolean;
-  status?: string;
-  isOnline?: boolean;
-  jobCount?: number;
-}
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { Subject } from &#x27;rxjs&#x27;;
+import { takeUntil, debounceTime, distinctUntilChanged } from &#x27;rxjs/operators&#x27;;
+import { ChatThread, MessageService } from &#x27;../../../../core/services/message.service&#x27;;
 
 @Component({
   selector: &#x27;app-messages&#x27;,
   templateUrl: &#x27;./messages.component.html&#x27;,
   styleUrls: [&#x27;./messages.component.scss&#x27;]
 })
-export class MessagesComponent implements OnInit {
+export class MessagesComponent implements OnInit, OnDestroy {
+  private destroy$ &#x3D; new Subject&lt;void&gt;();
   searchQuery: string &#x3D; &#x27;&#x27;;
+  threads: ChatThread[] &#x3D; [];
+  loading: boolean &#x3D; true;
   
   filters &#x3D; [
     { id: &#x27;all&#x27;, label: &#x27;الكل&#x27;, active: true },
     { id: &#x27;unread&#x27;, label: &#x27;غير مقروءة&#x27;, active: false },
-    { id: &#x27;read&#x27;, label: &#x27;مقروءة&#x27;, active: false }
+    { id: &#x27;active&#x27;, label: &#x27;نشط&#x27;, active: false },
+    { id: &#x27;archived&#x27;, label: &#x27;مؤرشف&#x27;, active: false }
   ];
 
-  messages: Message[] &#x3D; [
-    { 
-      id: 1, 
-      name: &#x27;عم حسن&#x27;, 
-      message: &#x27;حاكون عندك خلال ساعة&#x27;, 
-      time: &#x27;12:30&#x27;, 
-      unread: 2,
-      service: &#x27;كهربائي&#x27;,
-      rating: 4.8,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      status: &#x27;online&#x27;,
-      isOnline: true,
-      jobCount: 230
-    },
-    { 
-      id: 2, 
-      name: &#x27;أستاذ محمد&#x27;, 
-      message: &#x27;شكراً على تقييمك&#x27;, 
-      time: &#x27;11:45&#x27;, 
-      unread: 0,
-      service: &#x27;سباك&#x27;,
-      rating: 4.9,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      jobCount: 180
-    },
-    { 
-      id: 3, 
-      name: &#x27;الحاج كريم&#x27;, 
-      message: &#x27;يمكنني الحضور غداً في الصباح&#x27;, 
-      time: &#x27;أمس&#x27;, 
-      unread: 1,
-      service: &#x27;نقاش&#x27;,
-      rating: 4.7,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      isOnline: false,
-      jobCount: 150
-    }
-  ];
+  constructor(
+    private messageService: MessageService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    // Initial setup if needed
+    this.loadThreads();
+    this.setupSearchSubscription();
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  get filteredThreads(): ChatThread[] {
+    if (!this.searchQuery.trim()) return this.threads;
+    
+    return this.threads.filter(thread &#x3D;&gt; 
+      thread.worker.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+      thread.worker.service.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+      thread.lastMessage.content.toLowerCase().includes(this.searchQuery.toLowerCase())
+    );
+  }
+
+  private loadThreads() {
+    this.loading &#x3D; true;
+    const activeFilter &#x3D; this.filters.find(f &#x3D;&gt; f.active)?.id;
+    
+    this.messageService.getThreads(activeFilter)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (threads) &#x3D;&gt; {
+          this.threads &#x3D; threads;
+          this.loading &#x3D; false;
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error loading threads:&#x27;, error);
+          this.loading &#x3D; false;
+        }
+      });
+  }
+
+  private setupSearchSubscription() {
+    this.messageService.searchThreads(this.searchQuery)
+      .pipe(
+        debounceTime(300),
+        distinctUntilChanged(),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(threads &#x3D;&gt; {
+        this.threads &#x3D; threads;
+      });
   }
 
   setActiveFilter(filterId: string) {
@@ -657,72 +1175,81 @@ export class MessagesComponent implements OnInit {
       ...filter,
       active: filter.id &#x3D;&#x3D;&#x3D; filterId
     }));
+    this.loadThreads();
   }
 
-  get filteredMessages(): Message[] {
-    const activeFilter &#x3D; this.filters.find(f &#x3D;&gt; f.active)?.id;
+  formatTimestamp(date: Date): string {
+    const messageDate &#x3D; new Date(date);
+    const now &#x3D; new Date();
+    const diff &#x3D; now.getTime() - messageDate.getTime();
+    const days &#x3D; Math.floor(diff / (1000 * 60 * 60 * 24));
     
-    let filtered &#x3D; this.messages;
-    
-    // Apply search filter
-    if (this.searchQuery) {
-      filtered &#x3D; filtered.filter(message &#x3D;&gt; 
-        message.name.includes(this.searchQuery) ||
-        message.message.includes(this.searchQuery) ||
-        message.service.includes(this.searchQuery)
-      );
+    if (days &#x3D;&#x3D;&#x3D; 0) {
+      const hours &#x3D; Math.floor(diff / (1000 * 60 * 60));
+      if (hours &#x3D;&#x3D;&#x3D; 0) {
+        const minutes &#x3D; Math.floor(diff / (1000 * 60));
+        return &#x60;منذ ${minutes} دقيقة&#x60;;
+      }
+      return &#x60;منذ ${hours} ساعة&#x60;;
     }
-    
-    // Apply status filter
-    if (activeFilter &#x3D;&#x3D;&#x3D; &#x27;unread&#x27;) {
-      filtered &#x3D; filtered.filter(message &#x3D;&gt; message.unread &gt; 0);
-    } else if (activeFilter &#x3D;&#x3D;&#x3D; &#x27;read&#x27;) {
-      filtered &#x3D; filtered.filter(message &#x3D;&gt; !message.unread);
-    }
-    
-    return filtered;
+    if (days &#x3D;&#x3D;&#x3D; 1) return &#x27;أمس&#x27;;
+    if (days &lt;&#x3D; 7) return &#x60;منذ ${days} أيام&#x60;;
+    return messageDate.toLocaleDateString(&#x27;ar-EG&#x27;);
+  }
+
+  openThread(thread: ChatThread) {
+    this.messageService.markAsRead(thread.id)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() &#x3D;&gt; {
+        this.router.navigate([&#x27;/messages&#x27;, thread.id]);
+      });
+  }
+
+  archiveThread(threadId: number, event: Event) {
+    event.stopPropagation();
+    this.messageService.archiveThread(threadId)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() &#x3D;&gt; {
+        this.loadThreads();
+      });
   }
 
   getTotalUnreadCount(): number {
-    return this.messages.reduce((total, message) &#x3D;&gt; total + (message.unread || 0), 0);
+    return this.threads.reduce((sum, thread) &#x3D;&gt; sum + thread.unreadCount, 0);
+  }
+
+  trackByThreadId(index: number, thread: ChatThread): number {
+    return thread.id;
   }
 }</code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!-- messages.component.html --&gt;
-&lt;div class&#x3D;&quot;messages-container&quot; dir&#x3D;&quot;rtl&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;messages-container&quot; dir&#x3D;&quot;rtl&quot;&gt;
   &lt;!-- Header --&gt;
   &lt;div class&#x3D;&quot;header&quot;&gt;
     &lt;div class&#x3D;&quot;header-content&quot;&gt;
       &lt;div class&#x3D;&quot;header-title&quot;&gt;
         &lt;i class&#x3D;&quot;fas fa-comment&quot;&gt;&lt;/i&gt;
         &lt;h1&gt;الرسائل&lt;/h1&gt;
-        &lt;div class&#x3D;&quot;unread-badge&quot;&gt;
+        &lt;div class&#x3D;&quot;unread-badge&quot; *ngIf&#x3D;&quot;getTotalUnreadCount() &gt; 0&quot;&gt;
           {{getTotalUnreadCount()}}
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-    
+
     &lt;!-- Search Bar --&gt;
     &lt;div class&#x3D;&quot;search-bar&quot;&gt;
       &lt;div class&#x3D;&quot;search-input-container&quot;&gt;
-        &lt;input
-          type&#x3D;&quot;text&quot;
-          [(ngModel)]&#x3D;&quot;searchQuery&quot;
-          placeholder&#x3D;&quot;ابحث في المحادثات...&quot;
-          class&#x3D;&quot;search-input&quot;
-        /&gt;
+        &lt;input type&#x3D;&quot;text&quot; [(ngModel)]&#x3D;&quot;searchQuery&quot; placeholder&#x3D;&quot;ابحث في المحادثات...&quot; class&#x3D;&quot;search-input&quot; /&gt;
         &lt;i class&#x3D;&quot;fas fa-search&quot;&gt;&lt;/i&gt;
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;!-- Filter Pills --&gt;
     &lt;div class&#x3D;&quot;filter-pills&quot;&gt;
-      &lt;button *ngFor&#x3D;&quot;let filter of filters&quot;
-              [class.pill-active]&#x3D;&quot;filter.active&quot;
-              [class.pill-inactive]&#x3D;&quot;!filter.active&quot;
-              (click)&#x3D;&quot;setActiveFilter(filter.id)&quot;&gt;
+      &lt;button *ngFor&#x3D;&quot;let filter of filters&quot; [class.pill-active]&#x3D;&quot;filter.active&quot; [class.pill-inactive]&#x3D;&quot;!filter.active&quot;
+        (click)&#x3D;&quot;setActiveFilter(filter.id)&quot;&gt;
         {{filter.label}}
       &lt;/button&gt;
     &lt;/div&gt;
@@ -730,38 +1257,37 @@ export class MessagesComponent implements OnInit {
 
   &lt;!-- Messages List --&gt;
   &lt;div class&#x3D;&quot;messages-list&quot;&gt;
-    &lt;div *ngFor&#x3D;&quot;let message of filteredMessages&quot; 
-         class&#x3D;&quot;message-card&quot;
-         [class.unread]&#x3D;&quot;message.unread&quot;&gt;
+    &lt;div *ngFor&#x3D;&quot;let thread of filteredThreads; trackBy: trackByThreadId&quot; class&#x3D;&quot;message-card&quot;
+      [class.unread]&#x3D;&quot;thread.unreadCount &gt; 0&quot; (click)&#x3D;&quot;openThread(thread)&quot;&gt;
       &lt;div class&#x3D;&quot;message-content&quot;&gt;
         &lt;!-- Time and Unread Count --&gt;
         &lt;div class&#x3D;&quot;message-meta&quot;&gt;
-          &lt;span class&#x3D;&quot;time&quot;&gt;{{message.time}}&lt;/span&gt;
-          &lt;div *ngIf&#x3D;&quot;message.unread&quot; class&#x3D;&quot;unread-count&quot;&gt;
-            {{message.unread}}
+          &lt;span class&#x3D;&quot;time&quot;&gt;{{formatTimestamp(thread.lastActivity)}}&lt;/span&gt;
+          &lt;div *ngIf&#x3D;&quot;thread.unreadCount &gt; 0&quot; class&#x3D;&quot;unread-count&quot;&gt;
+            {{thread.unreadCount}}
           &lt;/div&gt;
         &lt;/div&gt;
-        
+
         &lt;div class&#x3D;&quot;message-header&quot;&gt;
           &lt;div class&#x3D;&quot;user-info&quot;&gt;
             &lt;!-- Avatar --&gt;
             &lt;div class&#x3D;&quot;avatar-container&quot;&gt;
-              &lt;img [src]&#x3D;&quot;message.image&quot; [alt]&#x3D;&quot;message.name&quot; class&#x3D;&quot;avatar&quot;/&gt;
-              &lt;div *ngIf&#x3D;&quot;message.isOnline&quot; class&#x3D;&quot;online-indicator&quot;&gt;&lt;/div&gt;
+              &lt;img [src]&#x3D;&quot;thread.worker.image&quot; [alt]&#x3D;&quot;thread.worker.name&quot; class&#x3D;&quot;avatar&quot; /&gt;
+              &lt;div *ngIf&#x3D;&quot;thread.status &#x3D;&#x3D;&#x3D; &#x27;active&#x27;&quot; class&#x3D;&quot;online-indicator&quot;&gt;&lt;/div&gt;
             &lt;/div&gt;
-            
+
             &lt;!-- User Details --&gt;
             &lt;div class&#x3D;&quot;user-details&quot;&gt;
-              &lt;h3 class&#x3D;&quot;user-name&quot;&gt;{{message.name}}&lt;/h3&gt;
+              &lt;h3 class&#x3D;&quot;user-name&quot;&gt;{{thread.worker.name}}&lt;/h3&gt;
               &lt;div class&#x3D;&quot;user-meta&quot;&gt;
                 &lt;span class&#x3D;&quot;rating&quot;&gt;
                   &lt;i class&#x3D;&quot;fas fa-star&quot;&gt;&lt;/i&gt;
-                  {{message.rating}}
+                  {{thread.worker.rating}}
                 &lt;/span&gt;
                 &lt;span class&#x3D;&quot;separator&quot;&gt;•&lt;/span&gt;
-                &lt;span class&#x3D;&quot;service&quot;&gt;{{message.service}}&lt;/span&gt;
-                &lt;span *ngIf&#x3D;&quot;message.jobCount&quot; class&#x3D;&quot;job-count&quot;&gt;
-                  ({{message.jobCount}} خدمة)
+                &lt;span class&#x3D;&quot;service&quot;&gt;{{thread.worker.service}}&lt;/span&gt;
+                &lt;span *ngIf&#x3D;&quot;thread.worker.completedJobs&quot; class&#x3D;&quot;job-count&quot;&gt;
+                  ({{thread.worker.completedJobs}} خدمة)
                 &lt;/span&gt;
               &lt;/div&gt;
             &lt;/div&gt;
@@ -769,10 +1295,33 @@ export class MessagesComponent implements OnInit {
         &lt;/div&gt;
 
         &lt;!-- Message Preview --&gt;
-        &lt;p class&#x3D;&quot;message-preview&quot; [class.unread-message]&#x3D;&quot;message.unread&quot;&gt;
-          {{message.message}}
+        &lt;p class&#x3D;&quot;message-preview&quot; [class.unread-message]&#x3D;&quot;thread.unreadCount &gt; 0&quot;&gt;
+          {{thread.lastMessage.content}}
         &lt;/p&gt;
+
+        &lt;!-- Service Request Info --&gt;
+        &lt;div *ngIf&#x3D;&quot;thread.serviceRequest&quot; class&#x3D;&quot;service-request-info&quot;&gt;
+          &lt;span class&#x3D;&quot;service-type&quot;&gt;{{thread.serviceRequest.service}}&lt;/span&gt;
+          &lt;span class&#x3D;&quot;status-badge&quot; [class]&#x3D;&quot;thread.serviceRequest.status&quot;&gt;
+            {{thread.serviceRequest.status &#x3D;&#x3D;&#x3D; &#x27;pending&#x27; ? &#x27;قيد الانتظار&#x27; :
+            thread.serviceRequest.status &#x3D;&#x3D;&#x3D; &#x27;in_progress&#x27; ? &#x27;جاري التنفيذ&#x27; : &#x27;مكتمل&#x27;}}
+          &lt;/span&gt;
+        &lt;/div&gt;
       &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Empty State --&gt;
+    &lt;div *ngIf&#x3D;&quot;!loading &amp;&amp; filteredThreads.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;empty-state&quot;&gt;
+      &lt;div class&#x3D;&quot;empty-icon&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-comments&quot;&gt;&lt;/i&gt;
+      &lt;/div&gt;
+      &lt;h3 class&#x3D;&quot;empty-text&quot;&gt;لا توجد محادثات&lt;/h3&gt;
+      &lt;p class&#x3D;&quot;empty-subtext&quot;&gt;عند بدء محادثة جديدة مع أحد مقدمي الخدمات، ستظهر هنا&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Loading State --&gt;
+    &lt;div *ngIf&#x3D;&quot;loading&quot; class&#x3D;&quot;loading-state&quot;&gt;
+      &lt;div class&#x3D;&quot;spinner&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -1062,7 +1611,41 @@ export class MessagesComponent implements OnInit {
     }
   }
   
-</code></pre>
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 400px);
+    padding: 2rem;
+    text-align: center;
+  
+    .empty-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+      color: #e5e7eb;
+      
+      i {
+        font-size: 5rem;
+        color: #d1d5db;
+      }
+    }
+  
+    .empty-text {
+      font-size: 1.125rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+  
+    .empty-subtext {
+      font-size: 0.875rem;
+      color: #9ca3af;
+      max-width: 300px;
+      line-height: 1.5;
+    }
+  }</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -1090,8 +1673,8 @@ export class MessagesComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- messages.component.html --><div class="messages-container" dir="rtl">  <!-- Header -->  <div class="header">    <div class="header-content">      <div class="header-title">        <i class="fas fa-comment"></i>        <h1>الرسائل</h1>        <div class="unread-badge">          {{getTotalUnreadCount()}}        </div>      </div>    </div>        <!-- Search Bar -->    <div class="search-bar">      <div class="search-input-container">        <input          type="text"          [(ngModel)]="searchQuery"          placeholder="ابحث في المحادثات..."          class="search-input"        />        <i class="fas fa-search"></i>      </div>    </div>    <!-- Filter Pills -->    <div class="filter-pills">      <button *ngFor="let filter of filters"              [class.pill-active]="filter.active"              [class.pill-inactive]="!filter.active"              (click)="setActiveFilter(filter.id)">        {{filter.label}}      </button>    </div>  </div>  <!-- Messages List -->  <div class="messages-list">    <div *ngFor="let message of filteredMessages"          class="message-card"         [class.unread]="message.unread">      <div class="message-content">        <!-- Time and Unread Count -->        <div class="message-meta">          <span class="time">{{message.time}}</span>          <div *ngIf="message.unread" class="unread-count">            {{message.unread}}          </div>        </div>                <div class="message-header">          <div class="user-info">            <!-- Avatar -->            <div class="avatar-container">              <img [src]="message.image" [alt]="message.name" class="avatar"/>              <div *ngIf="message.isOnline" class="online-indicator"></div>            </div>                        <!-- User Details -->            <div class="user-details">              <h3 class="user-name">{{message.name}}</h3>              <div class="user-meta">                <span class="rating">                  <i class="fas fa-star"></i>                  {{message.rating}}                </span>                <span class="separator">•</span>                <span class="service">{{message.service}}</span>                <span *ngIf="message.jobCount" class="job-count">                  ({{message.jobCount}} خدمة)                </span>              </div>            </div>          </div>        </div>        <!-- Message Preview -->        <p class="message-preview" [class.unread-message]="message.unread">          {{message.message}}        </p>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BackButtonComponent', 'selector': 'app-back-button'},{'name': 'CompleteProfileComponent', 'selector': 'app-complete-profile'},{'name': 'DiscoverComponent', 'selector': 'app-discover'},{'name': 'EmailRegisterComponent', 'selector': 'app-email-register'},{'name': 'FeaturedSliderComponent', 'selector': 'app-featured-slider'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MessagesComponent', 'selector': 'app-messages'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NewRequestComponent', 'selector': 'app-new-request'},{'name': 'OtpInputComponent', 'selector': 'app-otp-input'},{'name': 'PhoneRegisterComponent', 'selector': 'app-phone-register'},{'name': 'PriceNegotiationComponent', 'selector': 'app-price-negotiation'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterMethodComponent', 'selector': 'app-register-method'},{'name': 'RequestDetailsComponent', 'selector': 'app-request-details'},{'name': 'RequestsListComponent', 'selector': 'app-requests-list'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'ServiceDetailsComponent', 'selector': 'app-service-details'},{'name': 'ServicesListComponent', 'selector': 'app-services-list'},{'name': 'SubServiceComponent', 'selector': 'app-sub-service'},{'name': 'UserTypeComponent', 'selector': 'app-user-type'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'},{'name': 'WorkerDetailsComponent', 'selector': 'app-worker-details'}];
+        var COMPONENT_TEMPLATE = '<div><div class="messages-container" dir="rtl">  <!-- Header -->  <div class="header">    <div class="header-content">      <div class="header-title">        <i class="fas fa-comment"></i>        <h1>الرسائل</h1>        <div class="unread-badge" *ngIf="getTotalUnreadCount() > 0">          {{getTotalUnreadCount()}}        </div>      </div>    </div>    <!-- Search Bar -->    <div class="search-bar">      <div class="search-input-container">        <input type="text" [(ngModel)]="searchQuery" placeholder="ابحث في المحادثات..." class="search-input" />        <i class="fas fa-search"></i>      </div>    </div>    <!-- Filter Pills -->    <div class="filter-pills">      <button *ngFor="let filter of filters" [class.pill-active]="filter.active" [class.pill-inactive]="!filter.active"        (click)="setActiveFilter(filter.id)">        {{filter.label}}      </button>    </div>  </div>  <!-- Messages List -->  <div class="messages-list">    <div *ngFor="let thread of filteredThreads; trackBy: trackByThreadId" class="message-card"      [class.unread]="thread.unreadCount > 0" (click)="openThread(thread)">      <div class="message-content">        <!-- Time and Unread Count -->        <div class="message-meta">          <span class="time">{{formatTimestamp(thread.lastActivity)}}</span>          <div *ngIf="thread.unreadCount > 0" class="unread-count">            {{thread.unreadCount}}          </div>        </div>        <div class="message-header">          <div class="user-info">            <!-- Avatar -->            <div class="avatar-container">              <img [src]="thread.worker.image" [alt]="thread.worker.name" class="avatar" />              <div *ngIf="thread.status === \'active\'" class="online-indicator"></div>            </div>            <!-- User Details -->            <div class="user-details">              <h3 class="user-name">{{thread.worker.name}}</h3>              <div class="user-meta">                <span class="rating">                  <i class="fas fa-star"></i>                  {{thread.worker.rating}}                </span>                <span class="separator">•</span>                <span class="service">{{thread.worker.service}}</span>                <span *ngIf="thread.worker.completedJobs" class="job-count">                  ({{thread.worker.completedJobs}} خدمة)                </span>              </div>            </div>          </div>        </div>        <!-- Message Preview -->        <p class="message-preview" [class.unread-message]="thread.unreadCount > 0">          {{thread.lastMessage.content}}        </p>        <!-- Service Request Info -->        <div *ngIf="thread.serviceRequest" class="service-request-info">          <span class="service-type">{{thread.serviceRequest.service}}</span>          <span class="status-badge" [class]="thread.serviceRequest.status">            {{thread.serviceRequest.status === \'pending\' ? \'قيد الانتظار\' :            thread.serviceRequest.status === \'in_progress\' ? \'جاري التنفيذ\' : \'مكتمل\'}}          </span>        </div>      </div>    </div>    <!-- Empty State -->    <div *ngIf="!loading && filteredThreads.length === 0" class="empty-state">      <div class="empty-icon">        <i class="fas fa-comments"></i>      </div>      <h3 class="empty-text">لا توجد محادثات</h3>      <p class="empty-subtext">عند بدء محادثة جديدة مع أحد مقدمي الخدمات، ستظهر هنا</p>    </div>    <!-- Loading State -->    <div *ngIf="loading" class="loading-state">      <div class="spinner"></div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddAddressDialogComponent', 'selector': 'app-add-address-dialog'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BackButtonComponent', 'selector': 'app-back-button'},{'name': 'CompleteProfileComponent', 'selector': 'app-complete-profile'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'DiscoverComponent', 'selector': 'app-discover'},{'name': 'EmailRegisterComponent', 'selector': 'app-email-register'},{'name': 'FaqComponent', 'selector': 'app-faq'},{'name': 'FeaturedSliderComponent', 'selector': 'app-featured-slider'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LanguageSettingsComponent', 'selector': 'app-language-settings'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MessageDetailComponent', 'selector': 'app-message-detail'},{'name': 'MessagesComponent', 'selector': 'app-messages'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NewRequestComponent', 'selector': 'app-new-request'},{'name': 'NotificationsSettingsComponent', 'selector': 'app-notifications-settings'},{'name': 'OtpInputComponent', 'selector': 'app-otp-input'},{'name': 'PersonalInfoComponent', 'selector': 'app-personal-info'},{'name': 'PhoneRegisterComponent', 'selector': 'app-phone-register'},{'name': 'PriceNegotiationComponent', 'selector': 'app-price-negotiation'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterMethodComponent', 'selector': 'app-register-method'},{'name': 'RequestDetailsComponent', 'selector': 'app-request-details'},{'name': 'RequestsListComponent', 'selector': 'app-requests-list'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'ServiceDetailsComponent', 'selector': 'app-service-details'},{'name': 'ServicesListComponent', 'selector': 'app-services-list'},{'name': 'SubServiceComponent', 'selector': 'app-sub-service'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'UserTypeComponent', 'selector': 'app-user-type'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WalletComponent', 'selector': 'app-wallet'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'},{'name': 'WorkerDetailsComponent', 'selector': 'app-worker-details'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MessagesComponent'};
 </script>

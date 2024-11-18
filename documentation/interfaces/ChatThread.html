@@ -1,0 +1,1110 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sanai3i documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sanai3i documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  ChatThread</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/services/message.service.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#lastActivity" 
+>
+                                            lastActivity
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#lastMessage" 
+>
+                                            lastMessage
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#serviceRequest" 
+>
+                                            serviceRequest
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#status" 
+>
+                                            status
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#unreadCount" 
+>
+                                            unreadCount
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#worker" 
+>
+                                            worker
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#workerId" 
+>
+                                            workerId
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="lastActivity"></a>
+                                        <span class="name "><b>lastActivity</b>
+                                            <a href="#lastActivity">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>lastActivity:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="lastMessage"></a>
+                                        <span class="name "><b>lastMessage</b>
+                                            <a href="#lastMessage">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>lastMessage:         <code><a href="../interfaces/Message.html" target="_self" >Message</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Message.html" target="_self" >Message</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="serviceRequest"></a>
+                                        <span class="name "><b>serviceRequest</b>
+                                            <a href="#serviceRequest">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>serviceRequest:         <code><a href="../interfaces/ServiceRequest.html" target="_self" >ServiceRequest</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ServiceRequest.html" target="_self" >ServiceRequest</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="status"></a>
+                                        <span class="name "><b>status</b>
+                                            <a href="#status">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>status:         <code><a href="../miscellaneous/typealiases.html#ThreadStatus" target="_self" >ThreadStatus</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ThreadStatus" target="_self" >ThreadStatus</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="unreadCount"></a>
+                                        <span class="name "><b>unreadCount</b>
+                                            <a href="#unreadCount">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>unreadCount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="worker"></a>
+                                        <span class="name "><b>worker</b>
+                                            <a href="#worker">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>worker:         <code><a href="../interfaces/Worker.html" target="_self" >Worker</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/Worker.html" target="_self" >Worker</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="workerId"></a>
+                                        <span class="name "><b>workerId</b>
+                                            <a href="#workerId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>workerId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Observable, BehaviorSubject, of, Subject } from &#x27;rxjs&#x27;;
+import { map, delay, tap } from &#x27;rxjs/operators&#x27;;
+import { WorkerService } from &#x27;./worker.service&#x27;;
+import { Worker } from &#x27;../../shared/interfaces/worker.interface&#x27;;
+
+export type MessageType &#x3D; &#x27;text&#x27; | &#x27;image&#x27; | &#x27;location&#x27; | &#x27;service_request&#x27;;
+export type ThreadStatus &#x3D; &#x27;active&#x27; | &#x27;archived&#x27; | &#x27;blocked&#x27;;
+export type ServiceRequestStatus &#x3D; &#x27;pending&#x27; | &#x27;in_progress&#x27; | &#x27;completed&#x27;;
+
+export interface Message {
+  id: number;
+  senderId: number;
+  receiverId: number;
+  content: string;
+  timestamp: Date;
+  read: boolean;
+  type: MessageType;
+  serviceRequestId?: number;
+  attachments?: string[];
+}
+
+export interface ServiceRequest {
+  id: number;
+  service: string;
+  status: ServiceRequestStatus;
+  details?: string;
+}
+
+export interface ChatThread {
+  id: number;
+  workerId: number;
+  lastMessage: Message;
+  unreadCount: number;
+  worker: Worker;
+  status: ThreadStatus;
+  lastActivity: Date;
+  serviceRequest?: ServiceRequest;
+}
+
+export interface TypingStatus {
+  threadId: number;
+  userId: number;
+  isTyping: boolean;
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class MessageService {
+  private threads &#x3D; new BehaviorSubject&lt;ChatThread[]&gt;([]);
+  private typingStatus &#x3D; new BehaviorSubject&lt;TypingStatus[]&gt;([]);
+  private typingStatusSubject &#x3D; new BehaviorSubject&lt;TypingStatus[]&gt;([]);
+  private readonly STORAGE_KEY &#x3D; &#x27;chat_threads&#x27;;
+
+  private staticMessages &#x3D; {
+    greeting: [
+      &#x27;السلام عليكم، كيف يمكنني مساعدتك؟&#x27;,
+      &#x27;أهلاً بك، هل تحتاج إلى خدمة معينة؟&#x27;,
+      &#x27;مرحباً، أنا متواجد للمساعدة&#x27;
+    ],
+    service: [
+      &#x27;سيكون السعر حوالي {price} جنيه. هل يناسبك هذا؟&#x27;,
+      &#x27;يمكنني القدوم غداً في الصباح. هل هذا مناسب؟&#x27;,
+      &#x27;سأحتاج حوالي ساعتين لإنهاء العمل&#x27;
+    ],
+    confirmation: [
+      &#x27;تم تأكيد الموعد ليوم {date}&#x27;,
+      &#x27;سأصل في الموعد المحدد إن شاء الله&#x27;,
+      &#x27;شكراً لثقتك، سأكون عند حسن ظنك&#x27;
+    ],
+    completion: [
+      &#x27;تم إنجاز العمل بحمد الله&#x27;,
+      &#x27;أتمنى أن تكون راضياً عن الخدمة&#x27;,
+      &#x27;يمكنك تقييم الخدمة من خلال التطبيق&#x27;
+    ],
+    negotiation: [
+      &#x27;هل يمكننا الاتفاق على {price} جنيه؟&#x27;,
+      &#x27;السعر قابل للتفاوض&#x27;,
+      &#x27;يمكنني تقديم خصم 10% إذا تم الحجز اليوم&#x27;
+    ]
+  };
+
+  private staticServiceRequests: ServiceRequest[] &#x3D; [
+    {
+      id: 1,
+      service: &#x27;صيانة تكييف&#x27;,
+      status: &#x27;pending&#x27;,
+      details: &#x27;تنظيف وصيانة دورية&#x27;
+    },
+    {
+      id: 2,
+      service: &#x27;سباكة&#x27;,
+      status: &#x27;in_progress&#x27;,
+      details: &#x27;إصلاح تسريب مياه&#x27;
+    },
+    {
+      id: 3,
+      service: &#x27;كهرباء&#x27;,
+      status: &#x27;completed&#x27;,
+      details: &#x27;تركيب مصابيح LED&#x27;
+    }
+  ];
+
+  constructor(private workerService: WorkerService) {
+    this.loadInitialThreads();
+  }
+
+  private async loadInitialThreads() {
+    const workers &#x3D; await this.workerService.getWorkers().toPromise();
+    const initialThreads: ChatThread[] &#x3D; workers!.slice(0, 5).map((worker, index) &#x3D;&gt; ({
+      id: index + 1,
+      workerId: worker.id,
+      worker: worker,
+      unreadCount: Math.floor(Math.random() * 3),
+      status: &#x27;active&#x27;,
+      lastActivity: new Date(Date.now() - Math.random() * 86400000 * 5),
+      lastMessage: this.createInitialMessage(worker),
+      serviceRequest: this.getRandomServiceRequest()
+    }));
+
+    this.threads.next(initialThreads);
+  }
+
+  getTypingStatus$(): Observable&lt;TypingStatus[]&gt; {
+    return this.typingStatusSubject.asObservable();
+  }
+
+  sendTypingStatus(threadId: number, isTyping: boolean): void {
+    const currentStatuses &#x3D; this.typingStatus.value.filter(
+      s &#x3D;&gt; s.threadId !&#x3D;&#x3D; threadId || s.userId !&#x3D;&#x3D; 1
+    );
+
+    if (isTyping) {
+      currentStatuses.push({ threadId, userId: 1, isTyping });
+    }
+
+    this.typingStatus.next(currentStatuses);
+
+    if (isTyping) {
+      setTimeout(() &#x3D;&gt; {
+        this.sendTypingStatus(threadId, false);
+      }, 3000);
+    }
+  }
+
+  sendMessage(threadId: number, content: string): Observable&lt;Message&gt; {
+    const newMessage: Message &#x3D; {
+      id: Date.now(),
+      senderId: 1,
+      receiverId: threadId,
+      content,
+      timestamp: new Date(),
+      read: false,
+      type: &#x27;text&#x27;
+    };
+
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex !&#x3D;&#x3D; -1) {
+      const updatedThreads &#x3D; [...currentThreads];
+      updatedThreads[threadIndex] &#x3D; {
+        ...updatedThreads[threadIndex],
+        lastMessage: newMessage,
+        lastActivity: new Date()
+      };
+      this.threads.next(updatedThreads);
+
+      // Simulate worker typing response
+      setTimeout(() &#x3D;&gt; {
+        const typingStatus &#x3D; {
+          threadId,
+          userId: updatedThreads[threadIndex].workerId,
+          isTyping: true
+        };
+        this.typingStatus.next([...this.typingStatus.value, typingStatus]);
+
+        // Simulate response after typing
+        setTimeout(() &#x3D;&gt; {
+          this.simulateWorkerResponse(threadId, updatedThreads[threadIndex]);
+          this.typingStatus.next(
+            this.typingStatus.value.filter(s &#x3D;&gt;
+              s.threadId !&#x3D;&#x3D; threadId || s.userId !&#x3D;&#x3D; updatedThreads[threadIndex].workerId
+            )
+          );
+        }, Math.random() * 2000 + 1000);
+      }, 500);
+    }
+
+    return of(newMessage).pipe(delay(300));
+  }
+
+  private simulateWorkerResponse(threadId: number, thread: ChatThread): void {
+    const messageType &#x3D; this.getMessageType(thread);
+    const content &#x3D; this.staticMessages[messageType][
+      Math.floor(Math.random() * this.staticMessages[messageType].length)
+    ].replace(&#x27;{price}&#x27;, (Math.floor(Math.random() * 500) + 100).toString())
+      .replace(&#x27;{date}&#x27;, this.getRandomFutureDate());
+
+    const response: Message &#x3D; {
+      id: Date.now(),
+      senderId: thread.workerId,
+      receiverId: 1,
+      content,
+      timestamp: new Date(),
+      read: false,
+      type: &#x27;text&#x27;
+    };
+
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex !&#x3D;&#x3D; -1) {
+      const updatedThreads &#x3D; [...currentThreads];
+      updatedThreads[threadIndex] &#x3D; {
+        ...updatedThreads[threadIndex],
+        lastMessage: response,
+        lastActivity: new Date(),
+        unreadCount: updatedThreads[threadIndex].unreadCount + 1
+      };
+      this.threads.next(updatedThreads);
+    }
+  }
+
+  private createInitialMessage(worker: Worker): Message {
+    const messageTypes &#x3D; [&#x27;greeting&#x27;, &#x27;service&#x27;, &#x27;confirmation&#x27;, &#x27;completion&#x27;, &#x27;negotiation&#x27;];
+    const type &#x3D; messageTypes[Math.floor(Math.random() * messageTypes.length)];
+    const messages &#x3D; this.staticMessages[type as keyof typeof this.staticMessages];
+    let content &#x3D; messages[Math.floor(Math.random() * messages.length)];
+
+    content &#x3D; content
+      .replace(&#x27;{price}&#x27;, (Math.floor(Math.random() * 500) + 100).toString())
+      .replace(&#x27;{date}&#x27;, this.getRandomFutureDate());
+
+    return {
+      id: Date.now(),
+      senderId: worker.id,
+      receiverId: 1,
+      content,
+      timestamp: new Date(Date.now() - Math.random() * 86400000),
+      read: Math.random() &gt; 0.5,
+      type: &#x27;text&#x27;
+    };
+  }
+
+  private getRandomServiceRequest(): ServiceRequest | undefined {
+    if (Math.random() &gt; 0.5) {
+      return this.staticServiceRequests[
+        Math.floor(Math.random() * this.staticServiceRequests.length)
+      ];
+    }
+    return undefined;
+  }
+
+  getMessageHistory(threadId: number): Observable&lt;Message[]&gt; {
+    const messages: Message[] &#x3D; [];
+    const thread &#x3D; this.threads.value.find(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (thread) {
+      const conversation &#x3D; this.generateConversation(thread);
+      messages.push(...conversation);
+
+      if (thread.serviceRequest) {
+        messages.push({
+          id: Date.now(),
+          senderId: 1,
+          receiverId: thread.workerId,
+          content: &#x27;طلب خدمة جديد&#x27;,
+          timestamp: new Date(thread.lastActivity.getTime() - 86400000),
+          read: true,
+          type: &#x27;service_request&#x27;,
+          serviceRequestId: thread.serviceRequest.id
+        });
+      }
+    }
+
+    return of(messages.sort((a, b) &#x3D;&gt;
+      new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+    )).pipe(delay(500));
+  }
+
+  private generateConversation(thread: ChatThread): Message[] {
+    const messages: Message[] &#x3D; [];
+    const totalMessages &#x3D; Math.floor(Math.random() * 10) + 5;
+    const baseTime &#x3D; new Date(Date.now() - (24 * 3600000));
+
+    for (let i &#x3D; 0; i &lt; totalMessages; i++) {
+      const isWorker &#x3D; i % 2 &#x3D;&#x3D;&#x3D; 0;
+      const timeOffset &#x3D; i * (3600000 * Math.random());
+
+      const message &#x3D; this.createConversationMessage(
+        thread,
+        isWorker,
+        new Date(baseTime.getTime() + timeOffset)
+      );
+      messages.push(message);
+    }
+
+    return messages;
+  }
+
+  private createConversationMessage(thread: ChatThread, isWorker: boolean, timestamp: Date): Message {
+    const messageType &#x3D; this.getMessageType(thread);
+    const content &#x3D; isWorker
+      ? this.staticMessages[messageType][Math.floor(Math.random() * this.staticMessages[messageType].length)]
+      : this.getCustomerResponse(messageType);
+
+    return {
+      id: Date.now(),
+      senderId: isWorker ? thread.workerId : 1,
+      receiverId: isWorker ? 1 : thread.workerId,
+      content: content
+        .replace(&#x27;{price}&#x27;, (Math.floor(Math.random() * 500) + 100).toString())
+        .replace(&#x27;{date}&#x27;, this.getRandomFutureDate()),
+      timestamp,
+      read: true,
+      type: &#x27;text&#x27;
+    };
+  }
+
+  private getMessageType(thread: ChatThread): keyof typeof this.staticMessages {
+    const types: (keyof typeof this.staticMessages)[] &#x3D; [
+      &#x27;greeting&#x27;, &#x27;service&#x27;, &#x27;confirmation&#x27;, &#x27;completion&#x27;, &#x27;negotiation&#x27;
+    ];
+    return types[Math.floor(Math.random() * types.length)];
+  }
+
+  private getCustomerResponse(type: keyof typeof this.staticMessages): string {
+    const responses &#x3D; {
+      greeting: [
+        &#x27;وعليكم السلام، نعم أحتاج مساعدة&#x27;,
+        &#x27;مرحباً، عندي مشكلة أريد حلها&#x27;,
+        &#x27;أهلاً، أريد الاستفسار عن الخدمات المتوفرة&#x27;
+      ],
+      service: [
+        &#x27;نعم السعر مناسب&#x27;,
+        &#x27;هل يمكن التفاوض على السعر؟&#x27;,
+        &#x27;موعد الغد مناسب جداً&#x27;
+      ],
+      confirmation: [
+        &#x27;تمام، في انتظارك&#x27;,
+        &#x27;شكراً لك، الموعد مؤكد&#x27;,
+        &#x27;أتمنى أن تكون دقيق في الموعد&#x27;
+      ],
+      completion: [
+        &#x27;شكراً جزيلاً على العمل الممتاز&#x27;,
+        &#x27;الخدمة كانت ممتازة&#x27;,
+        &#x27;سأقوم بالتقييم حالاً&#x27;
+      ],
+      negotiation: [
+        &#x27;حسناً، أوافق على السعر المقترح&#x27;,
+        &#x27;هل يمكن الدفع عند اكتمال العمل؟&#x27;,
+        &#x27;أقبل العرض مع الخصم&#x27;
+      ]
+    };
+
+    return responses[type][Math.floor(Math.random() * responses[type].length)];
+  }
+
+  private getRandomFutureDate(): string {
+    const date &#x3D; new Date();
+    date.setDate(date.getDate() + Math.floor(Math.random() * 7) + 1);
+    return date.toLocaleDateString(&#x27;ar-EG&#x27;, {
+      weekday: &#x27;long&#x27;,
+      year: &#x27;numeric&#x27;,
+      month: &#x27;long&#x27;,
+      day: &#x27;numeric&#x27;
+    });
+  }
+
+  getThreads(filter?: string): Observable&lt;ChatThread[]&gt; {
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; {
+        let filtered &#x3D; [...threads];
+        if (filter &#x3D;&#x3D;&#x3D; &#x27;unread&#x27;) {
+          filtered &#x3D; filtered.filter(thread &#x3D;&gt; thread.unreadCount &gt; 0);
+        } else if (filter &#x3D;&#x3D;&#x3D; &#x27;active&#x27;) {
+          filtered &#x3D; filtered.filter(thread &#x3D;&gt; thread.status &#x3D;&#x3D;&#x3D; &#x27;active&#x27;);
+        } else if (filter &#x3D;&#x3D;&#x3D; &#x27;archived&#x27;) {
+          filtered &#x3D; filtered.filter(thread &#x3D;&gt; thread.status &#x3D;&#x3D;&#x3D; &#x27;archived&#x27;);
+        }
+        return filtered.sort((a, b) &#x3D;&gt; b.lastActivity.getTime() - a.lastActivity.getTime());
+      })
+    );
+  }
+
+  getThread(threadId: number): Observable&lt;ChatThread | undefined&gt; {
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; threads.find(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId))
+    );
+  }
+  markAsRead(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex &#x3D;&#x3D;&#x3D; -1) return of(false);
+
+    const updatedThreads &#x3D; [...currentThreads];
+    updatedThreads[threadIndex] &#x3D; {
+      ...updatedThreads[threadIndex],
+      unreadCount: 0,
+      lastMessage: {
+        ...updatedThreads[threadIndex].lastMessage,
+        read: true
+      }
+    };
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  searchThreads(query: string): Observable&lt;ChatThread[]&gt; {
+    const normalizedQuery &#x3D; query.toLowerCase().trim();
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; threads.filter(thread &#x3D;&gt;
+        thread.worker.name.toLowerCase().includes(normalizedQuery) ||
+        thread.worker.service.toLowerCase().includes(normalizedQuery) ||
+        thread.lastMessage.content.toLowerCase().includes(normalizedQuery) ||
+        (thread.serviceRequest?.service.toLowerCase().includes(normalizedQuery))
+      ))
+    );
+  }
+
+  getUnreadCount(): Observable&lt;number&gt; {
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; threads.reduce((sum, thread) &#x3D;&gt; sum + thread.unreadCount, 0))
+    );
+  }
+
+  archiveThread(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex &#x3D;&#x3D;&#x3D; -1) return of(false);
+
+    const updatedThreads &#x3D; [...currentThreads];
+    updatedThreads[threadIndex] &#x3D; {
+      ...updatedThreads[threadIndex],
+      status: &#x27;archived&#x27;
+    };
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  blockThread(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex &#x3D;&#x3D;&#x3D; -1) return of(false);
+
+    const updatedThreads &#x3D; [...currentThreads];
+    updatedThreads[threadIndex] &#x3D; {
+      ...updatedThreads[threadIndex],
+      status: &#x27;blocked&#x27;
+    };
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  deleteThread(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const updatedThreads &#x3D; currentThreads.filter(t &#x3D;&gt; t.id !&#x3D;&#x3D; threadId);
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  markAllAsRead(): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const updatedThreads &#x3D; currentThreads.map(thread &#x3D;&gt; ({
+      ...thread,
+      unreadCount: 0,
+      lastMessage: {
+        ...thread.lastMessage,
+        read: true
+      }
+    }));
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  sendAttachment(threadId: number, type: &#x27;image&#x27; | &#x27;location&#x27;, content: string): Observable&lt;Message&gt; {
+    const newMessage: Message &#x3D; {
+      id: Date.now(),
+      senderId: 1,
+      receiverId: threadId,
+      content,
+      timestamp: new Date(),
+      read: false,
+      type
+    };
+
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex !&#x3D;&#x3D; -1) {
+      const updatedThreads &#x3D; [...currentThreads];
+      updatedThreads[threadIndex] &#x3D; {
+        ...updatedThreads[threadIndex],
+        lastMessage: newMessage,
+        lastActivity: new Date()
+      };
+      this.threads.next(updatedThreads);
+
+      // Simulate worker viewing attachment
+      setTimeout(() &#x3D;&gt; {
+        this.simulateWorkerResponse(threadId, updatedThreads[threadIndex]);
+      }, Math.random() * 3000 + 2000);
+    }
+
+    return of(newMessage).pipe(delay(300));
+  }
+
+  // Helper method to persist threads state
+  private persistThreads(): void {
+    try {
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.threads.value));
+    } catch (error) {
+      console.error(&#x27;Error persisting threads:&#x27;, error);
+    }
+  }
+
+  // Helper method to restore threads state
+  private restoreThreads(): ChatThread[] {
+    try {
+      const stored &#x3D; localStorage.getItem(this.STORAGE_KEY);
+      if (stored) {
+        const threads &#x3D; JSON.parse(stored);
+        // Convert string dates back to Date objects
+        return threads.map((thread: any) &#x3D;&gt; ({
+          ...thread,
+          lastActivity: new Date(thread.lastActivity),
+          lastMessage: {
+            ...thread.lastMessage,
+            timestamp: new Date(thread.lastMessage.timestamp)
+          }
+        }));
+      }
+    } catch (error) {
+      console.error(&#x27;Error restoring threads:&#x27;, error);
+    }
+    return [];
+  }
+
+  // Clean up method
+  destroy(): void {
+    this.threads.complete();
+    this.typingStatus.complete();
+  }
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'ChatThread.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

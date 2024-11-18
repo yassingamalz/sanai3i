@@ -122,7 +122,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/features/messages/pages/messages/messages.component.ts</code>
+            <code>src/app/core/services/message.service.ts</code>
         </p>
 
 
@@ -141,80 +141,59 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#attachments" 
+>
+                                            attachments
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#content" 
+>
+                                            content
+                                        </a>
+                                </li>
+                                <li>
                                         <a href="#id" 
 >
                                             id
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#image" 
+                                        <a href="#read" 
 >
-                                            image
+                                            read
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#receiverId" 
+>
+                                            receiverId
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#senderId" 
+>
+                                            senderId
                                         </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#isOnline" 
+                                        <a href="#serviceRequestId" 
 >
-                                            isOnline
+                                            serviceRequestId
                                         </a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#isWorker" 
+                                        <a href="#timestamp" 
 >
-                                            isWorker
+                                            timestamp
                                         </a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#jobCount" 
+                                        <a href="#type" 
 >
-                                            jobCount
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#message" 
->
-                                            message
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#name" 
->
-                                            name
-                                        </a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#rating" 
->
-                                            rating
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#service" 
->
-                                            service
-                                        </a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#status" 
->
-                                            status
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#time" 
->
-                                            time
-                                        </a>
-                                </li>
-                                <li>
-                                        <a href="#unread" 
->
-                                            unread
+                                            type
                                         </a>
                                 </li>
                             </ul>
@@ -228,6 +207,77 @@
 
             <section data-compodoc="block-properties">
                 <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="attachments"></a>
+                                        <span class="name "><b>attachments</b>
+                                            <a href="#attachments">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>attachments:     <code>string[]</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>string[]</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="content"></a>
+                                        <span class="name "><b>content</b>
+                                            <a href="#content">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>content:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
@@ -265,9 +315,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="image"></a>
-                                        <span class="name "><b>image</b>
-                                            <a href="#image">
+                                        <a name="read"></a>
+                                        <span class="name "><b>read</b>
+                                            <a href="#read">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -275,40 +325,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>image:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="isOnline"></a>
-                                        <span class="name "><b>isOnline</b>
-                                            <a href="#isOnline">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>isOnline:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>read:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -321,11 +338,6 @@
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -336,9 +348,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="isWorker"></a>
-                                        <span class="name "><b>isWorker</b>
-                                            <a href="#isWorker">
+                                        <a name="receiverId"></a>
+                                        <span class="name "><b>receiverId</b>
+                                            <a href="#receiverId">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -346,7 +358,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>isWorker:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>receiverId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -354,16 +366,11 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
@@ -374,9 +381,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="jobCount"></a>
-                                        <span class="name "><b>jobCount</b>
-                                            <a href="#jobCount">
+                                        <a name="senderId"></a>
+                                        <span class="name "><b>senderId</b>
+                                            <a href="#senderId">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -384,7 +391,40 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>jobCount:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                        <code>senderId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="serviceRequestId"></a>
+                                        <span class="name "><b>serviceRequestId</b>
+                                            <a href="#serviceRequestId">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>serviceRequestId:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -412,9 +452,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="message"></a>
-                                        <span class="name "><b>message</b>
-                                            <a href="#message">
+                                        <a name="timestamp"></a>
+                                        <span class="name "><b>timestamp</b>
+                                            <a href="#timestamp">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -422,7 +462,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>message:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>timestamp:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -430,7 +470,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 
                                         </td>
                                     </tr>
@@ -445,9 +485,9 @@
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="name"></a>
-                                        <span class="name "><b>name</b>
-                                            <a href="#name">
+                                        <a name="type"></a>
+                                        <span class="name "><b>type</b>
+                                            <a href="#type">
                                                 <span class="icon ion-ios-link"></span>
                                             </a>
                                         </span>
@@ -455,7 +495,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>name:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>type:         <code><a href="../miscellaneous/typealiases.html#MessageType" target="_self" >MessageType</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -463,182 +503,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="rating"></a>
-                                        <span class="name "><b>rating</b>
-                                            <a href="#rating">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>rating:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="service"></a>
-                                        <span class="name "><b>service</b>
-                                            <a href="#service">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>service:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="status"></a>
-                                        <span class="name "><b>status</b>
-                                            <a href="#status">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>status:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="time"></a>
-                                        <span class="name "><b>time</b>
-                                            <a href="#time">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>time:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="unread"></a>
-                                        <span class="name "><b>unread</b>
-                                            <a href="#unread">
-                                                <span class="icon ion-ios-link"></span>
-                                            </a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>unread:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#MessageType" target="_self" >MessageType</a></code>
 
                                         </td>
                                     </tr>
@@ -654,116 +519,557 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Observable, BehaviorSubject, of, Subject } from &#x27;rxjs&#x27;;
+import { map, delay, tap } from &#x27;rxjs/operators&#x27;;
+import { WorkerService } from &#x27;./worker.service&#x27;;
+import { Worker } from &#x27;../../shared/interfaces/worker.interface&#x27;;
 
-interface Message {
+export type MessageType &#x3D; &#x27;text&#x27; | &#x27;image&#x27; | &#x27;location&#x27; | &#x27;service_request&#x27;;
+export type ThreadStatus &#x3D; &#x27;active&#x27; | &#x27;archived&#x27; | &#x27;blocked&#x27;;
+export type ServiceRequestStatus &#x3D; &#x27;pending&#x27; | &#x27;in_progress&#x27; | &#x27;completed&#x27;;
+
+export interface Message {
   id: number;
-  name: string;
-  message: string;
-  time: string;
-  unread: number;
-  service: string;
-  image: string;
-  rating?: number;
-  isWorker?: boolean;
-  status?: string;
-  isOnline?: boolean;
-  jobCount?: number;
+  senderId: number;
+  receiverId: number;
+  content: string;
+  timestamp: Date;
+  read: boolean;
+  type: MessageType;
+  serviceRequestId?: number;
+  attachments?: string[];
 }
 
-@Component({
-  selector: &#x27;app-messages&#x27;,
-  templateUrl: &#x27;./messages.component.html&#x27;,
-  styleUrls: [&#x27;./messages.component.scss&#x27;]
+export interface ServiceRequest {
+  id: number;
+  service: string;
+  status: ServiceRequestStatus;
+  details?: string;
+}
+
+export interface ChatThread {
+  id: number;
+  workerId: number;
+  lastMessage: Message;
+  unreadCount: number;
+  worker: Worker;
+  status: ThreadStatus;
+  lastActivity: Date;
+  serviceRequest?: ServiceRequest;
+}
+
+export interface TypingStatus {
+  threadId: number;
+  userId: number;
+  isTyping: boolean;
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
 })
-export class MessagesComponent implements OnInit {
-  searchQuery: string &#x3D; &#x27;&#x27;;
-  
-  filters &#x3D; [
-    { id: &#x27;all&#x27;, label: &#x27;الكل&#x27;, active: true },
-    { id: &#x27;unread&#x27;, label: &#x27;غير مقروءة&#x27;, active: false },
-    { id: &#x27;read&#x27;, label: &#x27;مقروءة&#x27;, active: false }
-  ];
+export class MessageService {
+  private threads &#x3D; new BehaviorSubject&lt;ChatThread[]&gt;([]);
+  private typingStatus &#x3D; new BehaviorSubject&lt;TypingStatus[]&gt;([]);
+  private typingStatusSubject &#x3D; new BehaviorSubject&lt;TypingStatus[]&gt;([]);
+  private readonly STORAGE_KEY &#x3D; &#x27;chat_threads&#x27;;
 
-  messages: Message[] &#x3D; [
-    { 
-      id: 1, 
-      name: &#x27;عم حسن&#x27;, 
-      message: &#x27;حاكون عندك خلال ساعة&#x27;, 
-      time: &#x27;12:30&#x27;, 
-      unread: 2,
-      service: &#x27;كهربائي&#x27;,
-      rating: 4.8,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      status: &#x27;online&#x27;,
-      isOnline: true,
-      jobCount: 230
+  private staticMessages &#x3D; {
+    greeting: [
+      &#x27;السلام عليكم، كيف يمكنني مساعدتك؟&#x27;,
+      &#x27;أهلاً بك، هل تحتاج إلى خدمة معينة؟&#x27;,
+      &#x27;مرحباً، أنا متواجد للمساعدة&#x27;
+    ],
+    service: [
+      &#x27;سيكون السعر حوالي {price} جنيه. هل يناسبك هذا؟&#x27;,
+      &#x27;يمكنني القدوم غداً في الصباح. هل هذا مناسب؟&#x27;,
+      &#x27;سأحتاج حوالي ساعتين لإنهاء العمل&#x27;
+    ],
+    confirmation: [
+      &#x27;تم تأكيد الموعد ليوم {date}&#x27;,
+      &#x27;سأصل في الموعد المحدد إن شاء الله&#x27;,
+      &#x27;شكراً لثقتك، سأكون عند حسن ظنك&#x27;
+    ],
+    completion: [
+      &#x27;تم إنجاز العمل بحمد الله&#x27;,
+      &#x27;أتمنى أن تكون راضياً عن الخدمة&#x27;,
+      &#x27;يمكنك تقييم الخدمة من خلال التطبيق&#x27;
+    ],
+    negotiation: [
+      &#x27;هل يمكننا الاتفاق على {price} جنيه؟&#x27;,
+      &#x27;السعر قابل للتفاوض&#x27;,
+      &#x27;يمكنني تقديم خصم 10% إذا تم الحجز اليوم&#x27;
+    ]
+  };
+
+  private staticServiceRequests: ServiceRequest[] &#x3D; [
+    {
+      id: 1,
+      service: &#x27;صيانة تكييف&#x27;,
+      status: &#x27;pending&#x27;,
+      details: &#x27;تنظيف وصيانة دورية&#x27;
     },
-    { 
-      id: 2, 
-      name: &#x27;أستاذ محمد&#x27;, 
-      message: &#x27;شكراً على تقييمك&#x27;, 
-      time: &#x27;11:45&#x27;, 
-      unread: 0,
-      service: &#x27;سباك&#x27;,
-      rating: 4.9,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      jobCount: 180
+    {
+      id: 2,
+      service: &#x27;سباكة&#x27;,
+      status: &#x27;in_progress&#x27;,
+      details: &#x27;إصلاح تسريب مياه&#x27;
     },
-    { 
-      id: 3, 
-      name: &#x27;الحاج كريم&#x27;, 
-      message: &#x27;يمكنني الحضور غداً في الصباح&#x27;, 
-      time: &#x27;أمس&#x27;, 
-      unread: 1,
-      service: &#x27;نقاش&#x27;,
-      rating: 4.7,
-      isWorker: true,
-      image: &#x27;/api/placeholder/48/48&#x27;,
-      isOnline: false,
-      jobCount: 150
+    {
+      id: 3,
+      service: &#x27;كهرباء&#x27;,
+      status: &#x27;completed&#x27;,
+      details: &#x27;تركيب مصابيح LED&#x27;
     }
   ];
 
-  ngOnInit() {
-    // Initial setup if needed
+  constructor(private workerService: WorkerService) {
+    this.loadInitialThreads();
   }
 
-  setActiveFilter(filterId: string) {
-    this.filters &#x3D; this.filters.map(filter &#x3D;&gt; ({
-      ...filter,
-      active: filter.id &#x3D;&#x3D;&#x3D; filterId
+  private async loadInitialThreads() {
+    const workers &#x3D; await this.workerService.getWorkers().toPromise();
+    const initialThreads: ChatThread[] &#x3D; workers!.slice(0, 5).map((worker, index) &#x3D;&gt; ({
+      id: index + 1,
+      workerId: worker.id,
+      worker: worker,
+      unreadCount: Math.floor(Math.random() * 3),
+      status: &#x27;active&#x27;,
+      lastActivity: new Date(Date.now() - Math.random() * 86400000 * 5),
+      lastMessage: this.createInitialMessage(worker),
+      serviceRequest: this.getRandomServiceRequest()
     }));
+
+    this.threads.next(initialThreads);
   }
 
-  get filteredMessages(): Message[] {
-    const activeFilter &#x3D; this.filters.find(f &#x3D;&gt; f.active)?.id;
-    
-    let filtered &#x3D; this.messages;
-    
-    // Apply search filter
-    if (this.searchQuery) {
-      filtered &#x3D; filtered.filter(message &#x3D;&gt; 
-        message.name.includes(this.searchQuery) ||
-        message.message.includes(this.searchQuery) ||
-        message.service.includes(this.searchQuery)
+  getTypingStatus$(): Observable&lt;TypingStatus[]&gt; {
+    return this.typingStatusSubject.asObservable();
+  }
+
+  sendTypingStatus(threadId: number, isTyping: boolean): void {
+    const currentStatuses &#x3D; this.typingStatus.value.filter(
+      s &#x3D;&gt; s.threadId !&#x3D;&#x3D; threadId || s.userId !&#x3D;&#x3D; 1
+    );
+
+    if (isTyping) {
+      currentStatuses.push({ threadId, userId: 1, isTyping });
+    }
+
+    this.typingStatus.next(currentStatuses);
+
+    if (isTyping) {
+      setTimeout(() &#x3D;&gt; {
+        this.sendTypingStatus(threadId, false);
+      }, 3000);
+    }
+  }
+
+  sendMessage(threadId: number, content: string): Observable&lt;Message&gt; {
+    const newMessage: Message &#x3D; {
+      id: Date.now(),
+      senderId: 1,
+      receiverId: threadId,
+      content,
+      timestamp: new Date(),
+      read: false,
+      type: &#x27;text&#x27;
+    };
+
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex !&#x3D;&#x3D; -1) {
+      const updatedThreads &#x3D; [...currentThreads];
+      updatedThreads[threadIndex] &#x3D; {
+        ...updatedThreads[threadIndex],
+        lastMessage: newMessage,
+        lastActivity: new Date()
+      };
+      this.threads.next(updatedThreads);
+
+      // Simulate worker typing response
+      setTimeout(() &#x3D;&gt; {
+        const typingStatus &#x3D; {
+          threadId,
+          userId: updatedThreads[threadIndex].workerId,
+          isTyping: true
+        };
+        this.typingStatus.next([...this.typingStatus.value, typingStatus]);
+
+        // Simulate response after typing
+        setTimeout(() &#x3D;&gt; {
+          this.simulateWorkerResponse(threadId, updatedThreads[threadIndex]);
+          this.typingStatus.next(
+            this.typingStatus.value.filter(s &#x3D;&gt;
+              s.threadId !&#x3D;&#x3D; threadId || s.userId !&#x3D;&#x3D; updatedThreads[threadIndex].workerId
+            )
+          );
+        }, Math.random() * 2000 + 1000);
+      }, 500);
+    }
+
+    return of(newMessage).pipe(delay(300));
+  }
+
+  private simulateWorkerResponse(threadId: number, thread: ChatThread): void {
+    const messageType &#x3D; this.getMessageType(thread);
+    const content &#x3D; this.staticMessages[messageType][
+      Math.floor(Math.random() * this.staticMessages[messageType].length)
+    ].replace(&#x27;{price}&#x27;, (Math.floor(Math.random() * 500) + 100).toString())
+      .replace(&#x27;{date}&#x27;, this.getRandomFutureDate());
+
+    const response: Message &#x3D; {
+      id: Date.now(),
+      senderId: thread.workerId,
+      receiverId: 1,
+      content,
+      timestamp: new Date(),
+      read: false,
+      type: &#x27;text&#x27;
+    };
+
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex !&#x3D;&#x3D; -1) {
+      const updatedThreads &#x3D; [...currentThreads];
+      updatedThreads[threadIndex] &#x3D; {
+        ...updatedThreads[threadIndex],
+        lastMessage: response,
+        lastActivity: new Date(),
+        unreadCount: updatedThreads[threadIndex].unreadCount + 1
+      };
+      this.threads.next(updatedThreads);
+    }
+  }
+
+  private createInitialMessage(worker: Worker): Message {
+    const messageTypes &#x3D; [&#x27;greeting&#x27;, &#x27;service&#x27;, &#x27;confirmation&#x27;, &#x27;completion&#x27;, &#x27;negotiation&#x27;];
+    const type &#x3D; messageTypes[Math.floor(Math.random() * messageTypes.length)];
+    const messages &#x3D; this.staticMessages[type as keyof typeof this.staticMessages];
+    let content &#x3D; messages[Math.floor(Math.random() * messages.length)];
+
+    content &#x3D; content
+      .replace(&#x27;{price}&#x27;, (Math.floor(Math.random() * 500) + 100).toString())
+      .replace(&#x27;{date}&#x27;, this.getRandomFutureDate());
+
+    return {
+      id: Date.now(),
+      senderId: worker.id,
+      receiverId: 1,
+      content,
+      timestamp: new Date(Date.now() - Math.random() * 86400000),
+      read: Math.random() &gt; 0.5,
+      type: &#x27;text&#x27;
+    };
+  }
+
+  private getRandomServiceRequest(): ServiceRequest | undefined {
+    if (Math.random() &gt; 0.5) {
+      return this.staticServiceRequests[
+        Math.floor(Math.random() * this.staticServiceRequests.length)
+      ];
+    }
+    return undefined;
+  }
+
+  getMessageHistory(threadId: number): Observable&lt;Message[]&gt; {
+    const messages: Message[] &#x3D; [];
+    const thread &#x3D; this.threads.value.find(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (thread) {
+      const conversation &#x3D; this.generateConversation(thread);
+      messages.push(...conversation);
+
+      if (thread.serviceRequest) {
+        messages.push({
+          id: Date.now(),
+          senderId: 1,
+          receiverId: thread.workerId,
+          content: &#x27;طلب خدمة جديد&#x27;,
+          timestamp: new Date(thread.lastActivity.getTime() - 86400000),
+          read: true,
+          type: &#x27;service_request&#x27;,
+          serviceRequestId: thread.serviceRequest.id
+        });
+      }
+    }
+
+    return of(messages.sort((a, b) &#x3D;&gt;
+      new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+    )).pipe(delay(500));
+  }
+
+  private generateConversation(thread: ChatThread): Message[] {
+    const messages: Message[] &#x3D; [];
+    const totalMessages &#x3D; Math.floor(Math.random() * 10) + 5;
+    const baseTime &#x3D; new Date(Date.now() - (24 * 3600000));
+
+    for (let i &#x3D; 0; i &lt; totalMessages; i++) {
+      const isWorker &#x3D; i % 2 &#x3D;&#x3D;&#x3D; 0;
+      const timeOffset &#x3D; i * (3600000 * Math.random());
+
+      const message &#x3D; this.createConversationMessage(
+        thread,
+        isWorker,
+        new Date(baseTime.getTime() + timeOffset)
       );
+      messages.push(message);
     }
-    
-    // Apply status filter
-    if (activeFilter &#x3D;&#x3D;&#x3D; &#x27;unread&#x27;) {
-      filtered &#x3D; filtered.filter(message &#x3D;&gt; message.unread &gt; 0);
-    } else if (activeFilter &#x3D;&#x3D;&#x3D; &#x27;read&#x27;) {
-      filtered &#x3D; filtered.filter(message &#x3D;&gt; !message.unread);
-    }
-    
-    return filtered;
+
+    return messages;
   }
 
-  getTotalUnreadCount(): number {
-    return this.messages.reduce((total, message) &#x3D;&gt; total + (message.unread || 0), 0);
+  private createConversationMessage(thread: ChatThread, isWorker: boolean, timestamp: Date): Message {
+    const messageType &#x3D; this.getMessageType(thread);
+    const content &#x3D; isWorker
+      ? this.staticMessages[messageType][Math.floor(Math.random() * this.staticMessages[messageType].length)]
+      : this.getCustomerResponse(messageType);
+
+    return {
+      id: Date.now(),
+      senderId: isWorker ? thread.workerId : 1,
+      receiverId: isWorker ? 1 : thread.workerId,
+      content: content
+        .replace(&#x27;{price}&#x27;, (Math.floor(Math.random() * 500) + 100).toString())
+        .replace(&#x27;{date}&#x27;, this.getRandomFutureDate()),
+      timestamp,
+      read: true,
+      type: &#x27;text&#x27;
+    };
+  }
+
+  private getMessageType(thread: ChatThread): keyof typeof this.staticMessages {
+    const types: (keyof typeof this.staticMessages)[] &#x3D; [
+      &#x27;greeting&#x27;, &#x27;service&#x27;, &#x27;confirmation&#x27;, &#x27;completion&#x27;, &#x27;negotiation&#x27;
+    ];
+    return types[Math.floor(Math.random() * types.length)];
+  }
+
+  private getCustomerResponse(type: keyof typeof this.staticMessages): string {
+    const responses &#x3D; {
+      greeting: [
+        &#x27;وعليكم السلام، نعم أحتاج مساعدة&#x27;,
+        &#x27;مرحباً، عندي مشكلة أريد حلها&#x27;,
+        &#x27;أهلاً، أريد الاستفسار عن الخدمات المتوفرة&#x27;
+      ],
+      service: [
+        &#x27;نعم السعر مناسب&#x27;,
+        &#x27;هل يمكن التفاوض على السعر؟&#x27;,
+        &#x27;موعد الغد مناسب جداً&#x27;
+      ],
+      confirmation: [
+        &#x27;تمام، في انتظارك&#x27;,
+        &#x27;شكراً لك، الموعد مؤكد&#x27;,
+        &#x27;أتمنى أن تكون دقيق في الموعد&#x27;
+      ],
+      completion: [
+        &#x27;شكراً جزيلاً على العمل الممتاز&#x27;,
+        &#x27;الخدمة كانت ممتازة&#x27;,
+        &#x27;سأقوم بالتقييم حالاً&#x27;
+      ],
+      negotiation: [
+        &#x27;حسناً، أوافق على السعر المقترح&#x27;,
+        &#x27;هل يمكن الدفع عند اكتمال العمل؟&#x27;,
+        &#x27;أقبل العرض مع الخصم&#x27;
+      ]
+    };
+
+    return responses[type][Math.floor(Math.random() * responses[type].length)];
+  }
+
+  private getRandomFutureDate(): string {
+    const date &#x3D; new Date();
+    date.setDate(date.getDate() + Math.floor(Math.random() * 7) + 1);
+    return date.toLocaleDateString(&#x27;ar-EG&#x27;, {
+      weekday: &#x27;long&#x27;,
+      year: &#x27;numeric&#x27;,
+      month: &#x27;long&#x27;,
+      day: &#x27;numeric&#x27;
+    });
+  }
+
+  getThreads(filter?: string): Observable&lt;ChatThread[]&gt; {
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; {
+        let filtered &#x3D; [...threads];
+        if (filter &#x3D;&#x3D;&#x3D; &#x27;unread&#x27;) {
+          filtered &#x3D; filtered.filter(thread &#x3D;&gt; thread.unreadCount &gt; 0);
+        } else if (filter &#x3D;&#x3D;&#x3D; &#x27;active&#x27;) {
+          filtered &#x3D; filtered.filter(thread &#x3D;&gt; thread.status &#x3D;&#x3D;&#x3D; &#x27;active&#x27;);
+        } else if (filter &#x3D;&#x3D;&#x3D; &#x27;archived&#x27;) {
+          filtered &#x3D; filtered.filter(thread &#x3D;&gt; thread.status &#x3D;&#x3D;&#x3D; &#x27;archived&#x27;);
+        }
+        return filtered.sort((a, b) &#x3D;&gt; b.lastActivity.getTime() - a.lastActivity.getTime());
+      })
+    );
+  }
+
+  getThread(threadId: number): Observable&lt;ChatThread | undefined&gt; {
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; threads.find(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId))
+    );
+  }
+  markAsRead(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex &#x3D;&#x3D;&#x3D; -1) return of(false);
+
+    const updatedThreads &#x3D; [...currentThreads];
+    updatedThreads[threadIndex] &#x3D; {
+      ...updatedThreads[threadIndex],
+      unreadCount: 0,
+      lastMessage: {
+        ...updatedThreads[threadIndex].lastMessage,
+        read: true
+      }
+    };
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  searchThreads(query: string): Observable&lt;ChatThread[]&gt; {
+    const normalizedQuery &#x3D; query.toLowerCase().trim();
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; threads.filter(thread &#x3D;&gt;
+        thread.worker.name.toLowerCase().includes(normalizedQuery) ||
+        thread.worker.service.toLowerCase().includes(normalizedQuery) ||
+        thread.lastMessage.content.toLowerCase().includes(normalizedQuery) ||
+        (thread.serviceRequest?.service.toLowerCase().includes(normalizedQuery))
+      ))
+    );
+  }
+
+  getUnreadCount(): Observable&lt;number&gt; {
+    return this.threads.pipe(
+      map(threads &#x3D;&gt; threads.reduce((sum, thread) &#x3D;&gt; sum + thread.unreadCount, 0))
+    );
+  }
+
+  archiveThread(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex &#x3D;&#x3D;&#x3D; -1) return of(false);
+
+    const updatedThreads &#x3D; [...currentThreads];
+    updatedThreads[threadIndex] &#x3D; {
+      ...updatedThreads[threadIndex],
+      status: &#x27;archived&#x27;
+    };
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  blockThread(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex &#x3D;&#x3D;&#x3D; -1) return of(false);
+
+    const updatedThreads &#x3D; [...currentThreads];
+    updatedThreads[threadIndex] &#x3D; {
+      ...updatedThreads[threadIndex],
+      status: &#x27;blocked&#x27;
+    };
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  deleteThread(threadId: number): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const updatedThreads &#x3D; currentThreads.filter(t &#x3D;&gt; t.id !&#x3D;&#x3D; threadId);
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  markAllAsRead(): Observable&lt;boolean&gt; {
+    const currentThreads &#x3D; this.threads.value;
+    const updatedThreads &#x3D; currentThreads.map(thread &#x3D;&gt; ({
+      ...thread,
+      unreadCount: 0,
+      lastMessage: {
+        ...thread.lastMessage,
+        read: true
+      }
+    }));
+
+    this.threads.next(updatedThreads);
+    return of(true).pipe(delay(300));
+  }
+
+  sendAttachment(threadId: number, type: &#x27;image&#x27; | &#x27;location&#x27;, content: string): Observable&lt;Message&gt; {
+    const newMessage: Message &#x3D; {
+      id: Date.now(),
+      senderId: 1,
+      receiverId: threadId,
+      content,
+      timestamp: new Date(),
+      read: false,
+      type
+    };
+
+    const currentThreads &#x3D; this.threads.value;
+    const threadIndex &#x3D; currentThreads.findIndex(t &#x3D;&gt; t.id &#x3D;&#x3D;&#x3D; threadId);
+
+    if (threadIndex !&#x3D;&#x3D; -1) {
+      const updatedThreads &#x3D; [...currentThreads];
+      updatedThreads[threadIndex] &#x3D; {
+        ...updatedThreads[threadIndex],
+        lastMessage: newMessage,
+        lastActivity: new Date()
+      };
+      this.threads.next(updatedThreads);
+
+      // Simulate worker viewing attachment
+      setTimeout(() &#x3D;&gt; {
+        this.simulateWorkerResponse(threadId, updatedThreads[threadIndex]);
+      }, Math.random() * 3000 + 2000);
+    }
+
+    return of(newMessage).pipe(delay(300));
+  }
+
+  // Helper method to persist threads state
+  private persistThreads(): void {
+    try {
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.threads.value));
+    } catch (error) {
+      console.error(&#x27;Error persisting threads:&#x27;, error);
+    }
+  }
+
+  // Helper method to restore threads state
+  private restoreThreads(): ChatThread[] {
+    try {
+      const stored &#x3D; localStorage.getItem(this.STORAGE_KEY);
+      if (stored) {
+        const threads &#x3D; JSON.parse(stored);
+        // Convert string dates back to Date objects
+        return threads.map((thread: any) &#x3D;&gt; ({
+          ...thread,
+          lastActivity: new Date(thread.lastActivity),
+          lastMessage: {
+            ...thread.lastMessage,
+            timestamp: new Date(thread.lastMessage.timestamp)
+          }
+        }));
+      }
+    } catch (error) {
+      console.error(&#x27;Error restoring threads:&#x27;, error);
+    }
+    return [];
+  }
+
+  // Clean up method
+  destroy(): void {
+    this.threads.complete();
+    this.typingStatus.complete();
   }
 }</code></pre>
     </div>

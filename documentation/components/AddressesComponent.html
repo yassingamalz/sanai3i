@@ -1,0 +1,980 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sanai3i documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sanai3i documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AddressesComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/profile/components/addresses/addresses.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-addresses</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./addresses.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./addresses.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#onAddAddress" >onAddAddress</a>
+                            </li>
+                            <li>
+                                <a href="#onDelete" >onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onSelectAddress" >onSelectAddress</a>
+                            </li>
+                            <li>
+                                <a href="#onSetDefault" >onSetDefault</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addresses" >addresses</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(dialogService: <a href="../injectables/DialogService.html" target="_self">DialogService</a>, profileService: <a href="../injectables/ProfileService.html" target="_self">ProfileService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/features/profile/components/addresses/addresses.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DialogService.html" target="_self" >DialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>profileService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProfileService.html" target="_self" >ProfileService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addresses"></a>
+                        <b>addresses</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Address.html" target="_self" >Address[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/features/profile/components/addresses/addresses.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddAddress"></a>
+                    <span class="name">
+                        <span ><b>onAddAddress</b></span>
+                        <a href="#onAddAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddAddress()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/features/profile/components/addresses/addresses.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDelete"></a>
+                    <span class="name">
+                        <span ><b>onDelete</b></span>
+                        <a href="#onDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDelete(address: <a href="../interfaces/Address.html" target="_self">Address</a>, event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/features/profile/components/addresses/addresses.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>address</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Address.html" target="_self" >Address</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSelectAddress"></a>
+                    <span class="name">
+                        <span ><b>onSelectAddress</b></span>
+                        <a href="#onSelectAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSelectAddress(address: <a href="../interfaces/Address.html" target="_self">Address</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/features/profile/components/addresses/addresses.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>address</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Address.html" target="_self" >Address</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSetDefault"></a>
+                    <span class="name">
+                        <span ><b>onSetDefault</b></span>
+                        <a href="#onSetDefault"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSetDefault(address: <a href="../interfaces/Address.html" target="_self">Address</a>, event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/features/profile/components/addresses/addresses.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>address</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Address.html" target="_self" >Address</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+import { DialogService } from &#x27;../../services/dialog.service&#x27;;
+import { ProfileService } from &#x27;../../services/profile.service&#x27;;
+import { Address } from &#x27;../../interfaces/profile.interface&#x27;;
+import { AddAddressDialogComponent } from &#x27;./add-address-dialog/add-address-dialog.component&#x27;;
+
+@Component({
+  selector: &#x27;app-addresses&#x27;,
+  templateUrl: &#x27;./addresses.component.html&#x27;,
+  styleUrls: [&#x27;./addresses.component.scss&#x27;]
+})
+export class AddressesComponent {
+  @Input() addresses: Address[] &#x3D; [];
+
+  constructor(
+    private dialogService: DialogService,
+    private profileService: ProfileService
+  ) {}
+
+  onAddAddress(): void {
+    const dialogRef &#x3D; this.dialogService.open(AddAddressDialogComponent);
+    
+    dialogRef.afterClosed$.subscribe(result &#x3D;&gt; {
+      if (result) {
+        this.profileService.addAddress(result).subscribe({
+          next: (newAddress) &#x3D;&gt; {
+            this.addresses &#x3D; [...this.addresses, newAddress];
+          },
+          error: (error) &#x3D;&gt; console.error(&#x27;Error adding address:&#x27;, error)
+        });
+      }
+    });
+  }
+
+  onSetDefault(address: Address, event: Event): void {
+    event.stopPropagation();
+    this.profileService.setDefaultAddress(address.id).subscribe({
+      next: () &#x3D;&gt; {
+        this.addresses &#x3D; this.addresses.map(addr &#x3D;&gt; ({
+          ...addr,
+          isDefault: addr.id &#x3D;&#x3D;&#x3D; address.id
+        }));
+      },
+      error: (error) &#x3D;&gt; console.error(&#x27;Error setting default address:&#x27;, error)
+    });
+  }
+
+  onDelete(address: Address, event: Event): void {
+    event.stopPropagation();
+    if (confirm(&#x27;هل أنت متأكد من حذف هذا العنوان؟&#x27;)) {
+      this.profileService.deleteAddress(address.id).subscribe({
+        next: () &#x3D;&gt; {
+          this.addresses &#x3D; this.addresses.filter(addr &#x3D;&gt; addr.id !&#x3D;&#x3D; address.id);
+        },
+        error: (error) &#x3D;&gt; console.error(&#x27;Error deleting address:&#x27;, error)
+      });
+    }
+  }
+
+  onSelectAddress(address: Address): void {
+    // Handle address selection if needed
+    console.log(&#x27;Selected address:&#x27;, address);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;section-content&quot;&gt;
+    &lt;!-- Add New Address Button --&gt;
+    &lt;button class&#x3D;&quot;add-address-button&quot; (click)&#x3D;&quot;onAddAddress()&quot;&gt;
+      &lt;i class&#x3D;&quot;fas fa-plus&quot;&gt;&lt;/i&gt;
+      &lt;span&gt;إضافة عنوان جديد&lt;/span&gt;
+    &lt;/button&gt;
+  
+    &lt;!-- Addresses List --&gt;
+    &lt;div class&#x3D;&quot;addresses-list&quot;&gt;
+      &lt;div 
+        *ngFor&#x3D;&quot;let address of addresses&quot; 
+        class&#x3D;&quot;address-card&quot;
+        [class.selected]&#x3D;&quot;address.isDefault&quot;
+        (click)&#x3D;&quot;onSelectAddress(address)&quot;
+      &gt;
+        &lt;div class&#x3D;&quot;address-info&quot;&gt;
+          &lt;div class&#x3D;&quot;address-title&quot;&gt;
+            {{address.title}}
+            &lt;span class&#x3D;&quot;default-badge&quot; *ngIf&#x3D;&quot;address.isDefault&quot;&gt;افتراضي&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;address-details&quot;&gt;
+            &lt;span class&#x3D;&quot;area&quot;&gt;{{address.area}}&lt;/span&gt;
+            &lt;span class&#x3D;&quot;separator&quot;&gt;•&lt;/span&gt;
+            &lt;span class&#x3D;&quot;details&quot;&gt;{{address.details}}&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+  
+        &lt;div class&#x3D;&quot;address-actions&quot;&gt;
+          &lt;button 
+            *ngIf&#x3D;&quot;!address.isDefault&quot;
+            class&#x3D;&quot;set-default-button&quot;
+            (click)&#x3D;&quot;onSetDefault(address, $event)&quot;
+          &gt;
+            تعيين كافتراضي
+          &lt;/button&gt;
+          &lt;button 
+            class&#x3D;&quot;delete-button&quot;
+            (click)&#x3D;&quot;onDelete(address, $event)&quot;
+            [class.delete-default]&#x3D;&quot;address.isDefault&quot;
+          &gt;
+            &lt;i class&#x3D;&quot;fas fa-trash&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./addresses.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">:host {
+    display: block;
+  }
+  
+  .add-address-button {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px dashed #e5e7eb;
+    border-radius: 0.5rem;
+    background: transparent;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 1rem;
+  
+    &amp;:hover {
+      background: #fff5f5;
+    }
+  
+    i {
+      font-size: 1rem;
+    }
+  }
+  
+  .addresses-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .address-card {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    
+    &amp;:hover {
+      border-color: #ef4444;
+      background-color: #fff5f5;
+    }
+    
+    &amp;.selected {
+      border-color: #ef4444;
+      background-color: rgba(239, 68, 68, 0.05);
+    }
+  }
+  
+  .address-info {
+    flex: 1;
+    
+    .address-title {
+      font-weight: 500;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+  
+      .default-badge {
+        font-size: 0.75rem;
+        padding: 0.125rem 0.375rem;
+        background: #ef4444;
+        color: white;
+        border-radius: 1rem;
+      }
+    }
+    
+    .address-details {
+      font-size: 0.875rem;
+      color: #6b7280;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+  
+      .separator {
+        color: #d1d5db;
+      }
+    }
+  }
+  
+  .address-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  
+    .set-default-button {
+      padding: 0.25rem 0.5rem;
+      border: 1px solid #ef4444;
+      border-radius: 0.25rem;
+      background: transparent;
+      color: #ef4444;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+  
+      &amp;:hover {
+        background: #ef4444;
+        color: white;
+      }
+    }
+  
+    .delete-button {
+      padding: 0.25rem;
+      border: none;
+      background: transparent;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.2s ease;
+  
+      &amp;:hover {
+        color: #ef4444;
+      }
+  
+      &amp;.delete-default {
+        opacity: 0.5;
+        cursor: not-allowed;
+  
+        &amp;:hover {
+          color: #6b7280;
+        }
+      }
+    }
+  }
+  
+  // Empty state
+  .no-addresses {
+    text-align: center;
+    padding: 2rem;
+    color: #6b7280;
+  
+    i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .message {
+      font-size: 0.875rem;
+    }
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="section-content">    <!-- Add New Address Button -->    <button class="add-address-button" (click)="onAddAddress()">      <i class="fas fa-plus"></i>      <span>إضافة عنوان جديد</span>    </button>      <!-- Addresses List -->    <div class="addresses-list">      <div         *ngFor="let address of addresses"         class="address-card"        [class.selected]="address.isDefault"        (click)="onSelectAddress(address)"      >        <div class="address-info">          <div class="address-title">            {{address.title}}            <span class="default-badge" *ngIf="address.isDefault">افتراضي</span>          </div>          <div class="address-details">            <span class="area">{{address.area}}</span>            <span class="separator">•</span>            <span class="details">{{address.details}}</span>          </div>        </div>          <div class="address-actions">          <button             *ngIf="!address.isDefault"            class="set-default-button"            (click)="onSetDefault(address, $event)"          >            تعيين كافتراضي          </button>          <button             class="delete-button"            (click)="onDelete(address, $event)"            [class.delete-default]="address.isDefault"          >            <i class="fas fa-trash"></i>          </button>        </div>      </div>    </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AddAddressDialogComponent', 'selector': 'app-add-address-dialog'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BackButtonComponent', 'selector': 'app-back-button'},{'name': 'CompleteProfileComponent', 'selector': 'app-complete-profile'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'DiscoverComponent', 'selector': 'app-discover'},{'name': 'EmailRegisterComponent', 'selector': 'app-email-register'},{'name': 'FaqComponent', 'selector': 'app-faq'},{'name': 'FeaturedSliderComponent', 'selector': 'app-featured-slider'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LanguageSettingsComponent', 'selector': 'app-language-settings'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MessageDetailComponent', 'selector': 'app-message-detail'},{'name': 'MessagesComponent', 'selector': 'app-messages'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NewRequestComponent', 'selector': 'app-new-request'},{'name': 'NotificationsSettingsComponent', 'selector': 'app-notifications-settings'},{'name': 'OtpInputComponent', 'selector': 'app-otp-input'},{'name': 'PersonalInfoComponent', 'selector': 'app-personal-info'},{'name': 'PhoneRegisterComponent', 'selector': 'app-phone-register'},{'name': 'PriceNegotiationComponent', 'selector': 'app-price-negotiation'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterMethodComponent', 'selector': 'app-register-method'},{'name': 'RequestDetailsComponent', 'selector': 'app-request-details'},{'name': 'RequestsListComponent', 'selector': 'app-requests-list'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'ServiceDetailsComponent', 'selector': 'app-service-details'},{'name': 'ServicesListComponent', 'selector': 'app-services-list'},{'name': 'SubServiceComponent', 'selector': 'app-sub-service'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'UserTypeComponent', 'selector': 'app-user-type'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WalletComponent', 'selector': 'app-wallet'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'},{'name': 'WorkerDetailsComponent', 'selector': 'app-worker-details'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AddressesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AddressesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

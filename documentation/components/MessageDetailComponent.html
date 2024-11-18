@@ -1,0 +1,2902 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sanai3i documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">sanai3i documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  MessageDetailComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/features/messages/components/message-detail/message-detail.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+                <code>AfterViewChecked</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-message-detail</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./message-detail.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./message-detail.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currentUserId" >currentUserId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                <a href="#isTyping" >isTyping</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#messageContainer" >messageContainer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                <a href="#messageInput" >messageInput</a>
+                            </li>
+                            <li>
+                                <a href="#messages" >messages</a>
+                            </li>
+                            <li>
+                                <a href="#newMessage" >newMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#shouldScrollToBottom" >shouldScrollToBottom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#thread" >thread</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#typingTimeout" >typingTimeout</a>
+                            </li>
+                            <li>
+                                <a href="#workerIsTyping" >workerIsTyping</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#workerTypingTimer" >workerTypingTimer</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#blockThread" >blockThread</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearTypingTimers" >clearTypingTimers</a>
+                            </li>
+                            <li>
+                                <a href="#deleteThread" >deleteThread</a>
+                            </li>
+                            <li>
+                                <a href="#formatMessageTime" >formatMessageTime</a>
+                            </li>
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#isConsecutiveMessage" >isConsecutiveMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadMessages" >loadMessages</a>
+                            </li>
+                            <li>
+                                <a href="#loadThread" >loadThread</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewChecked" >ngAfterViewChecked</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onInputChange" >onInputChange</a>
+                            </li>
+                            <li>
+                                <a href="#openAttachmentMenu" >openAttachmentMenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#scrollToBottom" >scrollToBottom</a>
+                            </li>
+                            <li>
+                                <a href="#sendMessage" >sendMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#simulateWorkerTyping" >simulateWorkerTyping</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#messagesContainerClass" >messagesContainerClass</a>
+                                </li>
+                                <li>
+                                    <a href="#messageGroups" >messageGroups</a>
+                                </li>
+                                <li>
+                                    <a href="#showTypingIndicator" >showTypingIndicator</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(messageService: <a href="../injectables/MessageService.html" target="_self">MessageService</a>, route: ActivatedRoute, router: Router, viewportScroller: ViewportScroller)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>messageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MessageService.html" target="_self" >MessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>viewportScroller</td>
+                                                  
+                                                        <td>
+                                                                    <code>ViewportScroller</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="blockThread"></a>
+                    <span class="name">
+                        <span ><b>blockThread</b></span>
+                        <a href="#blockThread"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>blockThread()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="295"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:295</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearTypingTimers"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearTypingTimers</b></span>
+                        <a href="#clearTypingTimers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearTypingTimers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteThread"></a>
+                    <span class="name">
+                        <span ><b>deleteThread</b></span>
+                        <a href="#deleteThread"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteThread()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="313"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:313</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatMessageTime"></a>
+                    <span class="name">
+                        <span ><b>formatMessageTime</b></span>
+                        <a href="#formatMessageTime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatMessageTime(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>date</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="286"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:286</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isConsecutiveMessage"></a>
+                    <span class="name">
+                        <span ><b>isConsecutiveMessage</b></span>
+                        <a href="#isConsecutiveMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isConsecutiveMessage(currentMsg: <a href="../interfaces/Message.html" target="_self">Message</a>, prevMsg: <a href="../interfaces/Message.html" target="_self">Message</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="276"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:276</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>currentMsg</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Message.html" target="_self" >Message</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>prevMsg</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Message.html" target="_self" >Message</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMessages"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadMessages</b></span>
+                        <a href="#loadMessages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadMessages(threadId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>threadId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadThread"></a>
+                    <span class="name">
+                        <span ><b>loadThread</b></span>
+                        <a href="#loadThread"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadThread(threadId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>threadId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewChecked"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewChecked</b></span>
+                        <a href="#ngAfterViewChecked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewChecked()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onInputChange"></a>
+                    <span class="name">
+                        <span ><b>onInputChange</b></span>
+                        <a href="#onInputChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onInputChange()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="198"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:198</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openAttachmentMenu"></a>
+                    <span class="name">
+                        <span ><b>openAttachmentMenu</b></span>
+                        <a href="#openAttachmentMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openAttachmentMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="290"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:290</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrollToBottom"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>scrollToBottom</b></span>
+                        <a href="#scrollToBottom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>scrollToBottom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendMessage"></a>
+                    <span class="name">
+                        <span ><b>sendMessage</b></span>
+                        <a href="#sendMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendMessage()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="simulateWorkerTyping"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>simulateWorkerTyping</b></span>
+                        <a href="#simulateWorkerTyping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>simulateWorkerTyping()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="218"
+                                    class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:218</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentUserId"></a>
+                    <span class="name">
+                        <span ><b>currentUserId</b></span>
+                        <a href="#currentUserId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTyping"></a>
+                    <span class="name">
+                        <span ><b>isTyping</b></span>
+                        <a href="#isTyping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messageContainer"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>messageContainer</b></span>
+                        <a href="#messageContainer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;messageContainer&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messageInput"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                        <span ><b>messageInput</b></span>
+                        <a href="#messageInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;messageInput&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="messages"></a>
+                    <span class="name">
+                        <span ><b>messages</b></span>
+                        <a href="#messages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Message.html" target="_self" >Message[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newMessage"></a>
+                    <span class="name">
+                        <span ><b>newMessage</b></span>
+                        <a href="#newMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shouldScrollToBottom"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>shouldScrollToBottom</b></span>
+                        <a href="#shouldScrollToBottom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="thread"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>thread</b></span>
+                        <a href="#thread"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ChatThread.html" target="_self" >ChatThread</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typingTimeout"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>typingTimeout</b></span>
+                        <a href="#typingTimeout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workerIsTyping"></a>
+                    <span class="name">
+                        <span ><b>workerIsTyping</b></span>
+                        <a href="#workerIsTyping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="workerTypingTimer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>workerTypingTimer</b></span>
+                        <a href="#workerTypingTimer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="messagesContainerClass"></a>
+                        <span class="name"><b>messagesContainerClass</b><a href="#messagesContainerClass"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>messagesContainerClass()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="228" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:228</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="messageGroups"></a>
+                        <span class="name"><b>messageGroups</b><a href="#messageGroups"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>messageGroups()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="241" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:241</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showTypingIndicator"></a>
+                        <span class="name"><b>showTypingIndicator</b><a href="#showTypingIndicator"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>showTypingIndicator()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="264" class="link-to-prism">src/app/features/messages/components/message-detail/message-detail.component.ts:264</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewChecked } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { Subject, timer } from &#x27;rxjs&#x27;;
+import { takeUntil, debounceTime, map } from &#x27;rxjs/operators&#x27;;
+import { ChatThread, Message, MessageService } from &#x27;../../../../core/services/message.service&#x27;;
+import { ViewportScroller } from &#x27;@angular/common&#x27;;
+
+@Component({
+  selector: &#x27;app-message-detail&#x27;,
+  templateUrl: &#x27;./message-detail.component.html&#x27;,
+  styleUrls: [&#x27;./message-detail.component.scss&#x27;]
+})
+export class MessageDetailComponent implements OnInit, OnDestroy, AfterViewChecked {
+  @ViewChild(&#x27;messageContainer&#x27;) private messageContainer!: ElementRef;
+  @ViewChild(&#x27;messageInput&#x27;) private messageInput!: ElementRef;
+
+  private destroy$ &#x3D; new Subject&lt;void&gt;();
+  private shouldScrollToBottom &#x3D; false;
+  private typingTimeout: any;
+  private workerTypingTimer?: any;
+
+  thread?: ChatThread;
+  messages: Message[] &#x3D; [];
+  newMessage: string &#x3D; &#x27;&#x27;;
+  currentUserId: number &#x3D; 1;
+  loading: boolean &#x3D; true;
+  error: string | null &#x3D; null;
+  isTyping: boolean &#x3D; false;
+  workerIsTyping: boolean &#x3D; false;
+
+  constructor(
+    private messageService: MessageService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private viewportScroller: ViewportScroller,
+  ) { }
+
+
+  ngOnInit() {
+    window.scrollTo(0, 0);
+    this.viewportScroller.scrollToPosition([0, 0]);
+
+    this.route.params.pipe(
+      takeUntil(this.destroy$),
+      map(params &#x3D;&gt; +params[&#x27;id&#x27;])
+    ).subscribe({
+      next: (threadId) &#x3D;&gt; {
+        // Reset states
+        this.loading &#x3D; true;
+        this.error &#x3D; null;
+        this.messages &#x3D; [];
+        this.workerIsTyping &#x3D; false;
+        this.clearTypingTimers();
+
+        // Load thread data
+        this.loadThread(threadId);
+
+        // Subscribe to typing status
+        this.messageService.getTypingStatus$().pipe(
+          takeUntil(this.destroy$),
+          map(statuses &#x3D;&gt; statuses.some(s &#x3D;&gt;
+            s.threadId &#x3D;&#x3D;&#x3D; threadId &amp;&amp;
+            s.isTyping &amp;&amp;
+            s.userId !&#x3D;&#x3D; this.currentUserId
+          ))
+        ).subscribe({
+          next: (isTyping) &#x3D;&gt; {
+            this.workerIsTyping &#x3D; isTyping;
+            if (isTyping) {
+              this.simulateWorkerTyping();
+            }
+          },
+          error: (error) &#x3D;&gt; {
+            console.error(&#x27;Error in typing status subscription:&#x27;, error);
+          }
+        });
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error in route params subscription:&#x27;, error);
+        this.error &#x3D; &#x27;حدث خطأ في تحميل المحادثة&#x27;;
+        this.loading &#x3D; false;
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.clearTypingTimers();
+  }
+
+  ngAfterViewChecked() {
+    if (this.shouldScrollToBottom) {
+      this.scrollToBottom();
+      this.shouldScrollToBottom &#x3D; false;
+    }
+  }
+
+  private clearTypingTimers() {
+    if (this.typingTimeout) {
+      clearTimeout(this.typingTimeout);
+    }
+    if (this.workerTypingTimer) {
+      clearTimeout(this.workerTypingTimer);
+    }
+  }
+
+  loadThread(threadId: number) {
+    this.loading &#x3D; true;
+    this.error &#x3D; null;
+
+    this.messageService.getThread(threadId).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe({
+      next: (thread) &#x3D;&gt; {
+        if (!thread) {
+          this.error &#x3D; &#x27;المحادثة غير موجودة&#x27;;
+          this.loading &#x3D; false;
+          return;
+        }
+        this.thread &#x3D; thread;
+        this.loadMessages(threadId);
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error loading thread:&#x27;, error);
+        this.error &#x3D; &#x27;حدث خطأ أثناء تحميل المحادثة&#x27;;
+        this.loading &#x3D; false;
+      }
+    });
+  }
+
+  private loadMessages(threadId: number) {
+    this.messageService.getMessageHistory(threadId).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe({
+      next: (messages) &#x3D;&gt; {
+        this.messages &#x3D; messages;
+        this.loading &#x3D; false;
+        this.shouldScrollToBottom &#x3D; true;
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error loading messages:&#x27;, error);
+        this.error &#x3D; &#x27;حدث خطأ أثناء تحميل الرسائل&#x27;;
+        this.loading &#x3D; false;
+      }
+    });
+  }
+
+  sendMessage() {
+    if (!this.thread || !this.newMessage.trim()) return;
+
+    // Clear typing status
+    this.isTyping &#x3D; false;
+    this.clearTypingTimers();
+
+    const tempMessage: Message &#x3D; {
+      id: Date.now(),
+      senderId: this.currentUserId,
+      receiverId: this.thread.workerId,
+      content: this.newMessage.trim(),
+      timestamp: new Date(),
+      read: false,
+      type: &#x27;text&#x27;
+    };
+
+    // Optimistically add the message
+    this.messages &#x3D; [...this.messages, tempMessage];
+    this.shouldScrollToBottom &#x3D; true;
+    const messageContent &#x3D; this.newMessage;
+    this.newMessage &#x3D; &#x27;&#x27;;
+
+    // Focus input after sending
+    this.messageInput.nativeElement.focus();
+
+    this.messageService.sendMessage(this.thread.id, messageContent).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe({
+      next: (message) &#x3D;&gt; {
+        // Update with the real message from server
+        this.messages &#x3D; this.messages.map(m &#x3D;&gt;
+          m.id &#x3D;&#x3D;&#x3D; tempMessage.id ? message : m
+        );
+        // Simulate worker typing response
+        setTimeout(() &#x3D;&gt; {
+          this.workerIsTyping &#x3D; true;
+          this.simulateWorkerTyping();
+        }, 1000);
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error sending message:&#x27;, error);
+        // Remove the failed message
+        this.messages &#x3D; this.messages.filter(m &#x3D;&gt; m.id !&#x3D;&#x3D; tempMessage.id);
+        this.error &#x3D; &#x27;فشل إرسال الرسالة&#x27;;
+      }
+    });
+  }
+
+  onInputChange() {
+    if (this.typingTimeout) {
+      clearTimeout(this.typingTimeout);
+    }
+
+    this.isTyping &#x3D; true;
+
+    // Notify service if it supports typing status
+    if (this.thread &amp;&amp; this.messageService.sendTypingStatus) {
+      this.messageService.sendTypingStatus(this.thread.id, true);
+    }
+
+    this.typingTimeout &#x3D; setTimeout(() &#x3D;&gt; {
+      this.isTyping &#x3D; false;
+      if (this.thread &amp;&amp; this.messageService.sendTypingStatus) {
+        this.messageService.sendTypingStatus(this.thread.id, false);
+      }
+    }, 3000);
+  }
+
+  private simulateWorkerTyping() {
+    if (this.workerIsTyping &amp;&amp; !this.workerTypingTimer) {
+      const typingDuration &#x3D; Math.random() * 2000 + 2000; // 2-4 seconds
+      this.workerTypingTimer &#x3D; setTimeout(() &#x3D;&gt; {
+        this.workerIsTyping &#x3D; false;
+        this.workerTypingTimer &#x3D; undefined;
+      }, typingDuration);
+    }
+  }
+
+  get messagesContainerClass(): string {
+    return this.thread?.serviceRequest ? &#x27;chat-messages has-service-banner&#x27; : &#x27;chat-messages&#x27;;
+  }
+
+  private scrollToBottom() {
+    try {
+      const element &#x3D; this.messageContainer.nativeElement;
+      element.scrollTop &#x3D; element.scrollHeight;
+    } catch (err) {
+      console.error(&#x27;Error scrolling to bottom:&#x27;, err);
+    }
+  }
+
+  get messageGroups() {
+    const groups: { date: string; messages: Message[] }[] &#x3D; [];
+    let currentDate &#x3D; &#x27;&#x27;;
+
+    this.messages.forEach(message &#x3D;&gt; {
+      const messageDate &#x3D; new Date(message.timestamp).toLocaleDateString(&#x27;ar-EG&#x27;, {
+        weekday: &#x27;long&#x27;,
+        year: &#x27;numeric&#x27;,
+        month: &#x27;long&#x27;,
+        day: &#x27;numeric&#x27;
+      });
+
+      if (messageDate !&#x3D;&#x3D; currentDate) {
+        currentDate &#x3D; messageDate;
+        groups.push({ date: messageDate, messages: [] });
+      }
+
+      groups[groups.length - 1].messages.push(message);
+    });
+
+    return groups;
+  }
+
+  get showTypingIndicator(): boolean {
+    return this.workerIsTyping &amp;&amp; !this.thread?.serviceRequest;
+  }
+
+  formatMessageTime(date: Date): string {
+    return new Date(date).toLocaleTimeString(&#x27;ar-EG&#x27;, {
+      hour: &#x27;2-digit&#x27;,
+      minute: &#x27;2-digit&#x27;,
+      hour12: true
+    });
+  }
+
+  isConsecutiveMessage(currentMsg: Message, prevMsg: Message): boolean {
+    if (!prevMsg) return false;
+
+    const timeDiff &#x3D; new Date(currentMsg.timestamp).getTime() -
+      new Date(prevMsg.timestamp).getTime();
+
+    return currentMsg.senderId &#x3D;&#x3D;&#x3D; prevMsg.senderId &amp;&amp;
+      timeDiff &lt; 60000; // Messages within 1 minute
+  }
+
+  goBack() {
+    this.router.navigate([&#x27;/messages&#x27;]);
+  }
+
+  openAttachmentMenu() {
+    // Implement attachment menu functionality
+    console.log(&#x27;Opening attachment menu&#x27;);
+  }
+
+  blockThread() {
+    if (!this.thread) return;
+
+    if (confirm(&#x27;هل أنت متأكد من حظر هذه المحادثة؟&#x27;)) {
+      this.messageService.blockThread(this.thread.id).pipe(
+        takeUntil(this.destroy$)
+      ).subscribe({
+        next: () &#x3D;&gt; {
+          this.router.navigate([&#x27;/messages&#x27;]);
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error blocking thread:&#x27;, error);
+          this.error &#x3D; &#x27;فشل حظر المحادثة&#x27;;
+        }
+      });
+    }
+  }
+
+  deleteThread() {
+    if (!this.thread) return;
+
+    if (confirm(&#x27;هل أنت متأكد من حذف هذه المحادثة؟&#x27;)) {
+      this.messageService.deleteThread(this.thread.id).pipe(
+        takeUntil(this.destroy$)
+      ).subscribe({
+        next: () &#x3D;&gt; {
+          this.router.navigate([&#x27;/messages&#x27;]);
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error deleting thread:&#x27;, error);
+          this.error &#x3D; &#x27;فشل حذف المحادثة&#x27;;
+        }
+      });
+    }
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;chat-container&quot; dir&#x3D;&quot;rtl&quot;&gt;
+  &lt;!-- Header --&gt;
+  &lt;header class&#x3D;&quot;chat-header&quot;&gt;
+    &lt;!-- Back Button --&gt;
+    &lt;div class&#x3D;&quot;header-actions&quot;&gt;
+      &lt;button class&#x3D;&quot;back-button&quot; (click)&#x3D;&quot;goBack()&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-arrow-right&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Worker Info --&gt;
+    &lt;div class&#x3D;&quot;worker-info&quot; *ngIf&#x3D;&quot;thread&quot;&gt;
+      &lt;div class&#x3D;&quot;avatar-container&quot;&gt;
+        &lt;img [src]&#x3D;&quot;thread.worker.image&quot; [alt]&#x3D;&quot;thread.worker.name&quot; class&#x3D;&quot;avatar&quot;/&gt;
+        &lt;div *ngIf&#x3D;&quot;thread.status &#x3D;&#x3D;&#x3D; &#x27;active&#x27;&quot; class&#x3D;&quot;online-indicator&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      
+      &lt;div class&#x3D;&quot;worker-details&quot;&gt;
+        &lt;h2&gt;{{thread.worker.name}}&lt;/h2&gt;
+        &lt;div class&#x3D;&quot;worker-meta&quot;&gt;
+          &lt;span class&#x3D;&quot;rating&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-star&quot;&gt;&lt;/i&gt;
+            {{thread.worker.rating}}
+          &lt;/span&gt;
+          &lt;span class&#x3D;&quot;separator&quot;&gt;•&lt;/span&gt;
+          &lt;span class&#x3D;&quot;service&quot;&gt;{{thread.worker.service}}&lt;/span&gt;
+          &lt;span *ngIf&#x3D;&quot;thread.worker.completedJobs&quot; class&#x3D;&quot;service&quot;&gt;
+            ({{thread.worker.completedJobs}} خدمة)
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Menu Actions --&gt;
+    &lt;div class&#x3D;&quot;header-actions&quot;&gt;
+      &lt;button class&#x3D;&quot;action-button&quot; [matMenuTriggerFor]&#x3D;&quot;menu&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-ellipsis-v&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+      &lt;mat-menu #menu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;message-options-menu&quot;&gt;
+        &lt;button mat-menu-item class&#x3D;&quot;block-button&quot; (click)&#x3D;&quot;blockThread()&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-ban&quot;&gt;&lt;/i&gt;
+          &lt;span&gt;حظر المحادثة&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;button mat-menu-item class&#x3D;&quot;delete-button&quot; (click)&#x3D;&quot;deleteThread()&quot;&gt;
+          &lt;i class&#x3D;&quot;fas fa-trash&quot;&gt;&lt;/i&gt;
+          &lt;span&gt;حذف المحادثة&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/mat-menu&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Service Request Banner --&gt;
+  &lt;div class&#x3D;&quot;service-request-banner&quot; *ngIf&#x3D;&quot;thread?.serviceRequest&quot;&gt;
+    &lt;div class&#x3D;&quot;request-info&quot;&gt;
+      &lt;span class&#x3D;&quot;service-type&quot;&gt;{{thread?.serviceRequest?.service}}&lt;/span&gt;
+      &lt;span class&#x3D;&quot;status-badge&quot; [class]&#x3D;&quot;thread?.serviceRequest?.status || &#x27;&#x27;&quot;&gt;
+        {{thread?.serviceRequest?.status &#x3D;&#x3D;&#x3D; &#x27;pending&#x27; ? &#x27;قيد الانتظار&#x27; :
+          thread?.serviceRequest?.status &#x3D;&#x3D;&#x3D; &#x27;in_progress&#x27; ? &#x27;جاري التنفيذ&#x27; : &#x27;مكتمل&#x27;}}
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Messages Container --&gt;
+  &lt;main [class]&#x3D;&quot;messagesContainerClass&quot; #messageContainer&gt;
+    &lt;!-- Loading State --&gt;
+    &lt;div *ngIf&#x3D;&quot;loading&quot; class&#x3D;&quot;loading-spinner&quot;&gt;
+      &lt;div class&#x3D;&quot;spinner&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Error State --&gt;
+    &lt;div *ngIf&#x3D;&quot;error&quot; class&#x3D;&quot;error-state&quot;&gt;
+      &lt;i class&#x3D;&quot;fas fa-exclamation-circle&quot;&gt;&lt;/i&gt;
+      &lt;p&gt;{{error}}&lt;/p&gt;
+      &lt;button class&#x3D;&quot;retry-button&quot; (click)&#x3D;&quot;loadThread(thread?.id!)&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-redo&quot;&gt;&lt;/i&gt;
+        إعادة المحاولة
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Messages Content --&gt;
+    &lt;ng-container *ngIf&#x3D;&quot;!loading &amp;&amp; !error&quot;&gt;
+      &lt;!-- Empty State --&gt;
+      &lt;div *ngIf&#x3D;&quot;messages.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;empty-state&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-comments&quot;&gt;&lt;/i&gt;
+        &lt;p class&#x3D;&quot;empty-text&quot;&gt;لا توجد رسائل&lt;/p&gt;
+        &lt;p class&#x3D;&quot;empty-subtext&quot;&gt;ابدأ محادثة جديدة الآن&lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Messages Groups --&gt;
+      &lt;div class&#x3D;&quot;messages-date-group&quot; *ngFor&#x3D;&quot;let group of messageGroups&quot;&gt;
+        &lt;!-- Date Divider --&gt;
+        &lt;div class&#x3D;&quot;date-divider&quot;&gt;
+          &lt;span&gt;{{group.date}}&lt;/span&gt;
+        &lt;/div&gt;
+        
+        &lt;!-- Message Bubbles --&gt;
+        &lt;div class&#x3D;&quot;message-bubble&quot; 
+             *ngFor&#x3D;&quot;let message of group.messages; let i &#x3D; index&quot;
+             [class.sent]&#x3D;&quot;message.senderId &#x3D;&#x3D;&#x3D; currentUserId&quot;
+             [class.received]&#x3D;&quot;message.senderId !&#x3D;&#x3D; currentUserId&quot;
+             [class.consecutive]&#x3D;&quot;isConsecutiveMessage(message, group.messages[i-1])&quot;&gt;
+          
+          &lt;!-- Message Content --&gt;
+          &lt;div class&#x3D;&quot;message-content&quot; [ngSwitch]&#x3D;&quot;message.type&quot;&gt;
+            &lt;!-- Text Message --&gt;
+            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;text&#x27;&quot;&gt;
+              {{message.content}}
+            &lt;/ng-container&gt;
+
+            &lt;!-- Image Message --&gt;
+            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;image&#x27;&quot;&gt;
+              &lt;img [src]&#x3D;&quot;message.content&quot; 
+                   alt&#x3D;&quot;صورة مرسلة&quot; 
+                   class&#x3D;&quot;message-image&quot;
+                   loading&#x3D;&quot;lazy&quot;/&gt;
+            &lt;/ng-container&gt;
+
+            &lt;!-- Location Message --&gt;
+            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;location&#x27;&quot;&gt;
+              &lt;div class&#x3D;&quot;location-preview&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-map-marker-alt&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;تم مشاركة الموقع&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/ng-container&gt;
+
+            &lt;!-- Service Request Message --&gt;
+            &lt;ng-container *ngSwitchCase&#x3D;&quot;&#x27;service_request&#x27;&quot;&gt;
+              &lt;div class&#x3D;&quot;service-request-card&quot;&gt;
+                &lt;i class&#x3D;&quot;fas fa-tools&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;طلب خدمة جديد&lt;/span&gt;
+                &lt;div class&#x3D;&quot;request-details&quot; *ngIf&#x3D;&quot;message.serviceRequestId&quot;&gt;
+                  &lt;div class&#x3D;&quot;service-info&quot;&gt;
+                    &lt;span class&#x3D;&quot;service-name&quot;&gt;{{thread?.serviceRequest?.service}}&lt;/span&gt;
+                    &lt;span class&#x3D;&quot;service-status&quot; [class]&#x3D;&quot;thread?.serviceRequest?.status || &#x27;&#x27;&quot;&gt;
+                      {{thread?.serviceRequest?.status &#x3D;&#x3D;&#x3D; &#x27;pending&#x27; ? &#x27;قيد الانتظار&#x27; :
+                        thread?.serviceRequest?.status &#x3D;&#x3D;&#x3D; &#x27;in_progress&#x27; ? &#x27;جاري التنفيذ&#x27; : &#x27;مكتمل&#x27;}}
+                    &lt;/span&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/ng-container&gt;
+          &lt;/div&gt;
+
+          &lt;!-- Message Time and Status --&gt;
+          &lt;div class&#x3D;&quot;message-time&quot;&gt;
+            {{formatMessageTime(message.timestamp)}}
+            &lt;ng-container *ngIf&#x3D;&quot;message.senderId &#x3D;&#x3D;&#x3D; currentUserId&quot;&gt;
+              &lt;i class&#x3D;&quot;fas&quot; 
+                 [class.fa-check]&#x3D;&quot;!message.read&quot;
+                 [class.fa-check-double]&#x3D;&quot;message.read&quot;
+                 [class.read]&#x3D;&quot;message.read&quot;&gt;&lt;/i&gt;
+            &lt;/ng-container&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Typing Indicator --&gt;
+      &lt;div class&#x3D;&quot;typing-indicator&quot; *ngIf&#x3D;&quot;showTypingIndicator&quot;&gt;
+        &lt;div class&#x3D;&quot;typing-bubble&quot;&gt;
+          &lt;span&gt;&lt;/span&gt;
+          &lt;span&gt;&lt;/span&gt;
+          &lt;span&gt;&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;span class&#x3D;&quot;typing-text&quot;&gt;يكتب...&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/ng-container&gt;
+  &lt;/main&gt;
+
+  &lt;!-- Chat Input Area --&gt;
+  &lt;footer class&#x3D;&quot;chat-input&quot; [class.blocked]&#x3D;&quot;thread?.status &#x3D;&#x3D;&#x3D; &#x27;blocked&#x27;&quot;&gt;
+    &lt;div class&#x3D;&quot;input-container&quot;&gt;
+      &lt;!-- Attachment Button --&gt;
+      &lt;button class&#x3D;&quot;attachment-button&quot; 
+              [disabled]&#x3D;&quot;thread?.status &#x3D;&#x3D;&#x3D; &#x27;blocked&#x27;&quot;
+              (click)&#x3D;&quot;openAttachmentMenu()&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-paperclip&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+      
+      &lt;!-- Message Input --&gt;
+      &lt;input type&#x3D;&quot;text&quot; 
+             [(ngModel)]&#x3D;&quot;newMessage&quot; 
+             (keyup.enter)&#x3D;&quot;sendMessage()&quot;
+             (input)&#x3D;&quot;onInputChange()&quot;
+             [placeholder]&#x3D;&quot;thread?.status &#x3D;&#x3D;&#x3D; &#x27;blocked&#x27; ? &#x27;تم حظر المحادثة&#x27; : &#x27;اكتب رسالتك هنا...&#x27;&quot;
+             [disabled]&#x3D;&quot;thread?.status &#x3D;&#x3D;&#x3D; &#x27;blocked&#x27;&quot;
+             #messageInput&gt;
+      
+      &lt;!-- Send Button --&gt;
+      &lt;button class&#x3D;&quot;send-button&quot; 
+              [disabled]&#x3D;&quot;!newMessage.trim() || thread?.status &#x3D;&#x3D;&#x3D; &#x27;blocked&#x27;&quot;
+              (click)&#x3D;&quot;sendMessage()&quot;&gt;
+        &lt;i class&#x3D;&quot;fas fa-paper-plane&quot;&gt;&lt;/i&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Blocked Message Banner --&gt;
+    &lt;div class&#x3D;&quot;blocked-banner&quot; *ngIf&#x3D;&quot;thread?.status &#x3D;&#x3D;&#x3D; &#x27;blocked&#x27;&quot;&gt;
+      &lt;i class&#x3D;&quot;fas fa-ban&quot;&gt;&lt;/i&gt;
+      &lt;span&gt;تم حظر المحادثة&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./message-detail.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  background-color: white;
+  z-index: 1;
+}
+
+// Header Styles
+.chat-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #ef4444;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: 56px;
+
+  .header-actions {
+    button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &amp;:hover {
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+      }
+
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .worker-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .avatar-container {
+      position: relative;
+      
+      .avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid white;
+        object-fit: cover;
+      }
+
+      .online-indicator {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        background: #10b981;
+        border: 2px solid white;
+        border-radius: 50%;
+      }
+    }
+
+    .worker-details {
+      h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .worker-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 2px;
+        font-size: 12px;
+        opacity: 0.9;
+
+        .rating {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+
+          i {
+            color: #fbbf24;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Messages Container
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background: white;
+  margin-top: 56px;
+  margin-bottom: 60px;
+  height: calc(100vh - 172px);
+
+  &amp;.has-service-banner {
+    margin-top: 108px;
+    height: calc(100vh - 224px);
+  }
+
+  &amp;::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &amp;::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &amp;::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 3px;
+  }
+
+  .messages-date-group {
+    margin-bottom: 24px;
+
+    .date-divider {
+      text-align: center;
+      margin: 16px 0;
+      position: relative;
+      color: #6b7280;
+      font-size: 12px;
+
+      &amp;::before {
+        content: &#x27;&#x27;;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        background: #e5e7eb;
+        z-index: 0;
+      }
+
+      span {
+        background: white;
+        padding: 0 16px;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  .message-bubble {
+    max-width: 70%;
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+
+    &amp;.sent {
+      margin-left: auto;
+      
+      .message-content {
+        background-color: #ef4444;
+        color: white;
+        border-radius: 16px 16px 4px 16px;
+        margin-left: auto;
+      }
+
+      .message-time {
+        margin-left: auto;
+        margin-right: 4px;
+        color: rgba(255,255,255,0.8);
+      }
+    }
+
+    &amp;.received {
+      margin-right: auto;
+      
+      .message-content {
+        background-color: #f3f4f6;
+        color: #1f2937;
+        border-radius: 16px 16px 16px 4px;
+      }
+
+      .message-time {
+        margin-right: auto;
+        margin-left: 4px;
+        color: #6b7280;
+      }
+    }
+
+    &amp;.consecutive {
+      margin-top: -4px;
+    }
+
+    .message-content {
+      padding: 12px 16px;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 4px;
+    }
+
+    .message-time {
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      i {
+        font-size: 12px;
+        
+        &amp;.read {
+          color: #10b981;
+        }
+      }
+    }
+  }
+}
+
+// Service Request Banner
+.service-request-banner {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background: #f9fafb;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+
+  .request-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+
+    .service-type {
+      color: #1f2937;
+      font-weight: 500;
+    }
+
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+
+      &amp;.pending {
+        background: #fff7ed;
+        color: #c2410c;
+      }
+
+      &amp;.in_progress {
+        background: #eff6ff;
+        color: #1d4ed8;
+      }
+
+      &amp;.completed {
+        background: #f0fdf4;
+        color: #15803d;
+      }
+    }
+  }
+}
+
+// Chat Input
+.chat-input {
+  position: fixed;
+  bottom: 56px;
+  left: 0;
+  right: 0;
+  padding: 8px 16px;
+  background: white;
+  border-top: 1px solid #eee;
+  z-index: 10;
+  height: 60px;
+  
+  .input-container {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f3f4f6;
+    border-radius: 24px;
+    padding: 4px 6px;
+
+    .attachment-button {
+      background: none;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ca3af;
+      transition: all 0.2s ease;
+
+      &amp;:hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: #6b7280;
+      }
+
+      i {
+        font-size: 1.25rem;
+      }
+    }
+
+    input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      font-size: 0.9375rem;
+      color: #1f2937;
+      height: 36px;
+      min-height: 36px;
+      direction: rtl;
+      
+      &amp;::placeholder {
+        color: #9ca3af;
+      }
+      
+      &amp;:focus {
+        outline: none;
+      }
+    }
+
+    .send-button {
+      background: #ef4444;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: all 0.2s ease;
+      
+      &amp;:hover:not(:disabled) {
+        background: #dc2626;
+        transform: scale(1.05);
+      }
+      
+      &amp;:disabled {
+        background: #f3f4f6;
+        color: #d1d5db;
+      }
+
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+// Loading States
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f4f6;
+    border-top-color: #ef4444;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+// Empty State
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  height: 100%;
+  background: white;
+
+  i {
+    font-size: 48px;
+    color: #d1d5db;
+    margin-bottom: 16px;
+  }
+
+  .empty-text {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+}
+
+// Error State
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  height: 100%;
+  background: white;
+
+  i {
+    font-size: 48px;
+    color: #ef4444;
+    margin-bottom: 16px;
+  }
+
+  p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 16px;
+  }
+
+  .retry-button {
+    padding: 8px 16px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &amp;:hover {
+      background: #dc2626;
+    }
+
+    i {
+      font-size: 1rem;
+      color: white;
+      margin: 0;
+    }
+  }
+}
+
+// More Options Menu
+.mat-menu-panel.message-options-menu {
+  min-width: 180px !important;
+  border-radius: 12px !important;
+  margin-top: 8px !important;
+  
+  .mat-menu-content {
+    padding: 8px !important;
+  }
+  
+  .mat-menu-item {
+    border-radius: 8px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 0.9375rem;
+    color: #1f2937;
+    
+    &amp;:hover {
+      background: #f3f4f6;
+    }
+    
+    i {
+      margin-left: 12px;
+      color: #6b7280;
+    }
+  }
+}
+
+// Typing Indicator
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  
+  .typing-bubble {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    
+    span {
+      width: 8px;
+      height: 8px;
+      background: #d1d5db;
+      border-radius: 50%;
+      animation: bounce 1.4s infinite ease-in-out;
+      
+      &amp;:nth-child(1) { animation-delay: -0.32s; }
+      &amp;:nth-child(2) { animation-delay: -0.16s; }
+    }
+  }
+  
+  .typing-text {
+    font-size: 12px;
+    color: #6b7280;
+  }
+}
+
+// Blocked Banner
+.blocked-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  background: #fee2e2;
+  color: #ef4444;
+  font-size: 0.875rem;
+  
+  i {
+    font-size: 1rem;
+  }
+}
+
+// Animations
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="chat-container" dir="rtl">  <!-- Header -->  <header class="chat-header">    <!-- Back Button -->    <div class="header-actions">      <button class="back-button" (click)="goBack()">        <i class="fas fa-arrow-right"></i>      </button>    </div>        <!-- Worker Info -->    <div class="worker-info" *ngIf="thread">      <div class="avatar-container">        <img [src]="thread.worker.image" [alt]="thread.worker.name" class="avatar"/>        <div *ngIf="thread.status === \'active\'" class="online-indicator"></div>      </div>            <div class="worker-details">        <h2>{{thread.worker.name}}</h2>        <div class="worker-meta">          <span class="rating">            <i class="fas fa-star"></i>            {{thread.worker.rating}}          </span>          <span class="separator">•</span>          <span class="service">{{thread.worker.service}}</span>          <span *ngIf="thread.worker.completedJobs" class="service">            ({{thread.worker.completedJobs}} خدمة)          </span>        </div>      </div>    </div>    <!-- Menu Actions -->    <div class="header-actions">      <button class="action-button" [matMenuTriggerFor]="menu">        <i class="fas fa-ellipsis-v"></i>      </button>      <mat-menu #menu="matMenu" class="message-options-menu">        <button mat-menu-item class="block-button" (click)="blockThread()">          <i class="fas fa-ban"></i>          <span>حظر المحادثة</span>        </button>        <button mat-menu-item class="delete-button" (click)="deleteThread()">          <i class="fas fa-trash"></i>          <span>حذف المحادثة</span>        </button>      </mat-menu>    </div>  </header>  <!-- Service Request Banner -->  <div class="service-request-banner" *ngIf="thread?.serviceRequest">    <div class="request-info">      <span class="service-type">{{thread?.serviceRequest?.service}}</span>      <span class="status-badge" [class]="thread?.serviceRequest?.status || \'\'">        {{thread?.serviceRequest?.status === \'pending\' ? \'قيد الانتظار\' :          thread?.serviceRequest?.status === \'in_progress\' ? \'جاري التنفيذ\' : \'مكتمل\'}}      </span>    </div>  </div>  <!-- Messages Container -->  <main [class]="messagesContainerClass" #messageContainer>    <!-- Loading State -->    <div *ngIf="loading" class="loading-spinner">      <div class="spinner"></div>    </div>    <!-- Error State -->    <div *ngIf="error" class="error-state">      <i class="fas fa-exclamation-circle"></i>      <p>{{error}}</p>      <button class="retry-button" (click)="loadThread(thread?.id!)">        <i class="fas fa-redo"></i>        إعادة المحاولة      </button>    </div>    <!-- Messages Content -->    <ng-container *ngIf="!loading && !error">      <!-- Empty State -->      <div *ngIf="messages.length === 0" class="empty-state">        <i class="fas fa-comments"></i>        <p class="empty-text">لا توجد رسائل</p>        <p class="empty-subtext">ابدأ محادثة جديدة الآن</p>      </div>      <!-- Messages Groups -->      <div class="messages-date-group" *ngFor="let group of messageGroups">        <!-- Date Divider -->        <div class="date-divider">          <span>{{group.date}}</span>        </div>                <!-- Message Bubbles -->        <div class="message-bubble"              *ngFor="let message of group.messages; let i = index"             [class.sent]="message.senderId === currentUserId"             [class.received]="message.senderId !== currentUserId"             [class.consecutive]="isConsecutiveMessage(message, group.messages[i-1])">                    <!-- Message Content -->          <div class="message-content" [ngSwitch]="message.type">            <!-- Text Message -->            <ng-container *ngSwitchCase="\'text\'">              {{message.content}}            </ng-container>            <!-- Image Message -->            <ng-container *ngSwitchCase="\'image\'">              <img [src]="message.content"                    alt="صورة مرسلة"                    class="message-image"                   loading="lazy"/>            </ng-container>            <!-- Location Message -->            <ng-container *ngSwitchCase="\'location\'">              <div class="location-preview">                <i class="fas fa-map-marker-alt"></i>                <span>تم مشاركة الموقع</span>              </div>            </ng-container>            <!-- Service Request Message -->            <ng-container *ngSwitchCase="\'service_request\'">              <div class="service-request-card">                <i class="fas fa-tools"></i>                <span>طلب خدمة جديد</span>                <div class="request-details" *ngIf="message.serviceRequestId">                  <div class="service-info">                    <span class="service-name">{{thread?.serviceRequest?.service}}</span>                    <span class="service-status" [class]="thread?.serviceRequest?.status || \'\'">                      {{thread?.serviceRequest?.status === \'pending\' ? \'قيد الانتظار\' :                        thread?.serviceRequest?.status === \'in_progress\' ? \'جاري التنفيذ\' : \'مكتمل\'}}                    </span>                  </div>                </div>              </div>            </ng-container>          </div>          <!-- Message Time and Status -->          <div class="message-time">            {{formatMessageTime(message.timestamp)}}            <ng-container *ngIf="message.senderId === currentUserId">              <i class="fas"                  [class.fa-check]="!message.read"                 [class.fa-check-double]="message.read"                 [class.read]="message.read"></i>            </ng-container>          </div>        </div>      </div>      <!-- Typing Indicator -->      <div class="typing-indicator" *ngIf="showTypingIndicator">        <div class="typing-bubble">          <span></span>          <span></span>          <span></span>        </div>        <span class="typing-text">يكتب...</span>      </div>    </ng-container>  </main>  <!-- Chat Input Area -->  <footer class="chat-input" [class.blocked]="thread?.status === \'blocked\'">    <div class="input-container">      <!-- Attachment Button -->      <button class="attachment-button"               [disabled]="thread?.status === \'blocked\'"              (click)="openAttachmentMenu()">        <i class="fas fa-paperclip"></i>      </button>            <!-- Message Input -->      <input type="text"              [(ngModel)]="newMessage"              (keyup.enter)="sendMessage()"             (input)="onInputChange()"             [placeholder]="thread?.status === \'blocked\' ? \'تم حظر المحادثة\' : \'اكتب رسالتك هنا...\'"             [disabled]="thread?.status === \'blocked\'"             #messageInput>            <!-- Send Button -->      <button class="send-button"               [disabled]="!newMessage.trim() || thread?.status === \'blocked\'"              (click)="sendMessage()">        <i class="fas fa-paper-plane"></i>      </button>    </div>    <!-- Blocked Message Banner -->    <div class="blocked-banner" *ngIf="thread?.status === \'blocked\'">      <i class="fas fa-ban"></i>      <span>تم حظر المحادثة</span>    </div>  </footer></div></div>'
+    var COMPONENTS = [{'name': 'AddAddressDialogComponent', 'selector': 'app-add-address-dialog'},{'name': 'AddressesComponent', 'selector': 'app-addresses'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BackButtonComponent', 'selector': 'app-back-button'},{'name': 'CompleteProfileComponent', 'selector': 'app-complete-profile'},{'name': 'ContactUsComponent', 'selector': 'app-contact-us'},{'name': 'DiscoverComponent', 'selector': 'app-discover'},{'name': 'EmailRegisterComponent', 'selector': 'app-email-register'},{'name': 'FaqComponent', 'selector': 'app-faq'},{'name': 'FeaturedSliderComponent', 'selector': 'app-featured-slider'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LanguageSettingsComponent', 'selector': 'app-language-settings'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainLayoutComponent', 'selector': 'app-main-layout'},{'name': 'MessageDetailComponent', 'selector': 'app-message-detail'},{'name': 'MessagesComponent', 'selector': 'app-messages'},{'name': 'NavBarComponent', 'selector': 'app-nav-bar'},{'name': 'NewRequestComponent', 'selector': 'app-new-request'},{'name': 'NotificationsSettingsComponent', 'selector': 'app-notifications-settings'},{'name': 'OtpInputComponent', 'selector': 'app-otp-input'},{'name': 'PersonalInfoComponent', 'selector': 'app-personal-info'},{'name': 'PhoneRegisterComponent', 'selector': 'app-phone-register'},{'name': 'PriceNegotiationComponent', 'selector': 'app-price-negotiation'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterMethodComponent', 'selector': 'app-register-method'},{'name': 'RequestDetailsComponent', 'selector': 'app-request-details'},{'name': 'RequestsListComponent', 'selector': 'app-requests-list'},{'name': 'SearchBarComponent', 'selector': 'app-search-bar'},{'name': 'ServiceDetailsComponent', 'selector': 'app-service-details'},{'name': 'ServicesListComponent', 'selector': 'app-services-list'},{'name': 'SubServiceComponent', 'selector': 'app-sub-service'},{'name': 'TermsComponent', 'selector': 'app-terms'},{'name': 'UserTypeComponent', 'selector': 'app-user-type'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WalletComponent', 'selector': 'app-wallet'},{'name': 'WelcomeComponent', 'selector': 'app-welcome'},{'name': 'WorkerDetailsComponent', 'selector': 'app-worker-details'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'MessageDetailComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MessageDetailComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

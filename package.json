@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "ngnew": "ng build --configuration production --base-href=/sanai3i/ && npx angular-cli-ghpages --dir=dist/sanai3i/browser --no-silent"
+    "ngnew": "ng build --configuration production --base-href=/sanai3i/ && npx angular-cli-ghpages --dir=dist/sanai3i/browser --no-silent",
+    "docs": "npx compodoc -p tsconfig.json"
   },
   "private": true,
   "dependencies": {
