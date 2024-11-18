@@ -5,37 +5,24 @@
     <div class="search-section">
       <div class="search-container">
         <div class="search-icons">
-          <i class="fas" 
-             [class.fa-times]="!isLoadingLocation" 
-             (click)="clearSearch()">
+          <i class="fas" [class.fa-times]="!isLoadingLocation" (click)="clearSearch()">
           </i>
         </div>
-        <input 
-          class="search-input" 
-          [formControl]="searchControl" 
-          placeholder="البحث عن عنوان" 
-          dir="rtl" 
-          [attr.aria-label]="'Search address'"
-        />
+        <input class="search-input" [formControl]="searchControl" placeholder="البحث عن عنوان" dir="rtl"
+          [attr.aria-label]="'Search address'" />
         <div class="search-icons">
-          <i class="fas fa-map-marker-alt" 
-          [class.fa-spinner]="isLoadingLocation"
-          [class.fa-spin]="isLoadingLocation"
-             (click)="!isLoadingLocation && getCurrentLocation()"
-             [class.disabled]="isLoadingLocation">
+          <i class="fas fa-map-marker-alt" [class.fa-spinner]="isLoadingLocation" [class.fa-spin]="isLoadingLocation"
+            (click)="!isLoadingLocation && getCurrentLocation()" [class.disabled]="isLoadingLocation">
           </i>
         </div>
       </div>
 
       <!-- Address Results Dropdown -->
       <div class="search-results" *ngIf="showAddressResults && addressResults.length > 0">
-        <div class="address-item" 
-             *ngFor="let address of addressResults" 
-             (click)="selectAddress(address)"
-             [attr.aria-label]="address.mainText + ' - ' + address.subText">
-          <i class="address-icon" 
-             [class.fas.fa-history]="address.type === 'recent'"
-             [class.fas.fa-map-marker-alt]="address.type === 'result'">
+        <div class="address-item" *ngFor="let address of addressResults" (click)="selectAddress(address)"
+          [attr.aria-label]="address.mainText + ' - ' + address.subText">
+          <i class="address-icon" [class.fas.fa-history]="address.type === 'recent'"
+            [class.fas.fa-map-marker-alt]="address.type === 'result'">
           </i>
           <div class="address-details">
             <div class="main-text">{{address.mainText}}</div>
@@ -48,12 +35,9 @@
     <!-- Categories Section -->
     <div class="categories-section">
       <div class="categories-scroll">
-        <button *ngFor="let category of categories"
-                class="category-button"
-                [class.active]="selectedCategory === category.id"
-                (click)="selectCategory(category.id)"
-                [attr.aria-label]="category.name"
-                [attr.aria-pressed]="selectedCategory === category.id">
+        <button *ngFor="let category of categories" class="category-button"
+          [class.active]="selectedCategory === category.id" (click)="selectCategory(category.id)"
+          [attr.aria-label]="category.name" [attr.aria-pressed]="selectedCategory === category.id">
           <span class="category-text">{{category.name}}</span>
         </button>
       </div>
@@ -62,92 +46,78 @@
 
   <!-- Map Section -->
   <main class="map-container">
-    <div leaflet
-         [leafletOptions]="options"
-         (leafletMapReady)="onMapReady($event)"
-         class="leaflet-container">
+    <div leaflet [leafletOptions]="options" (leafletMapReady)="onMapReady($event)" class="leaflet-container">
     </div>
 
     <!-- Provider Card -->
-    <div *ngIf="selectedProvider" 
-         class="provider-card"
-         [@slideUp]
-         (touchstart)="onTouchStart($event)"
-         (touchmove)="onTouchMove($event)"
-         (touchend)="onTouchEnd()"
-         [class.touch-none]="true"
-         [attr.aria-label]="getAriaLabel(selectedProvider)">
-      
-      <!-- Close Button -->
-      <button class="close-button" 
-              (click)="clearSelectedProvider()"
-              aria-label="Close provider details">
-        <i class="fas fa-times"></i>
-      </button>
+    <div *ngIf="selectedProvider" class="provider-card marker-popup" [@slideUp] (touchstart)="onTouchStart($event)"
+      (touchmove)="onTouchMove($event)" (touchend)="onTouchEnd()" [class.touch-none]="true"
+      [attr.aria-label]="getAriaLabel(selectedProvider)">
+      <div class="card-pointer">
+        <!-- Close Button -->
+        <button class="close-button" (click)="clearSelectedProvider()" aria-label="Close provider details">
+          <i class="fas fa-times"></i>
+        </button>
 
-      <div class="card-content">
-        <div class="provider-info">
-          <img [src]="selectedProvider.image" 
-               [alt]="selectedProvider.name" 
-               class="provider-image" />
-          
-          <div class="provider-details">
-            <h3 class="provider-name">{{selectedProvider.name}}</h3>
-            <p class="provider-service">{{selectedProvider.service}}</p>
-            
-            <div class="stats-grid">
-              <!-- Rating -->
-              <div class="stat-item">
-                <div class="stat-value" [style.color]="getRatingColor(selectedProvider.rating)">
-                  {{formatRating(selectedProvider.rating)}}
+        <div class="card-content">
+          <div class="provider-info">
+            <img [src]="selectedProvider.image" [alt]="selectedProvider.name" class="provider-image" />
+
+            <div class="provider-details">
+              <h3 class="provider-name">{{selectedProvider.name}}</h3>
+              <p class="provider-service">{{selectedProvider.service}}</p>
+
+              <div class="stats-grid">
+                <!-- Rating -->
+                <div class="stat-item">
+                  <div class="stat-value" [style.color]="getRatingColor(selectedProvider.rating)">
+                    {{formatRating(selectedProvider.rating)}}
+                  </div>
+                  <div class="stat-label">التقييم</div>
                 </div>
-                <div class="stat-label">التقييم</div>
-              </div>
-              
-              <!-- Distance -->
-              <div class="stat-item">
-                <div class="stat-value" [style.color]="getDistanceColor(getProviderDistance(selectedProvider))">
-                  {{getProviderDistance(selectedProvider)}}
+
+                <!-- Distance -->
+                <div class="stat-item">
+                  <div class="stat-value" [style.color]="getDistanceColor(getProviderDistance(selectedProvider))">
+                    {{getProviderDistance(selectedProvider)}}
+                  </div>
+                  <div class="stat-label">المسافة</div>
                 </div>
-                <div class="stat-label">المسافة</div>
-              </div>
-              
-              <!-- Completed Jobs -->
-              <div class="stat-item">
-                <div class="stat-value">{{selectedProvider.completedJobs}}</div>
-                <div class="stat-label">{{getCompletedJobsText(selectedProvider.completedJobs)}}</div>
-              </div>
-              
-              <!-- Response Time -->
-              <div class="stat-item">
-                <div class="stat-value">{{selectedProvider.responseRate || '15د'}}</div>
-                <div class="stat-label">وقت الرد</div>
+
+                <!-- Completed Jobs -->
+                <div class="stat-item">
+                  <div class="stat-value">{{selectedProvider.completedJobs}}</div>
+                  <div class="stat-label">{{getCompletedJobsText(selectedProvider.completedJobs)}}</div>
+                </div>
+
+                <!-- Response Time -->
+                <div class="stat-item">
+                  <div class="stat-value">{{selectedProvider.responseRate || '15د'}}</div>
+                  <div class="stat-label">وقت الرد</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Swipe Indicators -->
-      <div class="swipe-indicators">
-        <div *ngFor="let provider of providers; let i = index" 
-             class="indicator"
-             [class.active]="provider.id === selectedProvider.id">
+        <!-- Swipe Indicators -->
+        <div class="swipe-indicators">
+          <div *ngFor="let provider of providers; let i = index" class="indicator"
+            [class.active]="provider.id === selectedProvider.id">
+          </div>
         </div>
-      </div>
 
-      <!-- Card Actions -->
-      <div class="card-actions">
-        <button class="action-button primary"
-                (click)="requestService(selectedProvider)"
-                [attr.aria-label]="'Request service from ' + selectedProvider.name">
-          طلب خدمة
-        </button>
-        <button class="action-button secondary"
-                (click)="navigateToWorkerProfile(selectedProvider.id)"
-                [attr.aria-label]="'View profile of ' + selectedProvider.name">
-          عرض الملف
-        </button>
+        <!-- Card Actions -->
+        <div class="card-actions">
+          <button class="action-button primary" (click)="requestService(selectedProvider)"
+            [attr.aria-label]="'Request service from ' + selectedProvider.name">
+            طلب خدمة
+          </button>
+          <button class="action-button secondary" (click)="navigateToWorkerProfile(selectedProvider.id)"
+            [attr.aria-label]="'View profile of ' + selectedProvider.name">
+            عرض الملف
+          </button>
+        </div>
       </div>
     </div>
   </main>

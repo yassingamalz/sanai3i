@@ -14,7 +14,7 @@ export class ServicesService {
       icon: '⚡',
       faIcon: 'fas fa-bolt',
       description: 'خدمات الكهرباء والصيانة',
-      totalRequests: 85,
+      totalRequests: 2695,
       trend: 'up',
       trendValue: 12,
       subServices: [
@@ -85,7 +85,7 @@ export class ServicesService {
       icon: '🪚',
       faIcon: 'fas fa-hammer',
       description: 'خدمات النجارة وإصلاح الأثاث',
-      totalRequests: 45,
+      totalRequests: 5158,
       trend: 'down',
       trendValue: 5,
       subServices: [

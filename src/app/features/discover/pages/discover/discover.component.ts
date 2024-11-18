@@ -359,29 +359,105 @@ export class DiscoverComponent implements OnInit, OnDestroy, AfterViewInit {
   // Provider Selection
   selectProvider(provider: Worker, direction: 'left' | 'right' = 'left') {
     this.selectedProvider = provider;
+    
     if (this.map && provider.position) {
-      this.map.setView(provider.position, this.map.getZoom() || 15);
-      this.updateCardPointer(provider);
+      // Find the marker for this provider
+      const marker = this.markers.find(m => {
+        const markerLatLng = (m as any).getLatLng();
+        return markerLatLng.lat === provider.position[0] && 
+               markerLatLng.lng === provider.position[1];
+      });
+  
+      if (marker) {
+        // Get marker position
+        const markerLatLng = (marker as any).getLatLng();
+        
+        // Calculate the point where we want to center the map
+        // Offset it a bit to account for the card height
+        const point = this.map.project(markerLatLng);
+        point.y -= 150; // Offset by ~half card height
+        const targetLatLng = this.map.unproject(point);
+  
+        // Smoothly pan to the new position
+        this.map.panTo(targetLatLng, {
+          animate: true,
+          duration: 0.5
+        });
+  
+        // Delay positioning the card until after the pan
+        setTimeout(() => {
+          this.updateCardPointer(provider);
+        }, 500);
+      }
     }
   }
-
+  
   private updateCardPointer(provider: Worker) {
     if (!this.map || !provider.position) return;
-
+  
     const marker = this.markers.find(m => {
       const markerLatLng = (m as any).getLatLng();
-      return markerLatLng.lat === provider.position[0] && markerLatLng.lng === provider.position[1];
+      return markerLatLng.lat === provider.position[0] && 
+             markerLatLng.lng === provider.position[1];
     });
-
+  
     if (marker) {
       const point = this.map.latLngToContainerPoint((marker as any).getLatLng());
-      const card = document.querySelector('.provider-card');
+      const card = document.querySelector('.provider-card') as HTMLElement;
+      
       if (card) {
-        const triangle = card.querySelector('::before') as HTMLElement;
-        if (triangle) {
-          triangle.style.left = `${point.x}px`;
+        // Calculate viewport dimensions
+        const mapContainer = this.map.getContainer();
+        const mapRect = mapContainer.getBoundingClientRect();
+        const cardHeight = card.offsetHeight;
+        const cardWidth = card.offsetWidth;
+  
+        // Set position
+        card.style.left = `${point.x}px`;
+        card.style.top = `${point.y}px`;
+  
+        // Check if card would be cut off at top
+        if (point.y - cardHeight < 60) { // 60px buffer for header
+          // Pan map down
+          const requiredPan = 60 - (point.y - cardHeight);
+          this.map.panBy([0, requiredPan], {
+            animate: true,
+            duration: 0.3
+          });
+        }
+  
+        // Check if card would be cut off at sides
+        const leftEdge = point.x - (cardWidth / 2);
+        const rightEdge = point.x + (cardWidth / 2);
+  
+        if (leftEdge < 20) {
+          this.map.panBy([20 - leftEdge, 0], {
+            animate: true,
+            duration: 0.3
+          });
+        } else if (rightEdge > mapRect.width - 20) {
+          this.map.panBy([mapRect.width - rightEdge - 20, 0], {
+            animate: true,
+            duration: 0.3
+          });
         }
       }
+    }
+  }
+  
+  // Add this method to keep the card positioned correctly during map movements
+  @HostListener('leaflet.move')
+  onMapMove() {
+    if (this.selectedProvider) {
+      this.updateCardPointer(this.selectedProvider);
+    }
+  }
+  
+  // And this for zoom changes
+  @HostListener('leaflet.zoom')
+  onMapZoom() {
+    if (this.selectedProvider) {
+      this.updateCardPointer(this.selectedProvider);
     }
   }
 
