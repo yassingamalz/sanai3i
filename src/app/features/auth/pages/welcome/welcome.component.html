@@ -1,10 +1,10 @@
-<!-- welcome.component.html -->
-<div class="welcome-container" [class.loaded]="imagesLoaded">
-  <div class="loading-overlay" *ngIf="!imagesLoaded">
+<div class="welcome-container">
+  <!-- Loading Spinner -->
+  <div class="loading-overlay" [class.hidden]="!showSpinner">
     <div class="spinner"></div>
   </div>
-
-  <div class="content-wrapper">
+ 
+  <div class="content-wrapper" [class.loaded]="imagesLoaded">
     <!-- Logo Section -->
     <div class="logo-section">
       <img 
@@ -14,7 +14,7 @@
         class="logo-image"
       />
     </div>
-
+ 
     <!-- Illustration Section -->
     <div class="illustration-container">
       <img 
@@ -24,7 +24,7 @@
         class="illustration-image"
       />
     </div>
-
+ 
     <!-- Buttons Section -->
     <div class="buttons-container">
       <button class="login-btn" (click)="navigate('login')">
