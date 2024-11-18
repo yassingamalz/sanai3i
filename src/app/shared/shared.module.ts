@@ -9,7 +9,6 @@ import { RequestStatusPipe } from './pipes/request-status.pipe';
 import { PriceNegotiationComponent } from './components/price-negotiation/price-negotiation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
-import { FeaturedSliderComponent } from './components/featured-slider/featured-slider.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { FeaturedSliderComponent } from './components/featured-slider/featured-s
     PriceNegotiationComponent,
     UrlSanitizerPipe,
     RequestStatusPipe,
-    FeaturedSliderComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +29,6 @@ import { FeaturedSliderComponent } from './components/featured-slider/featured-s
     NavBarComponent,
     BackButtonComponent,
     SearchBarComponent,
-    FeaturedSliderComponent,
     UrlSanitizerPipe,
     RequestStatusPipe
   ]

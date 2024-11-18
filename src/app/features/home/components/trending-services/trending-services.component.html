@@ -1,0 +1,56 @@
+<section class="content-section">
+    <div class="section-header">
+      <div class="header-content">
+        <div class="header-title">
+          <h2 class="section-title">الخدمات الأكثر طلباً</h2>
+          <span class="request-count" *ngIf="!isLoading">{{topSubServices[0].totalRequests || 0}} طلب</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="cards-container">
+      <!-- Loading State -->
+      <ng-container *ngIf="isLoading">
+        <div class="skeleton-card" *ngFor="let item of [1,2,3]">
+          <div class="service-content">
+            <div class="skeleton-text shimmer w-2/3"></div>
+            <div class="skeleton-text shimmer w-1/4"></div>
+          </div>
+        </div>
+      </ng-container>
+      
+      <!-- Loaded State -->
+      <ng-container *ngIf="!isLoading">
+        <div *ngFor="let subService of topSubServices; trackBy: trackBySubServiceId" 
+             class="service-card" 
+             (click)="navigateToSubService(subService.mainServiceId, subService.id)">
+          <div class="service-content">
+            <div class="service-info">
+              <div class="flex items-center gap-2">
+                <i [class]="getMainService(subService.mainServiceId)?.faIcon" class="text-[#ef4444]"></i>
+                <h3 class="card-title">{{subService.name}}</h3>
+              </div>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="request-count">{{subService.totalRequests}} طلب</span>
+                <span class="text-sm text-gray-500">•</span>
+                <span class="text-sm text-gray-500">{{getMainService(subService.mainServiceId)?.name}}</span>
+              </div>
+            </div>
+            <div class="trend-container">
+              <i class="fa-solid" 
+                 [class.fa-arrow-trend-up]="subService.trend === 'up'"
+                 [class.fa-arrow-trend-down]="subService.trend === 'down'"
+                 [class.text-success]="subService.trend === 'up'"
+                 [class.text-danger]="subService.trend === 'down'">
+              </i>
+              <span class="trend-value" 
+                    [class.text-success]="subService.trend === 'up'"
+                    [class.text-danger]="subService.trend === 'down'">
+                {{subService.trendValue}}%
+              </span>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </section>

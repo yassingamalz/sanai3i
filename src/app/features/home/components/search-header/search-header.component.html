@@ -1,0 +1,71 @@
+<header class="bg-[#ef4444]">
+    <div class="px-4 pt-8 pb-3">
+      <div class="search-container">
+        <div class="bg-white rounded-full flex items-center h-11 shadow-sm relative">
+          <span class="flex-1 text-gray-700 text-sm mr-4 text-right relative">
+            <input 
+              type="text" 
+              class="search-input w-full pr-10 pl-4" 
+              [placeholder]="'البحث عن خدمة'"
+              [(ngModel)]="searchQuery"
+              (input)="onSearch($event)"
+              (focus)="showResults = true"
+            >
+            <i *ngIf="!isSearching" class="fas fa-search text-gray-400 absolute right-3 top-1/2 -translate-y-1/2"></i>
+            <div *ngIf="isSearching" class="search-spinner absolute right-3 top-1/2 -translate-y-1/2"></div>
+            <i *ngIf="searchQuery" 
+               class="fas fa-times text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer" 
+               (click)="clearSearch()">
+            </i>
+          </span>
+          <div class="flex items-center ml-4">
+            <i class="fas fa-home text-[#ef4444] text-lg"></i>
+            <span class="text-[#ef4444] mr-2 font-medium">الرئيسية</span>
+          </div>
+        </div>
+  
+        <!-- Search Results Dropdown -->
+        <div *ngIf="showResults && (isSearching || searchResults.length > 0 || searchQuery)" 
+             class="search-results-dropdown">
+          <!-- Loading State -->
+          <ng-container *ngIf="isSearching">
+            <div class="search-result-item shimmer" *ngFor="let i of [1,2,3]">
+              <div class="skeleton-icon"></div>
+              <div class="flex-1">
+                <div class="skeleton-text w-3/4"></div>
+                <div class="skeleton-text w-1/2"></div>
+              </div>
+            </div>
+          </ng-container>
+  
+          <!-- Results -->
+          <ng-container *ngIf="!isSearching && searchResults.length > 0">
+            <div *ngFor="let result of searchResults; let i = index; trackBy: trackBySearchResult" 
+                 class="search-result-item"
+                 [class.selected]="i === selectedResultIndex"
+                 (mouseenter)="selectedResultIndex = i"
+                 (click)="navigateToSubService(result.mainServiceId, result.id)">
+              <i [class]="getMainService(result.mainServiceId)?.faIcon || 'fas fa-circle'" 
+                 class="service-icon"></i>
+              <div class="flex-1">
+                <h4 class="result-title">{{result.name}}</h4>
+                <p class="result-subtitle">
+                  <span class="main-service-name">{{getMainService(result.mainServiceId)?.name}}</span>
+                  <span class="separator">•</span>
+                  <span class="price">{{result.price}} جنيه</span>
+                </p>
+              </div>
+            </div>
+          </ng-container>
+  
+          <!-- No Results -->
+          <div *ngIf="!isSearching && searchResults.length === 0 && searchQuery" 
+               class="no-results">
+            <i class="fas fa-search text-gray-400 mb-2 text-lg"></i>
+            <p>لا توجد نتائج تطابق بحثك</p>
+            <p class="text-sm text-gray-500 mt-1">حاول البحث بكلمات مختلفة</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>

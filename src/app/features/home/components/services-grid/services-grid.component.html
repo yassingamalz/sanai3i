@@ -1,0 +1,33 @@
+<section class="content-section">
+    <div class="section-header">
+      <div class="header-content">
+        <h2 class="section-title">كل الخدمات</h2>
+        <div class="header-icons" (click)="navigateToFullList()">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+      </div>
+    </div>
+    <div class="services-grid">
+      <!-- Loading State -->
+      <ng-container *ngIf="isLoading">
+        <div class="skeleton-grid-card" *ngFor="let item of [1,2,3,4,5,6]">
+          <div class="skeleton-icon shimmer"></div>
+          <div class="skeleton-text shimmer w-2/3 mx-auto"></div>
+          <div class="skeleton-text shimmer w-3/4 mx-auto"></div>
+        </div>
+      </ng-container>
+      
+      <!-- Loaded State with Animation -->
+      <ng-container *ngIf="!isLoading">
+        <div *ngFor="let service of services; let i = index; trackBy: trackByServiceId" 
+             #serviceCard
+             class="grid-card"
+             (click)="openService(service.id)"
+             [@fadeInUp]="shouldAnimate(i) ? 'in' : 'void'">
+          <div class="service-icon">{{service.icon}}</div>
+          <h3 class="card-title">{{service.name}}</h3>
+          <p class="card-subtitle">{{service.description}}</p>
+        </div>
+      </ng-container>
+    </div>
+  </section>

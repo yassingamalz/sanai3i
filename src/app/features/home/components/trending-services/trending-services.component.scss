@@ -1,0 +1,147 @@
+
+// trending-services.component.scss
+:host {
+    display: block;
+  }
+  
+  .content-section {
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-header {
+    cursor: pointer;
+    user-select: none;
+    padding: 1rem;
+    transition: background-color 0.2s ease;
+    border-radius: 0.5rem;
+    
+    &:hover {
+      background-color: rgba(226, 76, 76, 0.05);
+    }
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+  }
+  
+  .header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+  }
+  
+  .cards-container {
+    transition: all 0.3s ease-in-out;
+    max-height: 2000px;
+    opacity: 1;
+    overflow: hidden;
+  }
+  
+  .service-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 2px 4px -1px rgba(0, 0, 0, 0.03),
+                0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px -5px rgba(226, 76, 76, 0.1),
+                  0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .service-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .service-info {
+      text-align: right;
+    }
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+  }
+  
+  .request-count {
+    font-size: 0.875rem;
+    color: #085e0c;
+    padding: 0.25rem 0.75rem;
+    background-color: rgba(19, 186, 44, 0.1);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  
+  .trend-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    .trend-value {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  }
+  
+  .text-success { color: #10b981; }
+  .text-danger { color: #ef4444; }
+  
+  // Skeleton Loading
+  .skeleton-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 0.75rem;
+    height: 100px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 2px 4px -1px rgba(0, 0, 0, 0.03),
+                0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .skeleton-text {
+    height: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -468px 0; }
+    100% { background-position: 468px 0; }
+  }
+  
+  .shimmer {
+    background: #f6f7f8;
+    background-image: linear-gradient(
+      to right,
+      #f6f7f8 0%,
+      #edeef1 20%,
+      #f6f7f8 40%,
+      #f6f7f8 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+  }
