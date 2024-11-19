@@ -1,30 +1,30 @@
-<div class="welcome-container">
+<div class="welcome-container" dir="rtl">
   <!-- Loading Spinner -->
   <div class="loading-overlay" [class.hidden]="!showSpinner">
     <div class="spinner"></div>
   </div>
- 
+
   <div class="content-wrapper" [class.loaded]="imagesLoaded">
     <!-- Logo Section -->
     <div class="logo-section">
-      <img 
-        [src]="logoPath" 
+      <img
+        [src]="logoPath"
         alt="صنايعي"
         (load)="onLogoLoad()"
         class="logo-image"
       />
     </div>
- 
+
     <!-- Illustration Section -->
     <div class="illustration-container">
-      <img 
-        [src]="illustrationPath" 
+      <img
+        [src]="illustrationPath"
         alt="Welcome Illustration"
         (load)="onIllustrationLoad()"
         class="illustration-image"
       />
     </div>
- 
+
     <!-- Buttons Section -->
     <div class="buttons-container">
       <button class="login-btn" (click)="navigate('login')">
