@@ -18,6 +18,7 @@ import { ServiceOverviewComponent } from './components/service-details/service-o
 import { ServiceItemsComponent } from './components/service-details/service-items/service-items.component';
 import { RelatedServicesComponent } from './components/service-details/related-services/related-services.component';
 import { TopServiceProvidersComponent } from './components/service-details/top-service-providers/top-service-providers.component';
+import { ShimmerDirective } from '../../shared/components/shimmer.directive';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { TopServiceProvidersComponent } from './components/service-details/top-s
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    ShimmerDirective,
     RouterModule.forChild([
       {
         path: 'all-services',

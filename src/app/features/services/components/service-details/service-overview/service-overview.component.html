@@ -1,30 +1,58 @@
-<div class="overview-card">
-    <div class="service-icon">
-      <i [class]="service.faIcon"></i>
-    </div>
-    <h2 class="text-xl font-bold mb-2">{{service.name}}</h2>
-    <p class="text-gray-600">{{service.description}}</p>
+<div class="overview-card p-6 bg-white rounded-lg shadow-md">
+    <ng-container *ngIf="!loading; else loadingTemplate">
+      <div class="service-icon mb-4">
+        <i [class]="service.faIcon" class="text-4xl text-primary-600"></i>
+      </div>
+      <h2 class="text-xl font-bold mb-2">{{service.name}}</h2>
+      <p class="text-gray-600 mb-6">{{service.description}}</p>
+    
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="stat-item flex flex-col items-center p-4 bg-gray-50 rounded-lg">
+          <i class="fas fa-users text-2xl text-blue-500 mb-2"></i>
+          <span class="stat-value text-lg font-semibold">{{stats.totalWorkers}}</span>
+          <span class="stat-label text-sm text-gray-600">مقدم خدمة</span>
+        </div>
   
-    <div class="stats-grid">
-      <div class="stat-item">
-        <i class="fas fa-users text-2xl text-blue-500"></i>
-        <span class="stat-value">{{stats.totalWorkers}}</span>
-        <span class="stat-label">مقدم خدمة</span>
+        <div class="stat-item flex flex-col items-center p-4 bg-gray-50 rounded-lg">
+          <i class="fas fa-star text-2xl text-yellow-500 mb-2"></i>
+          <span class="stat-value text-lg font-semibold">{{stats.averageRating}}</span>
+          <span class="stat-label text-sm text-gray-600">متوسط التقييم</span>
+        </div>
+  
+        <div class="stat-item flex flex-col items-center p-4 bg-gray-50 rounded-lg">
+          <i class="fas fa-check-circle text-2xl text-green-500 mb-2"></i>
+          <span class="stat-value text-lg font-semibold">{{stats.completedJobs}}</span>
+          <span class="stat-label text-sm text-gray-600">خدمة مكتملة</span>
+        </div>
+  
+        <div class="stat-item flex flex-col items-center p-4 bg-gray-50 rounded-lg">
+          <i class="fas fa-money-bill text-2xl text-red-500 mb-2"></i>
+          <span class="stat-value text-lg font-semibold">{{stats.averagePrice}} جنيه</span>
+          <span class="stat-label text-sm text-gray-600">متوسط السعر</span>
+        </div>
       </div>
-      <div class="stat-item">
-        <i class="fas fa-star text-2xl text-yellow-500"></i>
-        <span class="stat-value">{{stats.averageRating}}</span>
-        <span class="stat-label">متوسط التقييم</span>
+    </ng-container>
+  
+    <ng-template #loadingTemplate>
+      <div class="flex flex-col gap-6">
+        <div class="flex justify-center">
+          <div class="h-16 w-16 rounded-full" appShimmer></div>
+        </div>
+  
+        <div class="h-8 w-2/3 mx-auto rounded" appShimmer></div>
+  
+        <div class="space-y-2">
+          <div class="h-4 w-full rounded" appShimmer></div>
+          <div class="h-4 w-5/6 rounded" appShimmer></div>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="stat-item flex flex-col items-center p-4 bg-gray-50 rounded-lg" *ngFor="let i of [1,2,3,4]">
+            <div class="h-8 w-8 rounded-full mb-2" appShimmer></div>
+            <div class="h-6 w-16 rounded mb-1" appShimmer></div>
+            <div class="h-4 w-20 rounded" appShimmer></div>
+          </div>
+        </div>
       </div>
-      <div class="stat-item">
-        <i class="fas fa-check-circle text-2xl text-green-500"></i>
-        <span class="stat-value">{{stats.completedJobs}}</span>
-        <span class="stat-label">خدمة مكتملة</span>
-      </div>
-      <div class="stat-item">
-        <i class="fas fa-money-bill text-2xl text-red-500"></i>
-        <span class="stat-value">{{stats.averagePrice}} جنيه</span>
-        <span class="stat-label">متوسط السعر</span>
-      </div>
-    </div>
+    </ng-template>
   </div>

@@ -8,9 +8,7 @@ import { UrlSanitizerPipe } from './pipes/urlSanitizer.pipe';
 import { RequestStatusPipe } from './pipes/request-status.pipe';
 import { PriceNegotiationComponent } from './components/price-negotiation/price-negotiation.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule } from '@angular/material/dialog';
-import { StatCardComponent } from './components/stat-card/stat-card.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -19,7 +17,6 @@ import { StatCardComponent } from './components/stat-card/stat-card.component';
     PriceNegotiationComponent,
     UrlSanitizerPipe,
     RequestStatusPipe,
-    StatCardComponent,
   ],
   imports: [
     CommonModule,
@@ -33,7 +30,6 @@ import { StatCardComponent } from './components/stat-card/stat-card.component';
     SearchBarComponent,
     UrlSanitizerPipe,
     RequestStatusPipe,
-    StatCardComponent,
   ]
 })
 export class SharedModule { }
