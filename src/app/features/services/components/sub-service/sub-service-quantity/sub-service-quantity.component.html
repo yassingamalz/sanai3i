@@ -1,0 +1,42 @@
+<div class="quantity-container">
+    <div class="quantity-header">
+      <div class="header-icon">
+        <i class="fas fa-layer-group"></i>
+      </div>
+      <div class="header-text">
+        <h3>الكمية المطلوبة</h3>
+        <p class="subtitle">حدد عدد المرات المطلوبة</p>
+      </div>
+    </div>
+  
+    <div class="quantity-controls-wrapper">
+      <div class="controls-container">
+        <button 
+          class="control-btn minus"
+          [class.disabled]="isMinQuantity()"
+          (click)="decrease()"
+          [disabled]="isMinQuantity()">
+          <i class="fas fa-minus"></i>
+        </button>
+  
+        <div class="quantity-display">
+          <span class="quantity-number">{{quantity}}</span>
+          <span class="quantity-label">مرة</span>
+        </div>
+  
+        <button 
+          class="control-btn plus"
+          [class.disabled]="isMaxQuantity()"
+          (click)="increase()"
+          [disabled]="isMaxQuantity()">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+  
+      <div class="quantity-limits">
+        <span>الحد الأدنى: {{minQuantity}}</span>
+        <span>•</span>
+        <span>الحد الأقصى: {{maxQuantity}}</span>
+      </div>
+    </div>
+  </div>

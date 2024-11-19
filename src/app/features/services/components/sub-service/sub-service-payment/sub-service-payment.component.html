@@ -1,0 +1,40 @@
+<!-- sub-service-payment.component.html -->
+<div class="payment-container">
+    <!-- Header -->
+    <div class="payment-header">
+      <div class="header-icon">
+        <i class="fas fa-wallet"></i>
+      </div>
+      <div class="header-text">
+        <h3>طريقة الدفع</h3>
+        <p class="subtitle">اختر طريقة الدفع المناسبة لك</p>
+      </div>
+    </div>
+  
+    <!-- Payment Methods -->
+    <div class="payment-options">
+      <div *ngFor="let method of paymentMethods" 
+           class="payment-option"
+           [class.selected]="selectedMethod === method.id"
+           (click)="onMethodSelect(method.id)">
+        
+        <!-- Method Icon -->
+        <div class="method-icon">
+          <i [class]="method.icon"></i>
+        </div>
+  
+        <!-- Method Info -->
+        <div class="method-info">
+          <span class="method-label">{{method.label}}</span>
+          <span class="method-description">{{method.description}}</span>
+        </div>
+  
+        <!-- Selection Indicator -->
+        <div class="selection-indicator">
+          <div class="radio-circle">
+            <div class="radio-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

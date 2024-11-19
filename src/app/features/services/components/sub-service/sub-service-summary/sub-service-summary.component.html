@@ -1,0 +1,27 @@
+<!-- sub-service-summary.component.html -->
+<div class="summary-container">
+    <div class="summary-content">
+      <!-- Total Price -->
+      <div class="total-price">
+        <div class="price-label">
+          <span class="label-text">الإجمالي</span>
+        </div>
+        <div class="price-value">
+          {{totalPrice}} جنيه
+        </div>
+      </div>
+  
+      <!-- Order Button -->
+      <button 
+        class="order-button"
+        [class.disabled]="isDisabled"
+        (click)="onOrderClick()"
+        [disabled]="isDisabled">
+        <div class="button-content">
+          <i class="fas fa-check-circle"></i>
+          <span>{{buttonText}}</span>
+        </div>
+        <div class="button-overlay"></div>
+      </button>
+    </div>
+  </div>

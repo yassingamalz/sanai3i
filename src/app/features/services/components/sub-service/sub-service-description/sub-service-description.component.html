@@ -1,0 +1,55 @@
+<!-- sub-service-description.component.html -->
+<div class="service-description-card">
+    <!-- Description Section -->
+    <div class="description-section">
+      <div class="heading-row">
+        <div class="icon-wrapper">
+          <i class="fas fa-clipboard-list"></i>
+        </div>
+        <h4>وصف الخدمة</h4>
+      </div>
+      <p class="description-text">{{description}}</p>
+    </div>
+  
+    <!-- Service Features Grid -->
+    <div class="features-grid">
+      <!-- Duration -->
+      <div class="feature-item">
+        <div class="icon-container time">
+          <i class="far fa-clock"></i>
+        </div>
+        <div class="feature-details">
+          <span class="label">المدة المتوقعة</span>
+          <span class="value">{{estimatedTime}}</span>
+        </div>
+      </div>
+  
+      <!-- Price -->
+      <div class="feature-item">
+        <div class="icon-container price">
+          <i class="far fa-money-bill-alt"></i>
+        </div>
+        <div class="feature-details">
+          <span class="label">السعر الأساسي</span>
+          <span class="value">{{price}} جنيه</span>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Service Guarantees -->
+    <div class="guarantees-section">
+      <div class="feature-cards">
+        <div *ngFor="let feature of features" 
+             class="feature-card"
+             [class]="feature.color">
+          <div class="feature-icon">
+            <i [class]="feature.icon"></i>
+          </div>
+          <div class="feature-text">
+            <span class="feature-label">{{feature.label}}</span>
+            <span class="feature-value">{{feature.value}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

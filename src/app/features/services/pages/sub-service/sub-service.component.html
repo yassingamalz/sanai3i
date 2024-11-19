@@ -1,111 +1,45 @@
 <div class="min-h-screen bg-gray-50" @fadeSlide>
   <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <app-back-button [redirectUrl]="'/services/' + mainService?.id" text="رجوع"></app-back-button>
-      <h1 class="title">{{subService?.name}}</h1>
-    </div>
-  </header>
+  <app-sub-service-header 
+  [serviceName]="subService?.name ?? ''"
+  [redirectUrl]="'/services/' + mainService.id">
+  </app-sub-service-header>
 
   <!-- Main Content -->
   <main class="content-wrapper">
     <!-- Service Description -->
-    <div class="service-description">
-      <h4>وصف الخدمة</h4>
-      <p>{{subService?.description}}</p>
-      <div class="duration-cost mt-4">
-        <div class="duration">
-          <span class="tag blue">
-            <i class="far fa-clock ml-1"></i>
-            المدة المتوقعة: {{subService?.estimatedTime}}
-          </span>
-        </div>
-        <div class="cost mt-2">
-          <span class="tag green">
-            <i class="far fa-money-bill-alt ml-1"></i>
-            التكلفة الأساسية: {{subService?.price}} جنيه
-          </span>
-        </div>
-      </div>
-      <div class="service-tags mt-4">
-        <span class="tag red">ضمان سنة</span>
-        <span class="tag blue">خدمة معتمدة</span>
-        <span class="tag green">دعم فني</span>
-      </div>
-    </div>
+    <app-sub-service-description 
+    [description]="subService?.description ?? ''"
+    [estimatedTime]="subService?.estimatedTime ?? ''"
+    [price]="subService?.price ?? 0">
+    </app-sub-service-description>
 
     <!-- Extras Section -->
-    <div class="extras-section">
-      <h3 class="text-lg font-bold text-gray-900 mb-4">إضافات اختيارية</h3>
-      <div class="space-y-4">
-        <div *ngFor="let extra of extras" 
-             (click)="toggleExtra(extra)"
-             class="extra-option"
-             [class.selected]="extra.selected">
-          <div class="extra-content">
-            <div class="flex items-center">
-              <div class="radio-btn">
-                <div class="radio-inner" [class.active]="extra.selected"></div>
-              </div>
-              <span class="mr-3 font-medium text-gray-900">{{extra.name}}</span>
-            </div>
-            <span class="price">+{{extra.price}} جنيه</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <app-sub-service-extras 
+      [extras]="extras"
+      (extraToggled)="onExtraToggled($event)">
+    </app-sub-service-extras>
 
     <!-- Quantity Section -->
-    <div class="quantity-section">
-      <h3 class="quantity-label">الكمية</h3>
-      <div class="quantity-controls">
-        <button (click)="updateQuantity(false)"
-                [disabled]="quantity <= 1"
-                class="quantity-btn">
-          <i class="fas fa-minus"></i>
-        </button>
-        <span class="quantity-value">{{quantity}}</span>
-        <button (click)="updateQuantity(true)"
-                [disabled]="quantity >= 10"
-                class="quantity-btn">
-          <i class="fas fa-plus"></i>
-        </button>
-      </div>
-    </div>
+    <app-sub-service-quantity
+      [quantity]="quantity"
+      [minQuantity]="1"
+      [maxQuantity]="10"
+      (quantityChanged)="onQuantityChanged($event)">
+    </app-sub-service-quantity>
 
     <!-- Payment Method -->
-    <div class="payment-section">
-      <h3>طريقة الدفع</h3>
-      <div class="payment-methods">
-        <label class="payment-method" [class.selected]="paymentMethod === 'cash'">
-          <input type="radio" name="payment" (change)="selectPayment('cash')" [checked]="paymentMethod === 'cash'">
-          <div class="method-content">
-            <i class="fas fa-money-bill"></i>
-            <span>نقدي</span>
-          </div>
-        </label>
-        <label class="payment-method" [class.selected]="paymentMethod === 'card'">
-          <input type="radio" name="payment" (change)="selectPayment('card')" [checked]="paymentMethod === 'card'">
-          <div class="method-content">
-            <i class="fas fa-credit-card"></i>
-            <span>بطاقة ائتمان</span>
-          </div>
-        </label>
-      </div>
-    </div>
+    <app-sub-service-payment
+      [selectedMethod]="paymentMethod"
+      (methodSelected)="onPaymentMethodSelected($event)">
+    </app-sub-service-payment>
   </main>
 
   <!-- Bottom Bar -->
-  <div class="bottom-bar">
-    <div class="bottom-content">
-      <div class="price-row">
-        <span class="price-label">الإجمالي</span>
-        <span class="price-value">{{totalPrice}} جنيه</span>
-      </div>
-      <button (click)="placeOrder()" class="order-button">
-        <i class="fas fa-check-circle"></i>
-        <span>طلب الخدمة</span>
-      </button>
-    </div>
-  </div>
+    <app-sub-service-summary
+    [totalPrice]="totalPrice"
+    [isDisabled]="!isValid"
+    [buttonText]="'تأكيد الطلب'"
+    (orderClicked)="onOrderConfirmed()">
+  </app-sub-service-summary>
 </div>

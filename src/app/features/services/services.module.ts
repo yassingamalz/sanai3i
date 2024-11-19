@@ -19,6 +19,12 @@ import { ServiceItemsComponent } from './components/service-details/service-item
 import { RelatedServicesComponent } from './components/service-details/related-services/related-services.component';
 import { TopServiceProvidersComponent } from './components/service-details/top-service-providers/top-service-providers.component';
 import { ShimmerDirective } from '../../shared/components/shimmer.directive';
+import { SubServiceSummaryComponent } from './components/sub-service/sub-service-summary/sub-service-summary.component';
+import { SubServiceHeaderComponent } from './components/sub-service/sub-service-header/sub-service-header.component';
+import { SubServiceDescriptionComponent } from './components/sub-service/sub-service-description/sub-service-description.component';
+import { SubServiceExtrasComponent } from './components/sub-service/sub-service-extras/sub-service-extras.component';
+import { SubServiceQuantityComponent } from './components/sub-service/sub-service-quantity/sub-service-quantity.component';
+import { SubServicePaymentComponent } from './components/sub-service/sub-service-payment/sub-service-payment.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,13 @@ import { ShimmerDirective } from '../../shared/components/shimmer.directive';
     ServiceOverviewComponent,
     ServiceItemsComponent,
     RelatedServicesComponent,
-    TopServiceProvidersComponent
+    TopServiceProvidersComponent,
+    SubServiceSummaryComponent,
+    SubServiceHeaderComponent,
+    SubServiceDescriptionComponent,
+    SubServiceExtrasComponent,
+    SubServiceQuantityComponent,
+    SubServicePaymentComponent
   ],
   imports: [
     CommonModule,

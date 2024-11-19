@@ -1,0 +1,38 @@
+<!-- sub-service-extras.component.html -->
+<div class="extras-container">
+    <div class="extras-header">
+      <div class="header-icon">
+        <i class="fas fa-plus-circle"></i>
+      </div>
+      <div class="header-text">
+        <h3>إضافات اختيارية</h3>
+        <p class="subtitle">اختر الإضافات المناسبة لاحتياجاتك</p>
+      </div>
+    </div>
+  
+    <div class="extras-list">
+      <div *ngFor="let extra of extras" 
+           class="extra-card"
+           [class.selected]="extra.selected"
+           (click)="onExtraToggle(extra, $event)">
+        
+        <div class="card-content">
+          <!-- Selection Indicator -->
+          <div class="selection-indicator">
+            <div class="checkbox">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+  
+          <!-- Extra Info -->
+          <div class="extra-info">
+            <div class="name-row">
+              <span class="name">{{extra.name}}</span>
+              <span class="price">+{{extra.price}} جنيه</span>
+            </div>
+            <p class="description" *ngIf="extra.description">{{extra.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

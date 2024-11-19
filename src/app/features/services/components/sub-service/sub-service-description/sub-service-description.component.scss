@@ -1,0 +1,235 @@
+// sub-service-description.component.scss
+.service-description-card {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+                0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  }
+  
+  // Description Section
+  .description-section {
+    padding: 1.5rem;
+    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+  
+    .heading-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+  
+      .icon-wrapper {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 0.75rem;
+        background: #ef4444;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        i {
+          color: white;
+          font-size: 1.25rem;
+        }
+      }
+  
+      h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #1f2937;
+      }
+    }
+  
+    .description-text {
+      color: #4b5563;
+      line-height: 1.8;
+      font-size: 1rem;
+      padding-right: 3.5rem;
+    }
+  }
+  
+  // Features Grid
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      transform: translateX(-4px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+  
+    .icon-container {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &.time {
+        background: #eff6ff;
+        color: #3b82f6;
+      }
+      
+      &.price {
+        background: #f0fdf4;
+        color: #22c55e;
+      }
+  
+      i {
+        font-size: 1.25rem;
+      }
+    }
+  
+    .feature-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+  
+      .label {
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+  
+      .value {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #111827;
+      }
+    }
+  }
+  
+  // Guarantees Section
+  .guarantees-section {
+    padding: 1.5rem;
+    background: white;
+  }
+  
+  .feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .feature-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-2px);
+    }
+  
+    .feature-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      i {
+        color: white;
+        font-size: 1rem;
+      }
+    }
+  
+    .feature-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+  
+      .feature-label {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.9);
+      }
+  
+      .feature-value {
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+      }
+    }
+  
+    &.rose {
+      background: linear-gradient(135deg, #ef4444 0%, #f43f5e 100%);
+    }
+  
+    &.blue {
+      background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+    }
+  
+    &.emerald {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+  }
+  
+  // Responsive Design
+  @media (max-width: 640px) {
+    .service-description-card {
+      border-radius: 1.25rem;
+    }
+  
+    .description-section {
+      padding: 1.25rem;
+      
+      .description-text {
+        padding-right: 1rem;
+      }
+    }
+  
+    .features-grid {
+      padding: 1.25rem;
+      grid-template-columns: 1fr;
+    }
+  
+    .guarantees-section {
+      padding: 1.25rem;
+    }
+  
+    .feature-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  // Animations
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  :host {
+    display: block;
+    animation: fadeIn 0.4s ease-out;
+  }

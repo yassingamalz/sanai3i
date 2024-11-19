@@ -1,0 +1,67 @@
+.header {
+    background: #ef4444;
+    padding: 2rem 1.5rem 6rem;
+    position: relative;
+    margin-bottom: -4rem;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2rem;
+      background: linear-gradient(to bottom right, #ef4444 50%, transparent 50%);
+    }
+  
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+  
+    .title {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 0 3rem;
+    }
+  }
+  
+  ::ng-deep app-back-button {
+    .back-button {
+      background: transparent !important;
+      color: white !important;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+  
+      &:hover {
+        opacity: 0.9;
+      }
+  
+      &:active {
+        opacity: 0.8;
+      }
+  
+      .icon {
+        color: white !important;
+      }
+  
+      span {
+        color: white !important;
+      }
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .header {
+      padding: 1.5rem 1rem 5rem;
+    }
+  }
