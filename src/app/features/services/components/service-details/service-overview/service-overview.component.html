@@ -1,0 +1,30 @@
+<div class="overview-card">
+    <div class="service-icon">
+      <i [class]="service.faIcon"></i>
+    </div>
+    <h2 class="text-xl font-bold mb-2">{{service.name}}</h2>
+    <p class="text-gray-600">{{service.description}}</p>
+  
+    <div class="stats-grid">
+      <div class="stat-item">
+        <i class="fas fa-users text-2xl text-blue-500"></i>
+        <span class="stat-value">{{stats.totalWorkers}}</span>
+        <span class="stat-label">مقدم خدمة</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-star text-2xl text-yellow-500"></i>
+        <span class="stat-value">{{stats.averageRating}}</span>
+        <span class="stat-label">متوسط التقييم</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-check-circle text-2xl text-green-500"></i>
+        <span class="stat-value">{{stats.completedJobs}}</span>
+        <span class="stat-label">خدمة مكتملة</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-money-bill text-2xl text-red-500"></i>
+        <span class="stat-value">{{stats.averagePrice}} جنيه</span>
+        <span class="stat-label">متوسط السعر</span>
+      </div>
+    </div>
+  </div>

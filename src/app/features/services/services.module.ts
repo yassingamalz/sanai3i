@@ -13,6 +13,11 @@ import { ServicesSearchComponent } from './components/services-search/services-s
 import { ServicesGridComponent } from './components/services-grid/services-grid.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { NoResultsComponent } from './components/no-results/no-results.component';
+import { ServiceHeaderComponent } from './components/service-details/service-header/service-header.component';
+import { ServiceOverviewComponent } from './components/service-details/service-overview/service-overview.component';
+import { ServiceItemsComponent } from './components/service-details/service-items/service-items.component';
+import { RelatedServicesComponent } from './components/service-details/related-services/related-services.component';
+import { TopServiceProvidersComponent } from './components/service-details/top-service-providers/top-service-providers.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { NoResultsComponent } from './components/no-results/no-results.component
     ServicesSearchComponent,
     ServicesGridComponent,
     ServiceCardComponent,
-    NoResultsComponent
+    NoResultsComponent,
+    ServiceHeaderComponent,
+    ServiceOverviewComponent,
+    ServiceItemsComponent,
+    RelatedServicesComponent,
+    TopServiceProvidersComponent
   ],
   imports: [
     CommonModule,

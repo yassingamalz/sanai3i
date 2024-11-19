@@ -1,0 +1,81 @@
+/* related-services.component.scss */
+.content-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .section-header {
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+  }
+  
+  .services-scroll {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0.5rem 0;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  .services-grid {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  
+  .service-card {
+    flex: 0 0 200px;
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    will-change: transform;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+  
+    .service-icon {
+      font-size: 2rem;
+      color: #ef4444;
+      margin-bottom: 1rem;
+    }
+  
+    .service-name {
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+  
+    .service-description {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .content-container {
+      padding: 1rem;
+    }
+  
+    .section-title {
+      font-size: 1.125rem;
+    }
+  
+    .service-card {
+      flex: 0 0 180px;
+      padding: 1rem;
+    }
+  }

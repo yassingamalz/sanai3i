@@ -1,0 +1,48 @@
+
+// service-header.component.scss
+.header {
+    background: #ef4444;
+    padding: 3rem 1.5rem 6rem;
+    position: relative;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2rem;
+      background: linear-gradient(to bottom right, #ef4444 50%, transparent 50%);
+    }
+  
+    .title {
+      color: white;
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  ::ng-deep app-back-button {
+    .back-button {
+      background: transparent !important;
+      color: white !important;
+  
+      &:hover {
+        opacity: 0.9;
+      }
+  
+      &:active {
+        opacity: 0.8;
+      }
+  
+      .icon {
+        color: white !important;
+      }
+  
+      span {
+        color: white !important;
+      }
+    }
+  }

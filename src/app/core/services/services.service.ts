@@ -374,21 +374,20 @@ export class ServicesService {
   getRelatedServices(serviceId: number): Observable<MainService[]> {
     const service = this.services.find(s => s.id === serviceId);
     if (!service) return of([]);
-
-    // Get 2 random services from same category or random if none found
+  
     const sameCategory = this.services
       .filter(s => s.id !== serviceId && s.category === service.category);
-
+  
     let related = sameCategory;
-    if (sameCategory.length < 2) {
+    if (sameCategory.length < 3) {
       const others = this.services
         .filter(s => s.id !== serviceId && s.category !== service.category)
         .sort(() => Math.random() - 0.5)
-        .slice(0, 2 - sameCategory.length);
+        .slice(0, 3 - sameCategory.length);
       related = [...sameCategory, ...others];
     }
-
-    return of(related.slice(0, 2)).pipe(delay(300));
+  
+    return of(related.slice(0, 3)).pipe(delay(300));
   }
 
   searchServices(query: string): Observable<MainService[]> {

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { trigger, style, animate, transition, state, query, stagger, sequence, group } from '@angular/animations';
+import { trigger, style, animate, transition, group, query } from '@angular/animations';
 import { ServicesService } from '../../../../core/services/services.service';
-import { MainService, ServiceItem, ServiceSection } from '../../../../shared/interfaces/service.interface';
+import { MainService, ServiceSection } from '../../../../shared/interfaces/service.interface';
 import { ViewportScroller } from '@angular/common';
-import { finalize, forkJoin, Observable, of } from 'rxjs';
+import { finalize, forkJoin } from 'rxjs';
 import { WorkerService } from '../../../../core/services/worker.service';
 import { Worker } from '../../../../shared/interfaces/worker.interface';
 
@@ -50,7 +50,6 @@ export class ServiceDetailsComponent implements OnInit {
   };
   topWorkers: Worker[] = [];
   serviceSections: ServiceSection[] = [];
-  suggestedServices: MainService[] = [];
   relatedServices: MainService[] = [];
   isLoading = true;
 
@@ -63,14 +62,63 @@ export class ServiceDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
-    this.viewportScroller.scrollToPosition([0, 0]);
-    const serviceId = Number(this.route.snapshot.params['id']);
-    this.loadData(serviceId);
+    this.route.params.subscribe(params => {
+      const serviceId = Number(params['id']);
+      this.loadData(serviceId);
+      window.scrollTo(0, 0);
+      this.viewportScroller.scrollToPosition([0, 0]);
+    });
+  }
+
+  onWorkerClick(workerId: number): void {
+    this.router.navigate(['/worker', workerId]);
+  }
+
+  onSubServiceClick(subService: any): void {
+    this.router.navigate(['/services', this.service.id, 'sub-service', subService.id]);
+  }
+
+  onRelatedServiceClick(id: number): void {
+    this.clearService();
+    this.router.navigate(['services', id], {
+      skipLocationChange: false,
+      replaceUrl: true
+    });
+  }
+
+  getStarArray(rating: number): number[] {
+    return Array(Math.floor(rating)).fill(0);
+  }
+
+  onRequestService(): void {
+    console.log('Service requested');
+  }
+
+  private clearService(): void {
+    this.service = {
+      id: 0,
+      name: '',
+      description: '',
+      icon: '',
+      totalRequests: 0,
+      trend: 'up',
+      trendValue: 0,
+      category: ''
+    };
+    this.stats = {
+      totalWorkers: 0,
+      averageRating: 0,
+      completedJobs: 0,
+      averagePrice: 0
+    };
+    this.topWorkers = [];
+    this.serviceSections = [];
+    this.relatedServices = [];
   }
 
   private loadData(serviceId: number): void {
     this.isLoading = true;
+    this.clearService();
 
     forkJoin({
       service: this.servicesService.getServiceById(serviceId),
@@ -88,7 +136,7 @@ export class ServiceDetailsComponent implements OnInit {
             title: 'الخدمات',
             items: subServices
           }];
-          this.topWorkers = this.getRandomWorkers(workers, 2);
+          this.topWorkers = this.getRandomWorkers(workers, 4);
           this.relatedServices = relatedServices;
           this.updateStats(this.topWorkers);
         }
@@ -96,7 +144,6 @@ export class ServiceDetailsComponent implements OnInit {
       error: (error) => console.error('Error loading data:', error)
     });
   }
-
 
   private getRandomWorkers(workers: Worker[], count: number): Worker[] {
     return [...workers]
@@ -111,38 +158,5 @@ export class ServiceDetailsComponent implements OnInit {
       completedJobs: workers.reduce((acc, w) => acc + w.completedJobs, 0),
       averagePrice: Number(180.00.toFixed(2))
     };
-  }
-
-  onWorkerClick(workerId: number): void {
-    this.router.navigate(['/worker', workerId]);
-  }
-
-  getStarArray(rating: number): number[] {
-    return Array(Math.floor(rating)).fill(0);
-  }
-
-  onSubServiceClick(subService: ServiceItem): void {
-    this.router.navigate(['/services', this.service.id, 'sub-service', subService.id]);
-  }
-
-  onRelatedServiceClick(id: number): void {
-    this.router.navigate(['services', id]).then(() => {
-      this.service = {
-        id: 0,
-        name: '',
-        description: '',
-        icon: '',
-        totalRequests: 0,
-        trend: 'up',
-        trendValue: 0,
-        category: ''
-      };
-      this.loadData(id);
-      window.scrollTo(0, 0);
-    });
-  }
-
-  onRequestService(): void {
-    console.log('Service requested');
   }
 }

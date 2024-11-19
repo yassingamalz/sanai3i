@@ -1,0 +1,22 @@
+
+<div class="content-container">
+    <div class="section-header">
+        <h3 class="section-title">الخدمات</h3>
+        <a class="view-all">عرض الكل »</a>
+    </div>
+
+    <div *ngIf="serviceSections[0]?.items" class="service-items-list">
+        <div *ngFor="let item of serviceSections[0].items" 
+             class="service-item-card"
+             (click)="onSubServiceClick(item)">
+            <div class="service-item-content">
+                <h4 class="service-item-title">{{item.name}}</h4>
+                <p class="service-item-description">{{item.description}}</p>
+            </div>
+            <div class="service-item-price">
+                <span>{{item.price}} جنيه</span>
+                <i class="fas fa-chevron-left"></i>
+            </div>
+        </div>
+    </div>
+</div>

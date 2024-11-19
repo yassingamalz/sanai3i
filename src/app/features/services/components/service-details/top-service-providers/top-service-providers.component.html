@@ -1,0 +1,22 @@
+<div class="content-container">
+    <div class="section-header">
+        <h3 class="section-title">أفضل مقدمي الخدمة</h3>
+        <a class="view-all">عرض الكل »</a>
+    </div>
+
+    <div class="workers-scroll">
+        <div class="workers-grid">
+            <div *ngFor="let worker of topWorkers" class="worker-card" (click)="onWorkerClick(worker.id)">
+                <img [src]="worker.image" [alt]="worker.name" class="worker-image" />
+                <h4 class="worker-name">{{worker.name}}</h4>
+                <div class="worker-rating">
+                    <div class="stars">
+                        <i class="fas fa-star" *ngFor="let star of getStarArray(worker.rating)"></i>
+                    </div>
+                    <span class="rating-value">{{worker.rating}}</span>
+                </div>
+                <p class="completed-jobs">{{worker.completedJobs}} خدمة مكتملة</p>
+            </div>
+        </div>
+    </div>
+</div>

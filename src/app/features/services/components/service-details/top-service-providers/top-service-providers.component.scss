@@ -1,0 +1,117 @@
+/* top-workers.component.scss */
+.content-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+  
+    .view-all {
+      color: #ef4444;
+      font-size: 0.875rem;
+      cursor: pointer;
+  
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+  
+  .workers-scroll {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0.5rem 0;
+  
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  .workers-grid {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  
+  .worker-card {
+    flex: 0 0 160px;
+    background: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    will-change: transform;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+  
+    .worker-image {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      margin: 0 auto 0.75rem;
+      object-fit: cover;
+    }
+  
+    .worker-name {
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.5rem;
+    }
+  
+    .worker-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+      margin-bottom: 0.5rem;
+  
+      .stars {
+        color: #fbbf24;
+        font-size: 0.75rem;
+      }
+  
+      .rating-value {
+        font-weight: 500;
+        color: #4b5563;
+      }
+    }
+  
+    .completed-jobs {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .content-container {
+      padding: 1rem;
+    }
+  
+    .section-title {
+      font-size: 1.125rem;
+    }
+  
+    .worker-card {
+      flex: 0 0 140px;
+      padding: 0.875rem;
+  
+      .worker-image {
+        width: 3.5rem;
+        height: 3.5rem;
+      }
+    }
+  }

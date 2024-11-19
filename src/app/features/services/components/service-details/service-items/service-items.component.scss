@@ -1,0 +1,80 @@
+
+
+// service-items.component.scss
+.content-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+    }
+  
+    .view-all {
+      color: #ef4444;
+      font-size: 0.875rem;
+      cursor: pointer;
+  
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+  
+  .service-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .service-item-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    will-change: transform;
+  
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+  
+    .service-item-content {
+      flex: 1;
+    }
+  
+    .service-item-title {
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 0.25rem;
+    }
+  
+    .service-item-description {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+  
+    .service-item-price {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: #ef4444;
+      font-weight: 600;
+  
+      i {
+        color: #9ca3af;
+        font-size: 0.875rem;
+      }
+    }
+  }
