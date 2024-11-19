@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1732035852493,
+  "timestamp": 1732038553606,
   "index": "/sanai3i/index.html",
   "assetGroups": [
     {
@@ -28,7 +28,6 @@
         "/sanai3i/chunk-RNUYAFPJ.js",
         "/sanai3i/chunk-SE4GV2WT.js",
         "/sanai3i/chunk-YOKTPJMT.js",
-        "/sanai3i/favicon.ico",
         "/sanai3i/index.html",
         "/sanai3i/main-ZJZNZL4Z.js",
         "/sanai3i/manifest.webmanifest",
@@ -70,7 +69,7 @@
     "/sanai3i/assets/images/featured/ac-repair.jpg": "089b3700184bf2f9dac4bdf6b40b2cfb4e07d88f",
     "/sanai3i/assets/images/featured/cleaning.jpg": "753c7f9f856224a0bdaaac4bccc4c4a9a7cb3260",
     "/sanai3i/assets/images/featured/plumbing.jpg": "7b0b7878e6122bdb456d0eab9050b021ea53765a",
-    "/sanai3i/assets/images/logo.svg": "b8b619d0cd7ccdcff165ed8b142e102b4eba3af7",
+    "/sanai3i/assets/images/logo.svg": "eaa3b6058ae8cb95fab47e37a0da7f90285ec6a3",
     "/sanai3i/assets/images/welcome/construction-worker-animate.svg": "883c545ff6fefe0c5a4219e5aa0dcc660f9079a0",
     "/sanai3i/assets/map/current-location-marker.svg": "2580e12f793ff85290f8649a6d391fcf54713f10",
     "/sanai3i/assets/map/provider-marker.svg": "b3dd73bb872920aea91724e4f84cc9cfa9371103",
@@ -93,7 +92,6 @@
     "/sanai3i/chunk-RNUYAFPJ.js": "bf2ed1a49213e36f72db2f20bb09940607f16b9e",
     "/sanai3i/chunk-SE4GV2WT.js": "8c3e02e341841b419890b337c80bbda328b0c7dc",
     "/sanai3i/chunk-YOKTPJMT.js": "bd515c69834b1b4a9c8c83e3d823bc97b137a867",
-    "/sanai3i/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
     "/sanai3i/index.html": "8705d24aa7256834aa18c823c2f34862de9458d4",
     "/sanai3i/main-ZJZNZL4Z.js": "267134f9231a048ae046cc021f92e807465a8f47",
     "/sanai3i/manifest.webmanifest": "90e5ccbc79af33ea90845ee50ae469ff6b9fc30f",
